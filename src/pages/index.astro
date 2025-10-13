@@ -1,6 +1,4 @@
 ---
-import '../styles/global.css';
-import FaviconHead from '../components/FaviconHead.astro';
 import Layout from '../layouts/main.astro';
 
 export interface Props {
@@ -11,7 +9,6 @@ const { title = "Clean Page" } = Astro.props;
 ---
 
 <Layout content={{ title }}>
-	<FaviconHead />
 	<div class="min-h-screen">
 		<!-- Ваш контент будет здесь -->
 	</div>
