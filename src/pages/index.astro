@@ -1,150 +1,18 @@
 ---
 import '../styles/global.css';
-
-import { Button } from '../components/ui/button';
-import ThemeToggle from '../components/ThemeToggle';
+import FaviconHead from '../components/FaviconHead.astro';
 import Layout from '../layouts/main.astro';
-import MobileMenu from '../components/MobileMenu';
-import { Rocket, Atom, Wind, ChevronRight } from 'lucide-react';
 
 export interface Props {
 	title: string;
 }
 
-const { title = "Astro + shadcn/ui Starter" } = Astro.props;
+const { title = "Clean Page" } = Astro.props;
 ---
 
 <Layout content={{ title }}>
-	<div class="min-h-screen flex flex-col bg-white dark:bg-gray-900">
-		<!-- Navbar -->
-		<nav class="border-b dark:border-gray-800 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-40">
-			<div class="container mx-auto px-4">
-				<div class="flex items-center justify-between h-16">
-					<div class="flex items-center space-x-3">
-						<Rocket className="text-blue-500" size={28} />
-						<div class="font-bold text-xl dark:text-white">AstroProject</div>
-					</div>
-					<div class="hidden md:flex items-center space-x-2">
-						<a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white transition-colors">Home</a>
-						<a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white transition-colors">About</a>
-						<a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white transition-colors">Services</a>
-						<a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white transition-colors">Contact</a>
-					</div>
-					<div class="flex items-center space-x-4">
-						<ThemeToggle client:load />
-						<div class="hidden md:block ml-2">
-							<Button variant="default">Get Started</Button>
-						</div>
-						<MobileMenu client:load />
-					</div>
-				</div>
-			</div>
-		</nav>
-
-		<!-- Header -->
-		<header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-			<div class="container mx-auto px-4 py-24 text-center">
-				<div class="max-w-3xl mx-auto">
-					<h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Your Astro Project</h1>
-					<p class="text-xl mb-8">A starter template with Astro, React, Tailwind CSS and shadcn/ui</p>
-					<div class="flex justify-center gap-4 flex-wrap">
-						<Button variant="default" size="lg" className="text-lg">
-							<Rocket client:visible />
-							<span>Learn More</span>
-						</Button>
-						<Button variant="outline" size="lg" className="text-lg bg-white/20 text-white border-white/50 hover:bg-white/30">
-							<span>Documentation</span>
-							<ChevronRight client:visible />
-						</Button>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<!-- Main Content -->
-		<main class="flex-grow container mx-auto px-4 py-12">
-			<section class="mb-16">
-				<h2 class="text-3xl font-bold text-center mb-12 dark:text-white">
-					Core Technologies
-				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<div class="border rounded-lg p-6 text-center dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 transform hover:-translate-y-2 transition-transform duration-300">
-						<div class="inline-block p-4 bg-blue-100 dark:bg-blue-900/50 rounded-full mb-4">
-							<Rocket size={32} className="text-blue-500" />
-						</div>
-						<h3 class="text-xl font-semibold mb-2 dark:text-white">Astro</h3>
-						<p class="text-gray-600 dark:text-gray-300">Lightweight static site builder with powerful component support</p>
-					</div>
-					<div class="border rounded-lg p-6 text-center dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 transform hover:-translate-y-2 transition-transform duration-300">
-						<div class="inline-block p-4 bg-green-100 dark:bg-green-900/50 rounded-full mb-4">
-							<Atom size={32} className="text-green-500" />
-						</div>
-						<h3 class="text-xl font-semibold mb-2 dark:text-white">React</h3>
-						<p class="text-gray-600 dark:text-gray-300">Industry-standard library for building user interfaces</p>
-					</div>
-					<div class="border rounded-lg p-6 text-center dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 transform hover:-translate-y-2 transition-transform duration-300">
-						<div class="inline-block p-4 bg-sky-100 dark:bg-sky-900/50 rounded-full mb-4">
-							<Wind size={32} className="text-sky-500" />
-						</div>
-						<h3 class="text-xl font-semibold mb-2 dark:text-white">Tailwind CSS</h3>
-						<p class="text-gray-600 dark:text-gray-300">Utility-first CSS framework for rapid UI development</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="mb-16">
-				<div class="bg-gray-100 rounded-lg p-8 text-center dark:bg-gray-800">
-					<h2 class="text-3xl font-bold mb-4 dark:text-white">Ready to get started?</h2>
-					<p class="text-gray-600 mb-6 max-w-2xl mx-auto dark:text-gray-300">This starter kit includes all the essentials you need to build modern web applications</p>
-					<Button size="lg">
-						<Rocket client:visible />
-						<span>Create Project</span>
-					</Button>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="border-t bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50">
-			<div class="container mx-auto px-4 py-8">
-				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-					<div>
-						<h3 class="text-lg font-semibold mb-4 dark:text-white">Company</h3>
-						<ul class="space-y-2">
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">About</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Team</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Careers</a></li>
-						</ul>
-					</div>
-					<div>
-						<h3 class="text-lg font-semibold mb-4 dark:text-white">Resources</h3>
-						<ul class="space-y-2">
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Documentation</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Tutorials</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Blog</a></li>
-						</ul>
-					</div>
-					<div>
-						<h3 class="text-lg font-semibold mb-4 dark:text-white">Legal</h3>
-						<ul class="space-y-2">
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Privacy Policy</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Terms of Service</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Cookie Policy</a></li>
-						</ul>
-					</div>
-					<div>
-						<h3 class="text-lg font-semibold mb-4 dark:text-white">Connect</h3>
-						<ul class="space-y-2">
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Twitter</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">GitHub</a></li>
-							<li><a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Discord</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="border-t mt-8 pt-8 text-center text-gray-500 dark:border-gray-700">
-					<p>&copy; {new Date().getFullYear()} AstroProject. All rights reserved.</p>
-				</div>
-			</div>
-		</footer>
+	<FaviconHead />
+	<div class="min-h-screen">
+		<!-- Ваш контент будет здесь -->
 	</div>
 </Layout>
