@@ -14,11 +14,6 @@ export default defineConfig({
 
   integrations: [
     react(),
-    autoFavicon({
-      siteTitle: 'Awesome Site',    // Название вашего сайта
-      backgroundColor: '#4f46e5',       // Цвет фона фавиконки
-      textColor: '#ffffff',             // Цвет буквы
-      borderRadius: 8                   // Радиус скругления углов
-    })
+    autoFavicon()
   ],
 });
