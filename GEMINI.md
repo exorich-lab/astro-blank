@@ -10,13 +10,13 @@ This is a starter project built with Astro. It integrates React for UI component
 
 | Technology      | Version      | Notes                               |
 | --------------- | ------------ | ----------------------------------- |
-| Astro           | `^5.13.2`    | Core framework                      |
-| React           | `^19.1.1`    | For interactive UI components       |
-| Tailwind CSS    | `^4.1.3`     | Utility-first CSS framework         |
+| Astro           | `^6.1.5`    | Core framework                      |
+| React           | `^19.2.5`    | For interactive UI components       |
+| Tailwind CSS    | `^4.1.18`     | Utility-first CSS framework         |
 | TypeScript      | `~`          | Used for type safety                |
 | shadcn/ui       | `~`          | Component library (via npx)         |
-| Framer Motion   | `^12.23.12`  | For animations                      |
-| Lucide React    | `^0.539.0`   | For icons                           |
+| Framer Motion   | `^12.23.24`  | For animations                      |
+| Lucide React    | `^0.545.0`   | For icons                           |
 
 ## Project Structure
 
