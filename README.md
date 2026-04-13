@@ -32,10 +32,9 @@ You can create a new project based on this template using `degit`:
 
 2. Then create a new project:
    ```bash
-   degit exorich-lab/astro-master my-new-project
-   cd my-new-project
+   degit exorich-lab/astro-blank .
    git init
-   npm install
+   npm i
    ```
 
 3. Start the development server:
