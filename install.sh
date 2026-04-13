@@ -32,15 +32,17 @@ fi
 echo "🤖 Initializing AI Design Skill..."
 uipro init --ai antigravity
 
-# Ensure the skill is moved to the .agents folder if created in the root
+# Fix: uipro creates `.agent` (singular), but we need it in `.agents` (plural)
+if [ -d ".agent/skills/ui-ux-pro-max" ]; then
+  mkdir -p .agents/skills
+  mv .agent/skills/ui-ux-pro-max .agents/skills/
+  rm -rf .agent
+fi
+
+# Fallbacks for other possible generation paths
 if [ -d "ui-ux-pro-max-skill" ]; then
   mkdir -p .agents/skills
-  mv ui-ux-pro-max-skill .agents/skills/
-fi
-# Also try catching if it's named 'uipro' or similar
-if [ -f "SKILL.md" ] && [ ! -d ".agents/skills/ui-ux-pro-max" ]; then
-  mkdir -p .agents/skills/ui-ux-pro-max
-  mv SKILL.md .agents/skills/ui-ux-pro-max/
+  mv ui-ux-pro-max-skill .agents/skills/ui-ux-pro-max
 elif [ -d ".uipro" ]; then
   mkdir -p .agents/skills
   mv .uipro .agents/skills/ui-ux-pro-max
