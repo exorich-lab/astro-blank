@@ -23,19 +23,28 @@ npx shadcn@canary add component-name
 
 ## Using as a Template
 
-You can create a new project based on this template using our automated setup script:
+You can create a new project based on this template using our automated setup script.
 
+**Example 1: Install into the current folder (`.`)**
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh)" my-app
+curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- .
 ```
-
-This will automatically download the template, initialize a Git repository, and install all dependencies in the `my-app` directory.
-
-Start the development server:
+*Start the development server:*
 ```bash
-cd my-app
 npm run dev
 ```
+
+**Example 2: Install into a new folder named `frontend`**
+```bash
+curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- frontend
+```
+*Start the development server:*
+```bash
+cd frontend
+npm run dev
+```
+
+The script will automatically download the template, initialize a Git repository, and install all dependencies.
 
 ## Built-in AI Skills
 
