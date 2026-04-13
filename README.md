@@ -23,30 +23,23 @@ npx shadcn@canary add component-name
 
 ## Using as a Template
 
-You can create a new project based on this template using `degit`:
+You can create a new project based on this template using our automated setup script:
 
-1. First, install degit globally:
-   ```bash
-   npm install -g degit
-   ```
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh)" my-app
+```
 
-2. Then create a new project:
-   ```bash
-   degit exorich-lab/astro-blank .
-   git init
-   npm i
-   ```
+This will automatically download the template, initialize a Git repository, and install all dependencies in the `my-app` directory.
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-This will create a new project with all the files from this template, initialize a new git repository, and install all dependencies.
+Start the development server:
+```bash
+cd my-app
+npm run dev
+```
 
 ## Built-in AI Skills
 
-This boilerplate comes pre-configured with 12 specialized development skills for AI agents (located in the `.claude/skills` directory and mapped via `GEMINI.md`). These ensure that AI coding assistants adhere to industry established best practices out-of-the-box.
+This boilerplate comes pre-configured with 13 specialized development skills for AI agents (located in the `.agents/skills` directory and mapped via `AGENTS.md`). These ensure that AI coding assistants adhere to industry established best practices out-of-the-box.
 
 1. **Accessibility (a11y)**: WCAG 2.2 guidelines and patterns.
 2. **Astro Usage Guide**: Structure, adapters, and SSR patterns.
@@ -60,3 +53,4 @@ This boilerplate comes pre-configured with 12 specialized development skills for
 10. **TypeScript Advanced Types**: Complex type logic and generic safety.
 11. **React Composition Patterns**: Standard Vercel compound component composition.
 12. **Vercel React Best Practices**: Performance optimizations.
+13. **Humanizer**: Detection and removal of AI writing patterns.
