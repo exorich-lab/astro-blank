@@ -66,6 +66,16 @@ Manages shadcn components and projects — adding, searching, fixing, debugging,
 - `.agents/skills/shadcn/rules/icons.md`: **Always use the project's configured `iconLibrary` for imports.** Check the `iconLibrary` field from project context: `lucide` → `lucide-react`, `tabler` → `@tabler/icons-react`, etc. Never assume `lucide-react`.
 - `.agents/skills/shadcn/rules/styling.md`: See [customization.md](../customization.md) for theming, CSS variables, and adding custom colors.
 
+## Magic UI Generator
+
+Generate and integrate premium UI component variations using Magic UI, shadcn/ui, Aceternity-style patterns, Tailwind CSS, React, motion, and the Magic UI MCP server. Use when asked for Magic UI, 21st.dev-style UI, premium component variants, animated shadcn-style components, avant-garde landing sections, or side-by-side UI directions.
+
+- `.agents/skills/magic-ui-generator/SKILL.md`
+- MCP configs included:
+  - Codex: `.codex/config.toml`
+  - Antigravity / VS Code MCP format: `.vscode/mcp.json`
+  - Generic MCP clients: `.mcp.json`
+
 ## Tailwind CSS Development Patterns
 
 Provides comprehensive Tailwind CSS utility-first styling patterns including responsive design, layout utilities, flexbox, grid, spacing, typography, colors, and modern CSS best practices. Use when styling React/Vue/Svelte components, building responsive layouts, implementing design systems, or o...
