@@ -7,6 +7,9 @@
 > [!CAUTION]
 > **CRITICAL RULE: MANDATORY UI/UX PRO MAX DESIGN SYSTEM.**
 > When developing or styling the website frontend, you **MUST** strictly adhere to the `ui-ux-pro-max` design system rules. Always check the corresponding skill in the `.agents/skills` folder. Do not use generic styling; ensure a high-end, premium aesthetic as defined by the UI/UX Pro Max standards.
+>
+> **COMPONENT PRIORITY FOR PERFECT UI.**
+> For any website interface, design system work, section, page, or reusable component, you **MUST** prioritize Magic UI and shadcn/ui components before writing custom markup. Use shadcn/ui for accessible base primitives and product controls (Button, Card, Dialog, Sheet, Tabs, forms, menus, navigation). Use Magic UI for premium animated surfaces and high-end visual polish (beams, border effects, marquees, reveal text, hero motion, special cards). Compose these libraries first, then add custom code only where the design cannot be built cleanly from existing Magic UI or shadcn/ui components. The final interface must feel intentional, polished, responsive, accessible, and non-generic.
 
 
 <!-- autoskills:start -->
