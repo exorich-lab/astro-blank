@@ -11,6 +11,10 @@
 > **COMPONENT PRIORITY FOR PERFECT UI.**
 > For any website interface, design system work, section, page, or reusable component, you **MUST** prioritize Magic UI and shadcn/ui components before writing custom markup. Use shadcn/ui for accessible base primitives and product controls (Button, Card, Dialog, Sheet, Tabs, forms, menus, navigation). Use Magic UI for premium animated surfaces and high-end visual polish (beams, border effects, marquees, reveal text, hero motion, special cards). Compose these libraries first, then add custom code only where the design cannot be built cleanly from existing Magic UI or shadcn/ui components. The final interface must feel intentional, polished, responsive, accessible, and non-generic.
 
+> [!CAUTION]
+> **CRITICAL RULE: PUBLIC WEBSITE COPY MUST NEVER SOUND INTERNAL OR TECHNICAL.**
+> When creating a website, landing page, product page, service page, portfolio, or any visitor-facing screen, you **MUST** work as a conversion-focused website architect, not as a prototyper, developer, SEO operator, or internal planner. Build the page as a finished public product with a clear offer, positioning, trust, proof, objection handling, and a strong path to the target action. Never show visitors internal labels, planning terms, SEO structure labels, or implementation terms such as "starter", "boilerplate", "template", "component", "shadcn", "Magic UI", "Astro", "React", "Tailwind", "API", "MCP", "design system", "frontend", "backend", "layout", "section", "placeholder", "TODO", "mock data", "lorem ipsum", "silo", "hub", "intent", "SEO keywords", "semantic core", "cluster", "funnel stage", "wireframe", "prototype", "conversion block", or instructions about how the site was built, unless the actual business sells developer or marketing tools and those terms are part of the customer-facing offer. Treat any internal brief words as hidden planning input only, then translate them into polished public copy that a normal visitor immediately understands. All visible copy must speak to the customer's needs, benefits, trust, proof, objections, and next action in clear human language.
+
 
 <!-- autoskills:start -->
 
@@ -29,6 +33,22 @@ Audit and improve web accessibility following WCAG 2.2 guidelines. Use when aske
 Skill for building with the Astro web framework. Helps create Astro components and pages, configure SSR adapters, set up content collections, deploy static sites, and manage project structure and CLI commands. Use when the user needs to work with Astro, mentions .astro files, asks about static si...
 
 - `.agents/skills/astro/SKILL.md`
+
+## Astro 6.3 Notes
+
+Project baseline is Astro 6.3.x. When upgrading from Astro 6.1.x to 6.3.x, keep these framework changes in mind:
+
+- Use `npx @astrojs/upgrade` for framework upgrades, then run `npm run build` and `npm audit`.
+- Astro 6.2 added `experimental.svgOptimizer` with `svgoOptimizer()` and removed the older `experimental.svgo` flag. Do not add `experimental.svgo`; use `svgOptimizer` only when SVG component optimization is needed.
+- Astro 6.2 added `experimental.logger` and `--experimentalJson` for structured logs. This is useful for CI and agent debugging, but keep it out of visitor-facing code and copy.
+- Astro 6.2 added `compressHTML: "jsx"` for JSX-style whitespace handling. Use it only when the output has been visually checked, because whitespace differences can affect inline text.
+- Astro 6.2 added `experimental_getFontFileURL()` from `astro:assets` for build-time font access, especially generated Open Graph images.
+- Astro 6.3 added `experimental.advancedRouting` with `src/app.ts`, `astro/fetch`, and `astro/hono`. Treat it as experimental and use it only for real SSR routing needs such as auth, rate limits, custom logging, or middleware ordering.
+- Astro 6.3 added `AstroCookies.consume()` as the instance API. The old static `AstroCookies.consume(cookies)` is deprecated.
+- Astro 6.3 improves island hydration resilience by retrying failed hydration imports. Still keep client islands small and add `client:*` directives only where interaction is required.
+- Astro 6.3 changed SVG image processing for security: the default image service no longer rasterizes SVG inputs by default. Only set `image.dangerouslyProcessSVG: true` when SVG sources are trusted and this behavior is required.
+- Astro 6.3 remote image optimization follows redirects, but redirected hosts must still match `image.domains` or `image.remotePatterns`.
+- Astro 6.3.1 fixes local images returning 404 on non-prerendered pages when using the generic image endpoint. Prefer 6.3.1+ over 6.3.0.
 
 ## Design Thinking
 
