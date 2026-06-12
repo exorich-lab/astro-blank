@@ -2,9 +2,44 @@ import fs from 'node:fs';
 import http from 'node:http';
 import { execSync } from 'node:child_process';
 import crypto from 'node:crypto';
+import path from 'node:path';
+import os from 'node:os';
 
-const clientSecretPath = '/Users/sergejapetenok/credentials/client_secret_268801417333-15iu3dr47k48bvfp289uva48c7vk4ui5.apps.googleusercontent.com.json';
-const tokensPath = '/Users/sergejapetenok/credentials/analytics-tokens.json';
+const rootDir = process.cwd();
+const siteConfigPath = path.join(rootDir, 'site.config.json');
+
+let siteConfig = {};
+if (fs.existsSync(siteConfigPath)) {
+  try {
+    siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
+  } catch {}
+}
+
+const preferredCredentialsDir = siteConfig.analytics?.credentialsDir || process.env.ANALYTICS_CREDENTIALS_DIR || '';
+const CREDENTIALS_DIR = preferredCredentialsDir 
+  ? (preferredCredentialsDir.startsWith('~/') || preferredCredentialsDir === '~'
+      ? path.join(os.homedir(), preferredCredentialsDir.slice(1))
+      : (path.isAbsolute(preferredCredentialsDir) ? preferredCredentialsDir : path.resolve(rootDir, preferredCredentialsDir))
+    )
+  : path.join(os.homedir(), 'credentials');
+
+const tokensPath = path.join(CREDENTIALS_DIR, 'analytics-tokens.json');
+
+// Auto-detect client_secret file
+let clientSecretPath = '';
+if (fs.existsSync(CREDENTIALS_DIR)) {
+  const files = fs.readdirSync(CREDENTIALS_DIR);
+  const matchedSecret = files.find(f => f.startsWith('client_secret_') && f.endsWith('.json'));
+  if (matchedSecret) {
+    clientSecretPath = path.join(CREDENTIALS_DIR, matchedSecret);
+  }
+}
+
+// Fallback to default if not found
+if (!clientSecretPath) {
+  clientSecretPath = path.join(CREDENTIALS_DIR, 'client_secret_268801417333-15iu3dr47k48bvfp289uva48c7vk4ui5.apps.googleusercontent.com.json');
+}
+
 const PORT = 8085;
 const REDIRECT_URI = `http://localhost:${PORT}`;
 

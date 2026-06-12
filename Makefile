@@ -3,7 +3,7 @@
 SHELL := /bin/bash
 
 PROFILE ?= production
-CONFIG_FILE ?= $(HOME)/credentials/deploy-hestia.json
+CONFIG_FILE ?=
 SITE_CONFIG ?= ./site.config.json
 DOMAIN ?=
 DIST ?= ./dist/

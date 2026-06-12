@@ -1,13 +1,38 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import os from 'node:os';
 
 const rootDir = process.cwd();
 const siteConfigPath = path.join(rootDir, 'site.config.json');
 const envLocalPath = path.join(rootDir, '.env.local');
 
-const CREDENTIALS_DIR = '/Users/sergejapetenok/credentials';
-const SERVICE_ACCOUNT_FILE = path.join(CREDENTIALS_DIR, 'allbiz-1544779694702-a214e2f6806c.json');
+// Load configuration to check for overridden credentials path
+if (!fs.existsSync(siteConfigPath)) {
+  console.error('[analytics-bootstrap] site.config.json not found in root.');
+  process.exit(1);
+}
+
+const siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
+
+// Resolve credentials directory cross-platform
+const preferredCredentialsDir = siteConfig.analytics?.credentialsDir || process.env.ANALYTICS_CREDENTIALS_DIR || '';
+const CREDENTIALS_DIR = preferredCredentialsDir 
+  ? (preferredCredentialsDir.startsWith('~/') || preferredCredentialsDir === '~'
+      ? path.join(os.homedir(), preferredCredentialsDir.slice(1))
+      : (path.isAbsolute(preferredCredentialsDir) ? preferredCredentialsDir : path.resolve(rootDir, preferredCredentialsDir))
+    )
+  : path.join(os.homedir(), 'credentials');
+
+// Resolve service account credentials file
+let SERVICE_ACCOUNT_FILE = path.join(CREDENTIALS_DIR, 'allbiz-1544779694702-a214e2f6806c.json');
+if (fs.existsSync(CREDENTIALS_DIR)) {
+  const files = fs.readdirSync(CREDENTIALS_DIR);
+  const saMatch = files.find(f => f.startsWith('allbiz-') && f.endsWith('.json'));
+  if (saMatch) {
+    SERVICE_ACCOUNT_FILE = path.join(CREDENTIALS_DIR, saMatch);
+  }
+}
 
 const SCOPES = [
   'https://www.googleapis.com/auth/analytics.edit',
@@ -16,13 +41,6 @@ const SCOPES = [
   'https://www.googleapis.com/auth/tagmanager.publish'
 ].join(' ');
 
-// Load configuration
-if (!fs.existsSync(siteConfigPath)) {
-  console.error('[analytics-bootstrap] site.config.json not found in root.');
-  process.exit(1);
-}
-
-const siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
 const brandName = siteConfig.brandName || 'My Brand';
 const domain = siteConfig.domain || '';
 

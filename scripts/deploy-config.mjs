@@ -63,20 +63,37 @@ const getArgValue = (name) => {
 
 const getArgs = () => {
   const explicitFormat = getArgValue('--format') || getArgValue('-f') || 'json';
-  const credentialsFile = getArgValue('--config')
-    || getArgValue('--credentials')
-    || getArgValue('--credentials-file')
-    || process.env.DEPLOY_CREDENTIALS_FILE
-    || getArgValue('--file')
-    || path.join(os.homedir(), 'credentials', 'deploy-hestia.json');
 
-  const profile = getArgValue('--profile') || process.env.DEPLOY_PROFILE || process.env.HESTIA_PROFILE || 'default';
   const siteConfigPath =
     resolveValue(getArgValue('--site-config'))
     || process.env.SITE_CONFIG_PATH
     || process.env.ASTRO_SITE_CONFIG
     || process.env.DEPLOY_SITE_CONFIG
     || path.join(process.cwd(), 'site.config.json');
+
+  let siteConfig = {};
+  if (fs.existsSync(siteConfigPath)) {
+    try {
+      siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
+    } catch {}
+  }
+
+  const preferredCredentialsDir = siteConfig.analytics?.credentialsDir || process.env.ANALYTICS_CREDENTIALS_DIR || '';
+  const CREDENTIALS_DIR = preferredCredentialsDir 
+    ? (preferredCredentialsDir.startsWith('~/') || preferredCredentialsDir === '~'
+        ? path.join(os.homedir(), preferredCredentialsDir.slice(1))
+        : (path.isAbsolute(preferredCredentialsDir) ? preferredCredentialsDir : path.resolve(process.cwd(), preferredCredentialsDir))
+      )
+    : path.join(os.homedir(), 'credentials');
+
+  const credentialsFile = getArgValue('--config')
+    || getArgValue('--credentials')
+    || getArgValue('--credentials-file')
+    || process.env.DEPLOY_CREDENTIALS_FILE
+    || getArgValue('--file')
+    || path.join(CREDENTIALS_DIR, 'deploy-hestia.json');
+
+  const profile = getArgValue('--profile') || process.env.DEPLOY_PROFILE || process.env.HESTIA_PROFILE || 'default';
 
   const siteDomain = resolveValue(getArgValue('--domain'))
     || process.env.DEPLOY_SITE_DOMAIN
@@ -222,9 +239,10 @@ function mergeConfig(data, profileName, siteDomain) {
   };
 }
 
-function toShellAssignments(values) {
+function toShellAssignments(values, credentialsFile) {
   const assignments = [];
   const flat = {
+    DEPLOY_CONFIG_FILE: credentialsFile,
     DEPLOY_PROFILE: values.profile,
     SITE_DOMAIN: values.site.domain,
     SITE_DOMAIN_NORMALIZED: values.site.domainNormalized,
@@ -278,7 +296,7 @@ function run() {
   }
 
   if (args.format === 'shell') {
-    process.stdout.write(`${toShellAssignments(config)}\n`);
+    process.stdout.write(`${toShellAssignments(config, args.credentialsFile)}\n`);
     return;
   }
 
