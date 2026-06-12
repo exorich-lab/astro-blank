@@ -89,53 +89,61 @@ npx autoskills --dry-run --yes --agent codex
 npx search-console-mcp@latest
 ```
 
-## GA4 Auto-Setup
+## Analytics Rules
 
-Проект поддерживает автоматическую настройку GA4 через сервисный аккаунт Google (один или несколько JSON-файлов).
+Обычный путь аналитики в стартере должен быть простым. Не предлагать пользователю service account, Firebase IAM, GA4 Admin API, accessBindings или gcloud OAuth как стандартный путь.
 
-- По умолчанию скрипт берет ключ из:
-  - `GOOGLE_APPLICATION_CREDENTIALS`
-  - `GA4_CREDENTIAL_FILE`
-  - папки `analytics.credentialsDir` из `site.config.json`
-  - по умолчанию `~/credentials`
-- Поддерживается несколько файлов в папке — выбирается первый подходящий по фильтрам `GA4_PROJECT_ID` / `GA4_SERVICE_ACCOUNT_EMAIL`, если они заданы.
-- Команды проекта:
+Стандартный сценарий:
+
+- `analytics.gtmId` / `PUBLIC_GTM_ID` для Google Tag Manager.
+- или `analytics.ga4MeasurementId` / `PUBLIC_GA4_MEASUREMENT_ID` для прямого GA4.
+- `make analytics-check` проверяет наличие `GTM-...` или `G-...`.
+- `make deploy-ga` только проверяет тег и запускает обычный деплой.
+
+Advanced provisioning через Google API не предлагать в обычном сценарии. Если пользователь явно просит автоматическое создание/изменение GA4/GTM ресурсов, сначала предупредить, что это отдельный сложный путь с правами Google, и только потом использовать соответствующие internal scripts.
+
+## Деплой и Hestia CP
+
+Секретные данные для деплоя должны храниться в отдельном файле вне репозитория:
+
+`~/credentials/deploy-hestia.json`
+
+Скрипты проекта (`deploy.sh`, `scripts/ensure-hestia-domain.mjs`) читают его автоматически:
+
+- `defaultProfile` — профиль по умолчанию.
+- `profiles.<name>.remote` — SSH-контур (`host`, `user`, `port`, `pathTemplate`, `sshKey`, `sshOptions`).
+- `profiles.<name>.hestia` — только `sshUser` для доменных операций (`v-add-web-domain`).
+
+Поддерживаются переменные окружения внутри значений JSON (формат `${VAR_NAME}`):
+
+- `DEPLOY_HESTIA_HOST`
+- `DEPLOY_HESTIA_USER`
+- `DEPLOY_HESTIA_SSH_KEY_PATH`
+- `DEPLOY_HESTIA_SSH_PORT`
+- `DEPLOY_HESTIA_SSH_USER`
+
+Примеры запуска:
 
 ```bash
-npm run ga4:bootstrap
-npm run ga4:bootstrap:dry
-npm run ga4:bootstrap:force
+./deploy.sh --profile production
+./deploy.sh --profile production --domain your-domain.com --no-build
+./deploy.sh --config ~/credentials/deploy-hestia.json --profile production --no-build
+./deploy.sh --skip-domain-check # временно пропустить проверку домена
+./deploy.sh --create-domain # автоматически создать домен, если его нет в Hestia
 ```
 
-Перекрыть настройки без правки `site.config.json`:
+`deploy.sh` в SSH-режиме:
 
-```bash
-GA4_ENABLED=true GA4_STREAM_DOMAIN=http://localhost:4444 npm run ga4:bootstrap
-```
+- Загружает конфиг из `~/credentials/deploy-hestia.json`.
+- Проверяет SSH-доступ к хосту.
+- Проверяет наличие домена через SSH и предлагает создать его в Hestia при отсутствии (`v-list-web-domains`, `v-add-web-domain`).
+- Загружает `dist/` через `rsync` в `REMOTE_PATH`.
 
-`npm run dev` запускает `ga4:bootstrap` с `--domain http://localhost:4444` и затем стартует локальный сервер.
+Для диагностики SSH используйте:
 
-Включение в `site.config.json`:
-
-```json
-"analytics": {
-  "enabled": true,
-  ...
-}
-```
-
-Результат автонастройки пишется в `.env.local` переменными `PUBLIC_GA4_*` для сборки сайта:
-- `PUBLIC_GA4_ENABLED`
-- `PUBLIC_GA4_MEASUREMENT_ID`
-- `PUBLIC_GA4_PROPERTY_ID`
-- `PUBLIC_GA4_STREAM_ID`
-- `PUBLIC_GA4_ACCOUNT_ID`
-
-Как получить credential-файл:
-1. Google Cloud Console → IAM и администрирование → Сервисные аккаунты.
-2. Открыть нужный аккаунт.
-3. Keys → Add key → Create new key → JSON.
-4. Скачать JSON и положить в `~/credentials`.
+- `Connection refused`, `timed out`, `No route to host` — проверка хоста/порта/фаервола и SSH-ключа.
+- `sudo -n -i bash -lc "v-list-web-domains json"`
+- `v-list-web-domains json`
 
 <!-- autoskills:start -->
 

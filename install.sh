@@ -36,6 +36,19 @@ fi
 if ! npx search-console-mcp@latest --help >/dev/null 2>&1; then
   echo "⚠️  Failed to refresh search-console-mcp@latest. Check network/npm."
 fi
+if ! command -v uv >/dev/null 2>&1; then
+  echo "⚠️  uv not found, cannot verify/pull analytics-mcp."
+  echo "   Install uv: curl -LsSf https://astral.sh/uv/install.sh | sh"
+else
+  if ! uvx analytics-mcp --help >/dev/null 2>&1; then
+    echo "⚠️  analytics-mcp not available in uv. Installing/refreshing:"
+    echo "   uvx analytics-mcp --help"
+    if ! uv tool install --force analytics-mcp >/dev/null 2>&1; then
+      echo "⚠️  Failed to install analytics-mcp from uv. You can try:"
+      echo "   uv tool install --force analytics-mcp"
+    fi
+  fi
+fi
 
 echo "🎨 Setting up UI/UX Pro Max Design System..."
 if ! command -v uipro &> /dev/null; then

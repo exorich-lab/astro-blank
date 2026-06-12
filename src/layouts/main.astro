@@ -1,9 +1,18 @@
 ---
 import '../styles/global.css';
-import { brandName, manifestConfig, siteDescription } from '../lib/site-config';
+import { analyticsConfig, brandName, manifestConfig, siteDescription } from '../lib/site-config';
 
-const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
-const ga4Enabled = import.meta.env.PUBLIC_GA4_ENABLED === 'true' && ga4MeasurementId;
+const ga4MeasurementIdFromConfig = analyticsConfig?.ga4MeasurementId;
+const envGa4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
+const ga4MeasurementId = String(typeof envGa4MeasurementId === 'string' && envGa4MeasurementId.trim() ? envGa4MeasurementId : ga4MeasurementIdFromConfig || '').trim();
+const ga4DisabledByEnv = import.meta.env.PUBLIC_GA4_ENABLED === 'false';
+const ga4Enabled = !ga4DisabledByEnv && Boolean(ga4MeasurementId);
+const gtmIdFromConfig = analyticsConfig?.gtmId;
+const envGtmId = import.meta.env.PUBLIC_GTM_ID;
+const analyticsEnabled = analyticsConfig?.enabled !== false;
+const gtmContainerId = String(typeof envGtmId === 'string' && envGtmId.trim() ? envGtmId : gtmIdFromConfig || '').trim();
+const shouldUseGtm = analyticsEnabled && /^GTM-[A-Z0-9]+$/i.test(gtmContainerId);
+const useGa4Tag = analyticsEnabled && !shouldUseGtm && ga4Enabled;
 
 interface Props {
 	title?: string;
@@ -26,10 +35,31 @@ const manifestUrl = '/site.webmanifest';
 			<link rel="icon" href={icon.src} sizes={icon.sizes} type={icon.type} />
 		))}
 		<title>{finalTitle}</title>
-		{ga4Enabled && (
+		{shouldUseGtm && (
+			<script is:inline>
+				(function(w,d,s,l,i){
+					w[l]=w[l]||[];
+					w[l].push({
+						'gtm.start': new Date().getTime(),
+						event:'gtm.js'
+					});
+					const f=d.getElementsByTagName(s)[0];
+					const j=d.createElement(s);
+					const dl=l!='dataLayer' ? '&l='+l : '';
+					j.async=true;
+					j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+					if (f?.parentNode) {
+						f.parentNode.insertBefore(j, f);
+					} else {
+						d.head.appendChild(j);
+					}
+				})(window, document, 'script', 'dataLayer', `${gtmContainerId}`)
+			</script>
+		)}
+		{useGa4Tag && (
 			<script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>
 		)}
-		{ga4Enabled && (
+		{useGa4Tag && (
 			<script is:inline>
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
@@ -39,6 +69,17 @@ const manifestUrl = '/site.webmanifest';
 		)}
 	</head>
 	<body>
+		{shouldUseGtm && (
+			<noscript>
+				<iframe
+					src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`}
+					height="0"
+					width="0"
+					style="display:none;visibility:hidden"
+					title="GTM"
+				></iframe>
+			</noscript>
+		)}
 		<slot />
 	</body>
 </html>

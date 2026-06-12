@@ -101,13 +101,21 @@ The server config is:
       "env": {
         "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json"
       }
+    },
+    "analytics-mcp": {
+      "command": "uv",
+      "args": ["x", "analytics-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json",
+        "GOOGLE_PROJECT_ID": "YOUR_GA4_PROJECT_ID"
+      }
     }
   }
 }
 ```
 
-After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm `magicuidesign-mcp` and `search-console-mcp` are active.
-If you configured multiple MCPs, confirm each one: `magicuidesign-mcp`, `search-console-mcp`.
+After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm `magicuidesign-mcp`, `search-console-mcp`, and `analytics-mcp` are active.
+If you configured multiple MCPs, confirm each one: `magicuidesign-mcp`, `search-console-mcp`, `analytics-mcp`.
 
 For Magic UI components, prefer the shadcn registry path:
 
@@ -154,70 +162,154 @@ npx search-console-mcp@latest
 
 When credentials are ready, restart MCP client so the server is loaded.
 
-## GA4 Auto-Setup (Google Analytics)
+## Google Analytics MCP (optional)
 
-This starter now supports automatic GA4 bootstrap from Google service-account credentials.
+The official Google Analytics MCP config is included for agents that need to inspect Analytics data later. It is not part of normal site setup or deployment. For the website itself, use a ready `GTM-...` or `G-...` ID as described below.
 
-- Credentials are loaded from:
-  - explicit `GOOGLE_APPLICATION_CREDENTIALS`
-  - explicit `GA4_CREDENTIAL_FILE`
-  - explicit `--credentials-file` arg
-  - folder `analytics.credentialsDir` in `site.config.json`
-  - default `~/credentials` when nothing else is set
-- If multiple JSON files exist in the folder, the script will pick one automatically and show all available options.
-- `npm run dev` runs `node scripts/ga4-bootstrap.mjs --ensure --domain http://localhost:4444` before starting the dev server.
+## Analytics
 
-GA4 setup commands:
+Analytics setup is intentionally simple. Do not use Google API provisioning for normal starter deployments.
 
-```bash
-npm run ga4:bootstrap            # ensure GA4 is configured (reads/creates only when needed)
-npm run ga4:bootstrap:dry        # preview plan only
-npm run ga4:bootstrap:force      # force recreate when values are already present
-```
-
-Important env vars used by GA4 bootstrap:
-
-- `GA4_STREAM_DOMAIN` – force URL used for stream URL (`http://localhost:4444` in dev). Falls back to `site.config.json.domain`.
-- `GA4_PROJECT_ID` – optional account selection filter.
-- `GA4_SERVICE_ACCOUNT_EMAIL` – optional filter by client_email.
-- `GA4_CREDENTIALS_DIR` – custom folder path if needed.
-
-Credentials file download (one-time, per service account):
-
-1. Google Cloud Console → IAM & Admin → Service Accounts.
-2. Open the service account used by this project.
-3. Keys → Add Key → Create new key → JSON.
-4. Save this JSON into `~/credentials`.
-
-CLI option: `gcloud iam service-accounts keys create ~/credentials/my-project-analytics.json --iam-account=your-service-account@project-id.iam.gserviceaccount.com`
-
-If you keep multiple service keys, you can place all JSON files in `~/credentials`. The project will pick the best match automatically or use explicit filters when set.
-
-Enable/disable from `site.config.json`:
+Use one of these two options in `site.config.json`:
 
 ```json
 "analytics": {
   "enabled": true,
-  ...
+  "gtmId": "GTM-XXXXXXX",
+  "ga4MeasurementId": ""
 }
 ```
 
-## Scripts
-- `npm run dev` - Development server on `localhost:4444` (kills old process on this port, then starts Astro dev).
-- `npm run dev:astro` - Standard Astro dev command (`astro dev`).
-- `npm run build` - Runs `node scripts/indexnow.mjs` and then `astro build`.
-- `npm run ga4:bootstrap` - Auto-configures GA4 and writes `PUBLIC_GA4_*` values to `.env.local`.
-- `npm run ga4:bootstrap:dry` - Preview GA4 actions without writing `.env.local`.
-- `npm run ga4:bootstrap:force` - Recreate GA4 resources and overwrite `.env.local` values.
-- `npm run ga4:bootstrap` runs `--ensure` by default.
+Or direct GA4 without GTM:
 
-Override without editing `site.config.json`:
+```json
+"analytics": {
+  "enabled": true,
+  "gtmId": "",
+  "ga4MeasurementId": "G-XXXXXXXXXX"
+}
+```
+
+GTM wins over direct GA4 when both are set, so the site will not double-track page views.
+
+Useful commands:
 
 ```bash
-GA4_ENABLED=true GA4_STREAM_DOMAIN=http://localhost:4444 npm run ga4:bootstrap
+npm run analytics:check
+make analytics-check
+make deploy-ga
 ```
+
+`make deploy-ga` only checks that a `GTM-...` or `G-...` tag is configured, then runs the normal deployment. It does not open a browser, call Google APIs, use service accounts, or require Firebase IAM.
+
+To write analytics IDs into `.env.local` instead of editing `site.config.json`:
+
+```bash
+npm run analytics:gtm:setup -- --gtm-id GTM-XXXXXXX --ga4-id G-XXXXXXXXXX
+```
+
+## Scripts
+
+- `npm run dev` - Development server on `localhost:4444` (kills old process on this port, then starts Astro dev).
+- `npm run build` - Runs `node scripts/indexnow.mjs` and then `astro build`.
+- `npm run analytics:check` - Verifies that GTM or GA4 tag is configured.
+- `npm run analytics:gtm:setup` - Writes GTM/GA4 IDs to `.env.local`.
 - `npm run indexnow:prepare` - Prepares IndexNow verification file `public/<key>.txt`.
-- `npm run preview` - Preview build
+- `npm run preview` - Preview build output.
+
+## Makefile (shortcuts)
+
+```bash
+make help                    # show common commands
+make dev                     # run local dev server
+make build                   # production build
+make analytics-check         # verify GTM/GA4 tag exists
+make deploy-ga               # verify analytics tag, then deploy
+make deploy                  # build + upload using deploy.sh
+make deploy-no-build         # upload existing dist only
+make deploy-create-domain    # auto create Hestia domain if missing
+make deploy-skip-check       # skip Hestia domain existence check
+```
+
+Deploy overrides:
+
+```bash
+make deploy PROFILE=production DOMAIN=example.com
+make deploy CONFIG_FILE=/absolute/path/deploy-hestia.json
+make deploy-no-build DIST=./dist/
+```
+
+## Deployment (Hestia CP)
+
+Deployment now reads all server credentials from:
+
+`~/credentials/deploy-hestia.json`
+
+This keeps credentials out of the repository. The file supports multiple profiles and can use env-variable placeholders such as `${DEPLOY_HESTIA_HOST}`.
+
+Quick start:
+
+```bash
+export DEPLOY_HESTIA_HOST=your.hpanel.host
+export DEPLOY_HESTIA_USER=your-ssh-user
+export DEPLOY_HESTIA_SSH_USER=your-hestia-user
+```
+
+Minimal template:
+
+```json
+{
+  "defaultProfile": "production",
+  "profiles": {
+    "production": {
+      "remote": {
+        "host": "${DEPLOY_HESTIA_HOST}",
+        "user": "${DEPLOY_HESTIA_USER}",
+        "port": "${DEPLOY_HESTIA_SSH_PORT}",
+        "pathTemplate": "/home/{user}/web/{domain}/public_html",
+        "sshKey": "${DEPLOY_HESTIA_SSH_KEY_PATH}",
+        "sshOptions": ""
+      },
+      "hestia": {
+        "sshUser": "${DEPLOY_HESTIA_SSH_USER}"
+      }
+    }
+  }
+}
+```
+
+Deploy commands:
+
+```bash
+./deploy.sh --profile production                     # build + upload
+./deploy.sh --profile production --no-build            # skip build, upload existing dist
+./deploy.sh --config /absolute/path/deploy-hestia.json # custom credentials file
+./deploy.sh --domain your-domain.com                   # override domain used for siteUrl/pathTemplate
+./deploy.sh --skip-domain-check                       # skip Hestia domain check
+./deploy.sh --create-domain                           # auto create missing domain (no prompt)
+```
+
+Deploy check flow (SSH-only):
+
+1. `deploy.sh` loads remote credentials from `~/credentials/deploy-hestia.json`.
+2. It checks SSH connectivity to target host.
+3. It checks whether the site domain exists in Hestia via SSH.
+4. If missing, it can create it via `v-add-web-domain` (`HESTIA_SSH_USER`).
+5. Builds (unless `--no-build`) and uploads `dist/` with `rsync`.
+
+Recommended env variables for deployment:
+
+- `DEPLOY_HESTIA_HOST` — server SSH host or IP.
+- `DEPLOY_HESTIA_USER` — SSH username.
+- `DEPLOY_HESTIA_SSH_KEY_PATH` — absolute path to SSH private key.
+- `DEPLOY_HESTIA_SSH_PORT` — SSH port (`22` by default).
+- `DEPLOY_HESTIA_SSH_USER` — Hestia owner username used for domain operations (`v-add-web-domain`).
+
+### Useful manual checks
+
+- `v-list-web-domains json`
+- `v-add-web-domain your-domain.com default`
+- `v-delete-web-domain your-domain.com`
 
 ### Macro example
 

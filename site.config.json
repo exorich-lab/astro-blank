@@ -1,6 +1,6 @@
 {
   "brandName": "My Brand",
-  "domain": "localhost:4322",
+  "domain": "autozabota.geo-247.com",
   "description": "Landing page for {BRANDNAME}.",
   "manifest": {
     "name": "{BRANDNAME}",
@@ -38,10 +38,12 @@
   },
   "analytics": {
     "enabled": true,
+    "gtmId": "",
+    "ga4MeasurementId": "",
+    "propertyId": "",
     "propertyName": "{BRANDNAME} · Web",
     "streamName": "{BRANDNAME} · Main Site",
     "streamDomain": "{BASE_DOMAIN}",
-    "credentialsDir": "~/credentials",
     "currencyCode": "USD"
   }
 }
