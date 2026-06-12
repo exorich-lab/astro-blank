@@ -3,6 +3,13 @@
     "magicuidesign-mcp": {
       "command": "npx",
       "args": ["-y", "@magicuidesign/mcp@latest"]
+    },
+    "search-console-mcp": {
+      "command": "npx",
+      "args": ["-y", "search-console-mcp@latest"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json"
+      }
     }
   }
 }

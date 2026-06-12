@@ -29,6 +29,14 @@ if ! npx autoskills --yes --agent codex; then
   echo "   Continuing with the template-bundled skills."
 fi
 
+echo "🧩 Refreshing MCP server packages to latest versions..."
+if ! npx @magicuidesign/mcp@latest --help >/dev/null 2>&1; then
+  echo "⚠️  Failed to refresh @magicuidesign/mcp@latest. Check network/npm."
+fi
+if ! npx search-console-mcp@latest --help >/dev/null 2>&1; then
+  echo "⚠️  Failed to refresh search-console-mcp@latest. Check network/npm."
+fi
+
 echo "🎨 Setting up UI/UX Pro Max Design System..."
 if ! command -v uipro &> /dev/null; then
   echo "uipro-cli not found globally. Installing..."

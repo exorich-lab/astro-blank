@@ -3,3 +3,10 @@ command = "npx"
 args = ["-y", "@magicuidesign/mcp@latest"]
 startup_timeout_ms = 20000
 enabled = true
+
+[mcp_servers.search-console-mcp]
+command = "npx"
+args = ["-y", "search-console-mcp@latest"]
+env = { GOOGLE_APPLICATION_CREDENTIALS = "/path/to/your/service-account-key.json" }
+startup_timeout_ms = 20000
+enabled = true

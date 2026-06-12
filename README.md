@@ -94,12 +94,20 @@ The server config is:
     "magicuidesign-mcp": {
       "command": "npx",
       "args": ["-y", "@magicuidesign/mcp@latest"]
+    },
+    "search-console-mcp": {
+      "command": "npx",
+      "args": ["-y", "search-console-mcp@latest"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json"
+      }
     }
   }
 }
 ```
 
-After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm `magicuidesign-mcp` is active.
+After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm `magicuidesign-mcp` and `search-console-mcp` are active.
+If you configured multiple MCPs, confirm each one: `magicuidesign-mcp`, `search-console-mcp`.
 
 For Magic UI components, prefer the shadcn registry path:
 
@@ -110,6 +118,41 @@ npx shadcn@latest add @magicui/animated-beam
 ```
 
 Use Magic UI for expressive animated sections and keep base controls in shadcn/ui.
+
+## Search Console MCP
+
+This starter also includes Google Search Console MCP for SEO and performance workflows (sites, sitemaps, analytics, URL inspection):
+
+- `site audits`
+- `sitemap management`
+- `search performance and query analysis`
+- `URL inspection status`
+
+Configuration is already prepared in:
+
+- `.codex/config.toml`
+- `.vscode/mcp.json`
+- `.mcp.json`
+
+Required credential:
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+```
+
+Optional local authentication setup:
+
+```bash
+npx search-console-mcp@latest setup
+```
+
+Quick runtime check:
+
+```bash
+npx search-console-mcp@latest
+```
+
+When credentials are ready, restart MCP client so the server is loaded.
 
 ## Scripts
 - `npm run dev` - Development server on `localhost:4444` (kills old process on this port, then starts Astro dev).
