@@ -1,5 +1,5 @@
 {
-  "brandName": "My Brand",
+  "brandName": "My Brand 3",
   "domain": "autozabota.geo-247.com",
   "description": "Landing page for {BRANDNAME}.",
   "manifest": {
@@ -39,7 +39,8 @@
   "analytics": {
     "enabled": true,
     "accountId": "397914246",
-    "gtmId": "GTM-ML8FRSKX",
+    "gtmAccountId": "6360636646",
+    "gtmId": "GTM-PFVKV565",
     "ga4MeasurementId": "G-0M0EDP8W3Z",
     "propertyId": "541586169",
     "propertyName": "{BRANDNAME} · Web",

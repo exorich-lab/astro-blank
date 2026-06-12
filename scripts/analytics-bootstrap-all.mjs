@@ -318,7 +318,16 @@ async function run() {
       process.exit(1);
     }
 
-    let property = properties.find((p) => p.displayName === gaPropertyName);
+    const existingPropertyId = siteConfig.analytics?.propertyId || '';
+    let property = null;
+
+    if (existingPropertyId) {
+      property = properties.find((p) => p.name.split('/').pop() === String(existingPropertyId));
+    }
+
+    if (!property) {
+      property = properties.find((p) => p.displayName === gaPropertyName);
+    }
 
     if (!property) {
       console.log(`[analytics-bootstrap] Creating GA4 Property: "${gaPropertyName}"...`);
@@ -329,7 +338,14 @@ async function run() {
         currencyCode: siteConfig.analytics?.currencyCode || 'USD',
       }, token);
     } else {
-      console.log(`[analytics-bootstrap] Reusing existing GA4 Property: "${gaPropertyName}"`);
+      if (property.displayName !== gaPropertyName) {
+        console.log(`[analytics-bootstrap] Renaming GA4 Property from "${property.displayName}" to "${gaPropertyName}"...`);
+        property = await apiCall(`https://analyticsadmin.googleapis.com/v1beta/${property.name}?updateMask=displayName`, 'PATCH', {
+          displayName: gaPropertyName,
+        }, token);
+      } else {
+        console.log(`[analytics-bootstrap] Reusing existing GA4 Property: "${gaPropertyName}"`);
+      }
     }
     ga4PropertyId = property.name.split('/').pop();
 
@@ -382,13 +398,39 @@ async function run() {
       process.exit(1);
     }
 
-    const gtmAccount = gtmAccounts[0];
+    // Sort GTM accounts to prioritize preferred ones
+    const preferredGtmAccountId = siteConfig.analytics?.gtmAccountId || '';
+    const preferredGtmAccountName = siteConfig.analytics?.gtmAccountName || '';
+
+    const sortedGtmAccounts = [...gtmAccounts].sort((a, b) => {
+      // 1. Exact GTM Account ID match
+      if (preferredGtmAccountId) {
+        if (String(a.accountId) === String(preferredGtmAccountId) && String(b.accountId) !== String(preferredGtmAccountId)) return -1;
+        if (String(b.accountId) === String(preferredGtmAccountId) && String(a.accountId) !== String(preferredGtmAccountId)) return 1;
+      }
+
+      // 2. Exact GTM Account Name match
+      if (preferredGtmAccountName) {
+        if (a.name === preferredGtmAccountName && b.name !== preferredGtmAccountName) return -1;
+        if (b.name === preferredGtmAccountName && a.name !== preferredGtmAccountName) return 1;
+      }
+
+      // 3. Display name containing "Основной" or "Main" (case insensitive)
+      const aIsMain = /основной|main/i.test(a.name);
+      const bIsMain = /основной|main/i.test(b.name);
+      if (aIsMain && !bIsMain) return -1;
+      if (bIsMain && !aIsMain) return 1;
+
+      return 0;
+    });
+
+    const gtmAccount = sortedGtmAccounts[0];
     console.log(`[analytics-bootstrap] GTM Account selected: ${gtmAccount.name} (${gtmAccount.accountId})`);
 
     // List containers
     const containersRes = await apiCall(`https://tagmanager.googleapis.com/tagmanager/v2/accounts/${gtmAccount.accountId}/containers`, 'GET', null, token);
     const containers = containersRes.container || [];
-    let container = containers.find((c) => c.name === gtmContainerName || c.publicId === siteConfig.analytics?.gtmId);
+    let container = containers.find((c) => c.publicId === siteConfig.analytics?.gtmId) || containers.find((c) => c.name === gtmContainerName);
 
     if (!container) {
       console.log(`[analytics-bootstrap] Creating GTM Container: "${gtmContainerName}"...`);
@@ -397,7 +439,15 @@ async function run() {
         usageContext: ['web'],
       }, token);
     } else {
-      console.log(`[analytics-bootstrap] Reusing existing GTM Container: "${container.name}" (${container.publicId})`);
+      if (container.name !== gtmContainerName) {
+        console.log(`[analytics-bootstrap] Renaming GTM Container from "${container.name}" to "${gtmContainerName}"...`);
+        container = await apiCall(`https://tagmanager.googleapis.com/tagmanager/v2/${container.path}`, 'PUT', {
+          ...container,
+          name: gtmContainerName,
+        }, token);
+      } else {
+        console.log(`[analytics-bootstrap] Reusing existing GTM Container: "${container.name}" (${container.publicId})`);
+      }
     }
     gtmContainerId = container.publicId;
 
