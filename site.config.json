@@ -1,0 +1,39 @@
+{
+  "brandName": "My Brand",
+  "domain": "localhost:4322",
+  "description": "Landing page for {BRANDNAME}.",
+  "manifest": {
+    "name": "{BRANDNAME}",
+    "shortName": "MyBrand",
+    "themeColor": "#0f172a",
+    "backgroundColor": "#0f172a",
+    "display": "standalone",
+    "startUrl": "/",
+    "orientation": "portrait",
+    "scope": "/",
+    "lang": "en",
+    "icons": [
+      {
+        "src": "/favicon.svg",
+        "sizes": "any",
+        "type": "image/svg+xml",
+        "purpose": "any maskable"
+      }
+    ]
+  },
+  "robots": {
+    "sitemapPath": "/sitemap-index.xml",
+    "disallow": []
+  },
+  "ads": {
+    "enabled": false,
+    "provider": "google.com",
+    "publisherId": "",
+    "relationship": "DIRECT",
+    "certificationId": "f08c47fec0942fa0"
+  },
+  "indexNow": {
+    "enabled": false,
+    "key": ""
+  }
+}

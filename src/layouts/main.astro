@@ -1,11 +1,14 @@
 ---
 import '../styles/global.css';
+import { brandName, manifestConfig, siteDescription } from '../lib/site-config';
 
 interface Props {
 	title?: string;
 }
 
-const { title = 'Astro Blank' } = Astro.props;
+const { title } = Astro.props;
+const finalTitle = title || brandName;
+const manifestUrl = '/site.webmanifest';
 ---
 
 <html lang="en">
@@ -13,7 +16,13 @@ const { title = 'Astro Blank' } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<meta name="theme-color" content={manifestConfig.themeColor || '#0f172a'} />
+		<meta name="description" content={siteDescription} />
+		<link rel="manifest" href={manifestUrl} />
+		{manifestConfig.icons?.map((icon) => (
+			<link rel="icon" href={icon.src} sizes={icon.sizes} type={icon.type} />
+		))}
+		<title>{finalTitle}</title>
 	</head>
 	<body>
 		<slot />

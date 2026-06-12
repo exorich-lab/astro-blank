@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# astro-indexnow cache file
+.astro-indexnow-cache.json
+
 # dependencies
 node_modules/
 

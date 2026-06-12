@@ -15,6 +15,30 @@
 > **CRITICAL RULE: PUBLIC WEBSITE COPY MUST NEVER SOUND INTERNAL OR TECHNICAL.**
 > When creating a website, landing page, product page, service page, portfolio, or any visitor-facing screen, you **MUST** work as a conversion-focused website architect, not as a prototyper, developer, SEO operator, or internal planner. Build the page as a finished public product with a clear offer, positioning, trust, proof, objection handling, and a strong path to the target action. Never show visitors internal labels, planning terms, SEO structure labels, or implementation terms such as "starter", "boilerplate", "template", "component", "shadcn", "Magic UI", "Astro", "React", "Tailwind", "API", "MCP", "design system", "frontend", "backend", "layout", "section", "placeholder", "TODO", "mock data", "lorem ipsum", "silo", "hub", "intent", "SEO keywords", "semantic core", "cluster", "funnel stage", "wireframe", "prototype", "conversion block", or instructions about how the site was built, unless the actual business sells developer or marketing tools and those terms are part of the customer-facing offer. Treat any internal brief words as hidden planning input only, then translate them into polished public copy that a normal visitor immediately understands. All visible copy must speak to the customer's needs, benefits, trust, proof, objections, and next action in clear human language.
 
+## SEO config (обязательная)
+
+В стартере используется единый файл `site.config.json` как источник истины для SEO-метаданных инфраструктуры:
+
+- `site.config.json` содержит базовые настройки: `brandName`, `domain`, `description`, блоки `robots`, `ads` и `indexNow`.
+- `astro.config.mjs` берёт `domain` из `site.config.json` и подключает `@astrojs/sitemap`.
+- `src/pages/robots.txt.ts` автоматически собирает `robots.txt` из `robots.disallow` и всегда добавляет ссылку на `sitemap.xml` через `sitemapPath` из `robots` (по умолчанию `sitemap-index.xml` для `@astrojs/sitemap`).
+- `src/pages/ads.txt.ts` собирает `ads.txt` по шаблону `ads.provider, ads.publisherId, ads.relationship, ads.certificationId`; если `ads.enabled = false` или `publisherId` пустой — файл отдает пустой ответ до появления реальных данных.
+
+### IndexNow (обязательная)
+
+- Для работы с `astro-indexnow` используется блок `indexNow` в `site.config.json`.
+- `indexNow.enabled` управляет тем, подключена ли отправка обновлений Sitemap в build.
+- Ключ берется из `site.config.json.indexNow.key` или переменной `INDEXNOW_KEY`.
+- Перед сборкой выполняется `scripts/indexnow.mjs`, который создаёт файл `/public/<key>.txt` для валидации ключа.
+- Для ручной генерации этого файла в локали можно запускать `npm run indexnow:prepare`.
+- После успешного `npm run build` интеграция `astro-indexnow` отправляет обновленные URL через API IndexNow (в CI/production окружении это штатный путь авто-уведомления).
+- Если ключ не задан, интеграция корректно пропускается — сборка и проект продолжают работать.
+
+Логика при смене домена или бренда:
+
+- Меняете только `site.config.json`.
+- Не меняете `robots.txt.ts` и `ads.txt.ts` вручную.
+- После правки конфигурации запускаете стандартный `npm run build` и проверяете доступность `/robots.txt`, `/ads.txt`, и путь из `robots.sitemapPath` (обычно `/sitemap-index.xml`).
 
 <!-- autoskills:start -->
 
