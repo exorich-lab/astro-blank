@@ -48,6 +48,17 @@ elif [ -d ".uipro" ]; then
   mv .uipro .agents/skills/ui-ux-pro-max
 fi
 
+# Keep humanizer skill up to date from the latest upstream repository.
+echo "🧠 Updating humanizer skill to latest version..."
+mkdir -p .agents/skills
+if [ -d ".agents/skills/humanizer/.git" ]; then
+  (cd .agents/skills/humanizer && git remote set-url origin https://github.com/blader/humanizer.git) >/dev/null 2>&1 || true
+  (cd .agents/skills/humanizer && git pull --ff-only)
+else
+  rm -rf .agents/skills/humanizer
+  git clone https://github.com/blader/humanizer.git .agents/skills/humanizer
+fi
+
 echo "✨ Setup complete! You can now start the development server:"
 echo "cd $TARGET_DIR"
 echo "npm run dev"
