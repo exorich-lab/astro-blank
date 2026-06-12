@@ -78,6 +78,7 @@ deploy:
 	./deploy.sh $(DEPLOY_FLAGS)
 
 deploy-ga:
+	node scripts/analytics-bootstrap-all.mjs
 	npm run analytics:check
 	$(MAKE) deploy
 

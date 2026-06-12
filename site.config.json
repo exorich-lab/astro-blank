@@ -38,9 +38,10 @@
   },
   "analytics": {
     "enabled": true,
-    "gtmId": "",
-    "ga4MeasurementId": "",
-    "propertyId": "",
+    "accountId": "397914246",
+    "gtmId": "GTM-ML8FRSKX",
+    "ga4MeasurementId": "G-0M0EDP8W3Z",
+    "propertyId": "541586169",
     "propertyName": "{BRANDNAME} · Web",
     "streamName": "{BRANDNAME} · Main Site",
     "streamDomain": "{BASE_DOMAIN}",
