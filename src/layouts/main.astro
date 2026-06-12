@@ -2,6 +2,9 @@
 import '../styles/global.css';
 import { brandName, manifestConfig, siteDescription } from '../lib/site-config';
 
+const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
+const ga4Enabled = import.meta.env.PUBLIC_GA4_ENABLED === 'true' && ga4MeasurementId;
+
 interface Props {
 	title?: string;
 }
@@ -23,6 +26,17 @@ const manifestUrl = '/site.webmanifest';
 			<link rel="icon" href={icon.src} sizes={icon.sizes} type={icon.type} />
 		))}
 		<title>{finalTitle}</title>
+		{ga4Enabled && (
+			<script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>
+		)}
+		{ga4Enabled && (
+			<script is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', `${ga4MeasurementId}`);
+			</script>
+		)}
 	</head>
 	<body>
 		<slot />

@@ -35,5 +35,13 @@
   "indexNow": {
     "enabled": false,
     "key": ""
+  },
+  "analytics": {
+    "enabled": true,
+    "propertyName": "{BRANDNAME} · Web",
+    "streamName": "{BRANDNAME} · Main Site",
+    "streamDomain": "{BASE_DOMAIN}",
+    "credentialsDir": "~/credentials",
+    "currencyCode": "USD"
   }
 }

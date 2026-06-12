@@ -154,10 +154,68 @@ npx search-console-mcp@latest
 
 When credentials are ready, restart MCP client so the server is loaded.
 
+## GA4 Auto-Setup (Google Analytics)
+
+This starter now supports automatic GA4 bootstrap from Google service-account credentials.
+
+- Credentials are loaded from:
+  - explicit `GOOGLE_APPLICATION_CREDENTIALS`
+  - explicit `GA4_CREDENTIAL_FILE`
+  - explicit `--credentials-file` arg
+  - folder `analytics.credentialsDir` in `site.config.json`
+  - default `~/credentials` when nothing else is set
+- If multiple JSON files exist in the folder, the script will pick one automatically and show all available options.
+- `npm run dev` runs `node scripts/ga4-bootstrap.mjs --ensure --domain http://localhost:4444` before starting the dev server.
+
+GA4 setup commands:
+
+```bash
+npm run ga4:bootstrap            # ensure GA4 is configured (reads/creates only when needed)
+npm run ga4:bootstrap:dry        # preview plan only
+npm run ga4:bootstrap:force      # force recreate when values are already present
+```
+
+Important env vars used by GA4 bootstrap:
+
+- `GA4_STREAM_DOMAIN` – force URL used for stream URL (`http://localhost:4444` in dev). Falls back to `site.config.json.domain`.
+- `GA4_PROJECT_ID` – optional account selection filter.
+- `GA4_SERVICE_ACCOUNT_EMAIL` – optional filter by client_email.
+- `GA4_CREDENTIALS_DIR` – custom folder path if needed.
+
+Credentials file download (one-time, per service account):
+
+1. Google Cloud Console → IAM & Admin → Service Accounts.
+2. Open the service account used by this project.
+3. Keys → Add Key → Create new key → JSON.
+4. Save this JSON into `~/credentials`.
+
+CLI option: `gcloud iam service-accounts keys create ~/credentials/my-project-analytics.json --iam-account=your-service-account@project-id.iam.gserviceaccount.com`
+
+If you keep multiple service keys, you can place all JSON files in `~/credentials`. The project will pick the best match automatically or use explicit filters when set.
+
+Enable/disable from `site.config.json`:
+
+```json
+"analytics": {
+  "enabled": true,
+  ...
+}
+```
+
 ## Scripts
 - `npm run dev` - Development server on `localhost:4444` (kills old process on this port, then starts Astro dev).
 - `npm run dev:astro` - Standard Astro dev command (`astro dev`).
 - `npm run build` - Runs `node scripts/indexnow.mjs` and then `astro build`.
+- `npm run ga4:bootstrap` - Auto-configures GA4 and writes `PUBLIC_GA4_*` values to `.env.local`.
+- `npm run ga4:bootstrap:dry` - Preview GA4 actions without writing `.env.local`.
+- `npm run ga4:bootstrap:force` - Recreate GA4 resources and overwrite `.env.local` values.
+- `npm run ga4:bootstrap` runs `--ensure` by default.
+
+Override without editing `site.config.json`:
+
+```bash
+GA4_ENABLED=true GA4_STREAM_DOMAIN=http://localhost:4444 npm run ga4:bootstrap
+```
 - `npm run indexnow:prepare` - Prepares IndexNow verification file `public/<key>.txt`.
 - `npm run preview` - Preview build
 

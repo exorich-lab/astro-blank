@@ -65,6 +65,12 @@ export const adsConfig = resolveMacros(siteConfig.ads || {}, macroContext);
 export const robotsConfig = resolveMacros(siteConfig.robots || {}, macroContext);
 export const indexNowConfig = resolveMacros(siteConfig.indexNow || {}, macroContext);
 
+export const analyticsConfig = resolveMacros(siteConfig.analytics || {}, {
+  ...macroContext,
+  ACCOUNT_ID: siteConfig.analytics?.accountId || '',
+  PROPERTY_NAME: siteConfig.analytics?.propertyName || '{BRANDNAME} Website',
+});
+
 export const manifestConfig = {
   ...{
     name: brandName,
