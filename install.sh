@@ -23,6 +23,12 @@ git init
 echo "🔨 Installing dependencies..."
 npm install
 
+echo "🧠 Syncing AI skills via autoskills (latest versions)..."
+if ! npx autoskills --yes --agent codex; then
+  echo "⚠️  autoskills sync failed (network or registry issue)."
+  echo "   Continuing with the template-bundled skills."
+fi
+
 echo "🎨 Setting up UI/UX Pro Max Design System..."
 if ! command -v uipro &> /dev/null; then
   echo "uipro-cli not found globally. Installing..."

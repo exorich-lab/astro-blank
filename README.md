@@ -153,6 +153,16 @@ If key is present, the build flow creates `/public/<key>.txt` and sends sitemap 
 ## Using as a Template
 
 You can create a new project based on this template using our automated setup script.
+When this script runs, it automatically executes:
+`npx autoskills --yes --agent codex`
+
+That means all skill bundles are refreshed from autoskills registry every time the starter is installed (including `bash-defensive-patterns`, which is detected by your current stack).
+
+To check what will be installed without applying changes, run:
+
+```bash
+npx autoskills --dry-run --yes --agent codex
+```
 
 **Example 1: Install into the current folder (`.`)**
 ```bash
