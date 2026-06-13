@@ -214,6 +214,10 @@ npm run analytics:gtm:setup -- --gtm-id GTM-XXXXXXX --ga4-id G-XXXXXXXXXX
 - `npm run build` - Runs `node scripts/indexnow.mjs` and then `astro build`.
 - `npm run analytics:check` - Verifies that GTM or GA4 tag is configured.
 - `npm run analytics:gtm:setup` - Writes GTM/GA4 IDs to `.env.local`.
+- `npm run domain:check` - Checks domain availability through Regway.
+- `npm run domain:price` - Reads Regway customer pricing for a domain TLD.
+- `npm run domain:suggest` - Generates domain ideas and can check availability.
+- `npm run domain:buy-test` - Runs a sandbox Regway registration request.
 - `npm run indexnow:prepare` - Prepares IndexNow verification file `public/<key>.txt`.
 - `npm run preview` - Preview build output.
 
@@ -224,6 +228,10 @@ make help                    # show common commands
 make dev                     # run local dev server
 make build                   # production build
 make analytics-check         # verify GTM/GA4 tag exists
+make domain-check DOMAIN=example.com
+make domain-price DOMAIN=example.com
+make domain-suggest KEYWORD=brand TLD=com,net,org
+make domain-buy-test DOMAIN=example.com
 make deploy-ga               # verify analytics tag, then deploy
 make deploy                  # build + upload using deploy.sh
 make deploy-no-build         # upload existing dist only
@@ -238,6 +246,41 @@ make deploy PROFILE=production DOMAIN=example.com
 make deploy CONFIG_FILE=/absolute/path/deploy-hestia.json
 make deploy-no-build DIST=./dist/
 ```
+
+## Regway Domain API
+
+This starter can work with a Regway reseller account for domain research and guarded registration.
+
+Secrets live outside the repository:
+
+`~/credentials/regway-domain.json`
+
+The file is created as a template with `sandbox: true`. Fill in:
+
+- `authUserId` - Regway reseller ID.
+- `apiKey` - Regway API key.
+- `defaultCustomerId` - customer that will own newly registered domains.
+- `contacts` - registrant/admin/tech/billing contact IDs.
+- `nameservers` - at least two nameservers for registration.
+
+Useful commands:
+
+```bash
+make domain-check DOMAIN=example.com
+make domain-price DOMAIN=example.com
+make domain-suggest KEYWORD=autozabota TLD=com,net,org
+make domain-buy-test DOMAIN=example.com
+```
+
+`domain-buy-test` always uses `https://test.httpapi.com/` and is intended for sandbox checks only.
+
+Live registration is intentionally guarded and not exposed as a Makefile shortcut:
+
+```bash
+npm run domain:register -- --domain example.com --live --confirm-register example.com
+```
+
+For live registration, `~/credentials/regway-domain.json` must also have `"sandbox": false`. Always run `domain-check` and `domain-price` first.
 
 ## Deployment (Hestia CP)
 

@@ -7,6 +7,8 @@ CONFIG_FILE ?=
 SITE_CONFIG ?= ./site.config.json
 DOMAIN ?=
 DIST ?= ./dist/
+KEYWORD ?=
+TLD ?= com,net,org
 
 # Optional overrides:
 #   make deploy PROFILE=my-prod CONFIG_FILE=/path/to/file DOMAIN=example.com DIST=./dist/
@@ -19,7 +21,7 @@ $(if $(strip $(DOMAIN)),--domain $(DOMAIN),) \
 $(if $(strip $(DIST)),--dist $(DIST),)
 endef
 
-.PHONY: help install dev dev-astro build preview analytics-check analytics-gtm-setup analytics-gtm-setup-dry analytics-gtm-setup-force deploy deploy-ga deploy-no-build deploy-create-domain deploy-skip-check clean
+.PHONY: help install dev dev-astro build preview analytics-check analytics-gtm-setup analytics-gtm-setup-dry analytics-gtm-setup-force domain-check domain-price domain-suggest domain-buy-test deploy deploy-ga deploy-no-build deploy-create-domain deploy-skip-check clean
 
 help:
 	@echo "Available commands:"
@@ -35,6 +37,10 @@ help:
 	@echo "  make analytics-gtm-setup    - write PUBLIC_GTM_ID from site.config.json or --gtm-id"
 	@echo "  make analytics-gtm-setup-dry - dry-run GTM setup"
 	@echo "  make analytics-gtm-setup-force - force overwrite GTM env values"
+	@echo "  make domain-check DOMAIN=example.com - check Regway domain availability"
+	@echo "  make domain-price DOMAIN=example.com - get Regway customer price"
+	@echo "  make domain-suggest KEYWORD=brand TLD=com,net - suggest and check domains"
+	@echo "  make domain-buy-test DOMAIN=example.com - sandbox Regway registration test"
 	@echo ""
 	@echo "  make deploy                - build and deploy via deploy.sh (default profile: $(PROFILE))"
 	@echo "  make deploy-no-build        - upload current dist only"
@@ -73,6 +79,18 @@ analytics-gtm-setup-force:
 
 indexnow-prepare:
 	npm run indexnow:prepare
+
+domain-check:
+	npm run domain:check -- --domain "$(DOMAIN)"
+
+domain-price:
+	npm run domain:price -- --domain "$(DOMAIN)"
+
+domain-suggest:
+	npm run domain:suggest -- --keyword "$(KEYWORD)" --tlds "$(TLD)" --check
+
+domain-buy-test:
+	npm run domain:buy-test -- --domain "$(DOMAIN)"
 
 deploy:
 	./deploy.sh $(DEPLOY_FLAGS)
