@@ -6,6 +6,10 @@ dist/
 # astro-indexnow cache file
 .astro-indexnow-cache.json
 
+# local AI/Bing research artifacts live outside the starter by default
+.cache/
+reports/
+
 # dependencies
 node_modules/
 

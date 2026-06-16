@@ -120,7 +120,14 @@ async function checkAvailability(config, domains) {
 
 async function getCustomerPrice(config, domain) {
   const { tld } = splitDomain(domain);
-  const productKey = config.productKeys[tld] || `dot${tld.replaceAll('.', '')}`;
+  const defaultProductKeys = {
+    com: 'domcno',
+    org: 'domorg',
+    net: 'dotnet',
+    info: 'dotinfo',
+    biz: 'dotbiz',
+  };
+  const productKey = config.productKeys[tld] || defaultProductKeys[tld] || `dot${tld.replaceAll('.', '')}`;
   const url = new URL('/api/products/customer-price.json', config.sandbox ? config.priceBaseUrl : config.baseUrl);
   appendParams(url, authParams(config));
   if (config.defaultCustomerId) url.searchParams.set('customer-id', config.defaultCustomerId);

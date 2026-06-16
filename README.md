@@ -109,13 +109,16 @@ The server config is:
         "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json",
         "GOOGLE_PROJECT_ID": "YOUR_GA4_PROJECT_ID"
       }
+    },
+    "cloudflare-api": {
+      "url": "https://mcp.cloudflare.com/mcp"
     }
   }
 }
 ```
 
-After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm `magicuidesign-mcp`, `search-console-mcp`, and `analytics-mcp` are active.
-If you configured multiple MCPs, confirm each one: `magicuidesign-mcp`, `search-console-mcp`, `analytics-mcp`.
+After installing the starter, restart Codex or Antigravity so the MCP client reloads its project config. In Codex, use `/mcp` to confirm the required servers are active.
+If you configured multiple MCPs, confirm each one: `magicuidesign-mcp`, `search-console-mcp`, `analytics-mcp`, `cloudflare-api`.
 
 For Magic UI components, prefer the shadcn registry path:
 
@@ -148,6 +151,35 @@ Required credential:
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
 ```
 
+Bing Webmaster credentials should be stored outside the repository:
+
+`~/credentials/bing-webmaster.json`
+
+Bing keyword plans, HTML reports, and API cache are also stored outside the repository:
+
+- `~/credentials/astro-blank/bing/plans` — seed-plan JSON files and generated HTML reports.
+- `~/credentials/astro-blank/bing/cache` — cached Bing API responses.
+
+Do not keep generated keyword plans in the starter repository. The local CLI writes reports to the credentials folder by default. If you pass `SEED_PLAN=file.json` or `OUTPUT=file.html`, the CLI resolves those names inside `~/credentials/astro-blank/bing/plans`.
+
+Treat this folder as a reusable research library for future sites. Before collecting new Bing keyword data, run `make bing-plans` and check whether a stored plan already matches the requested niche, country, language, and site model. If it does, reuse it as the base or create a focused branch expansion instead of starting from zero.
+
+Template:
+
+```json
+{
+  "enabled": true,
+  "authType": "apiKey",
+  "apiKey": "PUT_BING_WEBMASTER_API_KEY_HERE",
+  "defaultSiteUrl": "",
+  "keywordResearch": {
+    "market": "en-US",
+    "country": "US",
+    "language": "en"
+  }
+}
+```
+
 Optional local authentication setup:
 
 ```bash
@@ -162,9 +194,72 @@ npx search-console-mcp@latest
 
 When credentials are ready, restart MCP client so the server is loaded.
 
+This starter also includes a local Bing Webmaster API-key layer:
+
+```bash
+make bing-sites
+make bing-quota DOMAIN=https://example.com
+make bing-submit-url DOMAIN=https://example.com URL=https://example.com/page
+make bing-keyword KEYWORD="essay writing service" COUNTRY=us LANGUAGE=en-US
+make bing-related-keywords KEYWORD="essay writing service" COUNTRY=us LANGUAGE=en-US
+make bing-research KEYWORD="essay writing service" DEPTH=2 PER_SEED=15 LIMIT=100
+make bing-clusters KEYWORD="essay writing service" DEPTH=2 PER_SEED=15 LIMIT=100
+make bing-site-plan KEYWORD="essay writing service" DAYS=30 DEPTH=2 PER_SEED=20 LIMIT=300
+make bing-site-plan KEYWORD="essay writing service" SEED_PLAN=essay-writing-affiliate-seed-plan.json DAYS=30 DEPTH=2 PER_SEED=20 LIMIT=300
+make bing-plans
+make bing-query-stats DOMAIN=https://example.com
+make bing-page-stats DOMAIN=https://example.com
+```
+
+Use `search-console-mcp` when its Bing tools are authenticated and available. Use the local `scripts/bing-webmaster.mjs` layer when the MCP does not see the Bing account or when deployment automation needs deterministic API-key behavior from `~/credentials/bing-webmaster.json`.
+
+Bing keyword endpoints are rate-limited and cached by default:
+
+- API responses are cached in `~/credentials/astro-blank/bing/cache`.
+- Microsoft documents URL submission quotas, but does not publish a fixed official RPS limit for Bing keyword research endpoints. The starter therefore uses fast normal pacing plus retry/backoff on throttle responses.
+- `DELAY_MS` controls the pause between related-keyword expansion requests. Default: `500`.
+- `STATS_DELAY_MS` controls the pause between seed keyword stats requests. Default: `500`.
+- `SEED_LIMIT` limits how many planned seed phrases are checked during broad site-plan runs.
+- `RETRY_COUNT`, `RETRY_DELAY_MS`, `THROTTLE_DELAY_MS`, and `REQUEST_TIMEOUT_MS` control retry/backoff behavior. `Retry-After` response headers are respected when Bing sends them.
+- If Bing returns `ThrottleUser`, do not rerun a wide crawl immediately. Wait for the backoff window, reduce `SEED_LIMIT`/`MAX_REQUESTS`/`PER_SEED`, or continue from cached data.
+
+Example safer broad run:
+
+```bash
+make bing-site-plan KEYWORD="essay writing service" SEED_PLAN=essay-writing-affiliate-seed-plan.json DAYS=30 DEPTH=2 PER_SEED=10 LIMIT=300 SEED_LIMIT=40 MAX_REQUESTS=30 DELAY_MS=500 STATS_DELAY_MS=500 THROTTLE_DELAY_MS=60000
+```
+
+Keyword research modes:
+
+- Before a site exists: `make bing-site-plan` creates a readable HTML report with multi-pass collection, noise filtering, keyword stats, and page-level clusters to avoid cannibalization. `make bing-clusters` returns the same planning data as JSON, `make bing-research` returns the raw ranked list, `make bing-related-keywords` checks one expansion pass, and `make bing-keyword` checks seed-keyword demand from Bing Webmaster API by country/language.
+- After a verified site has impressions: `make bing-query-stats` and `make bing-page-stats` collect real search queries and page performance from Bing.
+
 ## Google Analytics MCP (optional)
 
 The official Google Analytics MCP config is included for agents that need to inspect Analytics data later. It is not part of normal site setup or deployment. For the website itself, use a ready `GTM-...` or `G-...` ID as described below.
+
+## Cloudflare MCP
+
+Cloudflare API MCP is configured as:
+
+```json
+{
+  "mcpServers": {
+    "cloudflare-api": {
+      "url": "https://mcp.cloudflare.com/mcp"
+    }
+  }
+}
+```
+
+Use it only when the task needs live Cloudflare account state or domain changes after a domain is purchased. The standard domain workflow is:
+
+1. Check and price the domain through Regway.
+2. Buy only after explicit confirmation.
+3. Use Cloudflare MCP to create/find the zone, set DNS, SSL/TLS, HTTPS, redirects, and caching.
+4. Deploy to Hestia with `make deploy DOMAIN=example.com`.
+
+The project skill `domain-launch-ops` documents this Regway + Cloudflare + Hestia workflow. Cloudflare MCP is remote and OAuth-based; restart the MCP client after changing config and authorize Cloudflare when prompted.
 
 ## Analytics
 
@@ -281,6 +376,31 @@ npm run domain:register -- --domain example.com --live --confirm-register exampl
 ```
 
 For live registration, `~/credentials/regway-domain.json` must also have `"sandbox": false`. Always run `domain-check` and `domain-price` first.
+
+## Site Launch Research Workflow
+
+The starter includes a local `site-launch-research` skill for launching a new site from a raw niche or topic.
+
+Example prompt:
+
+```text
+I want to create a site about essay writing service.
+```
+
+Expected workflow:
+
+1. Research keyword demand and intent.
+2. Pick the primary homepage keyword.
+3. Create an initial page map.
+4. Generate domain candidates.
+5. Check domain availability and price through Regway.
+6. Ask the user to choose one domain.
+7. After explicit confirmation, register the domain, configure Cloudflare, create/check the Hestia domain, and deploy.
+8. Verify the live domain in Bing Webmaster Tools and submit `sitemap-index.xml`.
+
+Domain purchase is never automatic from a topic prompt. It always requires a shortlist, a selected domain, and explicit confirmation.
+
+For brand-new sites, the agent should first inspect the stored plan library with `make bing-plans`. If a close plan already exists, read it and propose whether to reuse it, expand a specific branch, or create a fresh plan. Only then create or update a niche-specific seed plan (`siteModel`, `seeds`, `buyerModifiers`, `requiredTerms`, `rejectTerms`, `clusterRules`) in `~/credentials/astro-blank/bing/plans` and pass it with `SEED_PLAN=...`. Then use `make bing-site-plan KEYWORD="main topic" SEED_PLAN=seed-plan.json` to collect a wider keyword set for the last 30 days, choose the main keyword, remove obvious noise, group related keywords into pages, and create a readable report before the site has impressions or clicks. `mainPage` always means the homepage and its slug is always `/`, even when the primary keyword is long. For affiliate/commercial niches, the report separates money pages from funnel-support pages so informational keywords are kept only when they can naturally lead to an offer, comparison, service selection, tool use, or help request. `clusterRules` let the agent split discovered branches like homework into subject/service pages instead of one giant generic cluster. Keep Bing runs rate-limited with `SEED_LIMIT`, `DELAY_MS`, `STATS_DELAY_MS`, and lower `MAX_REQUESTS` for first passes; cached responses in `~/credentials/astro-blank/bing/cache` should be reused instead of repeating broad crawls. After launch, Bing/Search Console data becomes useful for real query, rank, sitemap, and cannibalization analysis through `make bing-query-stats` and `make bing-page-stats`.
 
 ## Deployment (Hestia CP)
 

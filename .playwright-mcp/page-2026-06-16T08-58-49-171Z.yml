@@ -1,0 +1,1083 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - heading "teeth whitening keyword plan" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Clustered keyword map for building pages without cannibalizing intent.
+    - generic [ref=e5]:
+      - generic [ref=e6]: "Market: us / en-US"
+      - generic [ref=e7]: "Period: 2026-05-17 to 2026-06-16"
+      - generic [ref=e8]: "Model: affiliate"
+      - generic [ref=e9]: "API requests: 105"
+      - generic [ref=e10]: "Rejected: 327"
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: "9"
+        - text: page clusters
+      - generic [ref=e14]:
+        - generic [ref=e15]: "0"
+        - text: merged small clusters
+      - generic [ref=e16]:
+        - generic [ref=e17]: "23"
+        - text: clustered keywords
+      - generic [ref=e18]:
+        - generic [ref=e19]: 30,878
+        - text: exact impressions
+      - generic [ref=e20]:
+        - generic [ref=e21]: 99,266
+        - text: broad impressions
+  - main [ref=e22]:
+    - heading "Expansion Candidates" [level=2] [ref=e23]
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - strong [ref=e26]: Whitening toothpaste
+        - generic [ref=e27]: "Primary: best whitening toothpaste"
+        - generic [ref=e28]: "thin-high-exact · Exact: 3,638 · Broad: 10,679 · Ratio: 2.9x · Keywords: 2"
+        - generic [ref=e29]: Create a branch seed-plan for "best whitening toothpaste" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e30]:
+        - strong [ref=e31]: Teeth whitening near me
+        - generic [ref=e32]: "Primary: teeth whitening near me"
+        - generic [ref=e33]: "thin-high-exact · Exact: 2,319 · Broad: 2,385 · Ratio: 1x · Keywords: 1"
+        - generic [ref=e34]: Create a branch seed-plan for "teeth whitening near me" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e35]:
+        - strong [ref=e36]: Teeth whitening gel
+        - generic [ref=e37]: "Primary: teeth whitening gel"
+        - generic [ref=e38]: "thin-high-exact · Exact: 1,156 · Broad: 1,225 · Ratio: 1.1x · Keywords: 2"
+        - generic [ref=e39]: Create a branch seed-plan for "teeth whitening gel" and rerun bing-site-plan with SEED_PLAN for this branch.
+    - heading "Main Page" [level=2] [ref=e40]
+    - paragraph [ref=e41]: Found via shows which seed or expansion query discovered the keyword. It is diagnostic data, collapsed by default to keep the plan readable.
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: money-page · transactional
+          - heading "Teeth whitening" [level=3] [ref=e46]
+          - paragraph [ref=e47]: /teeth-whitening/
+        - generic [ref=e48]:
+          - generic [ref=e49]: 9,900
+          - text: exact impressions
+        - generic [ref=e50]:
+          - generic [ref=e51]: 39,112
+          - text: broad impressions
+      - generic [ref=e52]:
+        - strong [ref=e53]: "Primary:"
+        - text: teeth whitening
+      - table [ref=e54]:
+        - rowgroup [ref=e55]:
+          - row "Keyword Exact Broad Found via" [ref=e56]:
+            - columnheader "Keyword" [ref=e57]
+            - columnheader "Exact" [ref=e58]
+            - columnheader "Broad" [ref=e59]
+            - columnheader "Found via" [ref=e60]
+        - rowgroup [ref=e61]:
+          - row "teeth whitening 7,853 35,813 direct" [ref=e62]:
+            - cell "teeth whitening" [ref=e63]
+            - cell "7,853" [ref=e64]
+            - cell "35,813" [ref=e65]
+            - cell "direct" [ref=e66]
+          - row "how to whiten teeth 1,231 2,483 direct" [ref=e67]:
+            - cell "how to whiten teeth" [ref=e68]
+            - cell "1,231" [ref=e69]
+            - cell "2,483" [ref=e70]
+            - cell "direct" [ref=e71]
+          - row "opalescence teeth whitening 409 409 direct" [ref=e72]:
+            - cell "opalescence teeth whitening" [ref=e73]
+            - cell "409" [ref=e74]
+            - cell "409" [ref=e75]
+            - cell "direct" [ref=e76]
+          - row "how to get white teeth 407 407 direct" [ref=e77]:
+            - cell "how to get white teeth" [ref=e78]
+            - cell "407" [ref=e79]
+            - cell "407" [ref=e80]
+            - cell "direct" [ref=e81]
+      - generic [ref=e82]: "Use one page for \"Teeth whitening\". Do not create separate pages for: teeth whitening, how to whiten teeth, opalescence teeth whitening, how to get white teeth."
+      - list [ref=e83]:
+        - listitem [ref=e84]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e85]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - heading "Money Pages" [level=2] [ref=e86]
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - paragraph [ref=e90]: money-page · transactional
+          - heading "Teeth whitening strips" [level=3] [ref=e91]
+          - paragraph [ref=e92]: /teeth-whitening-strips/
+        - generic [ref=e93]:
+          - generic [ref=e94]: 7,656
+          - text: exact impressions
+        - generic [ref=e95]:
+          - generic [ref=e96]: 23,510
+          - text: broad impressions
+      - generic [ref=e97]:
+        - strong [ref=e98]: "Primary:"
+        - text: whitening strips
+      - table [ref=e99]:
+        - rowgroup [ref=e100]:
+          - row "Keyword Exact Broad Found via" [ref=e101]:
+            - columnheader "Keyword" [ref=e102]
+            - columnheader "Exact" [ref=e103]
+            - columnheader "Broad" [ref=e104]
+            - columnheader "Found via" [ref=e105]
+        - rowgroup [ref=e106]:
+          - row "whitening strips 2,288 15,466 direct" [ref=e107]:
+            - cell "whitening strips" [ref=e108]
+            - cell "2,288" [ref=e109]
+            - cell "15,466" [ref=e110]
+            - cell "direct" [ref=e111]
+          - row "crest whitestrips 2,127 2,127 direct" [ref=e112]:
+            - cell "crest whitestrips" [ref=e113]
+            - cell "2,127" [ref=e114]
+            - cell "2,127" [ref=e115]
+            - cell "direct" [ref=e116]
+          - row "teeth whitening strips 1,987 4,186 direct" [ref=e117]:
+            - cell "teeth whitening strips" [ref=e118]
+            - cell "1,987" [ref=e119]
+            - cell "4,186" [ref=e120]
+            - cell "direct" [ref=e121]
+          - row "crest white strips 898 1,375 direct" [ref=e122]:
+            - cell "crest white strips" [ref=e123]
+            - cell "898" [ref=e124]
+            - cell "1,375" [ref=e125]
+            - cell "direct" [ref=e126]
+          - row "crest whitening strips 356 356 direct" [ref=e127]:
+            - cell "crest whitening strips" [ref=e128]
+            - cell "356" [ref=e129]
+            - cell "356" [ref=e130]
+            - cell "direct" [ref=e131]
+      - generic [ref=e132]: "Use one page for \"Teeth whitening strips\". Do not create separate pages for: whitening strips, crest whitestrips, teeth whitening strips, crest white strips, crest whitening strips."
+      - list [ref=e133]:
+        - listitem [ref=e134]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e135]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - paragraph [ref=e139]: money-page · transactional
+          - heading "Best teeth whitening products" [level=3] [ref=e140]
+          - paragraph [ref=e141]: /best-teeth-whitening-products/
+        - generic [ref=e142]:
+          - generic [ref=e143]: 4,423
+          - text: exact impressions
+        - generic [ref=e144]:
+          - generic [ref=e145]: 19,039
+          - text: broad impressions
+      - generic [ref=e146]:
+        - strong [ref=e147]: "Primary:"
+        - text: best teeth whitening products
+      - table [ref=e148]:
+        - rowgroup [ref=e149]:
+          - row "Keyword Exact Broad Found via" [ref=e150]:
+            - columnheader "Keyword" [ref=e151]
+            - columnheader "Exact" [ref=e152]
+            - columnheader "Broad" [ref=e153]
+            - columnheader "Found via" [ref=e154]
+        - rowgroup [ref=e155]:
+          - row "best teeth whitening products 1,178 4,830 direct" [ref=e156]:
+            - cell "best teeth whitening products" [ref=e157]
+            - cell "1,178" [ref=e158]
+            - cell "4,830" [ref=e159]
+            - cell "direct" [ref=e160]
+          - row "best teeth whitening 1,008 7,142 direct" [ref=e161]:
+            - cell "best teeth whitening" [ref=e162]
+            - cell "1,008" [ref=e163]
+            - cell "7,142" [ref=e164]
+            - cell "direct" [ref=e165]
+          - row "teeth whitening products 811 5,641 direct" [ref=e166]:
+            - cell "teeth whitening products" [ref=e167]
+            - cell "811" [ref=e168]
+            - cell "5,641" [ref=e169]
+            - cell "direct" [ref=e170]
+          - row "best teeth whitening strips 755 755 direct" [ref=e171]:
+            - cell "best teeth whitening strips" [ref=e172]
+            - cell "755" [ref=e173]
+            - cell "755" [ref=e174]
+            - cell "direct" [ref=e175]
+          - row "best teeth whitening products 2026 671 671 direct" [ref=e176]:
+            - cell "best teeth whitening products 2026" [ref=e177]
+            - cell "671" [ref=e178]
+            - cell "671" [ref=e179]
+            - cell "direct" [ref=e180]
+      - generic [ref=e181]: "Use one page for \"Best teeth whitening products\". Do not create separate pages for: best teeth whitening products, best teeth whitening, teeth whitening products, best teeth whitening strips, best teeth whitening products 2026."
+      - list [ref=e182]:
+        - listitem [ref=e183]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e184]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - paragraph [ref=e188]: money-page · transactional
+          - heading "Teeth whitening near me" [level=3] [ref=e189]
+          - paragraph [ref=e190]: /teeth-whitening-near-me/
+        - generic [ref=e191]:
+          - generic [ref=e192]: 2,319
+          - text: exact impressions
+        - generic [ref=e193]:
+          - generic [ref=e194]: 2,385
+          - text: broad impressions
+      - generic [ref=e195]:
+        - strong [ref=e196]: "Primary:"
+        - text: teeth whitening near me
+      - table [ref=e197]:
+        - rowgroup [ref=e198]:
+          - row "Keyword Exact Broad Found via" [ref=e199]:
+            - columnheader "Keyword" [ref=e200]
+            - columnheader "Exact" [ref=e201]
+            - columnheader "Broad" [ref=e202]
+            - columnheader "Found via" [ref=e203]
+        - rowgroup [ref=e204]:
+          - row "teeth whitening near me 2,319 2,385 direct" [ref=e205]:
+            - cell "teeth whitening near me" [ref=e206]
+            - cell "2,319" [ref=e207]
+            - cell "2,385" [ref=e208]
+            - cell "direct" [ref=e209]
+      - generic [ref=e210]: "Use one page for \"Teeth whitening near me\". Do not create separate pages for: teeth whitening near me."
+      - list [ref=e211]:
+        - listitem [ref=e212]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e213]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e214]:
+      - generic [ref=e215]:
+        - generic [ref=e216]:
+          - paragraph [ref=e217]: money-page · transactional
+          - heading "Teeth whitening gel" [level=3] [ref=e218]
+          - paragraph [ref=e219]: /teeth-whitening-gel/
+        - generic [ref=e220]:
+          - generic [ref=e221]: 1,156
+          - text: exact impressions
+        - generic [ref=e222]:
+          - generic [ref=e223]: 1,225
+          - text: broad impressions
+      - generic [ref=e224]:
+        - strong [ref=e225]: "Primary:"
+        - text: teeth whitening gel
+      - table [ref=e226]:
+        - rowgroup [ref=e227]:
+          - row "Keyword Exact Broad Found via" [ref=e228]:
+            - columnheader "Keyword" [ref=e229]
+            - columnheader "Exact" [ref=e230]
+            - columnheader "Broad" [ref=e231]
+            - columnheader "Found via" [ref=e232]
+        - rowgroup [ref=e233]:
+          - row "teeth whitening gel 753 822 direct" [ref=e234]:
+            - cell "teeth whitening gel" [ref=e235]
+            - cell "753" [ref=e236]
+            - cell "822" [ref=e237]
+            - cell "direct" [ref=e238]
+          - row "smileactives pro whitening gel 403 403 direct" [ref=e239]:
+            - cell "smileactives pro whitening gel" [ref=e240]
+            - cell "403" [ref=e241]
+            - cell "403" [ref=e242]
+            - cell "direct" [ref=e243]
+      - generic [ref=e244]: "Use one page for \"Teeth whitening gel\". Do not create separate pages for: teeth whitening gel, smileactives pro whitening gel."
+      - list [ref=e245]:
+        - listitem [ref=e246]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e247]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - paragraph [ref=e251]: money-page · transactional
+          - heading "Professional teeth whitening" [level=3] [ref=e252]
+          - paragraph [ref=e253]: /professional-teeth-whitening/
+        - generic [ref=e254]:
+          - generic [ref=e255]: "994"
+          - text: exact impressions
+        - generic [ref=e256]:
+          - generic [ref=e257]: 1,120
+          - text: broad impressions
+      - generic [ref=e258]:
+        - strong [ref=e259]: "Primary:"
+        - text: zoom teeth whitening
+      - table [ref=e260]:
+        - rowgroup [ref=e261]:
+          - row "Keyword Exact Broad Found via" [ref=e262]:
+            - columnheader "Keyword" [ref=e263]
+            - columnheader "Exact" [ref=e264]
+            - columnheader "Broad" [ref=e265]
+            - columnheader "Found via" [ref=e266]
+        - rowgroup [ref=e267]:
+          - row "zoom teeth whitening 548 608 direct" [ref=e268]:
+            - cell "zoom teeth whitening" [ref=e269]
+            - cell "548" [ref=e270]
+            - cell "608" [ref=e271]
+            - cell "direct" [ref=e272]
+          - row "professional teeth whitening 446 512 direct" [ref=e273]:
+            - cell "professional teeth whitening" [ref=e274]
+            - cell "446" [ref=e275]
+            - cell "512" [ref=e276]
+            - cell "direct" [ref=e277]
+      - generic [ref=e278]: "Use one page for \"Professional teeth whitening\". Do not create separate pages for: zoom teeth whitening, professional teeth whitening."
+      - list [ref=e279]:
+        - listitem [ref=e280]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e281]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - generic [ref=e284]:
+          - paragraph [ref=e285]: money-page · transactional
+          - heading "Opalescence Whitening" [level=3] [ref=e286]
+          - paragraph [ref=e287]: /opalescence-whitening/
+        - generic [ref=e288]:
+          - generic [ref=e289]: "400"
+          - text: exact impressions
+        - generic [ref=e290]:
+          - generic [ref=e291]: "409"
+          - text: broad impressions
+      - generic [ref=e292]:
+        - strong [ref=e293]: "Primary:"
+        - text: opalescence whitening
+      - table [ref=e294]:
+        - rowgroup [ref=e295]:
+          - row "Keyword Exact Broad Found via" [ref=e296]:
+            - columnheader "Keyword" [ref=e297]
+            - columnheader "Exact" [ref=e298]
+            - columnheader "Broad" [ref=e299]
+            - columnheader "Found via" [ref=e300]
+        - rowgroup [ref=e301]:
+          - row "opalescence whitening 400 409 direct" [ref=e302]:
+            - cell "opalescence whitening" [ref=e303]
+            - cell "400" [ref=e304]
+            - cell "409" [ref=e305]
+            - cell "direct" [ref=e306]
+      - generic [ref=e307]: "Use one page for \"Opalescence Whitening\". Do not create separate pages for: opalescence whitening."
+      - list [ref=e308]:
+        - listitem [ref=e309]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e310]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - paragraph [ref=e314]: money-page · transactional
+          - heading "Teeth whitening kit" [level=3] [ref=e315]
+          - paragraph [ref=e316]: /teeth-whitening-kit/
+        - generic [ref=e317]:
+          - generic [ref=e318]: "392"
+          - text: exact impressions
+        - generic [ref=e319]:
+          - generic [ref=e320]: 1,787
+          - text: broad impressions
+      - generic [ref=e321]:
+        - strong [ref=e322]: "Primary:"
+        - text: teeth whitening kit
+      - table [ref=e323]:
+        - rowgroup [ref=e324]:
+          - row "Keyword Exact Broad Found via" [ref=e325]:
+            - columnheader "Keyword" [ref=e326]
+            - columnheader "Exact" [ref=e327]
+            - columnheader "Broad" [ref=e328]
+            - columnheader "Found via" [ref=e329]
+        - rowgroup [ref=e330]:
+          - row "teeth whitening kit 392 1,787 direct" [ref=e331]:
+            - cell "teeth whitening kit" [ref=e332]
+            - cell "392" [ref=e333]
+            - cell "1,787" [ref=e334]
+            - cell "direct" [ref=e335]
+      - generic [ref=e336]: "Use one page for \"Teeth whitening kit\". Do not create separate pages for: teeth whitening kit."
+      - list [ref=e337]:
+        - listitem [ref=e338]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e339]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - heading "Funnel Support Pages" [level=2] [ref=e340]
+    - generic [ref=e341]: No funnel-support clusters found.
+    - heading "Merged Keywords" [level=2] [ref=e342]
+    - paragraph [ref=e343]: These weak or single-keyword clusters should not become separate pages. Fold them into the suggested parent page to avoid thin pages and cannibalization.
+    - generic [ref=e344]: No small clusters were merged.
+    - heading "Tested Seed Hypotheses" [level=2] [ref=e345]
+    - paragraph [ref=e346]: "These are seed ideas the agent explicitly tested. Rows with zero demand are useful: they show named games/providers that should not become pages unless another data source proves demand."
+    - table [ref=e347]:
+      - rowgroup [ref=e348]:
+        - row "Seed Hypothesis Exact Broad Status" [ref=e349]:
+          - columnheader "Seed Hypothesis" [ref=e350]
+          - columnheader "Exact" [ref=e351]
+          - columnheader "Broad" [ref=e352]
+          - columnheader "Status" [ref=e353]
+      - rowgroup [ref=e354]:
+        - row "teeth whitening 7,853 35,813 has Bing demand" [ref=e355]:
+          - cell "teeth whitening" [ref=e356]
+          - cell "7,853" [ref=e357]
+          - cell "35,813" [ref=e358]
+          - cell "has Bing demand" [ref=e359]
+        - row "best whitening toothpaste 2,482 3,221 has Bing demand" [ref=e360]:
+          - cell "best whitening toothpaste" [ref=e361]
+          - cell "2,482" [ref=e362]
+          - cell "3,221" [ref=e363]
+          - cell "has Bing demand" [ref=e364]
+        - row "teeth whitening near me 2,319 2,385 has Bing demand" [ref=e365]:
+          - cell "teeth whitening near me" [ref=e366]
+          - cell "2,319" [ref=e367]
+          - cell "2,385" [ref=e368]
+          - cell "has Bing demand" [ref=e369]
+        - row "whitening strips 2,288 15,466 has Bing demand" [ref=e370]:
+          - cell "whitening strips" [ref=e371]
+          - cell "2,288" [ref=e372]
+          - cell "15,466" [ref=e373]
+          - cell "has Bing demand" [ref=e374]
+        - row "crest whitestrips 2,127 2,127 has Bing demand" [ref=e375]:
+          - cell "crest whitestrips" [ref=e376]
+          - cell "2,127" [ref=e377]
+          - cell "2,127" [ref=e378]
+          - cell "has Bing demand" [ref=e379]
+        - row "teeth whitening strips 1,987 4,186 has Bing demand" [ref=e380]:
+          - cell "teeth whitening strips" [ref=e381]
+          - cell "1,987" [ref=e382]
+          - cell "4,186" [ref=e383]
+          - cell "has Bing demand" [ref=e384]
+        - row "how to whiten teeth 1,231 2,483 has Bing demand" [ref=e385]:
+          - cell "how to whiten teeth" [ref=e386]
+          - cell "1,231" [ref=e387]
+          - cell "2,483" [ref=e388]
+          - cell "has Bing demand" [ref=e389]
+        - row "best teeth whitening products 1,178 4,830 has Bing demand" [ref=e390]:
+          - cell "best teeth whitening products" [ref=e391]
+          - cell "1,178" [ref=e392]
+          - cell "4,830" [ref=e393]
+          - cell "has Bing demand" [ref=e394]
+        - row "whitening toothpaste 1,156 7,458 has Bing demand" [ref=e395]:
+          - cell "whitening toothpaste" [ref=e396]
+          - cell "1,156" [ref=e397]
+          - cell "7,458" [ref=e398]
+          - cell "has Bing demand" [ref=e399]
+        - row "best teeth whitening 1,008 7,142 has Bing demand" [ref=e400]:
+          - cell "best teeth whitening" [ref=e401]
+          - cell "1,008" [ref=e402]
+          - cell "7,142" [ref=e403]
+          - cell "has Bing demand" [ref=e404]
+        - row "crest white strips 898 1,375 has Bing demand" [ref=e405]:
+          - cell "crest white strips" [ref=e406]
+          - cell "898" [ref=e407]
+          - cell "1,375" [ref=e408]
+          - cell "has Bing demand" [ref=e409]
+        - row "teeth whitening products 811 5,641 has Bing demand" [ref=e410]:
+          - cell "teeth whitening products" [ref=e411]
+          - cell "811" [ref=e412]
+          - cell "5,641" [ref=e413]
+          - cell "has Bing demand" [ref=e414]
+        - row "best teeth whitening strips 755 755 has Bing demand" [ref=e415]:
+          - cell "best teeth whitening strips" [ref=e416]
+          - cell "755" [ref=e417]
+          - cell "755" [ref=e418]
+          - cell "has Bing demand" [ref=e419]
+        - row "teeth whitening gel 753 822 has Bing demand" [ref=e420]:
+          - cell "teeth whitening gel" [ref=e421]
+          - cell "753" [ref=e422]
+          - cell "822" [ref=e423]
+          - cell "has Bing demand" [ref=e424]
+        - row "zoom teeth whitening 548 608 has Bing demand" [ref=e425]:
+          - cell "zoom teeth whitening" [ref=e426]
+          - cell "548" [ref=e427]
+          - cell "608" [ref=e428]
+          - cell "has Bing demand" [ref=e429]
+        - row "professional teeth whitening 446 512 has Bing demand" [ref=e430]:
+          - cell "professional teeth whitening" [ref=e431]
+          - cell "446" [ref=e432]
+          - cell "512" [ref=e433]
+          - cell "has Bing demand" [ref=e434]
+        - row "how to get white teeth 407 407 has Bing demand" [ref=e435]:
+          - cell "how to get white teeth" [ref=e436]
+          - cell "407" [ref=e437]
+          - cell "407" [ref=e438]
+          - cell "has Bing demand" [ref=e439]
+        - row "teeth whitening kit 392 1,787 has Bing demand" [ref=e440]:
+          - cell "teeth whitening kit" [ref=e441]
+          - cell "392" [ref=e442]
+          - cell "1,787" [ref=e443]
+          - cell "has Bing demand" [ref=e444]
+        - row "teeth whitening cost 280 456 has Bing demand" [ref=e445]:
+          - cell "teeth whitening cost" [ref=e446]
+          - cell "280" [ref=e447]
+          - cell "456" [ref=e448]
+          - cell "has Bing demand" [ref=e449]
+        - row "best teeth whitener 245 245 has Bing demand" [ref=e450]:
+          - cell "best teeth whitener" [ref=e451]
+          - cell "245" [ref=e452]
+          - cell "245" [ref=e453]
+          - cell "has Bing demand" [ref=e454]
+        - row "teeth whitening pen 234 245 has Bing demand" [ref=e455]:
+          - cell "teeth whitening pen" [ref=e456]
+          - cell "234" [ref=e457]
+          - cell "245" [ref=e458]
+          - cell "has Bing demand" [ref=e459]
+        - row "best at home teeth whitening 173 173 has Bing demand" [ref=e460]:
+          - cell "best at home teeth whitening" [ref=e461]
+          - cell "173" [ref=e462]
+          - cell "173" [ref=e463]
+          - cell "has Bing demand" [ref=e464]
+        - row "laser teeth whitening 169 169 has Bing demand" [ref=e465]:
+          - cell "laser teeth whitening" [ref=e466]
+          - cell "169" [ref=e467]
+          - cell "169" [ref=e468]
+          - cell "has Bing demand" [ref=e469]
+        - row "professional teeth whitening near me 66 66 has Bing demand" [ref=e470]:
+          - cell "professional teeth whitening near me" [ref=e471]
+          - cell "66" [ref=e472]
+          - cell "66" [ref=e473]
+          - cell "has Bing demand" [ref=e474]
+        - row "teeth whitening trays 53 53 has Bing demand" [ref=e475]:
+          - cell "teeth whitening trays" [ref=e476]
+          - cell "53" [ref=e477]
+          - cell "53" [ref=e478]
+          - cell "has Bing demand" [ref=e479]
+        - row "at home teeth whitening 29 202 has Bing demand" [ref=e480]:
+          - cell "at home teeth whitening" [ref=e481]
+          - cell "29" [ref=e482]
+          - cell "202" [ref=e483]
+          - cell "has Bing demand" [ref=e484]
+        - row "is teeth whitening safe 8 8 has Bing demand" [ref=e485]:
+          - cell "is teeth whitening safe" [ref=e486]
+          - cell "8" [ref=e487]
+          - cell "8" [ref=e488]
+          - cell "has Bing demand" [ref=e489]
+        - row "white strips 0 1,565 has Bing demand" [ref=e490]:
+          - cell "white strips" [ref=e491]
+          - cell "0" [ref=e492]
+          - cell "1,565" [ref=e493]
+          - cell "has Bing demand" [ref=e494]
+        - row "led teeth whitening 0 2 has Bing demand" [ref=e495]:
+          - cell "led teeth whitening" [ref=e496]
+          - cell "0" [ref=e497]
+          - cell "2" [ref=e498]
+          - cell "has Bing demand" [ref=e499]
+        - row "at home teeth whitening kit 0 0 tested, no 30-day Bing demand" [ref=e500]:
+          - cell "at home teeth whitening kit" [ref=e501]
+          - cell "0" [ref=e502]
+          - cell "0" [ref=e503]
+          - cell "tested, no 30-day Bing demand" [ref=e504]
+        - row "best teeth whitening for sensitive teeth 0 0 tested, no 30-day Bing demand" [ref=e505]:
+          - cell "best teeth whitening for sensitive teeth" [ref=e506]
+          - cell "0" [ref=e507]
+          - cell "0" [ref=e508]
+          - cell "tested, no 30-day Bing demand" [ref=e509]
+        - row "best teeth whitening kit 0 0 tested, no 30-day Bing demand" [ref=e510]:
+          - cell "best teeth whitening kit" [ref=e511]
+          - cell "0" [ref=e512]
+          - cell "0" [ref=e513]
+          - cell "tested, no 30-day Bing demand" [ref=e514]
+        - row "best teeth whitening mouthwash 0 0 tested, no 30-day Bing demand" [ref=e515]:
+          - cell "best teeth whitening mouthwash" [ref=e516]
+          - cell "0" [ref=e517]
+          - cell "0" [ref=e518]
+          - cell "tested, no 30-day Bing demand" [ref=e519]
+        - row "best teeth whitening pen 0 0 tested, no 30-day Bing demand" [ref=e520]:
+          - cell "best teeth whitening pen" [ref=e521]
+          - cell "0" [ref=e522]
+          - cell "0" [ref=e523]
+          - cell "tested, no 30-day Bing demand" [ref=e524]
+        - row "blue light teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e525]:
+          - cell "blue light teeth whitening" [ref=e526]
+          - cell "0" [ref=e527]
+          - cell "0" [ref=e528]
+          - cell "tested, no 30-day Bing demand" [ref=e529]
+        - row "carbamide peroxide teeth whitening gel 0 0 tested, no 30-day Bing demand" [ref=e530]:
+          - cell "carbamide peroxide teeth whitening gel" [ref=e531]
+          - cell "0" [ref=e532]
+          - cell "0" [ref=e533]
+          - cell "tested, no 30-day Bing demand" [ref=e534]
+        - row "charcoal toothpaste whitening 0 0 tested, no 30-day Bing demand" [ref=e535]:
+          - cell "charcoal toothpaste whitening" [ref=e536]
+          - cell "0" [ref=e537]
+          - cell "0" [ref=e538]
+          - cell "tested, no 30-day Bing demand" [ref=e539]
+        - row "coffee stains teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e540]:
+          - cell "coffee stains teeth whitening" [ref=e541]
+          - cell "0" [ref=e542]
+          - cell "0" [ref=e543]
+          - cell "tested, no 30-day Bing demand" [ref=e544]
+        - row "dental teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e545]:
+          - cell "dental teeth whitening" [ref=e546]
+          - cell "0" [ref=e547]
+          - cell "0" [ref=e548]
+          - cell "tested, no 30-day Bing demand" [ref=e549]
+        - row "dentist teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e550]:
+          - cell "dentist teeth whitening" [ref=e551]
+          - cell "0" [ref=e552]
+          - cell "0" [ref=e553]
+          - cell "tested, no 30-day Bing demand" [ref=e554]
+        - row "dentist teeth whitening cost 0 0 tested, no 30-day Bing demand" [ref=e555]:
+          - cell "dentist teeth whitening cost" [ref=e556]
+          - cell "0" [ref=e557]
+          - cell "0" [ref=e558]
+          - cell "tested, no 30-day Bing demand" [ref=e559]
+        - row "dentist teeth whitening near me 0 0 tested, no 30-day Bing demand" [ref=e560]:
+          - cell "dentist teeth whitening near me" [ref=e561]
+          - cell "0" [ref=e562]
+          - cell "0" [ref=e563]
+          - cell "tested, no 30-day Bing demand" [ref=e564]
+        - row "does teeth whitening damage enamel 0 0 tested, no 30-day Bing demand" [ref=e565]:
+          - cell "does teeth whitening damage enamel" [ref=e566]
+          - cell "0" [ref=e567]
+          - cell "0" [ref=e568]
+          - cell "tested, no 30-day Bing demand" [ref=e569]
+        - row "enamel safe teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e570]:
+          - cell "enamel safe teeth whitening" [ref=e571]
+          - cell "0" [ref=e572]
+          - cell "0" [ref=e573]
+          - cell "tested, no 30-day Bing demand" [ref=e574]
+        - row "in office teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e575]:
+          - cell "in office teeth whitening" [ref=e576]
+          - cell "0" [ref=e577]
+          - cell "0" [ref=e578]
+          - cell "tested, no 30-day Bing demand" [ref=e579]
+        - row "laser teeth whitening cost 0 0 tested, no 30-day Bing demand" [ref=e580]:
+          - cell "laser teeth whitening cost" [ref=e581]
+          - cell "0" [ref=e582]
+          - cell "0" [ref=e583]
+          - cell "tested, no 30-day Bing demand" [ref=e584]
+        - row "led teeth whitening kit 0 0 tested, no 30-day Bing demand" [ref=e585]:
+          - cell "led teeth whitening kit" [ref=e586]
+          - cell "0" [ref=e587]
+          - cell "0" [ref=e588]
+          - cell "tested, no 30-day Bing demand" [ref=e589]
+        - row "professional teeth whitening cost 0 0 tested, no 30-day Bing demand" [ref=e590]:
+          - cell "professional teeth whitening cost" [ref=e591]
+          - cell "0" [ref=e592]
+          - cell "0" [ref=e593]
+          - cell "tested, no 30-day Bing demand" [ref=e594]
+        - row "purple toothpaste for teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e595]:
+          - cell "purple toothpaste for teeth whitening" [ref=e596]
+          - cell "0" [ref=e597]
+          - cell "0" [ref=e598]
+          - cell "tested, no 30-day Bing demand" [ref=e599]
+        - row "safe teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e600]:
+          - cell "safe teeth whitening" [ref=e601]
+          - cell "0" [ref=e602]
+          - cell "0" [ref=e603]
+          - cell "tested, no 30-day Bing demand" [ref=e604]
+        - row "smoking stains teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e605]:
+          - cell "smoking stains teeth whitening" [ref=e606]
+          - cell "0" [ref=e607]
+          - cell "0" [ref=e608]
+          - cell "tested, no 30-day Bing demand" [ref=e609]
+        - row "teeth whitening for sensitive teeth 0 0 tested, no 30-day Bing demand" [ref=e610]:
+          - cell "teeth whitening for sensitive teeth" [ref=e611]
+          - cell "0" [ref=e612]
+          - cell "0" [ref=e613]
+          - cell "tested, no 30-day Bing demand" [ref=e614]
+        - row "teeth whitening light 0 0 tested, no 30-day Bing demand" [ref=e615]:
+          - cell "teeth whitening light" [ref=e616]
+          - cell "0" [ref=e617]
+          - cell "0" [ref=e618]
+          - cell "tested, no 30-day Bing demand" [ref=e619]
+        - row "teeth whitening mouthwash 0 0 tested, no 30-day Bing demand" [ref=e620]:
+          - cell "teeth whitening mouthwash" [ref=e621]
+          - cell "0" [ref=e622]
+          - cell "0" [ref=e623]
+          - cell "tested, no 30-day Bing demand" [ref=e624]
+        - row "teeth whitening reviews 0 0 tested, no 30-day Bing demand" [ref=e625]:
+          - cell "teeth whitening reviews" [ref=e626]
+          - cell "0" [ref=e627]
+          - cell "0" [ref=e628]
+          - cell "tested, no 30-day Bing demand" [ref=e629]
+        - row "teeth whitening service 0 0 tested, no 30-day Bing demand" [ref=e630]:
+          - cell "teeth whitening service" [ref=e631]
+          - cell "0" [ref=e632]
+          - cell "0" [ref=e633]
+          - cell "tested, no 30-day Bing demand" [ref=e634]
+        - row "teeth whitening side effects 0 0 tested, no 30-day Bing demand" [ref=e635]:
+          - cell "teeth whitening side effects" [ref=e636]
+          - cell "0" [ref=e637]
+          - cell "0" [ref=e638]
+          - cell "tested, no 30-day Bing demand" [ref=e639]
+        - row "whitening gel for teeth 0 0 tested, no 30-day Bing demand" [ref=e640]:
+          - cell "whitening gel for teeth" [ref=e641]
+          - cell "0" [ref=e642]
+          - cell "0" [ref=e643]
+          - cell "tested, no 30-day Bing demand" [ref=e644]
+        - row "wine stains teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e645]:
+          - cell "wine stains teeth whitening" [ref=e646]
+          - cell "0" [ref=e647]
+          - cell "0" [ref=e648]
+          - cell "tested, no 30-day Bing demand" [ref=e649]
+        - row "yellow teeth whitening 0 0 tested, no 30-day Bing demand" [ref=e650]:
+          - cell "yellow teeth whitening" [ref=e651]
+          - cell "0" [ref=e652]
+          - cell "0" [ref=e653]
+          - cell "tested, no 30-day Bing demand" [ref=e654]
+    - heading "Excluded / Review" [level=2] [ref=e655]
+    - generic [ref=e656]:
+      - generic [ref=e657]:
+        - generic [ref=e658]:
+          - paragraph [ref=e659]: exclude-or-review · mixed
+          - heading "Whitening toothpaste" [level=3] [ref=e660]
+          - paragraph [ref=e661]: /whitening-toothpaste/
+        - generic [ref=e662]:
+          - generic [ref=e663]: 3,638
+          - text: exact impressions
+        - generic [ref=e664]:
+          - generic [ref=e665]: 10,679
+          - text: broad impressions
+      - generic [ref=e666]:
+        - strong [ref=e667]: "Primary:"
+        - text: best whitening toothpaste
+      - table [ref=e668]:
+        - rowgroup [ref=e669]:
+          - row "Keyword Exact Broad Found via" [ref=e670]:
+            - columnheader "Keyword" [ref=e671]
+            - columnheader "Exact" [ref=e672]
+            - columnheader "Broad" [ref=e673]
+            - columnheader "Found via" [ref=e674]
+        - rowgroup [ref=e675]:
+          - row "best whitening toothpaste 2,482 3,221 direct" [ref=e676]:
+            - cell "best whitening toothpaste" [ref=e677]
+            - cell "2,482" [ref=e678]
+            - cell "3,221" [ref=e679]
+            - cell "direct" [ref=e680]
+          - row "whitening toothpaste 1,156 7,458 direct" [ref=e681]:
+            - cell "whitening toothpaste" [ref=e682]
+            - cell "1,156" [ref=e683]
+            - cell "7,458" [ref=e684]
+            - cell "direct" [ref=e685]
+      - generic [ref=e686]: "Use one page for \"Whitening toothpaste\". Do not create separate pages for: best whitening toothpaste, whitening toothpaste."
+      - list [ref=e687]:
+        - listitem [ref=e688]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e689]: Use internal links to route commercial visitors toward the main offer.
+    - heading "Rejected Keywords" [level=2] [ref=e690]
+    - generic [ref=e691]:
+      - generic [ref=e692]:
+        - strong [ref=e693]: walmart
+        - text: not-in-niche
+      - generic [ref=e694]:
+        - strong [ref=e695]: outlook
+        - text: not-in-niche
+      - generic [ref=e696]:
+        - strong [ref=e697]: outlook login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e698]:
+        - strong [ref=e699]: events near me
+        - text: not-in-niche
+      - generic [ref=e700]:
+        - strong [ref=e701]: sport events near me
+        - text: not-in-niche
+      - generic [ref=e702]:
+        - strong [ref=e703]: concerts near me
+        - text: not-in-niche
+      - generic [ref=e704]:
+        - strong [ref=e705]: sharepoint
+        - text: not-in-niche
+      - generic [ref=e706]:
+        - strong [ref=e707]: hotmail
+        - text: not-in-niche
+      - generic [ref=e708]:
+        - strong [ref=e709]: restaurants near me
+        - text: not-in-niche
+      - generic [ref=e710]:
+        - strong [ref=e711]: comedy events near me
+        - text: not-in-niche
+      - generic [ref=e712]:
+        - strong [ref=e713]: microsoft word
+        - text: not-in-niche
+      - generic [ref=e714]:
+        - strong [ref=e715]: word
+        - text: not-in-niche
+      - generic [ref=e716]:
+        - strong [ref=e717]: office 365 login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e718]:
+        - strong [ref=e719]: hotmail sign in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e720]:
+        - strong [ref=e721]: email
+        - text: not-in-niche
+      - generic [ref=e722]:
+        - strong [ref=e723]: microsoft 365 login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e724]:
+        - strong [ref=e725]: microsoft 365
+        - text: not-in-niche
+      - generic [ref=e726]:
+        - strong [ref=e727]: mail at abc@microsoft.com
+        - text: not-in-niche
+      - generic [ref=e728]:
+        - strong [ref=e729]: msn.com
+        - text: not-in-niche
+      - generic [ref=e730]:
+        - strong [ref=e731]: outlook email login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e732]:
+        - strong [ref=e733]: summer activities near me
+        - text: not-in-niche
+      - generic [ref=e734]:
+        - strong [ref=e735]: microsoft.com
+        - text: not-in-niche
+      - generic [ref=e736]:
+        - strong [ref=e737]: 365 login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e738]:
+        - strong [ref=e739]: office 365
+        - text: not-in-niche
+      - generic [ref=e740]:
+        - strong [ref=e741]: hotels near me
+        - text: not-in-niche
+      - generic [ref=e742]:
+        - strong [ref=e743]: hotmail.com login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e744]:
+        - strong [ref=e745]: microsoft outlook
+        - text: not-in-niche
+      - generic [ref=e746]:
+        - strong [ref=e747]: movie tickets near me
+        - text: not-in-niche
+      - generic [ref=e748]:
+        - strong [ref=e749]: hotmail.com
+        - text: not-in-niche
+      - generic [ref=e750]:
+        - strong [ref=e751]: outlook.com
+        - text: not-in-niche
+      - generic [ref=e752]:
+        - strong [ref=e753]: copilot 365
+        - text: not-in-niche
+      - generic [ref=e754]:
+        - strong [ref=e755]: food near me
+        - text: not-in-niche
+      - generic [ref=e756]:
+        - strong [ref=e757]: walmart near me
+        - text: not-in-niche
+      - generic [ref=e758]:
+        - strong [ref=e759]: home depot near me
+        - text: not-in-niche
+      - generic [ref=e760]:
+        - strong [ref=e761]: white pages
+        - text: seed-plan-reject-phrase
+      - generic [ref=e762]:
+        - strong [ref=e763]: jobs near me
+        - text: seed-plan-reject-term
+      - generic [ref=e764]:
+        - strong [ref=e765]: lowe's near me
+        - text: not-in-niche
+      - generic [ref=e766]:
+        - strong [ref=e767]: domino's near me
+        - text: not-in-niche
+      - generic [ref=e768]:
+        - strong [ref=e769]: home
+        - text: not-in-niche
+      - generic [ref=e770]:
+        - strong [ref=e771]: harbor freight near me
+        - text: not-in-niche
+      - generic [ref=e772]:
+        - strong [ref=e773]: pizza near me
+        - text: not-in-niche
+      - generic [ref=e774]:
+        - strong [ref=e775]: ups store near me
+        - text: not-in-niche
+      - generic [ref=e776]:
+        - strong [ref=e777]: office
+        - text: not-in-niche
+      - generic [ref=e778]:
+        - strong [ref=e779]: movie theaters near me
+        - text: not-in-niche
+      - generic [ref=e780]:
+        - strong [ref=e781]: one walmart
+        - text: not-in-niche
+      - generic [ref=e782]:
+        - strong [ref=e783]: houses for sale near me
+        - text: not-in-niche
+      - generic [ref=e784]:
+        - strong [ref=e785]: walgreens near me
+        - text: not-in-niche
+      - generic [ref=e786]:
+        - strong [ref=e787]: white screen
+        - text: seed-plan-reject-phrase
+      - generic [ref=e788]:
+        - strong [ref=e789]: trump on bid to block white house ufc event
+        - text: seed-plan-reject-phrase
+      - generic [ref=e790]:
+        - strong [ref=e791]: target near me
+        - text: not-in-niche
+      - generic [ref=e792]:
+        - strong [ref=e793]: office.com
+        - text: not-in-niche
+      - generic [ref=e794]:
+        - strong [ref=e795]: urgent care near me
+        - text: not-in-niche
+      - generic [ref=e796]:
+        - strong [ref=e797]: white house shooting incident
+        - text: seed-plan-reject-phrase
+      - generic [ref=e798]:
+        - strong [ref=e799]: internet plans near me
+        - text: not-in-niche
+      - generic [ref=e800]:
+        - strong [ref=e801]: rental cars near me
+        - text: not-in-niche
+      - generic [ref=e802]:
+        - strong [ref=e803]: homes for sale near me
+        - text: not-in-niche
+      - generic [ref=e804]:
+        - strong [ref=e805]: cvs near me
+        - text: not-in-niche
+      - generic [ref=e806]:
+        - strong [ref=e807]: amc theatres near me
+        - text: not-in-niche
+      - generic [ref=e808]:
+        - strong [ref=e809]: sign in to outlook.com site microsoft.com
+        - text: brand-or-unrelated-noise
+      - generic [ref=e810]:
+        - strong [ref=e811]: oreillys near me
+        - text: not-in-niche
+      - generic [ref=e812]:
+        - strong [ref=e813]: chinese food near me
+        - text: not-in-niche
+      - generic [ref=e814]:
+        - strong [ref=e815]: sherwin williams near me
+        - text: not-in-niche
+      - generic [ref=e816]:
+        - strong [ref=e817]: used cars near me
+        - text: not-in-niche
+      - generic [ref=e818]:
+        - strong [ref=e819]: staples near me
+        - text: not-in-niche
+      - generic [ref=e820]:
+        - strong [ref=e821]: ufc white house
+        - text: seed-plan-reject-phrase
+      - generic [ref=e822]:
+        - strong [ref=e823]: movies near me
+        - text: not-in-niche
+      - generic [ref=e824]:
+        - strong [ref=e825]: toyota dealerships near me
+        - text: not-in-niche
+      - generic [ref=e826]:
+        - strong [ref=e827]: ace hardware near me
+        - text: not-in-niche
+      - generic [ref=e828]:
+        - strong [ref=e829]: jobs hiring near me
+        - text: seed-plan-reject-term
+      - generic [ref=e830]:
+        - strong [ref=e831]: best buy near me
+        - text: not-in-niche
+      - generic [ref=e832]:
+        - strong [ref=e833]: microsoft office 365
+        - text: not-in-niche
+      - generic [ref=e834]:
+        - strong [ref=e835]: publix near me
+        - text: not-in-niche
+      - generic [ref=e836]:
+        - strong [ref=e837]: social security office near me
+        - text: not-in-niche
+      - generic [ref=e838]:
+        - strong [ref=e839]: planet fitness near me
+        - text: not-in-niche
+      - generic [ref=e840]:
+        - strong [ref=e841]: tickets for concerts near me
+        - text: not-in-niche
+      - generic [ref=e842]:
+        - strong [ref=e843]: mexican restaurants near me
+        - text: not-in-niche
+      - generic [ref=e844]:
+        - strong [ref=e845]: microsoft account login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e846]:
+        - strong [ref=e847]: fandango at home
+        - text: not-in-niche
+      - generic [ref=e848]:
+        - strong [ref=e849]: ford dealerships near me
+        - text: not-in-niche
+      - generic [ref=e850]:
+        - strong [ref=e851]: cheese making at home
+        - text: not-in-niche
+      - generic [ref=e852]:
+        - strong [ref=e853]: dermatologist near me
+        - text: not-in-niche
+      - generic [ref=e854]:
+        - strong [ref=e855]: costco near me
+        - text: not-in-niche
+      - generic [ref=e856]:
+        - strong [ref=e857]: fedex near me
+        - text: not-in-niche
+      - generic [ref=e858]:
+        - strong [ref=e859]: part time jobs near me
+        - text: seed-plan-reject-term
+      - generic [ref=e860]:
+        - strong [ref=e861]: chinese restaurant near me
+        - text: not-in-niche
+      - generic [ref=e862]:
+        - strong [ref=e863]: white sox
+        - text: seed-plan-reject-phrase
+      - generic [ref=e864]:
+        - strong [ref=e865]: furniture stores near me
+        - text: not-in-niche
+      - generic [ref=e866]:
+        - strong [ref=e867]: home goods
+        - text: not-in-niche
+      - generic [ref=e868]:
+        - strong [ref=e869]: apartments near me
+        - text: not-in-niche
+      - generic [ref=e870]:
+        - strong [ref=e871]: gas prices near me
+        - text: not-in-niche
+      - generic [ref=e872]:
+        - strong [ref=e873]: flower delivery near me
+        - text: not-in-niche
+      - generic [ref=e874]:
+        - strong [ref=e875]: the white house ufc event is costing 60 million
+        - text: seed-plan-reject-phrase
+      - generic [ref=e876]:
+        - strong [ref=e877]: real estate near me
+        - text: not-in-niche
+      - generic [ref=e878]:
+        - strong [ref=e879]: estate sales near me
+        - text: not-in-niche
+      - generic [ref=e880]:
+        - strong [ref=e881]: mcdonald's near me
+        - text: not-in-niche
+      - generic [ref=e882]:
+        - strong [ref=e883]: honda dealerships near me
+        - text: not-in-niche
+      - generic [ref=e884]:
+        - strong [ref=e885]: storage units near me
+        - text: not-in-niche
+      - generic [ref=e886]:
+        - strong [ref=e887]: sign in to outlook.com
+        - text: brand-or-unrelated-noise
+      - generic [ref=e888]:
+        - strong [ref=e889]: pizza hut near me
+        - text: not-in-niche
+      - generic [ref=e890]:
+        - strong [ref=e891]: 365 office login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e892]:
+        - strong [ref=e893]: lunch near me
+        - text: not-in-niche
+      - generic [ref=e894]:
+        - strong [ref=e895]: chicago white sox
+        - text: seed-plan-reject-phrase
+      - generic [ref=e896]:
+        - strong [ref=e897]: microsoft sign in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e898]:
+        - strong [ref=e899]: aldi near me
+        - text: not-in-niche
+      - generic [ref=e900]:
+        - strong [ref=e901]: white house black market
+        - text: seed-plan-reject-phrase
+      - generic [ref=e902]:
+        - strong [ref=e903]: dentist near me
+        - text: seed-plan-reject-exact
+      - generic [ref=e904]:
+        - strong [ref=e905]: kohl's near me
+        - text: not-in-niche
+      - generic [ref=e906]:
+        - strong [ref=e907]: car rental near me
+        - text: not-in-niche
+      - generic [ref=e908]:
+        - strong [ref=e909]: tractor supply near me
+        - text: not-in-niche
+      - generic [ref=e910]:
+        - strong [ref=e911]: breakfast near me
+        - text: not-in-niche
+      - generic [ref=e912]:
+        - strong [ref=e913]: italian restaurants near me
+        - text: not-in-niche
+      - generic [ref=e914]:
+        - strong [ref=e915]: subway near me
+        - text: not-in-niche
+      - generic [ref=e916]:
+        - strong [ref=e917]: post office near me
+        - text: not-in-niche
+      - generic [ref=e918]:
+        - strong [ref=e919]: baylor scott and white
+        - text: not-in-niche
+      - generic [ref=e920]:
+        - strong [ref=e921]: menards near me
+        - text: not-in-niche
+      - generic [ref=e922]:
+        - strong [ref=e923]: concert tickets near me
+        - text: not-in-niche
+      - generic [ref=e924]:
+        - strong [ref=e925]: golf courses near me
+        - text: not-in-niche
+      - generic [ref=e926]:
+        - strong [ref=e927]: dmv near me
+        - text: not-in-niche
+      - generic [ref=e928]:
+        - strong [ref=e929]: hair salons near me
+        - text: seed-plan-reject-term
+      - generic [ref=e930]:
+        - strong [ref=e931]: nail salon near me
+        - text: not-in-niche

@@ -1,0 +1,1846 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - heading "essay writing service keyword plan" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Clustered keyword map for building pages without cannibalizing intent.
+    - generic [ref=e5]:
+      - generic [ref=e6]: "Market: us / en-US"
+      - generic [ref=e7]: "Period: 2026-05-17 to 2026-06-16"
+      - generic [ref=e8]: "Model: affiliate"
+      - generic [ref=e9]: "API requests: 105"
+      - generic [ref=e10]: "Rejected: 208"
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: "26"
+        - text: page clusters
+      - generic [ref=e14]:
+        - generic [ref=e15]: "92"
+        - text: clustered keywords
+      - generic [ref=e16]:
+        - generic [ref=e17]: 93,595
+        - text: exact impressions
+      - generic [ref=e18]:
+        - generic [ref=e19]: 360,462
+        - text: broad impressions
+  - main [ref=e20]:
+    - heading "Expansion Candidates" [level=2] [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - strong [ref=e24]: Math homework help
+        - generic [ref=e25]: "Primary: math homework help"
+        - generic [ref=e26]: "Exact: 23,684 · Broad: 50,888 · Keywords: 1"
+        - generic [ref=e27]: Create a branch seed-plan for "math homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e28]:
+        - strong [ref=e29]: Essay checker and AI detector
+        - generic [ref=e30]: "Primary: essay checker"
+        - generic [ref=e31]: "Exact: 12,223 · Broad: 20,578 · Keywords: 2"
+        - generic [ref=e32]: Create a branch seed-plan for "essay checker" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e33]:
+        - strong [ref=e34]: Essay format guides
+        - generic [ref=e35]: "Primary: essay format"
+        - generic [ref=e36]: "Exact: 7,845 · Broad: 21,751 · Keywords: 1"
+        - generic [ref=e37]: Create a branch seed-plan for "essay format" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e38]:
+        - strong [ref=e39]: Essay grader
+        - generic [ref=e40]: "Primary: essay grader"
+        - generic [ref=e41]: "Exact: 5,790 · Broad: 8,354 · Keywords: 1"
+        - generic [ref=e42]: Create a branch seed-plan for "essay grader" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e43]:
+        - strong [ref=e44]: How to write an essay
+        - generic [ref=e45]: "Primary: how to write an essay"
+        - generic [ref=e46]: "Exact: 4,675 · Broad: 6,044 · Keywords: 1"
+        - generic [ref=e47]: Create a branch seed-plan for "how to write an essay" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e48]:
+        - strong [ref=e49]: Statistics homework help
+        - generic [ref=e50]: "Primary: statistics homework help"
+        - generic [ref=e51]: "Exact: 4,154 · Broad: 4,926 · Keywords: 1"
+        - generic [ref=e52]: Create a branch seed-plan for "statistics homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e53]:
+        - strong [ref=e54]: Physics homework help
+        - generic [ref=e55]: "Primary: physics homework help"
+        - generic [ref=e56]: "Exact: 3,961 · Broad: 3,961 · Keywords: 1"
+        - generic [ref=e57]: Create a branch seed-plan for "physics homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e58]:
+        - strong [ref=e59]: College essay help
+        - generic [ref=e60]: "Primary: college essay examples"
+        - generic [ref=e61]: "Exact: 3,394 · Broad: 3,394 · Keywords: 1"
+        - generic [ref=e62]: Create a branch seed-plan for "college essay examples" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e63]:
+        - strong [ref=e64]: Homework and assignment help
+        - generic [ref=e65]: "Primary: homework help"
+        - generic [ref=e66]: "Exact: 3,278 · Broad: 122,559 · Keywords: 3"
+        - generic [ref=e67]: Create a branch seed-plan for "homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e68]:
+        - strong [ref=e69]: Chemistry homework help
+        - generic [ref=e70]: "Primary: chemistry homework help"
+        - generic [ref=e71]: "Exact: 2,750 · Broad: 2,761 · Keywords: 1"
+        - generic [ref=e72]: Create a branch seed-plan for "chemistry homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+      - generic [ref=e73]:
+        - strong [ref=e74]: Do my homework service
+        - generic [ref=e75]: "Primary: online homework help"
+        - generic [ref=e76]: "Exact: 1,674 · Broad: 2,050 · Keywords: 3"
+        - generic [ref=e77]: Create a branch seed-plan for "online homework help" and rerun bing-site-plan with SEED_PLAN for this branch.
+    - heading "Main Page" [level=2] [ref=e78]
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - paragraph [ref=e82]: money-page · transactional
+          - heading "Essay writing service" [level=3] [ref=e83]
+          - paragraph [ref=e84]: /essay-writing-service/
+        - generic [ref=e85]:
+          - generic [ref=e86]: 8,972
+          - text: exact impressions
+        - generic [ref=e87]:
+          - generic [ref=e88]: 19,240
+          - text: broad impressions
+      - generic [ref=e89]:
+        - strong [ref=e90]: "Primary:"
+        - text: essay writing service
+      - table [ref=e91]:
+        - rowgroup [ref=e92]:
+          - row "Keyword Exact Broad Sources" [ref=e93]:
+            - columnheader "Keyword" [ref=e94]
+            - columnheader "Exact" [ref=e95]
+            - columnheader "Broad" [ref=e96]
+            - columnheader "Sources" [ref=e97]
+        - rowgroup [ref=e98]:
+          - row "write my essay 2,609 4,948 seed-exact, essay writing service, essay writing services, write my essay for me" [ref=e99]:
+            - cell "write my essay" [ref=e100]
+            - cell "2,609" [ref=e101]
+            - cell "4,948" [ref=e102]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay for me" [ref=e103]
+          - row "help me write 1,449 5,149 essay writing service, essay writing services, write my paper, write my paper for me" [ref=e104]:
+            - cell "help me write" [ref=e105]
+            - cell "1,449" [ref=e106]
+            - cell "5,149" [ref=e107]
+            - cell "essay writing service, essay writing services, write my paper, write my paper for me" [ref=e108]
+          - row "essay writer 965 1,942 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e109]:
+            - cell "essay writer" [ref=e110]
+            - cell "965" [ref=e111]
+            - cell "1,942" [ref=e112]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e113]
+          - row "do my essay 930 981 seed-exact, essay writing service, essay writing services, write my essay" [ref=e114]:
+            - cell "do my essay" [ref=e115]
+            - cell "930" [ref=e116]
+            - cell "981" [ref=e117]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay" [ref=e118]
+          - row "essay writing service 495 1,415 seed-exact, essay writing services, write my essay, write my essay for me" [ref=e119]:
+            - cell "essay writing service" [ref=e120]
+            - cell "495" [ref=e121]
+            - cell "1,415" [ref=e122]
+            - cell "seed-exact, essay writing services, write my essay, write my essay for me" [ref=e123]
+          - row "ai essay writer 496 568 professional essay writer, hire essay writer, online essay writer" [ref=e124]:
+            - cell "ai essay writer" [ref=e125]
+            - cell "496" [ref=e126]
+            - cell "568" [ref=e127]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e128]
+          - row "essay writing services 177 1,278 seed-exact, essay writing service, write my essay for me, paper writing service" [ref=e129]:
+            - cell "essay writing services" [ref=e130]
+            - cell "177" [ref=e131]
+            - cell "1,278" [ref=e132]
+            - cell "seed-exact, essay writing service, write my essay for me, paper writing service" [ref=e133]
+          - row "write my essay for me 301 360 seed-exact, essay writing service, essay writing services, write my essay" [ref=e134]:
+            - cell "write my essay for me" [ref=e135]
+            - cell "301" [ref=e136]
+            - cell "360" [ref=e137]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay" [ref=e138]
+          - row "best essay writing service 153 195 seed-exact" [ref=e139]:
+            - cell "best essay writing service" [ref=e140]
+            - cell "153" [ref=e141]
+            - cell "195" [ref=e142]
+            - cell "seed-exact" [ref=e143]
+          - row "academic writer 149 149 essay writing service, essay writing services, write my paper, write my paper for me" [ref=e144]:
+            - cell "academic writer" [ref=e145]
+            - cell "149" [ref=e146]
+            - cell "149" [ref=e147]
+            - cell "essay writing service, essay writing services, write my paper, write my paper for me" [ref=e148]
+          - row "essay service 135 143 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e149]:
+            - cell "essay service" [ref=e150]
+            - cell "135" [ref=e151]
+            - cell "143" [ref=e152]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e153]
+          - row "essay writing 81 304 essay writing service, write my essay, write my essay for me, custom essay writing service" [ref=e154]:
+            - cell "essay writing" [ref=e155]
+            - cell "81" [ref=e156]
+            - cell "304" [ref=e157]
+            - cell "essay writing service, write my essay, write my essay for me, custom essay writing service" [ref=e158]
+          - row "essay writer ai 109 115 professional essay writer, hire essay writer, online essay writer" [ref=e159]:
+            - cell "essay writer ai" [ref=e160]
+            - cell "109" [ref=e161]
+            - cell "115" [ref=e162]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e163]
+          - row "academic writing 75 171 professional essay writer, hire essay writer, online essay writer" [ref=e164]:
+            - cell "academic writing" [ref=e165]
+            - cell "75" [ref=e166]
+            - cell "171" [ref=e167]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e168]
+          - row "buy essay online 75 150 seed-exact" [ref=e169]:
+            - cell "buy essay online" [ref=e170]
+            - cell "75" [ref=e171]
+            - cell "150" [ref=e172]
+            - cell "seed-exact" [ref=e173]
+          - row "writing assistance 56 197 essay writing service, write my paper, custom essay writing service, professional essay writer" [ref=e174]:
+            - cell "writing assistance" [ref=e175]
+            - cell "56" [ref=e176]
+            - cell "197" [ref=e177]
+            - cell "essay writing service, write my paper, custom essay writing service, professional essay writer" [ref=e178]
+          - row "custom writing 83 84 essay writing service, do my essay, write my paper, custom essay writing service" [ref=e179]:
+            - cell "custom writing" [ref=e180]
+            - cell "83" [ref=e181]
+            - cell "84" [ref=e182]
+            - cell "essay writing service, do my essay, write my paper, custom essay writing service" [ref=e183]
+          - row "cheap essay writing service 75 75 seed-exact, essay writing service, write my essay, do my essay" [ref=e184]:
+            - cell "cheap essay writing service" [ref=e185]
+            - cell "75" [ref=e186]
+            - cell "75" [ref=e187]
+            - cell "seed-exact, essay writing service, write my essay, do my essay" [ref=e188]
+          - row "essay typer 67 67 professional essay writer, hire essay writer, online essay writer" [ref=e189]:
+            - cell "essay typer" [ref=e190]
+            - cell "67" [ref=e191]
+            - cell "67" [ref=e192]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e193]
+          - row "essay helper 62 62 essay writing services, write my essay, write my essay for me, professional essay writer" [ref=e194]:
+            - cell "essay helper" [ref=e195]
+            - cell "62" [ref=e196]
+            - cell "62" [ref=e197]
+            - cell "essay writing services, write my essay, write my essay for me, professional essay writer" [ref=e198]
+          - row "write me an essay 60 60 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e199]:
+            - cell "write me an essay" [ref=e200]
+            - cell "60" [ref=e201]
+            - cell "60" [ref=e202]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e203]
+          - row "pay for essay 54 82 seed-exact, write my essay, do my essay, write my paper" [ref=e204]:
+            - cell "pay for essay" [ref=e205]
+            - cell "54" [ref=e206]
+            - cell "82" [ref=e207]
+            - cell "seed-exact, write my essay, do my essay, write my paper" [ref=e208]
+          - row "custom essay writing service 48 103 seed-exact" [ref=e209]:
+            - cell "custom essay writing service" [ref=e210]
+            - cell "48" [ref=e211]
+            - cell "103" [ref=e212]
+            - cell "seed-exact" [ref=e213]
+          - row "essay services 27 175 essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e214]:
+            - cell "essay services" [ref=e215]
+            - cell "27" [ref=e216]
+            - cell "175" [ref=e217]
+            - cell "essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e218]
+          - row "online essay writer 43 43 seed-exact" [ref=e219]:
+            - cell "online essay writer" [ref=e220]
+            - cell "43" [ref=e221]
+            - cell "43" [ref=e222]
+            - cell "seed-exact" [ref=e223]
+          - row "writing services 9 173 essay writing service, do my essay, write my paper, custom essay writing service" [ref=e224]:
+            - cell "writing services" [ref=e225]
+            - cell "9" [ref=e226]
+            - cell "173" [ref=e227]
+            - cell "essay writing service, do my essay, write my paper, custom essay writing service" [ref=e228]
+          - row "write essay 28 80 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e229]:
+            - cell "write essay" [ref=e230]
+            - cell "28" [ref=e231]
+            - cell "80" [ref=e232]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e233]
+          - row "essay maker 31 31 professional essay writer, hire essay writer, online essay writer" [ref=e234]:
+            - cell "essay maker" [ref=e235]
+            - cell "31" [ref=e236]
+            - cell "31" [ref=e237]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e238]
+          - row "essay writer service 29 29 essay writing service, essay writing services, write my essay for me, do my essay" [ref=e239]:
+            - cell "essay writer service" [ref=e240]
+            - cell "29" [ref=e241]
+            - cell "29" [ref=e242]
+            - cell "essay writing service, essay writing services, write my essay for me, do my essay" [ref=e243]
+          - row "buy essay 16 24 write my essay, professional essay writer, hire essay writer, online essay writer" [ref=e244]:
+            - cell "buy essay" [ref=e245]
+            - cell "16" [ref=e246]
+            - cell "24" [ref=e247]
+            - cell "write my essay, professional essay writer, hire essay writer, online essay writer" [ref=e248]
+          - row "affordable essay writing service 12 12 seed-exact" [ref=e249]:
+            - cell "affordable essay writing service" [ref=e250]
+            - cell "12" [ref=e251]
+            - cell "12" [ref=e252]
+            - cell "seed-exact" [ref=e253]
+          - row "write an essay for me 12 12 professional essay writer, hire essay writer, online essay writer" [ref=e254]:
+            - cell "write an essay for me" [ref=e255]
+            - cell "12" [ref=e256]
+            - cell "12" [ref=e257]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e258]
+          - row "professional essay writers 11 11 professional essay writer, hire essay writer, online essay writer" [ref=e259]:
+            - cell "professional essay writers" [ref=e260]
+            - cell "11" [ref=e261]
+            - cell "11" [ref=e262]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e263]
+          - row "essay writing help 10 12 write my essay, do my essay, write my paper, professional essay writer" [ref=e264]:
+            - cell "essay writing help" [ref=e265]
+            - cell "10" [ref=e266]
+            - cell "12" [ref=e267]
+            - cell "write my essay, do my essay, write my paper, professional essay writer" [ref=e268]
+          - row "help writing an essay 9 9 essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e269]:
+            - cell "help writing an essay" [ref=e270]
+            - cell "9" [ref=e271]
+            - cell "9" [ref=e272]
+            - cell "essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e273]
+          - row "will writing service 7 7 assignment writing service" [ref=e274]:
+            - cell "will writing service" [ref=e275]
+            - cell "7" [ref=e276]
+            - cell "7" [ref=e277]
+            - cell "assignment writing service" [ref=e278]
+          - row "professional essay writing services 5 5 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e279]:
+            - cell "professional essay writing services" [ref=e280]
+            - cell "5" [ref=e281]
+            - cell "5" [ref=e282]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e283]
+          - row "write essay for me 5 5 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e284]:
+            - cell "write essay for me" [ref=e285]
+            - cell "5" [ref=e286]
+            - cell "5" [ref=e287]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e288]
+          - row "order essay cheap 4 4 cheap essay writing service" [ref=e289]:
+            - cell "order essay cheap" [ref=e290]
+            - cell "4" [ref=e291]
+            - cell "4" [ref=e292]
+            - cell "cheap essay writing service" [ref=e293]
+          - row "pay someone to write my essay 4 4 write my essay, write my essay for me" [ref=e294]:
+            - cell "pay someone to write my essay" [ref=e295]
+            - cell "4" [ref=e296]
+            - cell "4" [ref=e297]
+            - cell "write my essay, write my essay for me" [ref=e298]
+          - row "help with essay writing 3 3 write my essay, do my essay, cheap essay writing service" [ref=e299]:
+            - cell "help with essay writing" [ref=e300]
+            - cell "3" [ref=e301]
+            - cell "3" [ref=e302]
+            - cell "write my essay, do my essay, cheap essay writing service" [ref=e303]
+          - row "write my essay cheap 3 3 essay writing services, write my essay, professional essay writer, hire essay writer" [ref=e304]:
+            - cell "write my essay cheap" [ref=e305]
+            - cell "3" [ref=e306]
+            - cell "3" [ref=e307]
+            - cell "essay writing services, write my essay, professional essay writer, hire essay writer" [ref=e308]
+      - generic [ref=e309]: "Use one page for \"Essay writing service\". Do not create separate pages for: write my essay, help me write, essay writer, do my essay, essay writing service, ai essay writer, essay writing services, write my essay for me."
+      - list [ref=e310]:
+        - listitem [ref=e311]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e312]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - heading "Money Pages" [level=2] [ref=e313]
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]:
+          - paragraph [ref=e317]: money-page · transactional
+          - heading "Math homework help" [level=3] [ref=e318]
+          - paragraph [ref=e319]: /math-homework-help/
+        - generic [ref=e320]:
+          - generic [ref=e321]: 23,684
+          - text: exact impressions
+        - generic [ref=e322]:
+          - generic [ref=e323]: 50,888
+          - text: broad impressions
+      - generic [ref=e324]:
+        - strong [ref=e325]: "Primary:"
+        - text: math homework help
+      - table [ref=e326]:
+        - rowgroup [ref=e327]:
+          - row "Keyword Exact Broad Sources" [ref=e328]:
+            - columnheader "Keyword" [ref=e329]
+            - columnheader "Exact" [ref=e330]
+            - columnheader "Broad" [ref=e331]
+            - columnheader "Sources" [ref=e332]
+        - rowgroup [ref=e333]:
+          - row "math homework help 23,684 50,888 seed-exact" [ref=e334]:
+            - cell "math homework help" [ref=e335]
+            - cell "23,684" [ref=e336]
+            - cell "50,888" [ref=e337]
+            - cell "seed-exact" [ref=e338]
+      - generic [ref=e339]: "Use one page for \"Math homework help\". Do not create separate pages for: math homework help."
+      - list [ref=e340]:
+        - listitem [ref=e341]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e342]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e343]:
+      - generic [ref=e344]:
+        - generic [ref=e345]:
+          - paragraph [ref=e346]: money-page · transactional
+          - heading "Essay writing service" [level=3] [ref=e347]
+          - paragraph [ref=e348]: /essay-writing-service/
+        - generic [ref=e349]:
+          - generic [ref=e350]: 8,972
+          - text: exact impressions
+        - generic [ref=e351]:
+          - generic [ref=e352]: 19,240
+          - text: broad impressions
+      - generic [ref=e353]:
+        - strong [ref=e354]: "Primary:"
+        - text: essay writing service
+      - table [ref=e355]:
+        - rowgroup [ref=e356]:
+          - row "Keyword Exact Broad Sources" [ref=e357]:
+            - columnheader "Keyword" [ref=e358]
+            - columnheader "Exact" [ref=e359]
+            - columnheader "Broad" [ref=e360]
+            - columnheader "Sources" [ref=e361]
+        - rowgroup [ref=e362]:
+          - row "write my essay 2,609 4,948 seed-exact, essay writing service, essay writing services, write my essay for me" [ref=e363]:
+            - cell "write my essay" [ref=e364]
+            - cell "2,609" [ref=e365]
+            - cell "4,948" [ref=e366]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay for me" [ref=e367]
+          - row "help me write 1,449 5,149 essay writing service, essay writing services, write my paper, write my paper for me" [ref=e368]:
+            - cell "help me write" [ref=e369]
+            - cell "1,449" [ref=e370]
+            - cell "5,149" [ref=e371]
+            - cell "essay writing service, essay writing services, write my paper, write my paper for me" [ref=e372]
+          - row "essay writer 965 1,942 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e373]:
+            - cell "essay writer" [ref=e374]
+            - cell "965" [ref=e375]
+            - cell "1,942" [ref=e376]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e377]
+          - row "do my essay 930 981 seed-exact, essay writing service, essay writing services, write my essay" [ref=e378]:
+            - cell "do my essay" [ref=e379]
+            - cell "930" [ref=e380]
+            - cell "981" [ref=e381]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay" [ref=e382]
+          - row "essay writing service 495 1,415 seed-exact, essay writing services, write my essay, write my essay for me" [ref=e383]:
+            - cell "essay writing service" [ref=e384]
+            - cell "495" [ref=e385]
+            - cell "1,415" [ref=e386]
+            - cell "seed-exact, essay writing services, write my essay, write my essay for me" [ref=e387]
+          - row "ai essay writer 496 568 professional essay writer, hire essay writer, online essay writer" [ref=e388]:
+            - cell "ai essay writer" [ref=e389]
+            - cell "496" [ref=e390]
+            - cell "568" [ref=e391]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e392]
+          - row "essay writing services 177 1,278 seed-exact, essay writing service, write my essay for me, paper writing service" [ref=e393]:
+            - cell "essay writing services" [ref=e394]
+            - cell "177" [ref=e395]
+            - cell "1,278" [ref=e396]
+            - cell "seed-exact, essay writing service, write my essay for me, paper writing service" [ref=e397]
+          - row "write my essay for me 301 360 seed-exact, essay writing service, essay writing services, write my essay" [ref=e398]:
+            - cell "write my essay for me" [ref=e399]
+            - cell "301" [ref=e400]
+            - cell "360" [ref=e401]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay" [ref=e402]
+          - row "best essay writing service 153 195 seed-exact" [ref=e403]:
+            - cell "best essay writing service" [ref=e404]
+            - cell "153" [ref=e405]
+            - cell "195" [ref=e406]
+            - cell "seed-exact" [ref=e407]
+          - row "academic writer 149 149 essay writing service, essay writing services, write my paper, write my paper for me" [ref=e408]:
+            - cell "academic writer" [ref=e409]
+            - cell "149" [ref=e410]
+            - cell "149" [ref=e411]
+            - cell "essay writing service, essay writing services, write my paper, write my paper for me" [ref=e412]
+          - row "essay service 135 143 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e413]:
+            - cell "essay service" [ref=e414]
+            - cell "135" [ref=e415]
+            - cell "143" [ref=e416]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e417]
+          - row "essay writing 81 304 essay writing service, write my essay, write my essay for me, custom essay writing service" [ref=e418]:
+            - cell "essay writing" [ref=e419]
+            - cell "81" [ref=e420]
+            - cell "304" [ref=e421]
+            - cell "essay writing service, write my essay, write my essay for me, custom essay writing service" [ref=e422]
+          - row "essay writer ai 109 115 professional essay writer, hire essay writer, online essay writer" [ref=e423]:
+            - cell "essay writer ai" [ref=e424]
+            - cell "109" [ref=e425]
+            - cell "115" [ref=e426]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e427]
+          - row "academic writing 75 171 professional essay writer, hire essay writer, online essay writer" [ref=e428]:
+            - cell "academic writing" [ref=e429]
+            - cell "75" [ref=e430]
+            - cell "171" [ref=e431]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e432]
+          - row "buy essay online 75 150 seed-exact" [ref=e433]:
+            - cell "buy essay online" [ref=e434]
+            - cell "75" [ref=e435]
+            - cell "150" [ref=e436]
+            - cell "seed-exact" [ref=e437]
+          - row "writing assistance 56 197 essay writing service, write my paper, custom essay writing service, professional essay writer" [ref=e438]:
+            - cell "writing assistance" [ref=e439]
+            - cell "56" [ref=e440]
+            - cell "197" [ref=e441]
+            - cell "essay writing service, write my paper, custom essay writing service, professional essay writer" [ref=e442]
+          - row "custom writing 83 84 essay writing service, do my essay, write my paper, custom essay writing service" [ref=e443]:
+            - cell "custom writing" [ref=e444]
+            - cell "83" [ref=e445]
+            - cell "84" [ref=e446]
+            - cell "essay writing service, do my essay, write my paper, custom essay writing service" [ref=e447]
+          - row "cheap essay writing service 75 75 seed-exact, essay writing service, write my essay, do my essay" [ref=e448]:
+            - cell "cheap essay writing service" [ref=e449]
+            - cell "75" [ref=e450]
+            - cell "75" [ref=e451]
+            - cell "seed-exact, essay writing service, write my essay, do my essay" [ref=e452]
+          - row "essay typer 67 67 professional essay writer, hire essay writer, online essay writer" [ref=e453]:
+            - cell "essay typer" [ref=e454]
+            - cell "67" [ref=e455]
+            - cell "67" [ref=e456]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e457]
+          - row "essay helper 62 62 essay writing services, write my essay, write my essay for me, professional essay writer" [ref=e458]:
+            - cell "essay helper" [ref=e459]
+            - cell "62" [ref=e460]
+            - cell "62" [ref=e461]
+            - cell "essay writing services, write my essay, write my essay for me, professional essay writer" [ref=e462]
+          - row "write me an essay 60 60 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e463]:
+            - cell "write me an essay" [ref=e464]
+            - cell "60" [ref=e465]
+            - cell "60" [ref=e466]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e467]
+          - row "pay for essay 54 82 seed-exact, write my essay, do my essay, write my paper" [ref=e468]:
+            - cell "pay for essay" [ref=e469]
+            - cell "54" [ref=e470]
+            - cell "82" [ref=e471]
+            - cell "seed-exact, write my essay, do my essay, write my paper" [ref=e472]
+          - row "custom essay writing service 48 103 seed-exact" [ref=e473]:
+            - cell "custom essay writing service" [ref=e474]
+            - cell "48" [ref=e475]
+            - cell "103" [ref=e476]
+            - cell "seed-exact" [ref=e477]
+          - row "essay services 27 175 essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e478]:
+            - cell "essay services" [ref=e479]
+            - cell "27" [ref=e480]
+            - cell "175" [ref=e481]
+            - cell "essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e482]
+          - row "online essay writer 43 43 seed-exact" [ref=e483]:
+            - cell "online essay writer" [ref=e484]
+            - cell "43" [ref=e485]
+            - cell "43" [ref=e486]
+            - cell "seed-exact" [ref=e487]
+          - row "writing services 9 173 essay writing service, do my essay, write my paper, custom essay writing service" [ref=e488]:
+            - cell "writing services" [ref=e489]
+            - cell "9" [ref=e490]
+            - cell "173" [ref=e491]
+            - cell "essay writing service, do my essay, write my paper, custom essay writing service" [ref=e492]
+          - row "write essay 28 80 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e493]:
+            - cell "write essay" [ref=e494]
+            - cell "28" [ref=e495]
+            - cell "80" [ref=e496]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e497]
+          - row "essay maker 31 31 professional essay writer, hire essay writer, online essay writer" [ref=e498]:
+            - cell "essay maker" [ref=e499]
+            - cell "31" [ref=e500]
+            - cell "31" [ref=e501]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e502]
+          - row "essay writer service 29 29 essay writing service, essay writing services, write my essay for me, do my essay" [ref=e503]:
+            - cell "essay writer service" [ref=e504]
+            - cell "29" [ref=e505]
+            - cell "29" [ref=e506]
+            - cell "essay writing service, essay writing services, write my essay for me, do my essay" [ref=e507]
+          - row "buy essay 16 24 write my essay, professional essay writer, hire essay writer, online essay writer" [ref=e508]:
+            - cell "buy essay" [ref=e509]
+            - cell "16" [ref=e510]
+            - cell "24" [ref=e511]
+            - cell "write my essay, professional essay writer, hire essay writer, online essay writer" [ref=e512]
+          - row "affordable essay writing service 12 12 seed-exact" [ref=e513]:
+            - cell "affordable essay writing service" [ref=e514]
+            - cell "12" [ref=e515]
+            - cell "12" [ref=e516]
+            - cell "seed-exact" [ref=e517]
+          - row "write an essay for me 12 12 professional essay writer, hire essay writer, online essay writer" [ref=e518]:
+            - cell "write an essay for me" [ref=e519]
+            - cell "12" [ref=e520]
+            - cell "12" [ref=e521]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e522]
+          - row "professional essay writers 11 11 professional essay writer, hire essay writer, online essay writer" [ref=e523]:
+            - cell "professional essay writers" [ref=e524]
+            - cell "11" [ref=e525]
+            - cell "11" [ref=e526]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e527]
+          - row "essay writing help 10 12 write my essay, do my essay, write my paper, professional essay writer" [ref=e528]:
+            - cell "essay writing help" [ref=e529]
+            - cell "10" [ref=e530]
+            - cell "12" [ref=e531]
+            - cell "write my essay, do my essay, write my paper, professional essay writer" [ref=e532]
+          - row "help writing an essay 9 9 essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e533]:
+            - cell "help writing an essay" [ref=e534]
+            - cell "9" [ref=e535]
+            - cell "9" [ref=e536]
+            - cell "essay writing service, write my paper, write my paper for me, custom essay writing service" [ref=e537]
+          - row "will writing service 7 7 assignment writing service" [ref=e538]:
+            - cell "will writing service" [ref=e539]
+            - cell "7" [ref=e540]
+            - cell "7" [ref=e541]
+            - cell "assignment writing service" [ref=e542]
+          - row "professional essay writing services 5 5 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e543]:
+            - cell "professional essay writing services" [ref=e544]
+            - cell "5" [ref=e545]
+            - cell "5" [ref=e546]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e547]
+          - row "write essay for me 5 5 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e548]:
+            - cell "write essay for me" [ref=e549]
+            - cell "5" [ref=e550]
+            - cell "5" [ref=e551]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e552]
+          - row "order essay cheap 4 4 cheap essay writing service" [ref=e553]:
+            - cell "order essay cheap" [ref=e554]
+            - cell "4" [ref=e555]
+            - cell "4" [ref=e556]
+            - cell "cheap essay writing service" [ref=e557]
+          - row "pay someone to write my essay 4 4 write my essay, write my essay for me" [ref=e558]:
+            - cell "pay someone to write my essay" [ref=e559]
+            - cell "4" [ref=e560]
+            - cell "4" [ref=e561]
+            - cell "write my essay, write my essay for me" [ref=e562]
+          - row "help with essay writing 3 3 write my essay, do my essay, cheap essay writing service" [ref=e563]:
+            - cell "help with essay writing" [ref=e564]
+            - cell "3" [ref=e565]
+            - cell "3" [ref=e566]
+            - cell "write my essay, do my essay, cheap essay writing service" [ref=e567]
+          - row "write my essay cheap 3 3 essay writing services, write my essay, professional essay writer, hire essay writer" [ref=e568]:
+            - cell "write my essay cheap" [ref=e569]
+            - cell "3" [ref=e570]
+            - cell "3" [ref=e571]
+            - cell "essay writing services, write my essay, professional essay writer, hire essay writer" [ref=e572]
+      - generic [ref=e573]: "Use one page for \"Essay writing service\". Do not create separate pages for: write my essay, help me write, essay writer, do my essay, essay writing service, ai essay writer, essay writing services, write my essay for me."
+      - list [ref=e574]:
+        - listitem [ref=e575]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e576]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e577]:
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - paragraph [ref=e580]: money-page · transactional
+          - heading "Statistics homework help" [level=3] [ref=e581]
+          - paragraph [ref=e582]: /statistics-homework-help/
+        - generic [ref=e583]:
+          - generic [ref=e584]: 4,154
+          - text: exact impressions
+        - generic [ref=e585]:
+          - generic [ref=e586]: 4,926
+          - text: broad impressions
+      - generic [ref=e587]:
+        - strong [ref=e588]: "Primary:"
+        - text: statistics homework help
+      - table [ref=e589]:
+        - rowgroup [ref=e590]:
+          - row "Keyword Exact Broad Sources" [ref=e591]:
+            - columnheader "Keyword" [ref=e592]
+            - columnheader "Exact" [ref=e593]
+            - columnheader "Broad" [ref=e594]
+            - columnheader "Sources" [ref=e595]
+        - rowgroup [ref=e596]:
+          - row "statistics homework help 4,154 4,926 seed-exact" [ref=e597]:
+            - cell "statistics homework help" [ref=e598]
+            - cell "4,154" [ref=e599]
+            - cell "4,926" [ref=e600]
+            - cell "seed-exact" [ref=e601]
+      - generic [ref=e602]: "Use one page for \"Statistics homework help\". Do not create separate pages for: statistics homework help."
+      - list [ref=e603]:
+        - listitem [ref=e604]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e605]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e606]:
+      - generic [ref=e607]:
+        - generic [ref=e608]:
+          - paragraph [ref=e609]: money-page · transactional
+          - heading "Paper writing service" [level=3] [ref=e610]
+          - paragraph [ref=e611]: /paper-writing-service/
+        - generic [ref=e612]:
+          - generic [ref=e613]: 4,081
+          - text: exact impressions
+        - generic [ref=e614]:
+          - generic [ref=e615]: 9,331
+          - text: broad impressions
+      - generic [ref=e616]:
+        - strong [ref=e617]: "Primary:"
+        - text: write my paper
+      - table [ref=e618]:
+        - rowgroup [ref=e619]:
+          - row "Keyword Exact Broad Sources" [ref=e620]:
+            - columnheader "Keyword" [ref=e621]
+            - columnheader "Exact" [ref=e622]
+            - columnheader "Broad" [ref=e623]
+            - columnheader "Sources" [ref=e624]
+        - rowgroup [ref=e625]:
+          - row "write my paper 1,856 3,706 seed-exact, essay writing service, essay writing services, write my essay" [ref=e626]:
+            - cell "write my paper" [ref=e627]
+            - cell "1,856" [ref=e628]
+            - cell "3,706" [ref=e629]
+            - cell "seed-exact, essay writing service, essay writing services, write my essay" [ref=e630]
+          - row "white paper 1,281 3,946 write my paper" [ref=e631]:
+            - cell "white paper" [ref=e632]
+            - cell "1,281" [ref=e633]
+            - cell "3,946" [ref=e634]
+            - cell "write my paper" [ref=e635]
+          - row "writing paper 322 661 essay writing service, essay writing services, write my paper, custom essay writing service" [ref=e636]:
+            - cell "writing paper" [ref=e637]
+            - cell "322" [ref=e638]
+            - cell "661" [ref=e639]
+            - cell "essay writing service, essay writing services, write my paper, custom essay writing service" [ref=e640]
+          - row "write my paper for me 254 262 seed-exact, essay writing service, do my paper, write my paper" [ref=e641]:
+            - cell "write my paper for me" [ref=e642]
+            - cell "254" [ref=e643]
+            - cell "262" [ref=e644]
+            - cell "seed-exact, essay writing service, do my paper, write my paper" [ref=e645]
+          - row "paper writing service 126 221 seed-exact, write my paper, write my paper for me, assignment writing service" [ref=e646]:
+            - cell "paper writing service" [ref=e647]
+            - cell "126" [ref=e648]
+            - cell "221" [ref=e649]
+            - cell "seed-exact, write my paper, write my paper for me, assignment writing service" [ref=e650]
+          - row "papers owl 65 142 write my essay, write my essay for me, do my essay, write my paper" [ref=e651]:
+            - cell "papers owl" [ref=e652]
+            - cell "65" [ref=e653]
+            - cell "142" [ref=e654]
+            - cell "write my essay, write my essay for me, do my essay, write my paper" [ref=e655]
+          - row "paper writer 50 142 essay writing service, essay writing services, write my essay, write my essay for me" [ref=e656]:
+            - cell "paper writer" [ref=e657]
+            - cell "50" [ref=e658]
+            - cell "142" [ref=e659]
+            - cell "essay writing service, essay writing services, write my essay, write my essay for me" [ref=e660]
+          - row "paper writing 17 117 essay writing service, essay writing services, write my paper, write my paper for me" [ref=e661]:
+            - cell "paper writing" [ref=e662]
+            - cell "17" [ref=e663]
+            - cell "117" [ref=e664]
+            - cell "essay writing service, essay writing services, write my paper, write my paper for me" [ref=e665]
+          - row "write paper 21 34 write my paper, write my paper for me, paper writing service" [ref=e666]:
+            - cell "write paper" [ref=e667]
+            - cell "21" [ref=e668]
+            - cell "34" [ref=e669]
+            - cell "write my paper, write my paper for me, paper writing service" [ref=e670]
+          - row "do my paper 22 26 seed-exact, write my essay, do my assignment, do my assignment for me" [ref=e671]:
+            - cell "do my paper" [ref=e672]
+            - cell "22" [ref=e673]
+            - cell "26" [ref=e674]
+            - cell "seed-exact, write my essay, do my assignment, do my assignment for me" [ref=e675]
+          - row "review paper 21 28 write my paper, write my paper for me, paper writing service" [ref=e676]:
+            - cell "review paper" [ref=e677]
+            - cell "21" [ref=e678]
+            - cell "28" [ref=e679]
+            - cell "write my paper, write my paper for me, paper writing service" [ref=e680]
+          - row "paper writers 14 14 write my paper, write my paper for me, paper writing service" [ref=e681]:
+            - cell "paper writers" [ref=e682]
+            - cell "14" [ref=e683]
+            - cell "14" [ref=e684]
+            - cell "write my paper, write my paper for me, paper writing service" [ref=e685]
+          - row "write a paper for me 13 13 write my paper, write my paper for me" [ref=e686]:
+            - cell "write a paper for me" [ref=e687]
+            - cell "13" [ref=e688]
+            - cell "13" [ref=e689]
+            - cell "write my paper, write my paper for me" [ref=e690]
+          - row "write paper for me 13 13 essay writing service, write my essay, do my essay, write my paper" [ref=e691]:
+            - cell "write paper for me" [ref=e692]
+            - cell "13" [ref=e693]
+            - cell "13" [ref=e694]
+            - cell "essay writing service, write my essay, do my essay, write my paper" [ref=e695]
+          - row "write my papers 6 6 write my essay, do my paper, write my paper, write my paper for me" [ref=e696]:
+            - cell "write my papers" [ref=e697]
+            - cell "6" [ref=e698]
+            - cell "6" [ref=e699]
+            - cell "write my essay, do my paper, write my paper, write my paper for me" [ref=e700]
+      - generic [ref=e701]: "Use one page for \"Paper writing service\". Do not create separate pages for: write my paper, white paper, writing paper, write my paper for me, paper writing service, papers owl, paper writer, paper writing."
+      - list [ref=e702]:
+        - listitem [ref=e703]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e704]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e705]:
+      - generic [ref=e706]:
+        - generic [ref=e707]:
+          - paragraph [ref=e708]: money-page · transactional
+          - heading "Physics homework help" [level=3] [ref=e709]
+          - paragraph [ref=e710]: /physics-homework-help/
+        - generic [ref=e711]:
+          - generic [ref=e712]: 3,961
+          - text: exact impressions
+        - generic [ref=e713]:
+          - generic [ref=e714]: 3,961
+          - text: broad impressions
+      - generic [ref=e715]:
+        - strong [ref=e716]: "Primary:"
+        - text: physics homework help
+      - table [ref=e717]:
+        - rowgroup [ref=e718]:
+          - row "Keyword Exact Broad Sources" [ref=e719]:
+            - columnheader "Keyword" [ref=e720]
+            - columnheader "Exact" [ref=e721]
+            - columnheader "Broad" [ref=e722]
+            - columnheader "Sources" [ref=e723]
+        - rowgroup [ref=e724]:
+          - row "physics homework help 3,961 3,961 seed-exact" [ref=e725]:
+            - cell "physics homework help" [ref=e726]
+            - cell "3,961" [ref=e727]
+            - cell "3,961" [ref=e728]
+            - cell "seed-exact" [ref=e729]
+      - generic [ref=e730]: "Use one page for \"Physics homework help\". Do not create separate pages for: physics homework help."
+      - list [ref=e731]:
+        - listitem [ref=e732]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e733]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e734]:
+      - generic [ref=e735]:
+        - generic [ref=e736]:
+          - paragraph [ref=e737]: money-page · transactional
+          - heading "Homework and assignment help" [level=3] [ref=e738]
+          - paragraph [ref=e739]: /homework-and-assignment-help/
+        - generic [ref=e740]:
+          - generic [ref=e741]: 3,278
+          - text: exact impressions
+        - generic [ref=e742]:
+          - generic [ref=e743]: 122,559
+          - text: broad impressions
+      - generic [ref=e744]:
+        - strong [ref=e745]: "Primary:"
+        - text: homework help
+      - table [ref=e746]:
+        - rowgroup [ref=e747]:
+          - row "Keyword Exact Broad Sources" [ref=e748]:
+            - columnheader "Keyword" [ref=e749]
+            - columnheader "Exact" [ref=e750]
+            - columnheader "Broad" [ref=e751]
+            - columnheader "Sources" [ref=e752]
+        - rowgroup [ref=e753]:
+          - row "homework help 2,040 119,117 seed-exact, assignment help service, online assignment help, urgent assignment help" [ref=e754]:
+            - cell "homework help" [ref=e755]
+            - cell "2,040" [ref=e756]
+            - cell "119,117" [ref=e757]
+            - cell "seed-exact, assignment help service, online assignment help, urgent assignment help" [ref=e758]
+          - row "homework helper 1,220 3,424 assignment help service, online assignment help, urgent assignment help" [ref=e759]:
+            - cell "homework helper" [ref=e760]
+            - cell "1,220" [ref=e761]
+            - cell "3,424" [ref=e762]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e763]
+          - row "assignment help 18 18 assignment help service, online assignment help, urgent assignment help" [ref=e764]:
+            - cell "assignment help" [ref=e765]
+            - cell "18" [ref=e766]
+            - cell "18" [ref=e767]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e768]
+      - generic [ref=e769]: "Use one page for \"Homework and assignment help\". Do not create separate pages for: homework help, homework helper, assignment help."
+      - list [ref=e770]:
+        - listitem [ref=e771]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e772]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e773]:
+      - generic [ref=e774]:
+        - generic [ref=e775]:
+          - paragraph [ref=e776]: money-page · transactional
+          - heading "Chemistry homework help" [level=3] [ref=e777]
+          - paragraph [ref=e778]: /chemistry-homework-help/
+        - generic [ref=e779]:
+          - generic [ref=e780]: 2,750
+          - text: exact impressions
+        - generic [ref=e781]:
+          - generic [ref=e782]: 2,761
+          - text: broad impressions
+      - generic [ref=e783]:
+        - strong [ref=e784]: "Primary:"
+        - text: chemistry homework help
+      - table [ref=e785]:
+        - rowgroup [ref=e786]:
+          - row "Keyword Exact Broad Sources" [ref=e787]:
+            - columnheader "Keyword" [ref=e788]
+            - columnheader "Exact" [ref=e789]
+            - columnheader "Broad" [ref=e790]
+            - columnheader "Sources" [ref=e791]
+        - rowgroup [ref=e792]:
+          - row "chemistry homework help 2,750 2,761 seed-exact" [ref=e793]:
+            - cell "chemistry homework help" [ref=e794]
+            - cell "2,750" [ref=e795]
+            - cell "2,761" [ref=e796]
+            - cell "seed-exact" [ref=e797]
+      - generic [ref=e798]: "Use one page for \"Chemistry homework help\". Do not create separate pages for: chemistry homework help."
+      - list [ref=e799]:
+        - listitem [ref=e800]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e801]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e802]:
+      - generic [ref=e803]:
+        - generic [ref=e804]:
+          - paragraph [ref=e805]: money-page · transactional
+          - heading "Do my homework service" [level=3] [ref=e806]
+          - paragraph [ref=e807]: /do-my-homework-service/
+        - generic [ref=e808]:
+          - generic [ref=e809]: 1,674
+          - text: exact impressions
+        - generic [ref=e810]:
+          - generic [ref=e811]: 2,050
+          - text: broad impressions
+      - generic [ref=e812]:
+        - strong [ref=e813]: "Primary:"
+        - text: online homework help
+      - table [ref=e814]:
+        - rowgroup [ref=e815]:
+          - row "Keyword Exact Broad Sources" [ref=e816]:
+            - columnheader "Keyword" [ref=e817]
+            - columnheader "Exact" [ref=e818]
+            - columnheader "Broad" [ref=e819]
+            - columnheader "Sources" [ref=e820]
+        - rowgroup [ref=e821]:
+          - row "online homework help 1,145 1,295 seed-exact" [ref=e822]:
+            - cell "online homework help" [ref=e823]
+            - cell "1,145" [ref=e824]
+            - cell "1,295" [ref=e825]
+            - cell "seed-exact" [ref=e826]
+          - row "do my homework 354 580 seed-exact, do my paper, do my assignment, do my assignment for me" [ref=e827]:
+            - cell "do my homework" [ref=e828]
+            - cell "354" [ref=e829]
+            - cell "580" [ref=e830]
+            - cell "seed-exact, do my paper, do my assignment, do my assignment for me" [ref=e831]
+          - row "pay someone to do my homework 175 175 seed-exact" [ref=e832]:
+            - cell "pay someone to do my homework" [ref=e833]
+            - cell "175" [ref=e834]
+            - cell "175" [ref=e835]
+            - cell "seed-exact" [ref=e836]
+      - generic [ref=e837]: "Use one page for \"Do my homework service\". Do not create separate pages for: online homework help, do my homework, pay someone to do my homework."
+      - list [ref=e838]:
+        - listitem [ref=e839]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e840]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e841]:
+      - generic [ref=e842]:
+        - generic [ref=e843]:
+          - paragraph [ref=e844]: money-page · transactional
+          - heading "Biology homework help" [level=3] [ref=e845]
+          - paragraph [ref=e846]: /biology-homework-help/
+        - generic [ref=e847]:
+          - generic [ref=e848]: "308"
+          - text: exact impressions
+        - generic [ref=e849]:
+          - generic [ref=e850]: "308"
+          - text: broad impressions
+      - generic [ref=e851]:
+        - strong [ref=e852]: "Primary:"
+        - text: biology homework help
+      - table [ref=e853]:
+        - rowgroup [ref=e854]:
+          - row "Keyword Exact Broad Sources" [ref=e855]:
+            - columnheader "Keyword" [ref=e856]
+            - columnheader "Exact" [ref=e857]
+            - columnheader "Broad" [ref=e858]
+            - columnheader "Sources" [ref=e859]
+        - rowgroup [ref=e860]:
+          - row "biology homework help 308 308 seed-exact" [ref=e861]:
+            - cell "biology homework help" [ref=e862]
+            - cell "308" [ref=e863]
+            - cell "308" [ref=e864]
+            - cell "seed-exact" [ref=e865]
+      - generic [ref=e866]: "Use one page for \"Biology homework help\". Do not create separate pages for: biology homework help."
+      - list [ref=e867]:
+        - listitem [ref=e868]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e869]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e870]:
+      - generic [ref=e871]:
+        - generic [ref=e872]:
+          - paragraph [ref=e873]: money-page · transactional
+          - heading "College essay help" [level=3] [ref=e874]
+          - paragraph [ref=e875]: /college-essay-help/
+        - generic [ref=e876]:
+          - generic [ref=e877]: "232"
+          - text: exact impressions
+        - generic [ref=e878]:
+          - generic [ref=e879]: "272"
+          - text: broad impressions
+      - generic [ref=e880]:
+        - strong [ref=e881]: "Primary:"
+        - text: college essay help
+      - table [ref=e882]:
+        - rowgroup [ref=e883]:
+          - row "Keyword Exact Broad Sources" [ref=e884]:
+            - columnheader "Keyword" [ref=e885]
+            - columnheader "Exact" [ref=e886]
+            - columnheader "Broad" [ref=e887]
+            - columnheader "Sources" [ref=e888]
+        - rowgroup [ref=e889]:
+          - row "college essay help 112 152 seed-exact, essay writing service, write my paper, write my paper for me" [ref=e890]:
+            - cell "college essay help" [ref=e891]
+            - cell "112" [ref=e892]
+            - cell "152" [ref=e893]
+            - cell "seed-exact, essay writing service, write my paper, write my paper for me" [ref=e894]
+          - row "college essay writing service 107 107 seed-exact, essay writing service, custom essay writing service, cheap essay writing service" [ref=e895]:
+            - cell "college essay writing service" [ref=e896]
+            - cell "107" [ref=e897]
+            - cell "107" [ref=e898]
+            - cell "seed-exact, essay writing service, custom essay writing service, cheap essay writing service" [ref=e899]
+          - row "college essay review 13 13 write my essay, do my essay, cheap essay writing service" [ref=e900]:
+            - cell "college essay review" [ref=e901]
+            - cell "13" [ref=e902]
+            - cell "13" [ref=e903]
+            - cell "write my essay, do my essay, cheap essay writing service" [ref=e904]
+      - generic [ref=e905]: "Use one page for \"College essay help\". Do not create separate pages for: college essay help, college essay writing service, college essay review."
+      - list [ref=e906]:
+        - listitem [ref=e907]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e908]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e909]:
+      - generic [ref=e910]:
+        - generic [ref=e911]:
+          - paragraph [ref=e912]: money-page · transactional
+          - heading "Dissertation writing service" [level=3] [ref=e913]
+          - paragraph [ref=e914]: /dissertation-writing-service/
+        - generic [ref=e915]:
+          - generic [ref=e916]: "154"
+          - text: exact impressions
+        - generic [ref=e917]:
+          - generic [ref=e918]: "442"
+          - text: broad impressions
+      - generic [ref=e919]:
+        - strong [ref=e920]: "Primary:"
+        - text: dissertation writing service
+      - table [ref=e921]:
+        - rowgroup [ref=e922]:
+          - row "Keyword Exact Broad Sources" [ref=e923]:
+            - columnheader "Keyword" [ref=e924]
+            - columnheader "Exact" [ref=e925]
+            - columnheader "Broad" [ref=e926]
+            - columnheader "Sources" [ref=e927]
+        - rowgroup [ref=e928]:
+          - row "dissertation writing service 154 442 seed-exact" [ref=e929]:
+            - cell "dissertation writing service" [ref=e930]
+            - cell "154" [ref=e931]
+            - cell "442" [ref=e932]
+            - cell "seed-exact" [ref=e933]
+      - generic [ref=e934]: "Use one page for \"Dissertation writing service\". Do not create separate pages for: dissertation writing service."
+      - list [ref=e935]:
+        - listitem [ref=e936]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e937]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e938]:
+      - generic [ref=e939]:
+        - generic [ref=e940]:
+          - paragraph [ref=e941]: money-page · transactional
+          - heading "Research paper writing" [level=3] [ref=e942]
+          - paragraph [ref=e943]: /research-paper-writing/
+        - generic [ref=e944]:
+          - generic [ref=e945]: "66"
+          - text: exact impressions
+        - generic [ref=e946]:
+          - generic [ref=e947]: "124"
+          - text: broad impressions
+      - generic [ref=e948]:
+        - strong [ref=e949]: "Primary:"
+        - text: research paper writer
+      - table [ref=e950]:
+        - rowgroup [ref=e951]:
+          - row "Keyword Exact Broad Sources" [ref=e952]:
+            - columnheader "Keyword" [ref=e953]
+            - columnheader "Exact" [ref=e954]
+            - columnheader "Broad" [ref=e955]
+            - columnheader "Sources" [ref=e956]
+        - rowgroup [ref=e957]:
+          - row "research paper writer 34 92 seed-exact, essay writing service, do my paper, write my paper" [ref=e958]:
+            - cell "research paper writer" [ref=e959]
+            - cell "34" [ref=e960]
+            - cell "92" [ref=e961]
+            - cell "seed-exact, essay writing service, do my paper, write my paper" [ref=e962]
+          - row "research paper writing service 32 32 seed-exact" [ref=e963]:
+            - cell "research paper writing service" [ref=e964]
+            - cell "32" [ref=e965]
+            - cell "32" [ref=e966]
+            - cell "seed-exact" [ref=e967]
+      - generic [ref=e968]: "Use one page for \"Research paper writing\". Do not create separate pages for: research paper writer, research paper writing service."
+      - list [ref=e969]:
+        - listitem [ref=e970]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e971]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e972]:
+      - generic [ref=e973]:
+        - generic [ref=e974]:
+          - paragraph [ref=e975]: money-page · transactional
+          - heading "MBA essay writing service" [level=3] [ref=e976]
+          - paragraph [ref=e977]: /mba-essay-writing-service/
+        - generic [ref=e978]:
+          - generic [ref=e979]: "36"
+          - text: exact impressions
+        - generic [ref=e980]:
+          - generic [ref=e981]: "36"
+          - text: broad impressions
+      - generic [ref=e982]:
+        - strong [ref=e983]: "Primary:"
+        - text: mba essay writing service
+      - table [ref=e984]:
+        - rowgroup [ref=e985]:
+          - row "Keyword Exact Broad Sources" [ref=e986]:
+            - columnheader "Keyword" [ref=e987]
+            - columnheader "Exact" [ref=e988]
+            - columnheader "Broad" [ref=e989]
+            - columnheader "Sources" [ref=e990]
+        - rowgroup [ref=e991]:
+          - row "mba essay writing service 36 36 seed-exact" [ref=e992]:
+            - cell "mba essay writing service" [ref=e993]
+            - cell "36" [ref=e994]
+            - cell "36" [ref=e995]
+            - cell "seed-exact" [ref=e996]
+      - generic [ref=e997]: "Use one page for \"MBA essay writing service\". Do not create separate pages for: mba essay writing service."
+      - list [ref=e998]:
+        - listitem [ref=e999]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1000]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e1001]:
+      - generic [ref=e1002]:
+        - generic [ref=e1003]:
+          - paragraph [ref=e1004]: money-page · transactional
+          - heading "College paper writing service" [level=3] [ref=e1005]
+          - paragraph [ref=e1006]: /college-paper-writing-service/
+        - generic [ref=e1007]:
+          - generic [ref=e1008]: "32"
+          - text: exact impressions
+        - generic [ref=e1009]:
+          - generic [ref=e1010]: "32"
+          - text: broad impressions
+      - generic [ref=e1011]:
+        - strong [ref=e1012]: "Primary:"
+        - text: college paper writing service
+      - table [ref=e1013]:
+        - rowgroup [ref=e1014]:
+          - row "Keyword Exact Broad Sources" [ref=e1015]:
+            - columnheader "Keyword" [ref=e1016]
+            - columnheader "Exact" [ref=e1017]
+            - columnheader "Broad" [ref=e1018]
+            - columnheader "Sources" [ref=e1019]
+        - rowgroup [ref=e1020]:
+          - row "college paper writing service 32 32 seed-exact, essay writing service, do my essay, write my paper" [ref=e1021]:
+            - cell "college paper writing service" [ref=e1022]
+            - cell "32" [ref=e1023]
+            - cell "32" [ref=e1024]
+            - cell "seed-exact, essay writing service, do my essay, write my paper" [ref=e1025]
+      - generic [ref=e1026]: "Use one page for \"College paper writing service\". Do not create separate pages for: college paper writing service."
+      - list [ref=e1027]:
+        - listitem [ref=e1028]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1029]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e1030]:
+      - generic [ref=e1031]:
+        - generic [ref=e1032]:
+          - paragraph [ref=e1033]: money-page · transactional
+          - heading "Coursework writing service" [level=3] [ref=e1034]
+          - paragraph [ref=e1035]: /coursework-writing-service/
+        - generic [ref=e1036]:
+          - generic [ref=e1037]: "24"
+          - text: exact impressions
+        - generic [ref=e1038]:
+          - generic [ref=e1039]: "57"
+          - text: broad impressions
+      - generic [ref=e1040]:
+        - strong [ref=e1041]: "Primary:"
+        - text: coursework writing service
+      - table [ref=e1042]:
+        - rowgroup [ref=e1043]:
+          - row "Keyword Exact Broad Sources" [ref=e1044]:
+            - columnheader "Keyword" [ref=e1045]
+            - columnheader "Exact" [ref=e1046]
+            - columnheader "Broad" [ref=e1047]
+            - columnheader "Sources" [ref=e1048]
+        - rowgroup [ref=e1049]:
+          - row "coursework writing service 24 57 seed-exact" [ref=e1050]:
+            - cell "coursework writing service" [ref=e1051]
+            - cell "24" [ref=e1052]
+            - cell "57" [ref=e1053]
+            - cell "seed-exact" [ref=e1054]
+      - generic [ref=e1055]: "Use one page for \"Coursework writing service\". Do not create separate pages for: coursework writing service."
+      - list [ref=e1056]:
+        - listitem [ref=e1057]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1058]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e1059]:
+      - generic [ref=e1060]:
+        - generic [ref=e1061]:
+          - paragraph [ref=e1062]: money-page · transactional
+          - heading "Do my assignment service" [level=3] [ref=e1063]
+          - paragraph [ref=e1064]: /do-my-assignment-service/
+        - generic [ref=e1065]:
+          - generic [ref=e1066]: "23"
+          - text: exact impressions
+        - generic [ref=e1067]:
+          - generic [ref=e1068]: "59"
+          - text: broad impressions
+      - generic [ref=e1069]:
+        - strong [ref=e1070]: "Primary:"
+        - text: do my assignment
+      - table [ref=e1071]:
+        - rowgroup [ref=e1072]:
+          - row "Keyword Exact Broad Sources" [ref=e1073]:
+            - columnheader "Keyword" [ref=e1074]
+            - columnheader "Exact" [ref=e1075]
+            - columnheader "Broad" [ref=e1076]
+            - columnheader "Sources" [ref=e1077]
+        - rowgroup [ref=e1078]:
+          - row "do my assignment 23 59 seed-exact" [ref=e1079]:
+            - cell "do my assignment" [ref=e1080]
+            - cell "23" [ref=e1081]
+            - cell "59" [ref=e1082]
+            - cell "seed-exact" [ref=e1083]
+      - generic [ref=e1084]: "Use one page for \"Do my assignment service\". Do not create separate pages for: do my assignment."
+      - list [ref=e1085]:
+        - listitem [ref=e1086]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1087]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e1088]:
+      - generic [ref=e1089]:
+        - generic [ref=e1090]:
+          - paragraph [ref=e1091]: money-page · transactional
+          - heading "Accounting homework help" [level=3] [ref=e1092]
+          - paragraph [ref=e1093]: /accounting-homework-help/
+        - generic [ref=e1094]:
+          - generic [ref=e1095]: "19"
+          - text: exact impressions
+        - generic [ref=e1096]:
+          - generic [ref=e1097]: "19"
+          - text: broad impressions
+      - generic [ref=e1098]:
+        - strong [ref=e1099]: "Primary:"
+        - text: accounting homework help
+      - table [ref=e1100]:
+        - rowgroup [ref=e1101]:
+          - row "Keyword Exact Broad Sources" [ref=e1102]:
+            - columnheader "Keyword" [ref=e1103]
+            - columnheader "Exact" [ref=e1104]
+            - columnheader "Broad" [ref=e1105]
+            - columnheader "Sources" [ref=e1106]
+        - rowgroup [ref=e1107]:
+          - row "accounting homework help 19 19 seed-exact" [ref=e1108]:
+            - cell "accounting homework help" [ref=e1109]
+            - cell "19" [ref=e1110]
+            - cell "19" [ref=e1111]
+            - cell "seed-exact" [ref=e1112]
+      - generic [ref=e1113]: "Use one page for \"Accounting homework help\". Do not create separate pages for: accounting homework help."
+      - list [ref=e1114]:
+        - listitem [ref=e1115]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1116]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - generic [ref=e1117]:
+      - generic [ref=e1118]:
+        - generic [ref=e1119]:
+          - paragraph [ref=e1120]: money-page · transactional
+          - heading "Buy essay online" [level=3] [ref=e1121]
+          - paragraph [ref=e1122]: /buy-essay-online/
+        - generic [ref=e1123]:
+          - generic [ref=e1124]: "5"
+          - text: exact impressions
+        - generic [ref=e1125]:
+          - generic [ref=e1126]: "5"
+          - text: broad impressions
+      - generic [ref=e1127]:
+        - strong [ref=e1128]: "Primary:"
+        - text: pay for paper
+      - table [ref=e1129]:
+        - rowgroup [ref=e1130]:
+          - row "Keyword Exact Broad Sources" [ref=e1131]:
+            - columnheader "Keyword" [ref=e1132]
+            - columnheader "Exact" [ref=e1133]
+            - columnheader "Broad" [ref=e1134]
+            - columnheader "Sources" [ref=e1135]
+        - rowgroup [ref=e1136]:
+          - row "pay for paper 5 5 write my essay, write my essay for me, do my essay, write my paper" [ref=e1137]:
+            - cell "pay for paper" [ref=e1138]
+            - cell "5" [ref=e1139]
+            - cell "5" [ref=e1140]
+            - cell "write my essay, write my essay for me, do my essay, write my paper" [ref=e1141]
+      - generic [ref=e1142]: "Use one page for \"Buy essay online\". Do not create separate pages for: pay for paper."
+      - list [ref=e1143]:
+        - listitem [ref=e1144]: Lead with a clear service offer, price/quality promise, deadlines, guarantees, and one primary order CTA.
+        - listitem [ref=e1145]: Handle objections around originality, privacy, revisions, and writer quality on the same page.
+    - heading "Funnel Support Pages" [level=2] [ref=e1146]
+    - generic [ref=e1147]:
+      - generic [ref=e1148]:
+        - generic [ref=e1149]:
+          - paragraph [ref=e1150]: tool-funnel-page · tool
+          - heading "Essay checker and AI detector" [level=3] [ref=e1151]
+          - paragraph [ref=e1152]: /essay-checker-and-ai-detector/
+        - generic [ref=e1153]:
+          - generic [ref=e1154]: 12,223
+          - text: exact impressions
+        - generic [ref=e1155]:
+          - generic [ref=e1156]: 20,578
+          - text: broad impressions
+      - generic [ref=e1157]:
+        - strong [ref=e1158]: "Primary:"
+        - text: essay checker
+      - table [ref=e1159]:
+        - rowgroup [ref=e1160]:
+          - row "Keyword Exact Broad Sources" [ref=e1161]:
+            - columnheader "Keyword" [ref=e1162]
+            - columnheader "Exact" [ref=e1163]
+            - columnheader "Broad" [ref=e1164]
+            - columnheader "Sources" [ref=e1165]
+        - rowgroup [ref=e1166]:
+          - row "essay checker 6,763 14,697 seed-exact" [ref=e1167]:
+            - cell "essay checker" [ref=e1168]
+            - cell "6,763" [ref=e1169]
+            - cell "14,697" [ref=e1170]
+            - cell "seed-exact" [ref=e1171]
+          - row "ai essay checker 5,460 5,881 seed-exact" [ref=e1172]:
+            - cell "ai essay checker" [ref=e1173]
+            - cell "5,460" [ref=e1174]
+            - cell "5,881" [ref=e1175]
+            - cell "seed-exact" [ref=e1176]
+      - generic [ref=e1177]: "Use one page for \"Essay checker and AI detector\". Do not create separate pages for: essay checker, ai essay checker."
+      - list [ref=e1178]:
+        - listitem [ref=e1179]: Use "Essay checker and AI detector" as a utility-led funnel entry point, then route users to the paid writing/help offer.
+        - listitem [ref=e1180]: "Keep the CTA contextual: review, improve, rewrite, or get expert help with the same assignment."
+    - generic [ref=e1181]:
+      - generic [ref=e1182]:
+        - generic [ref=e1183]:
+          - paragraph [ref=e1184]: supporting-funnel-page · informational
+          - heading "Essay format guides" [level=3] [ref=e1185]
+          - paragraph [ref=e1186]: /essay-format-guides/
+        - generic [ref=e1187]:
+          - generic [ref=e1188]: 7,845
+          - text: exact impressions
+        - generic [ref=e1189]:
+          - generic [ref=e1190]: 21,751
+          - text: broad impressions
+      - generic [ref=e1191]:
+        - strong [ref=e1192]: "Primary:"
+        - text: essay format
+      - table [ref=e1193]:
+        - rowgroup [ref=e1194]:
+          - row "Keyword Exact Broad Sources" [ref=e1195]:
+            - columnheader "Keyword" [ref=e1196]
+            - columnheader "Exact" [ref=e1197]
+            - columnheader "Broad" [ref=e1198]
+            - columnheader "Sources" [ref=e1199]
+        - rowgroup [ref=e1200]:
+          - row "essay format 7,845 21,751 seed-exact" [ref=e1201]:
+            - cell "essay format" [ref=e1202]
+            - cell "7,845" [ref=e1203]
+            - cell "21,751" [ref=e1204]
+            - cell "seed-exact" [ref=e1205]
+      - generic [ref=e1206]: "Use one page for \"Essay format guides\". Do not create separate pages for: essay format."
+      - list [ref=e1207]:
+        - listitem [ref=e1208]: Answer the immediate question, then bridge to the service through a natural next step.
+        - listitem [ref=e1209]: Use this page to capture early-stage demand without competing with the main money page.
+    - generic [ref=e1210]:
+      - generic [ref=e1211]:
+        - generic [ref=e1212]:
+          - paragraph [ref=e1213]: tool-funnel-page · tool
+          - heading "Essay grader" [level=3] [ref=e1214]
+          - paragraph [ref=e1215]: /essay-grader/
+        - generic [ref=e1216]:
+          - generic [ref=e1217]: 5,790
+          - text: exact impressions
+        - generic [ref=e1218]:
+          - generic [ref=e1219]: 8,354
+          - text: broad impressions
+      - generic [ref=e1220]:
+        - strong [ref=e1221]: "Primary:"
+        - text: essay grader
+      - table [ref=e1222]:
+        - rowgroup [ref=e1223]:
+          - row "Keyword Exact Broad Sources" [ref=e1224]:
+            - columnheader "Keyword" [ref=e1225]
+            - columnheader "Exact" [ref=e1226]
+            - columnheader "Broad" [ref=e1227]
+            - columnheader "Sources" [ref=e1228]
+        - rowgroup [ref=e1229]:
+          - row "essay grader 5,790 8,354 seed-exact" [ref=e1230]:
+            - cell "essay grader" [ref=e1231]
+            - cell "5,790" [ref=e1232]
+            - cell "8,354" [ref=e1233]
+            - cell "seed-exact" [ref=e1234]
+      - generic [ref=e1235]: "Use one page for \"Essay grader\". Do not create separate pages for: essay grader."
+      - list [ref=e1236]:
+        - listitem [ref=e1237]: Use "Essay grader" as a utility-led funnel entry point, then route users to the paid writing/help offer.
+        - listitem [ref=e1238]: "Keep the CTA contextual: review, improve, rewrite, or get expert help with the same assignment."
+    - generic [ref=e1239]:
+      - generic [ref=e1240]:
+        - generic [ref=e1241]:
+          - paragraph [ref=e1242]: supporting-funnel-page · informational
+          - heading "How to write an essay" [level=3] [ref=e1243]
+          - paragraph [ref=e1244]: /how-to-write-an-essay/
+        - generic [ref=e1245]:
+          - generic [ref=e1246]: 4,675
+          - text: exact impressions
+        - generic [ref=e1247]:
+          - generic [ref=e1248]: 6,044
+          - text: broad impressions
+      - generic [ref=e1249]:
+        - strong [ref=e1250]: "Primary:"
+        - text: how to write an essay
+      - table [ref=e1251]:
+        - rowgroup [ref=e1252]:
+          - row "Keyword Exact Broad Sources" [ref=e1253]:
+            - columnheader "Keyword" [ref=e1254]
+            - columnheader "Exact" [ref=e1255]
+            - columnheader "Broad" [ref=e1256]
+            - columnheader "Sources" [ref=e1257]
+        - rowgroup [ref=e1258]:
+          - row "how to write an essay 4,675 6,044 seed-exact" [ref=e1259]:
+            - cell "how to write an essay" [ref=e1260]
+            - cell "4,675" [ref=e1261]
+            - cell "6,044" [ref=e1262]
+            - cell "seed-exact" [ref=e1263]
+      - generic [ref=e1264]: "Use one page for \"How to write an essay\". Do not create separate pages for: how to write an essay."
+      - list [ref=e1265]:
+        - listitem [ref=e1266]: Answer the immediate question, then bridge to the service through a natural next step.
+        - listitem [ref=e1267]: Use this page to capture early-stage demand without competing with the main money page.
+    - generic [ref=e1268]:
+      - generic [ref=e1269]:
+        - generic [ref=e1270]:
+          - paragraph [ref=e1271]: supporting-funnel-page · informational
+          - heading "College essay help" [level=3] [ref=e1272]
+          - paragraph [ref=e1273]: /college-essay-help/
+        - generic [ref=e1274]:
+          - generic [ref=e1275]: 3,394
+          - text: exact impressions
+        - generic [ref=e1276]:
+          - generic [ref=e1277]: 3,394
+          - text: broad impressions
+      - generic [ref=e1278]:
+        - strong [ref=e1279]: "Primary:"
+        - text: college essay examples
+      - table [ref=e1280]:
+        - rowgroup [ref=e1281]:
+          - row "Keyword Exact Broad Sources" [ref=e1282]:
+            - columnheader "Keyword" [ref=e1283]
+            - columnheader "Exact" [ref=e1284]
+            - columnheader "Broad" [ref=e1285]
+            - columnheader "Sources" [ref=e1286]
+        - rowgroup [ref=e1287]:
+          - row "college essay examples 3,394 3,394 seed-exact" [ref=e1288]:
+            - cell "college essay examples" [ref=e1289]
+            - cell "3,394" [ref=e1290]
+            - cell "3,394" [ref=e1291]
+            - cell "seed-exact" [ref=e1292]
+      - generic [ref=e1293]: "Use one page for \"College essay help\". Do not create separate pages for: college essay examples."
+      - list [ref=e1294]:
+        - listitem [ref=e1295]: Answer the immediate question, then bridge to the service through a natural next step.
+        - listitem [ref=e1296]: Use this page to capture early-stage demand without competing with the main money page.
+    - generic [ref=e1297]:
+      - generic [ref=e1298]:
+        - generic [ref=e1299]:
+          - paragraph [ref=e1300]: supporting-funnel-page · informational
+          - heading "Essay topics" [level=3] [ref=e1301]
+          - paragraph [ref=e1302]: /essay-topics/
+        - generic [ref=e1303]:
+          - generic [ref=e1304]: "911"
+          - text: exact impressions
+        - generic [ref=e1305]:
+          - generic [ref=e1306]: 10,841
+          - text: broad impressions
+      - generic [ref=e1307]:
+        - strong [ref=e1308]: "Primary:"
+        - text: essay topics
+      - table [ref=e1309]:
+        - rowgroup [ref=e1310]:
+          - row "Keyword Exact Broad Sources" [ref=e1311]:
+            - columnheader "Keyword" [ref=e1312]
+            - columnheader "Exact" [ref=e1313]
+            - columnheader "Broad" [ref=e1314]
+            - columnheader "Sources" [ref=e1315]
+        - rowgroup [ref=e1316]:
+          - row "essay topics 911 10,841 seed-exact" [ref=e1317]:
+            - cell "essay topics" [ref=e1318]
+            - cell "911" [ref=e1319]
+            - cell "10,841" [ref=e1320]
+            - cell "seed-exact" [ref=e1321]
+      - generic [ref=e1322]: "Use one page for \"Essay topics\". Do not create separate pages for: essay topics."
+      - list [ref=e1323]:
+        - listitem [ref=e1324]: Answer the immediate question, then bridge to the service through a natural next step.
+        - listitem [ref=e1325]: Use this page to capture early-stage demand without competing with the main money page.
+    - generic [ref=e1326]:
+      - generic [ref=e1327]:
+        - generic [ref=e1328]:
+          - paragraph [ref=e1329]: tool-funnel-page · tool
+          - heading "Essay generator" [level=3] [ref=e1330]
+          - paragraph [ref=e1331]: /essay-generator/
+        - generic [ref=e1332]:
+          - generic [ref=e1333]: "101"
+          - text: exact impressions
+        - generic [ref=e1334]:
+          - generic [ref=e1335]: "174"
+          - text: broad impressions
+      - generic [ref=e1336]:
+        - strong [ref=e1337]: "Primary:"
+        - text: essay generator
+      - table [ref=e1338]:
+        - rowgroup [ref=e1339]:
+          - row "Keyword Exact Broad Sources" [ref=e1340]:
+            - columnheader "Keyword" [ref=e1341]
+            - columnheader "Exact" [ref=e1342]
+            - columnheader "Broad" [ref=e1343]
+            - columnheader "Sources" [ref=e1344]
+        - rowgroup [ref=e1345]:
+          - row "essay generator 101 174 professional essay writer, hire essay writer, online essay writer" [ref=e1346]:
+            - cell "essay generator" [ref=e1347]
+            - cell "101" [ref=e1348]
+            - cell "174" [ref=e1349]
+            - cell "professional essay writer, hire essay writer, online essay writer" [ref=e1350]
+      - generic [ref=e1351]: "Use one page for \"Essay generator\". Do not create separate pages for: essay generator."
+      - list [ref=e1352]:
+        - listitem [ref=e1353]: Use "Essay generator" as a utility-led funnel entry point, then route users to the paid writing/help offer.
+        - listitem [ref=e1354]: "Keep the CTA contextual: review, improve, rewrite, or get expert help with the same assignment."
+    - heading "Excluded / Review" [level=2] [ref=e1355]
+    - generic [ref=e1356]:
+      - generic [ref=e1357]:
+        - generic [ref=e1358]:
+          - paragraph [ref=e1359]: exclude-or-review · mixed
+          - heading "Homework and assignment help" [level=3] [ref=e1360]
+          - paragraph [ref=e1361]: /homework-and-assignment-help/
+        - generic [ref=e1362]:
+          - generic [ref=e1363]: 5,203
+          - text: exact impressions
+        - generic [ref=e1364]:
+          - generic [ref=e1365]: 72,256
+          - text: broad impressions
+      - generic [ref=e1366]:
+        - strong [ref=e1367]: "Primary:"
+        - text: homework
+      - table [ref=e1368]:
+        - rowgroup [ref=e1369]:
+          - row "Keyword Exact Broad Sources" [ref=e1370]:
+            - columnheader "Keyword" [ref=e1371]
+            - columnheader "Exact" [ref=e1372]
+            - columnheader "Broad" [ref=e1373]
+            - columnheader "Sources" [ref=e1374]
+        - rowgroup [ref=e1375]:
+          - row "homework 1,485 58,112 assignment help service, online assignment help, urgent assignment help" [ref=e1376]:
+            - cell "homework" [ref=e1377]
+            - cell "1,485" [ref=e1378]
+            - cell "58,112" [ref=e1379]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e1380]
+          - row "assignment 3,397 11,854 assignment help service, online assignment help, urgent assignment help" [ref=e1381]:
+            - cell "assignment" [ref=e1382]
+            - cell "3,397" [ref=e1383]
+            - cell "11,854" [ref=e1384]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e1385]
+          - row "navy assignment 217 2,044 assignment help service, online assignment help, urgent assignment help" [ref=e1386]:
+            - cell "navy assignment" [ref=e1387]
+            - cell "217" [ref=e1388]
+            - cell "2,044" [ref=e1389]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e1390]
+          - row "homework solver 104 246 assignment help service, online assignment help, urgent assignment help" [ref=e1391]:
+            - cell "homework solver" [ref=e1392]
+            - cell "104" [ref=e1393]
+            - cell "246" [ref=e1394]
+            - cell "assignment help service, online assignment help, urgent assignment help" [ref=e1395]
+      - generic [ref=e1396]: "Use one page for \"Homework and assignment help\". Do not create separate pages for: homework, assignment, navy assignment, homework solver."
+      - list [ref=e1397]:
+        - listitem [ref=e1398]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1399]: Use internal links to route commercial visitors toward the main offer.
+    - heading "Rejected Keywords" [level=2] [ref=e1400]
+    - generic [ref=e1401]:
+      - generic [ref=e1402]:
+        - strong [ref=e1403]: facebook
+        - text: not-in-niche
+      - generic [ref=e1404]:
+        - strong [ref=e1405]: facebook login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1406]:
+        - strong [ref=e1407]: facebook log in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1408]:
+        - strong [ref=e1409]: facebook.com
+        - text: not-in-niche
+      - generic [ref=e1410]:
+        - strong [ref=e1411]: itunes
+        - text: not-in-niche
+      - generic [ref=e1412]:
+        - strong [ref=e1413]: movies
+        - text: not-in-niche
+      - generic [ref=e1414]:
+        - strong [ref=e1415]: fb
+        - text: not-in-niche
+      - generic [ref=e1416]:
+        - strong [ref=e1417]: facebook - log in or sign up
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1418]:
+        - strong [ref=e1419]: f
+        - text: not-in-niche
+      - generic [ref=e1420]:
+        - strong [ref=e1421]: movie tickets near me
+        - text: not-in-niche
+      - generic [ref=e1422]:
+        - strong [ref=e1423]: www.facebook.com
+        - text: not-in-niche
+      - generic [ref=e1424]:
+        - strong [ref=e1425]: facebook home page
+        - text: not-in-niche
+      - generic [ref=e1426]:
+        - strong [ref=e1427]: face
+        - text: not-in-niche
+      - generic [ref=e1428]:
+        - strong [ref=e1429]: fb login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1430]:
+        - strong [ref=e1431]: facebook login my account
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1432]:
+        - strong [ref=e1433]: amc theatres
+        - text: not-in-niche
+      - generic [ref=e1434]:
+        - strong [ref=e1435]: face book
+        - text: not-in-niche
+      - generic [ref=e1436]:
+        - strong [ref=e1437]: movie theaters near me
+        - text: not-in-niche
+      - generic [ref=e1438]:
+        - strong [ref=e1439]: facebook log into my account
+        - text: not-in-niche
+      - generic [ref=e1440]:
+        - strong [ref=e1441]: "4"
+        - text: not-in-niche
+      - generic [ref=e1442]:
+        - strong [ref=e1443]: facebook log in account
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1444]:
+        - strong [ref=e1445]: regal cinemas
+        - text: not-in-niche
+      - generic [ref=e1446]:
+        - strong [ref=e1447]: four
+        - text: not-in-niche
+      - generic [ref=e1448]:
+        - strong [ref=e1449]: regal theaters
+        - text: not-in-niche
+      - generic [ref=e1450]:
+        - strong [ref=e1451]: mastercard launches agent pay for machines
+        - text: not-in-niche
+      - generic [ref=e1452]:
+        - strong [ref=e1453]: movies near me
+        - text: not-in-niche
+      - generic [ref=e1454]:
+        - strong [ref=e1455]: facebook com
+        - text: not-in-niche
+      - generic [ref=e1456]:
+        - strong [ref=e1457]: movies in theaters now playing
+        - text: not-in-niche
+      - generic [ref=e1458]:
+        - strong [ref=e1459]: itunes login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1460]:
+        - strong [ref=e1461]: itunes download
+        - text: not-in-niche
+      - generic [ref=e1462]:
+        - strong [ref=e1463]: prince harry meghan markle proposal
+        - text: not-in-niche
+      - generic [ref=e1464]:
+        - strong [ref=e1465]: regal
+        - text: not-in-niche
+      - generic [ref=e1466]:
+        - strong [ref=e1467]: www facebook.com
+        - text: not-in-niche
+      - generic [ref=e1468]:
+        - strong [ref=e1469]: itunes for windows
+        - text: not-in-niche
+      - generic [ref=e1470]:
+        - strong [ref=e1471]: movies out now
+        - text: not-in-niche
+      - generic [ref=e1472]:
+        - strong [ref=e1473]: facebook .com
+        - text: not-in-niche
+      - generic [ref=e1474]:
+        - strong [ref=e1475]: facebookcom
+        - text: not-in-niche
+      - generic [ref=e1476]:
+        - strong [ref=e1477]: itunes app
+        - text: not-in-niche
+      - generic [ref=e1478]:
+        - strong [ref=e1479]: apple itunes
+        - text: not-in-niche
+      - generic [ref=e1480]:
+        - strong [ref=e1481]: regal movies
+        - text: not-in-niche
+      - generic [ref=e1482]:
+        - strong [ref=e1483]: i tunes
+        - text: not-in-niche
+      - generic [ref=e1484]:
+        - strong [ref=e1485]: itunes store
+        - text: not-in-niche
+      - generic [ref=e1486]:
+        - strong [ref=e1487]: new movies in theaters
+        - text: not-in-niche
+      - generic [ref=e1488]:
+        - strong [ref=e1489]: essaypro
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1490]:
+        - strong [ref=e1491]: do my own pest control
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1492]:
+        - strong [ref=e1493]: download itunes
+        - text: not-in-niche
+      - generic [ref=e1494]:
+        - strong [ref=e1495]: regal theaters near me
+        - text: not-in-niche
+      - generic [ref=e1496]:
+        - strong [ref=e1497]: regal cinema
+        - text: not-in-niche
+      - generic [ref=e1498]:
+        - strong [ref=e1499]: movies out right now
+        - text: not-in-niche
+      - generic [ref=e1500]:
+        - strong [ref=e1501]: ai homework helper
+        - text: ai-tool-without-buyer-intent
+      - generic [ref=e1502]:
+        - strong [ref=e1503]: itunes download for pc
+        - text: not-in-niche
+      - generic [ref=e1504]:
+        - strong [ref=e1505]: homework ai
+        - text: ai-tool-without-buyer-intent
+      - generic [ref=e1506]:
+        - strong [ref=e1507]: regal movie theater
+        - text: not-in-niche
+      - generic [ref=e1508]:
+        - strong [ref=e1509]: itunes music
+        - text: not-in-niche
+      - generic [ref=e1510]:
+        - strong [ref=e1511]: movies out now in theaters
+        - text: not-in-niche
+      - generic [ref=e1512]:
+        - strong [ref=e1513]: essay pro
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1514]:
+        - strong [ref=e1515]: itune
+        - text: not-in-niche
+      - generic [ref=e1516]:
+        - strong [ref=e1517]: ai helper
+        - text: not-in-niche
+      - generic [ref=e1518]:
+        - strong [ref=e1519]: essaypro login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1520]:
+        - strong [ref=e1521]: itunes download windows 11
+        - text: not-in-niche
+      - generic [ref=e1522]:
+        - strong [ref=e1523]: regal theatres
+        - text: not-in-niche
+      - generic [ref=e1524]:
+        - strong [ref=e1525]: movies out
+        - text: not-in-niche
+      - generic [ref=e1526]:
+        - strong [ref=e1527]: movies this weekend
+        - text: not-in-niche
+      - generic [ref=e1528]:
+        - strong [ref=e1529]: do my own
+        - text: not-in-niche
+      - generic [ref=e1530]:
+        - strong [ref=e1531]: do my wife
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1532]:
+        - strong [ref=e1533]: essay pro login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1534]:
+        - strong [ref=e1535]: paper owl
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1536]:
+        - strong [ref=e1537]: itunes app for pc
+        - text: not-in-niche
+      - generic [ref=e1538]:
+        - strong [ref=e1539]: regmovies
+        - text: not-in-niche
+      - generic [ref=e1540]:
+        - strong [ref=e1541]: editpad
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1542]:
+        - strong [ref=e1543]: ai homework
+        - text: ai-tool-without-buyer-intent
+      - generic [ref=e1544]:
+        - strong [ref=e1545]: correct pay for inmates
+        - text: not-in-niche
+      - generic [ref=e1546]:
+        - strong [ref=e1547]: itunes app download
+        - text: not-in-niche
+      - generic [ref=e1548]:
+        - strong [ref=e1549]: pay in 4
+        - text: not-in-niche
+      - generic [ref=e1550]:
+        - strong [ref=e1551]: too cool to pay for school scholarship
+        - text: not-in-niche
+      - generic [ref=e1552]:
+        - strong [ref=e1553]: will medicare pay for zepbound
+        - text: not-in-niche
+      - generic [ref=e1554]:
+        - strong [ref=e1555]: what movies are out
+        - text: not-in-niche
+      - generic [ref=e1556]:
+        - strong [ref=e1557]: where do my screenshots go
+        - text: not-in-niche
+      - generic [ref=e1558]:
+        - strong [ref=e1559]: do my own pest
+        - text: not-in-niche
+      - generic [ref=e1560]:
+        - strong [ref=e1561]: homework helper ai
+        - text: ai-tool-without-buyer-intent
+      - generic [ref=e1562]:
+        - strong [ref=e1563]: wherefour login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1564]:
+        - strong [ref=e1565]: four app
+        - text: not-in-niche
+      - generic [ref=e1566]:
+        - strong [ref=e1567]: touch pay for inmates commissary
+        - text: not-in-niche
+      - generic [ref=e1568]:
+        - strong [ref=e1569]: paperowl
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1570]:
+        - strong [ref=e1571]: what's playing at the movies
+        - text: not-in-niche
+      - generic [ref=e1572]:
+        - strong [ref=e1573]: papersowl
+        - text: not-in-niche
+      - generic [ref=e1574]:
+        - strong [ref=e1575]: why do my headphones keep disconnecting
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1576]:
+        - strong [ref=e1577]: ftb web pay for individuals
+        - text: not-in-niche
+      - generic [ref=e1578]:
+        - strong [ref=e1579]: when will medicare pay for glp-1 meds
+        - text: not-in-niche
+      - generic [ref=e1580]:
+        - strong [ref=e1581]: regal short pump
+        - text: not-in-niche
+      - generic [ref=e1582]:
+        - strong [ref=e1583]: does medicare pay for hearing aids
+        - text: not-in-niche
+      - generic [ref=e1584]:
+        - strong [ref=e1585]: pay with four
+        - text: not-in-niche
+      - generic [ref=e1586]:
+        - strong [ref=e1587]: itunes download free
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1588]:
+        - strong [ref=e1589]: pay in four
+        - text: not-in-niche
+      - generic [ref=e1590]:
+        - strong [ref=e1591]: essay services login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1592]:
+        - strong [ref=e1593]: essayservice login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1594]:
+        - strong [ref=e1595]: pay for performance
+        - text: not-in-niche
+      - generic [ref=e1596]:
+        - strong [ref=e1597]: good ai
+        - text: not-in-niche
+      - generic [ref=e1598]:
+        - strong [ref=e1599]: why do my farts smell so bad
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1600]:
+        - strong [ref=e1601]: do my own pest control website
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1602]:
+        - strong [ref=e1603]: pay in four apps
+        - text: not-in-niche
+      - generic [ref=e1604]:
+        - strong [ref=e1605]: studybay login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1606]:
+        - strong [ref=e1607]: www.4
+        - text: not-in-niche
+      - generic [ref=e1608]:
+        - strong [ref=e1609]: studybay
+        - text: not-in-niche
+      - generic [ref=e1610]:
+        - strong [ref=e1611]: why do my legs feel heavy
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1612]:
+        - strong [ref=e1613]: do my own website
+        - text: not-in-niche
+      - generic [ref=e1614]:
+        - strong [ref=e1615]: why do my airpods keep disconnecting
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1616]:
+        - strong [ref=e1617]: domyessay
+        - text: not-in-niche
+      - generic [ref=e1618]:
+        - strong [ref=e1619]: why do my fingernails have ridges
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1620]:
+        - strong [ref=e1621]: why do my legs ache
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1622]:
+        - strong [ref=e1623]: how much does biolife pay for plasma
+        - text: not-in-niche
+      - generic [ref=e1624]:
+        - strong [ref=e1625]: top cinema
+        - text: not-in-niche
+      - generic [ref=e1626]:
+        - strong [ref=e1627]: does medicare pay for cataract surgery
+        - text: not-in-niche
+      - generic [ref=e1628]:
+        - strong [ref=e1629]: how to pay for college
+        - text: not-in-niche
+      - generic [ref=e1630]:
+        - strong [ref=e1631]: will medicare pay for home care
+        - text: not-in-niche
+      - generic [ref=e1632]:
+        - strong [ref=e1633]: free essay writer
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1634]:
+        - strong [ref=e1635]: does medicare pay for hospice
+        - text: not-in-niche
+      - generic [ref=e1636]:
+        - strong [ref=e1637]: does medicare pay for assisted living
+        - text: not-in-niche
+      - generic [ref=e1638]:
+        - strong [ref=e1639]: ai hw helper
+        - text: not-in-niche
+      - generic [ref=e1640]:
+        - strong [ref=e1641]: why do my feet hurt
+        - text: brand-or-unrelated-noise

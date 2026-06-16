@@ -17,3 +17,8 @@ args = ["x", "analytics-mcp"]
 env = { GOOGLE_APPLICATION_CREDENTIALS = "/path/to/your/service-account-key.json", GOOGLE_PROJECT_ID = "YOUR_GA4_PROJECT_ID" }
 startup_timeout_ms = 20000
 enabled = true
+
+[mcp_servers.cloudflare-api]
+url = "https://mcp.cloudflare.com/mcp"
+startup_timeout_ms = 20000
+enabled = true

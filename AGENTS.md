@@ -170,6 +170,111 @@ make domain-suggest KEYWORD=brand TLD=com,net,org
 make domain-buy-test DOMAIN=example.com
 ```
 
+## Domain Launch Ops: Regway + Cloudflare + Hestia
+
+Для полного цикла домена используйте skill `domain-launch-ops`.
+
+Процесс:
+
+- Regway: проверить доступность домена через `make domain-check`.
+- Regway: проверить цену через `make domain-price`.
+- Regway: тестовую покупку делать только через `make domain-buy-test`.
+- Cloudflare: после покупки использовать MCP `cloudflare-api` для зоны, DNS, SSL/TLS, HTTPS, redirects, cache/security.
+- Hestia: после настройки DNS деплоить через `make deploy DOMAIN=example.com`.
+
+Cloudflare MCP подключен в проектных конфигах:
+
+```json
+{
+  "cloudflare-api": {
+    "url": "https://mcp.cloudflare.com/mcp"
+  }
+}
+```
+
+Правило контекста:
+
+- Не загружать Cloudflare MCP и детали Cloudflare API в обычных задачах.
+- Использовать `cloudflare-api` только когда задача явно про настройку/диагностику Cloudflare.
+- Для повторяемого деплоя предпочитать локальные скрипты и конфиги, а MCP использовать для точной настройки аккаунта и разовых изменений.
+
+## Site Launch Research Workflow
+
+Когда пользователь пишет идею вида "хочу сделать сайт на тему X", "нужен сайт под нишу X", "запусти сайт под ключ", использовать skill `site-launch-research`.
+
+Обязательный порядок:
+
+- Сначала исследовать ключевые слова и намерение аудитории.
+- Выбрать главный ключ под homepage и карту страниц под коммерческие/информационные кластеры.
+- Сгенерировать домены под главный ключ и бренд.
+- Проверить домены через Regway (`make domain-check`, `make domain-price`).
+- Показать короткий shortlist доменов и спросить пользователя, какой брать.
+- Не покупать домен и не делать платные действия без явного выбора и подтверждения пользователя.
+- После подтверждения использовать `domain-launch-ops`: Regway для покупки, Cloudflare MCP для DNS/SSL/HTTPS/cache/security, Hestia для деплоя.
+
+Для keyword research:
+
+- Использовать инструменты исследования ключей только под целевой поисковый рынок.
+- Не использовать Yandex Wordstat/API, если сайт не под Яндекс, русскоязычный спрос, РФ или СНГ.
+- Использовать `wordstat-api` только когда проект явно под Яндекс/русский рынок или пользователь прямо попросил Wordstat/Яндекс/Дзен.
+- Для нового сайта без данных использовать seed-keyword источники: Bing Webmaster Tools Keyword Research для Bing/global workflow, Wordstat/API только для Yandex-relevant workflow.
+- Для Bing/global workflow не ограничиваться одним запросом. Перед запуском API агент обязан сам составить seed-plan под нишу: определить модель сайта (`affiliate`, `leadgen`, `ecommerce`, `info`), money-key modifiers, vertical/service modifiers, audience/problem modifiers, funnel-support intents, reject/free/brand/unrelated terms и `clusterRules` для разбиения веток на страницы. Не хардкодить нишевые списки в скриптах.
+- Перед созданием нового Bing/global плана обязательно сначала проверить библиотеку готовых исследований командой `make bing-plans` и посмотреть `/Users/sergejapetenok/credentials/astro-blank/bing/plans`. Если уже есть близкий план по теме/стране/языку/модели сайта, агент должен сначала прочитать его и предложить: использовать как основу, расширить конкретную ветку или создать новый план только если старый не подходит.
+- Готовые планы не считать мусорным output. Это база знаний для будущих сайтов. При расширении существующей темы создавать branch seed-plan рядом в той же папке и сохранять новый HTML-отчет туда же.
+- После размышления агента запускать `make bing-site-plan KEYWORD="..." SEED_PLAN=/path/to/seed-plan.json DAYS=30 DEPTH=2 PER_SEED=20 LIMIT=300`, затем при необходимости `make bing-keyword KEYWORD="..." COUNTRY=us LANGUAGE=en-US` для проверки спроса по выбранному главному ключу. Эти команды не требуют нового подтвержденного сайта.
+- Использовать результат `bing-site-plan`/`bing-clusters` как карту страниц: один cluster = одна страница, `primaryKeyword` = главный ключ страницы, `secondaryKeywords` = ключи этой же страницы. Не создавать отдельные страницы под secondary keywords без явного другого intent, чтобы не плодить каннибализацию.
+- `mainPage` в любом keyword-плане всегда означает homepage сайта и всегда имеет slug `/`. Не создавать для главной отдельный URL вида `/primary-keyword/`; такой URL может быть только у отдельной внутренней страницы, если она не является `mainPage`.
+- Если отчет показывает high-volume кластер с малым числом ключей, агент обязан не останавливаться: создать отдельный branch seed-plan для этого кластера и прогнать `bing-site-plan` по ветке. Пример: `math homework help` с большим объемом требует отдельной ветки math-homework, subject modifiers, paid-help modifiers и urgency modifiers.
+- Bing API может throttle'ить. Microsoft документирует квоты URL submission, но не публикует фиксированный официальный RPS для Bing keyword research endpoints. Не делать повторные широкие прогоны без необходимости; использовать кеш `/Users/sergejapetenok/credentials/astro-blank/bing/cache` и анализировать уже полученный отчет перед новым запуском. Для широких прогонов использовать быстрый нормальный pace (`DELAY_MS=500`, `STATS_DELAY_MS=500`) и backoff только при throttle. CLI уважает `Retry-After`, если Bing присылает этот заголовок. При throttle снижать `SEED_LIMIT`/`MAX_REQUESTS`/`PER_SEED`, а не запускать тот же широкий сбор сразу повторно.
+- Если тема похожа на affiliate/commercial niche, не строить ее как обычный инфосайт. Money pages должны быть основой, а informational/tool keywords оставлять только как `funnel-support` страницы, когда у них есть понятный мост к офферу, сравнению, подбору сервиса, проверке, улучшению или заказу помощи. Нерелевантные broad-related keywords вроде брендов, Google, unrelated "why do my..." и случайных тем обязательно отсеивать.
+- Использовать `search-console-mcp`/Bing performance tools для уже существующих и подтвержденных сайтов с показами/позициями/sitemap-данными.
+- Для уже подтвержденных сайтов использовать `make bing-query-stats DOMAIN=https://example.com` и `make bing-page-stats DOMAIN=https://example.com`, чтобы собрать реальные запросы и страницы из Bing Webmaster.
+- После production-деплоя добавлять/верифицировать домен в Bing Webmaster Tools и отправлять `sitemap-index.xml`, чтобы дальше собирать реальные запросы и позиции.
+- Не подменять исследование ключей выдуманным списком без пометки, если внешние данные недоступны.
+
+Секреты Bing Webmaster хранить только вне репозитория:
+
+`/Users/sergejapetenok/credentials/bing-webmaster.json`
+
+Этот файл предназначен для `apiKey` или OAuth-данных Bing Webmaster, `defaultSiteUrl` и настроек рынка для keyword research.
+
+Планы, HTML-отчеты и API-кеш Bing keyword research хранить только вне репозитория:
+
+- `/Users/sergejapetenok/credentials/astro-blank/bing/plans` — seed-plan JSON и HTML-отчеты.
+- `/Users/sergejapetenok/credentials/astro-blank/bing/cache` — кеш ответов Bing API.
+
+Не сохранять новые Bing keyword reports в `reports/` внутри стартера. `scripts/bing-webmaster.mjs` по умолчанию пишет в папку credentials. Если передать `SEED_PLAN=file.json` или `OUTPUT=file.html`, файл будет искаться/создаваться в `/Users/sergejapetenok/credentials/astro-blank/bing/plans`. Старый стиль `SEED_PLAN=reports/file.json` и `OUTPUT=reports/file.html` также перенаправляется в credentials по имени файла.
+
+Для Bing Webmaster использовать skill `bing-webmaster-api`.
+
+Правило выбора:
+
+- `search-console-mcp` использовать, когда его Bing tools уже авторизованы и видят аккаунт.
+- Локальный CLI `scripts/bing-webmaster.mjs` использовать как надежный слой стартера, если MCP не видит Bing-аккаунт или нужна повторяемая автоматизация через `/Users/sergejapetenok/credentials/bing-webmaster.json`.
+
+Команды:
+
+```bash
+make bing-sites
+make bing-quota DOMAIN=https://example.com
+make bing-submit-url DOMAIN=https://example.com URL=https://example.com/page
+make bing-keyword KEYWORD="essay writing service" COUNTRY=us LANGUAGE=en-US
+make bing-related-keywords KEYWORD="essay writing service" COUNTRY=us LANGUAGE=en-US
+make bing-research KEYWORD="essay writing service" DEPTH=2 PER_SEED=15 LIMIT=100
+make bing-clusters KEYWORD="essay writing service" DEPTH=2 PER_SEED=15 LIMIT=100
+make bing-site-plan KEYWORD="essay writing service" DAYS=30 DEPTH=2 PER_SEED=20 LIMIT=300
+make bing-site-plan KEYWORD="essay writing service" SEED_PLAN=essay-writing-affiliate-seed-plan.json DAYS=30 DEPTH=2 PER_SEED=20 LIMIT=300
+make bing-plans
+make bing-query-stats DOMAIN=https://example.com
+make bing-page-stats DOMAIN=https://example.com
+```
+
+Безопасный широкий запуск Bing keyword research:
+
+```bash
+make bing-site-plan KEYWORD="essay writing service" SEED_PLAN=essay-writing-affiliate-seed-plan.json DAYS=30 DEPTH=2 PER_SEED=10 LIMIT=300 SEED_LIMIT=40 MAX_REQUESTS=30 DELAY_MS=500 STATS_DELAY_MS=500 THROTTLE_DELAY_MS=60000
+```
+
 <!-- autoskills:start -->
 
 Summary generated by `autoskills`. Check the full files inside `.agents/skills`.

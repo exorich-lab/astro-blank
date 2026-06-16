@@ -1,0 +1,1547 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - heading "online gambling canada keyword plan" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Clustered keyword map for building pages without cannibalizing intent.
+    - generic [ref=e5]:
+      - generic [ref=e6]: "Market: ca / en-CA"
+      - generic [ref=e7]: "Period: 2026-05-17 to 2026-06-16"
+      - generic [ref=e8]: "Model: affiliate"
+      - generic [ref=e9]: "API requests: 80"
+      - generic [ref=e10]: "Rejected: 154"
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: "15"
+        - text: page clusters
+      - generic [ref=e14]:
+        - generic [ref=e15]: "34"
+        - text: merged small clusters
+      - generic [ref=e16]:
+        - generic [ref=e17]: "109"
+        - text: clustered keywords
+      - generic [ref=e18]:
+        - generic [ref=e19]: 8,395
+        - text: exact impressions
+      - generic [ref=e20]:
+        - generic [ref=e21]: 75,551
+        - text: broad impressions
+  - main [ref=e22]:
+    - heading "Expansion Candidates" [level=2] [ref=e23]
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - strong [ref=e26]: Casino
+        - generic [ref=e27]: "Primary: casino"
+        - generic [ref=e28]: "broad-opportunity · Exact: 303 · Broad: 48,470 · Ratio: 160x · Keywords: 1"
+        - generic [ref=e29]: Create a branch seed-plan for "casino" with named games, providers, payment modifiers, review/comparison modifiers, and Canada/province variants.
+      - generic [ref=e30]:
+        - strong [ref=e31]: Online slots Canada
+        - generic [ref=e32]: "Primary: all slots"
+        - generic [ref=e33]: "broad-opportunity · Exact: 298 · Broad: 4,454 · Ratio: 14.9x · Keywords: 9"
+        - generic [ref=e34]: Create a branch seed-plan for "all slots" with named games, providers, payment modifiers, review/comparison modifiers, and Canada/province variants.
+      - generic [ref=e35]:
+        - strong [ref=e36]: Casino Rewards
+        - generic [ref=e37]: "Primary: casino rewards"
+        - generic [ref=e38]: "broad-opportunity · Exact: 174 · Broad: 2,083 · Ratio: 12x · Keywords: 1"
+        - generic [ref=e39]: Create a branch seed-plan for "casino rewards" with named games, providers, payment modifiers, review/comparison modifiers, and Canada/province variants.
+      - generic [ref=e40]:
+        - strong [ref=e41]: Yukon Gold Casino
+        - generic [ref=e42]: "Primary: yukon gold casino"
+        - generic [ref=e43]: "thin-high-exact · Exact: 2,317 · Broad: 6,309 · Ratio: 2.7x · Keywords: 1"
+        - generic [ref=e44]: Create a branch seed-plan for "yukon gold casino" and rerun bing-site-plan with SEED_PLAN for this branch.
+    - heading "Main Page" [level=2] [ref=e45]
+    - paragraph [ref=e46]: Found via shows which seed or expansion query discovered the keyword. It is diagnostic data, collapsed by default to keep the plan readable.
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: money-page · transactional
+          - heading "Online casinos Canada" [level=3] [ref=e51]
+          - paragraph [ref=e52]: /online-casinos-canada/
+        - generic [ref=e53]:
+          - generic [ref=e54]: 3,391
+          - text: exact impressions
+        - generic [ref=e55]:
+          - generic [ref=e56]: 10,208
+          - text: broad impressions
+      - generic [ref=e57]:
+        - strong [ref=e58]: "Primary:"
+        - text: online casinos canada
+      - table [ref=e59]:
+        - rowgroup [ref=e60]:
+          - row "Keyword Exact Broad Found via" [ref=e61]:
+            - columnheader "Keyword" [ref=e62]
+            - columnheader "Exact" [ref=e63]
+            - columnheader "Broad" [ref=e64]
+            - columnheader "Found via" [ref=e65]
+        - rowgroup [ref=e66]:
+          - row "online casinos canada 646 804 direct" [ref=e67]:
+            - cell "online casinos canada" [ref=e68]
+            - cell "646" [ref=e69]
+            - cell "804" [ref=e70]
+            - cell "direct" [ref=e71]
+          - row "stake online casino 236 238 direct" [ref=e72]:
+            - cell "stake online casino" [ref=e73]
+            - cell "236" [ref=e74]
+            - cell "238" [ref=e75]
+            - cell "direct" [ref=e76]
+          - row "safest online casino canada 163 163 direct" [ref=e77]:
+            - cell "safest online casino canada" [ref=e78]
+            - cell "163" [ref=e79]
+            - cell "163" [ref=e80]
+            - cell "direct" [ref=e81]
+          - row "safe online casinos canada 118 118 direct" [ref=e82]:
+            - cell "safe online casinos canada" [ref=e83]
+            - cell "118" [ref=e84]
+            - cell "118" [ref=e85]
+            - cell "direct" [ref=e86]
+          - row "online casino 113 1,929 direct" [ref=e87]:
+            - cell "online casino" [ref=e88]
+            - cell "113" [ref=e89]
+            - cell "1,929" [ref=e90]
+            - cell "direct" [ref=e91]
+          - row "safe online casino 108 108 direct" [ref=e92]:
+            - cell "safe online casino" [ref=e93]
+            - cell "108" [ref=e94]
+            - cell "108" [ref=e95]
+            - cell "direct" [ref=e96]
+          - row "highest paying online casino 98 112 direct" [ref=e97]:
+            - cell "highest paying online casino" [ref=e98]
+            - cell "98" [ref=e99]
+            - cell "112" [ref=e100]
+            - cell "direct" [ref=e101]
+          - row "best online casino 96 197 direct" [ref=e102]:
+            - cell "best online casino" [ref=e103]
+            - cell "96" [ref=e104]
+            - cell "197" [ref=e105]
+            - cell "direct" [ref=e106]
+          - row "safe online casinos 94 192 direct" [ref=e107]:
+            - cell "safe online casinos" [ref=e108]
+            - cell "94" [ref=e109]
+            - cell "192" [ref=e110]
+            - cell "direct" [ref=e111]
+          - row "trusted casino in canada 93 93 direct" [ref=e112]:
+            - cell "trusted casino in canada" [ref=e113]
+            - cell "93" [ref=e114]
+            - cell "93" [ref=e115]
+            - cell "direct" [ref=e116]
+          - row "trusted casino online canada 91 91 direct" [ref=e117]:
+            - cell "trusted casino online canada" [ref=e118]
+            - cell "91" [ref=e119]
+            - cell "91" [ref=e120]
+            - cell "direct" [ref=e121]
+          - row "most trusted online casino 90 90 direct" [ref=e122]:
+            - cell "most trusted online casino" [ref=e123]
+            - cell "90" [ref=e124]
+            - cell "90" [ref=e125]
+            - cell "direct" [ref=e126]
+          - row "safest online casinos 86 191 direct" [ref=e127]:
+            - cell "safest online casinos" [ref=e128]
+            - cell "86" [ref=e129]
+            - cell "191" [ref=e130]
+            - cell "direct" [ref=e131]
+          - row "best paying online casino 77 77 direct" [ref=e132]:
+            - cell "best paying online casino" [ref=e133]
+            - cell "77" [ref=e134]
+            - cell "77" [ref=e135]
+            - cell "direct" [ref=e136]
+          - row "trusted online casino canada 75 75 direct" [ref=e137]:
+            - cell "trusted online casino canada" [ref=e138]
+            - cell "75" [ref=e139]
+            - cell "75" [ref=e140]
+            - cell "direct" [ref=e141]
+          - row "online casino canada 74 373 direct" [ref=e142]:
+            - cell "online casino canada" [ref=e143]
+            - cell "74" [ref=e144]
+            - cell "373" [ref=e145]
+            - cell "direct" [ref=e146]
+          - row "safe casino online 74 113 direct" [ref=e147]:
+            - cell "safe casino online" [ref=e148]
+            - cell "74" [ref=e149]
+            - cell "113" [ref=e150]
+            - cell "direct" [ref=e151]
+          - row "trusted casino online 73 164 direct" [ref=e152]:
+            - cell "trusted casino online" [ref=e153]
+            - cell "73" [ref=e154]
+            - cell "164" [ref=e155]
+            - cell "direct" [ref=e156]
+          - row "online casino in canada 73 101 direct" [ref=e157]:
+            - cell "online casino in canada" [ref=e158]
+            - cell "73" [ref=e159]
+            - cell "101" [ref=e160]
+            - cell "direct" [ref=e161]
+          - row "safest online casinos for canadian players 62 62 direct" [ref=e162]:
+            - cell "safest online casinos for canadian players" [ref=e163]
+            - cell "62" [ref=e164]
+            - cell "62" [ref=e165]
+            - cell "direct" [ref=e166]
+          - row "canadian online casinos 61 204 direct" [ref=e167]:
+            - cell "canadian online casinos" [ref=e168]
+            - cell "61" [ref=e169]
+            - cell "204" [ref=e170]
+            - cell "direct" [ref=e171]
+          - row "safe bet casino canada 54 54 direct" [ref=e172]:
+            - cell "safe bet casino canada" [ref=e173]
+            - cell "54" [ref=e174]
+            - cell "54" [ref=e175]
+            - cell "direct" [ref=e176]
+          - row "top most trusted online casinos 54 54 direct" [ref=e177]:
+            - cell "top most trusted online casinos" [ref=e178]
+            - cell "54" [ref=e179]
+            - cell "54" [ref=e180]
+            - cell "direct" [ref=e181]
+          - row "online casino real money 51 98 direct" [ref=e182]:
+            - cell "online casino real money" [ref=e183]
+            - cell "51" [ref=e184]
+            - cell "98" [ref=e185]
+            - cell "direct" [ref=e186]
+          - row "online casinos in canada 49 49 direct" [ref=e187]:
+            - cell "online casinos in canada" [ref=e188]
+            - cell "49" [ref=e189]
+            - cell "49" [ref=e190]
+            - cell "direct" [ref=e191]
+          - row "best paying online casinos 47 47 direct" [ref=e192]:
+            - cell "best paying online casinos" [ref=e193]
+            - cell "47" [ref=e194]
+            - cell "47" [ref=e195]
+            - cell "direct" [ref=e196]
+          - row "online casinos 45 847 direct" [ref=e197]:
+            - cell "online casinos" [ref=e198]
+            - cell "45" [ref=e199]
+            - cell "847" [ref=e200]
+            - cell "direct" [ref=e201]
+          - row "best online casino canada 45 45 direct" [ref=e202]:
+            - cell "best online casino canada" [ref=e203]
+            - cell "45" [ref=e204]
+            - cell "45" [ref=e205]
+            - cell "direct" [ref=e206]
+          - row "safe casino online in canada 39 39 direct" [ref=e207]:
+            - cell "safe casino online in canada" [ref=e208]
+            - cell "39" [ref=e209]
+            - cell "39" [ref=e210]
+            - cell "direct" [ref=e211]
+          - row "mgm online casino 36 58 direct" [ref=e212]:
+            - cell "mgm online casino" [ref=e213]
+            - cell "36" [ref=e214]
+            - cell "58" [ref=e215]
+            - cell "direct" [ref=e216]
+          - row "ontario online casinos 33 92 direct" [ref=e217]:
+            - cell "ontario online casinos" [ref=e218]
+            - cell "33" [ref=e219]
+            - cell "92" [ref=e220]
+            - cell "direct" [ref=e221]
+          - row "highest payout online casino 32 32 direct" [ref=e222]:
+            - cell "highest payout online casino" [ref=e223]
+            - cell "32" [ref=e224]
+            - cell "32" [ref=e225]
+            - cell "direct" [ref=e226]
+          - row "best online casinos canada 30 32 direct" [ref=e227]:
+            - cell "best online casinos canada" [ref=e228]
+            - cell "30" [ref=e229]
+            - cell "32" [ref=e230]
+            - cell "direct" [ref=e231]
+          - row "top safest online casinos 30 30 direct" [ref=e232]:
+            - cell "top safest online casinos" [ref=e233]
+            - cell "30" [ref=e234]
+            - cell "30" [ref=e235]
+            - cell "direct" [ref=e236]
+          - row "real online casino 29 30 direct" [ref=e237]:
+            - cell "real online casino" [ref=e238]
+            - cell "29" [ref=e239]
+            - cell "30" [ref=e240]
+            - cell "direct" [ref=e241]
+          - row "best online casino in canada 28 28 direct" [ref=e242]:
+            - cell "best online casino in canada" [ref=e243]
+            - cell "28" [ref=e244]
+            - cell "28" [ref=e245]
+            - cell "direct" [ref=e246]
+          - row "olg online casino 26 27 direct" [ref=e247]:
+            - cell "olg online casino" [ref=e248]
+            - cell "26" [ref=e249]
+            - cell "27" [ref=e250]
+            - cell "direct" [ref=e251]
+          - row "canadian casino online 25 25 direct" [ref=e252]:
+            - cell "canadian casino online" [ref=e253]
+            - cell "25" [ref=e254]
+            - cell "25" [ref=e255]
+            - cell "direct" [ref=e256]
+          - row "i play seneca online casino 23 23 direct" [ref=e257]:
+            - cell "i play seneca online casino" [ref=e258]
+            - cell "23" [ref=e259]
+            - cell "23" [ref=e260]
+            - cell "direct" [ref=e261]
+          - row "bet online casino 21 23 direct" [ref=e262]:
+            - cell "bet online casino" [ref=e263]
+            - cell "21" [ref=e264]
+            - cell "23" [ref=e265]
+            - cell "direct" [ref=e266]
+          - row "best real cash online casino 16 21 direct" [ref=e267]:
+            - cell "best real cash online casino" [ref=e268]
+            - cell "16" [ref=e269]
+            - cell "21" [ref=e270]
+            - cell "direct" [ref=e271]
+          - row "best online casino real money 13 13 direct" [ref=e272]:
+            - cell "best online casino real money" [ref=e273]
+            - cell "13" [ref=e274]
+            - cell "13" [ref=e275]
+            - cell "direct" [ref=e276]
+          - row "online casino games 11 20 direct" [ref=e277]:
+            - cell "online casino games" [ref=e278]
+            - cell "11" [ref=e279]
+            - cell "20" [ref=e280]
+            - cell "direct" [ref=e281]
+          - row "casino online casino 11 15 direct" [ref=e282]:
+            - cell "casino online casino" [ref=e283]
+            - cell "11" [ref=e284]
+            - cell "15" [ref=e285]
+            - cell "direct" [ref=e286]
+          - row "legit online casinos 7 14 direct" [ref=e287]:
+            - cell "legit online casinos" [ref=e288]
+            - cell "7" [ref=e289]
+            - cell "14" [ref=e290]
+            - cell "direct" [ref=e291]
+          - row "caesars palace online casino 6 14 direct" [ref=e292]:
+            - cell "caesars palace online casino" [ref=e293]
+            - cell "6" [ref=e294]
+            - cell "14" [ref=e295]
+            - cell "direct" [ref=e296]
+          - row "the online casinos 6 6 direct" [ref=e297]:
+            - cell "the online casinos" [ref=e298]
+            - cell "6" [ref=e299]
+            - cell "6" [ref=e300]
+            - cell "direct" [ref=e301]
+          - row "canadian online casino real money 4 4 direct" [ref=e302]:
+            - cell "canadian online casino real money" [ref=e303]
+            - cell "4" [ref=e304]
+            - cell "4" [ref=e305]
+            - cell "direct" [ref=e306]
+          - row "party casino canada 4 4 direct" [ref=e307]:
+            - cell "party casino canada" [ref=e308]
+            - cell "4" [ref=e309]
+            - cell "4" [ref=e310]
+            - cell "direct" [ref=e311]
+          - row "casino canada 3 2,957 direct" [ref=e312]:
+            - cell "casino canada" [ref=e313]
+            - cell "3" [ref=e314]
+            - cell "2,957" [ref=e315]
+            - cell "direct" [ref=e316]
+          - row "canada online casino 3 3 direct" [ref=e317]:
+            - cell "canada online casino" [ref=e318]
+            - cell "3" [ref=e319]
+            - cell "3" [ref=e320]
+            - cell "direct" [ref=e321]
+          - row "online casino with real money 3 3 direct" [ref=e322]:
+            - cell "online casino with real money" [ref=e323]
+            - cell "3" [ref=e324]
+            - cell "3" [ref=e325]
+            - cell "direct" [ref=e326]
+          - row "best canadian online casinos 2 2 direct" [ref=e327]:
+            - cell "best canadian online casinos" [ref=e328]
+            - cell "2" [ref=e329]
+            - cell "2" [ref=e330]
+            - cell "direct" [ref=e331]
+          - row "best online casinos 2 2 direct" [ref=e332]:
+            - cell "best online casinos" [ref=e333]
+            - cell "2" [ref=e334]
+            - cell "2" [ref=e335]
+            - cell "direct" [ref=e336]
+          - row "live online casino 2 2 direct" [ref=e337]:
+            - cell "live online casino" [ref=e338]
+            - cell "2" [ref=e339]
+            - cell "2" [ref=e340]
+            - cell "direct" [ref=e341]
+      - generic [ref=e342]: "Use one page for \"Online casinos Canada\". Do not create separate pages for: online casinos canada, stake online casino, safest online casino canada, safe online casinos canada, online casino, safe online casino, highest paying online casino, best online casino."
+      - list [ref=e343]:
+        - listitem [ref=e344]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e345]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - heading "Money Pages" [level=2] [ref=e346]
+    - generic [ref=e347]:
+      - generic [ref=e348]:
+        - generic [ref=e349]:
+          - paragraph [ref=e350]: money-page · transactional
+          - heading "Casino bonuses Canada" [level=3] [ref=e351]
+          - paragraph [ref=e352]: /casino-bonuses-canada/
+        - generic [ref=e353]:
+          - generic [ref=e354]: "615"
+          - text: exact impressions
+        - generic [ref=e355]:
+          - generic [ref=e356]: 2,300
+          - text: broad impressions
+      - generic [ref=e357]:
+        - strong [ref=e358]: "Primary:"
+        - text: captain cook casino bonus codes
+      - table [ref=e359]:
+        - rowgroup [ref=e360]:
+          - row "Keyword Exact Broad Found via" [ref=e361]:
+            - columnheader "Keyword" [ref=e362]
+            - columnheader "Exact" [ref=e363]
+            - columnheader "Broad" [ref=e364]
+            - columnheader "Found via" [ref=e365]
+        - rowgroup [ref=e366]:
+          - row "captain cook casino bonus codes 432 432 direct" [ref=e367]:
+            - cell "captain cook casino bonus codes" [ref=e368]
+            - cell "432" [ref=e369]
+            - cell "432" [ref=e370]
+            - cell "direct" [ref=e371]
+          - row "no deposit bonus codes 32 97 direct" [ref=e372]:
+            - cell "no deposit bonus codes" [ref=e373]
+            - cell "32" [ref=e374]
+            - cell "97" [ref=e375]
+            - cell "direct" [ref=e376]
+          - row "chipy no deposit bonus codes 27 27 direct" [ref=e377]:
+            - cell "chipy no deposit bonus codes" [ref=e378]
+            - cell "27" [ref=e379]
+            - cell "27" [ref=e380]
+            - cell "direct" [ref=e381]
+          - row "bonus 20 1,447 direct" [ref=e382]:
+            - cell "bonus" [ref=e383]
+            - cell "20" [ref=e384]
+            - cell "1,447" [ref=e385]
+            - cell "direct" [ref=e386]
+          - row "no deposit bonus 17 162 direct" [ref=e387]:
+            - cell "no deposit bonus" [ref=e388]
+            - cell "17" [ref=e389]
+            - cell "162" [ref=e390]
+            - cell "direct" [ref=e391]
+          - row "casino welcome bonus canada 15 15 direct" [ref=e392]:
+            - cell "casino welcome bonus canada" [ref=e393]
+            - cell "15" [ref=e394]
+            - cell "15" [ref=e395]
+            - cell "direct" [ref=e396]
+          - row "no deposit bonus casino 11 11 direct" [ref=e397]:
+            - cell "no deposit bonus casino" [ref=e398]
+            - cell "11" [ref=e399]
+            - cell "11" [ref=e400]
+            - cell "direct" [ref=e401]
+          - row "no deposit bonus codes 2026 9 10 direct" [ref=e402]:
+            - cell "no deposit bonus codes 2026" [ref=e403]
+            - cell "9" [ref=e404]
+            - cell "10" [ref=e405]
+            - cell "direct" [ref=e406]
+          - row "dream royale no deposit bonus codes 8 8 direct" [ref=e407]:
+            - cell "dream royale no deposit bonus codes" [ref=e408]
+            - cell "8" [ref=e409]
+            - cell "8" [ref=e410]
+            - cell "direct" [ref=e411]
+          - row "no deposit casino bonus 7 10 direct" [ref=e412]:
+            - cell "no deposit casino bonus" [ref=e413]
+            - cell "7" [ref=e414]
+            - cell "10" [ref=e415]
+            - cell "direct" [ref=e416]
+          - row "casino bonus no deposit 6 6 direct" [ref=e417]:
+            - cell "casino bonus no deposit" [ref=e418]
+            - cell "6" [ref=e419]
+            - cell "6" [ref=e420]
+            - cell "direct" [ref=e421]
+          - row "no deposit bonus canada 6 6 direct" [ref=e422]:
+            - cell "no deposit bonus canada" [ref=e423]
+            - cell "6" [ref=e424]
+            - cell "6" [ref=e425]
+            - cell "direct" [ref=e426]
+          - row "casino no deposit bonus 5 26 direct" [ref=e427]:
+            - cell "casino no deposit bonus" [ref=e428]
+            - cell "5" [ref=e429]
+            - cell "26" [ref=e430]
+            - cell "direct" [ref=e431]
+          - row "yabby casino no deposit bonus 5 5 direct" [ref=e432]:
+            - cell "yabby casino no deposit bonus" [ref=e433]
+            - cell "5" [ref=e434]
+            - cell "5" [ref=e435]
+            - cell "direct" [ref=e436]
+          - row "no deposit casino 4 23 direct" [ref=e437]:
+            - cell "no deposit casino" [ref=e438]
+            - cell "4" [ref=e439]
+            - cell "23" [ref=e440]
+            - cell "direct" [ref=e441]
+          - row "goldbet no deposit bonus code 4 4 direct" [ref=e442]:
+            - cell "goldbet no deposit bonus code" [ref=e443]
+            - cell "4" [ref=e444]
+            - cell "4" [ref=e445]
+            - cell "direct" [ref=e446]
+          - row "welcome bonus 3 7 direct" [ref=e447]:
+            - cell "welcome bonus" [ref=e448]
+            - cell "3" [ref=e449]
+            - cell "7" [ref=e450]
+            - cell "direct" [ref=e451]
+          - row "no deposit casino bonus codes 3 3 direct" [ref=e452]:
+            - cell "no deposit casino bonus codes" [ref=e453]
+            - cell "3" [ref=e454]
+            - cell "3" [ref=e455]
+            - cell "direct" [ref=e456]
+          - row "bitstarz casino no deposit bonus 1 1 direct" [ref=e457]:
+            - cell "bitstarz casino no deposit bonus" [ref=e458]
+            - cell "1" [ref=e459]
+            - cell "1" [ref=e460]
+            - cell "direct" [ref=e461]
+      - generic [ref=e462]: "Use one page for \"Casino bonuses Canada\". Do not create separate pages for: captain cook casino bonus codes, no deposit bonus codes, chipy no deposit bonus codes, bonus, no deposit bonus, casino welcome bonus canada, no deposit bonus casino, no deposit bonus codes 2026."
+      - list [ref=e463]:
+        - listitem [ref=e464]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e465]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e466]:
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - paragraph [ref=e469]: money-page · transactional
+          - heading "Online slots Canada" [level=3] [ref=e470]
+          - paragraph [ref=e471]: /online-slots-canada/
+        - generic [ref=e472]:
+          - generic [ref=e473]: "298"
+          - text: exact impressions
+        - generic [ref=e474]:
+          - generic [ref=e475]: 4,454
+          - text: broad impressions
+      - generic [ref=e476]:
+        - strong [ref=e477]: "Primary:"
+        - text: all slots
+      - table [ref=e478]:
+        - rowgroup [ref=e479]:
+          - row "Keyword Exact Broad Found via" [ref=e480]:
+            - columnheader "Keyword" [ref=e481]
+            - columnheader "Exact" [ref=e482]
+            - columnheader "Broad" [ref=e483]
+            - columnheader "Found via" [ref=e484]
+        - rowgroup [ref=e485]:
+          - row "all slots 97 153 direct" [ref=e486]:
+            - cell "all slots" [ref=e487]
+            - cell "97" [ref=e488]
+            - cell "153" [ref=e489]
+            - cell "direct" [ref=e490]
+          - row "online slots canada 60 83 direct" [ref=e491]:
+            - cell "online slots canada" [ref=e492]
+            - cell "60" [ref=e493]
+            - cell "83" [ref=e494]
+            - cell "direct" [ref=e495]
+          - row "all slots casino 53 56 direct" [ref=e496]:
+            - cell "all slots casino" [ref=e497]
+            - cell "53" [ref=e498]
+            - cell "56" [ref=e499]
+            - cell "direct" [ref=e500]
+          - row "slots 39 3,949 direct" [ref=e501]:
+            - cell "slots" [ref=e502]
+            - cell "39" [ref=e503]
+            - cell "3,949" [ref=e504]
+            - cell "direct" [ref=e505]
+          - row "online slots 31 74 direct" [ref=e506]:
+            - cell "online slots" [ref=e507]
+            - cell "31" [ref=e508]
+            - cell "74" [ref=e509]
+            - cell "direct" [ref=e510]
+          - row "slots online 11 47 direct" [ref=e511]:
+            - cell "slots online" [ref=e512]
+            - cell "11" [ref=e513]
+            - cell "47" [ref=e514]
+            - cell "direct" [ref=e515]
+          - row "slots online canada 3 3 direct" [ref=e516]:
+            - cell "slots online canada" [ref=e517]
+            - cell "3" [ref=e518]
+            - cell "3" [ref=e519]
+            - cell "direct" [ref=e520]
+          - row "slots casino 2 87 direct" [ref=e521]:
+            - cell "slots casino" [ref=e522]
+            - cell "2" [ref=e523]
+            - cell "87" [ref=e524]
+            - cell "direct" [ref=e525]
+          - row "casino online slots 2 2 direct" [ref=e526]:
+            - cell "casino online slots" [ref=e527]
+            - cell "2" [ref=e528]
+            - cell "2" [ref=e529]
+            - cell "direct" [ref=e530]
+      - generic [ref=e531]: "Use one page for \"Online slots Canada\". Do not create separate pages for: all slots, online slots canada, all slots casino, slots, online slots, slots online, slots online canada, slots casino."
+      - list [ref=e532]:
+        - listitem [ref=e533]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e534]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e535]:
+      - generic [ref=e536]:
+        - generic [ref=e537]:
+          - paragraph [ref=e538]: money-page · transactional
+          - heading "Online gambling Canada" [level=3] [ref=e539]
+          - paragraph [ref=e540]: /online-gambling-canada/
+        - generic [ref=e541]:
+          - generic [ref=e542]: "182"
+          - text: exact impressions
+        - generic [ref=e543]:
+          - generic [ref=e544]: "304"
+          - text: broad impressions
+      - generic [ref=e545]:
+        - strong [ref=e546]: "Primary:"
+        - text: online gambling canada
+      - table [ref=e547]:
+        - rowgroup [ref=e548]:
+          - row "Keyword Exact Broad Found via" [ref=e549]:
+            - columnheader "Keyword" [ref=e550]
+            - columnheader "Exact" [ref=e551]
+            - columnheader "Broad" [ref=e552]
+            - columnheader "Found via" [ref=e553]
+        - rowgroup [ref=e554]:
+          - row "online gambling canada 142 179 direct" [ref=e555]:
+            - cell "online gambling canada" [ref=e556]
+            - cell "142" [ref=e557]
+            - cell "179" [ref=e558]
+            - cell "direct" [ref=e559]
+          - row "online gambling 20 98 direct" [ref=e560]:
+            - cell "online gambling" [ref=e561]
+            - cell "20" [ref=e562]
+            - cell "98" [ref=e563]
+            - cell "direct" [ref=e564]
+          - row "gambling sites canada 10 10 direct" [ref=e565]:
+            - cell "gambling sites canada" [ref=e566]
+            - cell "10" [ref=e567]
+            - cell "10" [ref=e568]
+            - cell "direct" [ref=e569]
+          - row "gambling sites 5 12 direct" [ref=e570]:
+            - cell "gambling sites" [ref=e571]
+            - cell "5" [ref=e572]
+            - cell "12" [ref=e573]
+            - cell "direct" [ref=e574]
+          - row "online gambling casino sites 3 3 direct" [ref=e575]:
+            - cell "online gambling casino sites" [ref=e576]
+            - cell "3" [ref=e577]
+            - cell "3" [ref=e578]
+            - cell "direct" [ref=e579]
+          - row "best gambling sites 2 2 direct" [ref=e580]:
+            - cell "best gambling sites" [ref=e581]
+            - cell "2" [ref=e582]
+            - cell "2" [ref=e583]
+            - cell "direct" [ref=e584]
+      - generic [ref=e585]: "Use one page for \"Online gambling Canada\". Do not create separate pages for: online gambling canada, online gambling, gambling sites canada, gambling sites, online gambling casino sites, best gambling sites."
+      - list [ref=e586]:
+        - listitem [ref=e587]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e588]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e589]:
+      - generic [ref=e590]:
+        - generic [ref=e591]:
+          - paragraph [ref=e592]: money-page · transactional
+          - heading "Luxury Casino Online" [level=3] [ref=e593]
+          - paragraph [ref=e594]: /luxury-casino-online/
+        - generic [ref=e595]:
+          - generic [ref=e596]: "113"
+          - text: exact impressions
+        - generic [ref=e597]:
+          - generic [ref=e598]: "113"
+          - text: broad impressions
+      - generic [ref=e599]:
+        - strong [ref=e600]: "Primary:"
+        - text: luxury casino online canada
+      - table [ref=e601]:
+        - rowgroup [ref=e602]:
+          - row "Keyword Exact Broad Found via" [ref=e603]:
+            - columnheader "Keyword" [ref=e604]
+            - columnheader "Exact" [ref=e605]
+            - columnheader "Broad" [ref=e606]
+            - columnheader "Found via" [ref=e607]
+        - rowgroup [ref=e608]:
+          - row "luxury casino online canada 113 113 direct" [ref=e609]:
+            - cell "luxury casino online canada" [ref=e610]
+            - cell "113" [ref=e611]
+            - cell "113" [ref=e612]
+            - cell "direct" [ref=e613]
+      - generic [ref=e614]: "Use one page for \"Luxury Casino Online\". Do not create separate pages for: luxury casino online canada."
+      - list [ref=e615]:
+        - listitem [ref=e616]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e617]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e618]:
+      - generic [ref=e619]:
+        - generic [ref=e620]:
+          - paragraph [ref=e621]: money-page · transactional
+          - heading "Safe Casinos Canada" [level=3] [ref=e622]
+          - paragraph [ref=e623]: /safe-casinos-canada/
+        - generic [ref=e624]:
+          - generic [ref=e625]: "109"
+          - text: exact impressions
+        - generic [ref=e626]:
+          - generic [ref=e627]: "109"
+          - text: broad impressions
+      - generic [ref=e628]:
+        - strong [ref=e629]: "Primary:"
+        - text: safe casinos in canada
+      - table [ref=e630]:
+        - rowgroup [ref=e631]:
+          - row "Keyword Exact Broad Found via" [ref=e632]:
+            - columnheader "Keyword" [ref=e633]
+            - columnheader "Exact" [ref=e634]
+            - columnheader "Broad" [ref=e635]
+            - columnheader "Found via" [ref=e636]
+        - rowgroup [ref=e637]:
+          - row "safe casinos in canada 109 109 direct" [ref=e638]:
+            - cell "safe casinos in canada" [ref=e639]
+            - cell "109" [ref=e640]
+            - cell "109" [ref=e641]
+            - cell "direct" [ref=e642]
+      - generic [ref=e643]: "Use one page for \"Safe Casinos Canada\". Do not create separate pages for: safe casinos in canada."
+      - list [ref=e644]:
+        - listitem [ref=e645]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e646]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - generic [ref=e647]:
+      - generic [ref=e648]:
+        - generic [ref=e649]:
+          - paragraph [ref=e650]: money-page · transactional
+          - heading "Real money casinos Canada" [level=3] [ref=e651]
+          - paragraph [ref=e652]: /real-money-casinos-canada/
+        - generic [ref=e653]:
+          - generic [ref=e654]: "102"
+          - text: exact impressions
+        - generic [ref=e655]:
+          - generic [ref=e656]: "127"
+          - text: broad impressions
+      - generic [ref=e657]:
+        - strong [ref=e658]: "Primary:"
+        - text: online real cash casino
+      - table [ref=e659]:
+        - rowgroup [ref=e660]:
+          - row "Keyword Exact Broad Found via" [ref=e661]:
+            - columnheader "Keyword" [ref=e662]
+            - columnheader "Exact" [ref=e663]
+            - columnheader "Broad" [ref=e664]
+            - columnheader "Found via" [ref=e665]
+        - rowgroup [ref=e666]:
+          - row "online real cash casino 25 25 direct" [ref=e667]:
+            - cell "online real cash casino" [ref=e668]
+            - cell "25" [ref=e669]
+            - cell "25" [ref=e670]
+            - cell "direct" [ref=e671]
+          - row "casino online real money 24 34 direct" [ref=e672]:
+            - cell "casino online real money" [ref=e673]
+            - cell "24" [ref=e674]
+            - cell "34" [ref=e675]
+            - cell "direct" [ref=e676]
+          - row "casinos online real money 16 21 direct" [ref=e677]:
+            - cell "casinos online real money" [ref=e678]
+            - cell "16" [ref=e679]
+            - cell "21" [ref=e680]
+            - cell "direct" [ref=e681]
+          - row "real money casino 11 21 direct" [ref=e682]:
+            - cell "real money casino" [ref=e683]
+            - cell "11" [ref=e684]
+            - cell "21" [ref=e685]
+            - cell "direct" [ref=e686]
+          - row "real cash casinos online 7 7 direct" [ref=e687]:
+            - cell "real cash casinos online" [ref=e688]
+            - cell "7" [ref=e689]
+            - cell "7" [ref=e690]
+            - cell "direct" [ref=e691]
+          - row "real money casino online 6 6 direct" [ref=e692]:
+            - cell "real money casino online" [ref=e693]
+            - cell "6" [ref=e694]
+            - cell "6" [ref=e695]
+            - cell "direct" [ref=e696]
+          - row "casino online with real money 5 5 direct" [ref=e697]:
+            - cell "casino online with real money" [ref=e698]
+            - cell "5" [ref=e699]
+            - cell "5" [ref=e700]
+            - cell "direct" [ref=e701]
+          - row "online poker for real money 4 4 direct" [ref=e702]:
+            - cell "online poker for real money" [ref=e703]
+            - cell "4" [ref=e704]
+            - cell "4" [ref=e705]
+            - cell "direct" [ref=e706]
+          - row "online poker real money 2 2 direct" [ref=e707]:
+            - cell "online poker real money" [ref=e708]
+            - cell "2" [ref=e709]
+            - cell "2" [ref=e710]
+            - cell "direct" [ref=e711]
+          - row "real money slots 2 2 direct" [ref=e712]:
+            - cell "real money slots" [ref=e713]
+            - cell "2" [ref=e714]
+            - cell "2" [ref=e715]
+            - cell "direct" [ref=e716]
+      - generic [ref=e717]: "Use one page for \"Real money casinos Canada\". Do not create separate pages for: online real cash casino, casino online real money, casinos online real money, real money casino, real cash casinos online, real money casino online, casino online with real money, online poker for real money."
+      - list [ref=e718]:
+        - listitem [ref=e719]: Lead with a clear commercial offer, strongest trust signals, comparison criteria, and one primary conversion action.
+        - listitem [ref=e720]: Handle objections around legality, safety, payment methods, withdrawals, reputation, and user fit on the same page.
+    - heading "Funnel Support Pages" [level=2] [ref=e721]
+    - generic [ref=e722]: No funnel-support clusters found.
+    - heading "Merged Keywords" [level=2] [ref=e723]
+    - paragraph [ref=e724]: These weak or single-keyword clusters should not become separate pages. Fold them into the suggested parent page to avoid thin pages and cannibalization.
+    - table [ref=e725]:
+      - rowgroup [ref=e726]:
+        - row "Keyword / Tiny Cluster Merge Into Exact Broad" [ref=e727]:
+          - columnheader "Keyword / Tiny Cluster" [ref=e728]
+          - columnheader "Merge Into" [ref=e729]
+          - columnheader "Exact" [ref=e730]
+          - columnheader "Broad" [ref=e731]
+      - rowgroup [ref=e732]:
+        - row "casino classic rewards Online casinos Canada 97 146" [ref=e733]:
+          - cell "casino classic rewards" [ref=e734]
+          - cell "Online casinos Canada" [ref=e735]
+          - cell "97" [ref=e736]
+          - cell "146" [ref=e737]
+        - row "lucky nugget casino Online casinos Canada 76 92" [ref=e738]:
+          - cell "lucky nugget casino" [ref=e739]
+          - cell "Online casinos Canada" [ref=e740]
+          - cell "76" [ref=e741]
+          - cell "92" [ref=e742]
+        - row "sports betting canada Canadian sports betting sites 68 207" [ref=e743]:
+          - cell "sports betting canada" [ref=e744]
+          - cell "Canadian sports betting sites" [ref=e745]
+          - cell "68" [ref=e746]
+          - cell "207" [ref=e747]
+        - row "casino grand mondial Online casinos Canada 68 68" [ref=e748]:
+          - cell "casino grand mondial" [ref=e749]
+          - cell "Online casinos Canada" [ref=e750]
+          - cell "68" [ref=e751]
+          - cell "68" [ref=e752]
+        - row "captain cook casino reviews Online casinos Canada 67 67" [ref=e753]:
+          - cell "captain cook casino reviews" [ref=e754]
+          - cell "Online casinos Canada" [ref=e755]
+          - cell "67" [ref=e756]
+          - cell "67" [ref=e757]
+        - row "casino rewards captain cooks Online casinos Canada 67 67" [ref=e758]:
+          - cell "casino rewards captain cooks" [ref=e759]
+          - cell "Online casinos Canada" [ref=e760]
+          - cell "67" [ref=e761]
+          - cell "67" [ref=e762]
+        - row "casino apps canada Online casinos Canada 55 81" [ref=e763]:
+          - cell "casino apps canada" [ref=e764]
+          - cell "Online casinos Canada" [ref=e765]
+          - cell "55" [ref=e766]
+          - cell "81" [ref=e767]
+        - row "gambling Online gambling Canada 48 499" [ref=e768]:
+          - cell "gambling" [ref=e769]
+          - cell "Online gambling Canada" [ref=e770]
+          - cell "48" [ref=e771]
+          - cell "499" [ref=e772]
+        - row "lucky casino Online casinos Canada 46 53" [ref=e773]:
+          - cell "lucky casino" [ref=e774]
+          - cell "Online casinos Canada" [ref=e775]
+          - cell "46" [ref=e776]
+          - cell "53" [ref=e777]
+        - row "party casino ontario Ontario online casinos 44 44" [ref=e778]:
+          - cell "party casino ontario" [ref=e779]
+          - cell "Ontario online casinos" [ref=e780]
+          - cell "44" [ref=e781]
+          - cell "44" [ref=e782]
+        - row "best casino online Online casinos Canada 31 35" [ref=e783]:
+          - cell "best casino online" [ref=e784]
+          - cell "Online casinos Canada" [ref=e785]
+          - cell "31" [ref=e786]
+          - cell "35" [ref=e787]
+        - row "powerplay casino Online casinos Canada 31 31" [ref=e788]:
+          - cell "powerplay casino" [ref=e789]
+          - cell "Online casinos Canada" [ref=e790]
+          - cell "31" [ref=e791]
+          - cell "31" [ref=e792]
+        - row "casinos online Online casinos Canada 27 73" [ref=e793]:
+          - cell "casinos online" [ref=e794]
+          - cell "Online casinos Canada" [ref=e795]
+          - cell "27" [ref=e796]
+          - cell "73" [ref=e797]
+        - row "888 casino Online casinos Canada 26 57" [ref=e798]:
+          - cell "888 casino" [ref=e799]
+          - cell "Online casinos Canada" [ref=e800]
+          - cell "26" [ref=e801]
+          - cell "57" [ref=e802]
+        - row "casino gambling online games Online casinos Canada 26 43" [ref=e803]:
+          - cell "casino gambling online games" [ref=e804]
+          - cell "Online casinos Canada" [ref=e805]
+          - cell "26" [ref=e806]
+          - cell "43" [ref=e807]
+        - row "red deer resort and casino Online casinos Canada 24 24" [ref=e808]:
+          - cell "red deer resort and casino" [ref=e809]
+          - cell "Online casinos Canada" [ref=e810]
+          - cell "24" [ref=e811]
+          - cell "24" [ref=e812]
+        - row "gamble casino online Online casinos Canada 18 18" [ref=e813]:
+          - cell "gamble casino online" [ref=e814]
+          - cell "Online casinos Canada" [ref=e815]
+          - cell "18" [ref=e816]
+          - cell "18" [ref=e817]
+        - row "casino sites Online casinos Canada 15 19" [ref=e818]:
+          - cell "casino sites" [ref=e819]
+          - cell "Online casinos Canada" [ref=e820]
+          - cell "15" [ref=e821]
+          - cell "19" [ref=e822]
+        - row "online bet casino Online casinos Canada 15 15" [ref=e823]:
+          - cell "online bet casino" [ref=e824]
+          - cell "Online casinos Canada" [ref=e825]
+          - cell "15" [ref=e826]
+          - cell "15" [ref=e827]
+        - row "casino online Online casinos Canada 14 1,207" [ref=e828]:
+          - cell "casino online" [ref=e829]
+          - cell "Online casinos Canada" [ref=e830]
+          - cell "14" [ref=e831]
+          - cell "1,207" [ref=e832]
+        - row "888 casino ontario Ontario online casinos 14 14" [ref=e833]:
+          - cell "888 casino ontario" [ref=e834]
+          - cell "Ontario online casinos" [ref=e835]
+          - cell "14" [ref=e836]
+          - cell "14" [ref=e837]
+        - row "casino gaming Online casinos Canada 14 14" [ref=e838]:
+          - cell "casino gaming" [ref=e839]
+          - cell "Online casinos Canada" [ref=e840]
+          - cell "14" [ref=e841]
+          - cell "14" [ref=e842]
+        - row "casino internet gambling Online casinos Canada 14 14" [ref=e843]:
+          - cell "casino internet gambling" [ref=e844]
+          - cell "Online casinos Canada" [ref=e845]
+          - cell "14" [ref=e846]
+          - cell "14" [ref=e847]
+        - row "gambling websites Online gambling Canada 12 12" [ref=e848]:
+          - cell "gambling websites" [ref=e849]
+          - cell "Online gambling Canada" [ref=e850]
+          - cell "12" [ref=e851]
+          - cell "12" [ref=e852]
+        - row "real casino Online casinos Canada 11 17" [ref=e853]:
+          - cell "real casino" [ref=e854]
+          - cell "Online casinos Canada" [ref=e855]
+          - cell "11" [ref=e856]
+          - cell "17" [ref=e857]
+        - row "casino online games Online casinos Canada 9 9" [ref=e858]:
+          - cell "casino online games" [ref=e859]
+          - cell "Online casinos Canada" [ref=e860]
+          - cell "9" [ref=e861]
+          - cell "9" [ref=e862]
+        - row "casino games online Online casinos Canada 8 8" [ref=e863]:
+          - cell "casino games online" [ref=e864]
+          - cell "Online casinos Canada" [ref=e865]
+          - cell "8" [ref=e866]
+          - cell "8" [ref=e867]
+        - row "casino money Online casinos Canada 7 7" [ref=e868]:
+          - cell "casino money" [ref=e869]
+          - cell "Online casinos Canada" [ref=e870]
+          - cell "7" [ref=e871]
+          - cell "7" [ref=e872]
+        - row "king billy casino Online casinos Canada 7 7" [ref=e873]:
+          - cell "king billy casino" [ref=e874]
+          - cell "Online casinos Canada" [ref=e875]
+          - cell "7" [ref=e876]
+          - cell "7" [ref=e877]
+        - row "red deer casino and resort Online casinos Canada 7 7" [ref=e878]:
+          - cell "red deer casino and resort" [ref=e879]
+          - cell "Online casinos Canada" [ref=e880]
+          - cell "7" [ref=e881]
+          - cell "7" [ref=e882]
+        - row "real casino online Online casinos Canada 6 6" [ref=e883]:
+          - cell "real casino online" [ref=e884]
+          - cell "Online casinos Canada" [ref=e885]
+          - cell "6" [ref=e886]
+          - cell "6" [ref=e887]
+        - row "crypto casino Interac casinos Canada 5 8" [ref=e888]:
+          - cell "crypto casino" [ref=e889]
+          - cell "Interac casinos Canada" [ref=e890]
+          - cell "5" [ref=e891]
+          - cell "8" [ref=e892]
+        - row "canadian casinos online Online casinos Canada 5 5" [ref=e893]:
+          - cell "canadian casinos online" [ref=e894]
+          - cell "Online casinos Canada" [ref=e895]
+          - cell "5" [ref=e896]
+          - cell "5" [ref=e897]
+        - row "play canadian safe casinos Online casinos Canada 2 2" [ref=e898]:
+          - cell "play canadian safe casinos" [ref=e899]
+          - cell "Online casinos Canada" [ref=e900]
+          - cell "2" [ref=e901]
+          - cell "2" [ref=e902]
+    - heading "Excluded / Review" [level=2] [ref=e903]
+    - generic [ref=e904]:
+      - generic [ref=e905]:
+        - generic [ref=e906]:
+          - paragraph [ref=e907]: exclude-or-review · mixed
+          - heading "Yukon Gold Casino" [level=3] [ref=e908]
+          - paragraph [ref=e909]: /yukon-gold-casino/
+        - generic [ref=e910]:
+          - generic [ref=e911]: 2,317
+          - text: exact impressions
+        - generic [ref=e912]:
+          - generic [ref=e913]: 6,309
+          - text: broad impressions
+      - generic [ref=e914]:
+        - strong [ref=e915]: "Primary:"
+        - text: yukon gold casino
+      - table [ref=e916]:
+        - rowgroup [ref=e917]:
+          - row "Keyword Exact Broad Found via" [ref=e918]:
+            - columnheader "Keyword" [ref=e919]
+            - columnheader "Exact" [ref=e920]
+            - columnheader "Broad" [ref=e921]
+            - columnheader "Found via" [ref=e922]
+        - rowgroup [ref=e923]:
+          - row "yukon gold casino 2,317 6,309 direct" [ref=e924]:
+            - cell "yukon gold casino" [ref=e925]
+            - cell "2,317" [ref=e926]
+            - cell "6,309" [ref=e927]
+            - cell "direct" [ref=e928]
+      - generic [ref=e929]: "Use one page for \"Yukon Gold Casino\". Do not create separate pages for: yukon gold casino."
+      - list [ref=e930]:
+        - listitem [ref=e931]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e932]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e933]:
+      - generic [ref=e934]:
+        - generic [ref=e935]:
+          - paragraph [ref=e936]: exclude-or-review · mixed
+          - heading "Casino" [level=3] [ref=e937]
+          - paragraph [ref=e938]: /casino/
+        - generic [ref=e939]:
+          - generic [ref=e940]: "303"
+          - text: exact impressions
+        - generic [ref=e941]:
+          - generic [ref=e942]: 48,470
+          - text: broad impressions
+      - generic [ref=e943]:
+        - strong [ref=e944]: "Primary:"
+        - text: casino
+      - table [ref=e945]:
+        - rowgroup [ref=e946]:
+          - row "Keyword Exact Broad Found via" [ref=e947]:
+            - columnheader "Keyword" [ref=e948]
+            - columnheader "Exact" [ref=e949]
+            - columnheader "Broad" [ref=e950]
+            - columnheader "Found via" [ref=e951]
+        - rowgroup [ref=e952]:
+          - row "casino 303 48,470 direct" [ref=e953]:
+            - cell "casino" [ref=e954]
+            - cell "303" [ref=e955]
+            - cell "48,470" [ref=e956]
+            - cell "direct" [ref=e957]
+      - generic [ref=e958]: "Use one page for \"Casino\". Do not create separate pages for: casino."
+      - list [ref=e959]:
+        - listitem [ref=e960]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e961]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e962]:
+      - generic [ref=e963]:
+        - generic [ref=e964]:
+          - paragraph [ref=e965]: exclude-or-review · mixed
+          - heading "Casino Luxury" [level=3] [ref=e966]
+          - paragraph [ref=e967]: /casino-luxury/
+        - generic [ref=e968]:
+          - generic [ref=e969]: "228"
+          - text: exact impressions
+        - generic [ref=e970]:
+          - generic [ref=e971]: "228"
+          - text: broad impressions
+      - generic [ref=e972]:
+        - strong [ref=e973]: "Primary:"
+        - text: casino luxury
+      - table [ref=e974]:
+        - rowgroup [ref=e975]:
+          - row "Keyword Exact Broad Found via" [ref=e976]:
+            - columnheader "Keyword" [ref=e977]
+            - columnheader "Exact" [ref=e978]
+            - columnheader "Broad" [ref=e979]
+            - columnheader "Found via" [ref=e980]
+        - rowgroup [ref=e981]:
+          - row "casino luxury 228 228 direct" [ref=e982]:
+            - cell "casino luxury" [ref=e983]
+            - cell "228" [ref=e984]
+            - cell "228" [ref=e985]
+            - cell "direct" [ref=e986]
+      - generic [ref=e987]: "Use one page for \"Casino Luxury\". Do not create separate pages for: casino luxury."
+      - list [ref=e988]:
+        - listitem [ref=e989]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e990]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e991]:
+      - generic [ref=e992]:
+        - generic [ref=e993]:
+          - paragraph [ref=e994]: exclude-or-review · mixed
+          - heading "Party Casino" [level=3] [ref=e995]
+          - paragraph [ref=e996]: /party-casino/
+        - generic [ref=e997]:
+          - generic [ref=e998]: "224"
+          - text: exact impressions
+        - generic [ref=e999]:
+          - generic [ref=e1000]: "329"
+          - text: broad impressions
+      - generic [ref=e1001]:
+        - strong [ref=e1002]: "Primary:"
+        - text: party casino
+      - table [ref=e1003]:
+        - rowgroup [ref=e1004]:
+          - row "Keyword Exact Broad Found via" [ref=e1005]:
+            - columnheader "Keyword" [ref=e1006]
+            - columnheader "Exact" [ref=e1007]
+            - columnheader "Broad" [ref=e1008]
+            - columnheader "Found via" [ref=e1009]
+        - rowgroup [ref=e1010]:
+          - row "party casino 224 329 direct" [ref=e1011]:
+            - cell "party casino" [ref=e1012]
+            - cell "224" [ref=e1013]
+            - cell "329" [ref=e1014]
+            - cell "direct" [ref=e1015]
+      - generic [ref=e1016]: "Use one page for \"Party Casino\". Do not create separate pages for: party casino."
+      - list [ref=e1017]:
+        - listitem [ref=e1018]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1019]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e1020]:
+      - generic [ref=e1021]:
+        - generic [ref=e1022]:
+          - paragraph [ref=e1023]: exclude-or-review · mixed
+          - heading "Casino Rewards" [level=3] [ref=e1024]
+          - paragraph [ref=e1025]: /casino-rewards/
+        - generic [ref=e1026]:
+          - generic [ref=e1027]: "174"
+          - text: exact impressions
+        - generic [ref=e1028]:
+          - generic [ref=e1029]: 2,083
+          - text: broad impressions
+      - generic [ref=e1030]:
+        - strong [ref=e1031]: "Primary:"
+        - text: casino rewards
+      - table [ref=e1032]:
+        - rowgroup [ref=e1033]:
+          - row "Keyword Exact Broad Found via" [ref=e1034]:
+            - columnheader "Keyword" [ref=e1035]
+            - columnheader "Exact" [ref=e1036]
+            - columnheader "Broad" [ref=e1037]
+            - columnheader "Found via" [ref=e1038]
+        - rowgroup [ref=e1039]:
+          - row "casino rewards 174 2,083 direct" [ref=e1040]:
+            - cell "casino rewards" [ref=e1041]
+            - cell "174" [ref=e1042]
+            - cell "2,083" [ref=e1043]
+            - cell "direct" [ref=e1044]
+      - generic [ref=e1045]: "Use one page for \"Casino Rewards\". Do not create separate pages for: casino rewards."
+      - list [ref=e1046]:
+        - listitem [ref=e1047]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1048]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e1049]:
+      - generic [ref=e1050]:
+        - generic [ref=e1051]:
+          - paragraph [ref=e1052]: exclude-or-review · mixed
+          - heading "Casino Classic Connexion" [level=3] [ref=e1053]
+          - paragraph [ref=e1054]: /casino-classic-connexion/
+        - generic [ref=e1055]:
+          - generic [ref=e1056]: "119"
+          - text: exact impressions
+        - generic [ref=e1057]:
+          - generic [ref=e1058]: "119"
+          - text: broad impressions
+      - generic [ref=e1059]:
+        - strong [ref=e1060]: "Primary:"
+        - text: casino classic connexion
+      - table [ref=e1061]:
+        - rowgroup [ref=e1062]:
+          - row "Keyword Exact Broad Found via" [ref=e1063]:
+            - columnheader "Keyword" [ref=e1064]
+            - columnheader "Exact" [ref=e1065]
+            - columnheader "Broad" [ref=e1066]
+            - columnheader "Found via" [ref=e1067]
+        - rowgroup [ref=e1068]:
+          - row "casino classic connexion 119 119 direct" [ref=e1069]:
+            - cell "casino classic connexion" [ref=e1070]
+            - cell "119" [ref=e1071]
+            - cell "119" [ref=e1072]
+            - cell "direct" [ref=e1073]
+      - generic [ref=e1074]: "Use one page for \"Casino Classic Connexion\". Do not create separate pages for: casino classic connexion."
+      - list [ref=e1075]:
+        - listitem [ref=e1076]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1077]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e1078]:
+      - generic [ref=e1079]:
+        - generic [ref=e1080]:
+          - paragraph [ref=e1081]: exclude-or-review · mixed
+          - heading "Casino Captain Cook" [level=3] [ref=e1082]
+          - paragraph [ref=e1083]: /casino-captain-cook/
+        - generic [ref=e1084]:
+          - generic [ref=e1085]: "114"
+          - text: exact impressions
+        - generic [ref=e1086]:
+          - generic [ref=e1087]: "114"
+          - text: broad impressions
+      - generic [ref=e1088]:
+        - strong [ref=e1089]: "Primary:"
+        - text: casino captain cook
+      - table [ref=e1090]:
+        - rowgroup [ref=e1091]:
+          - row "Keyword Exact Broad Found via" [ref=e1092]:
+            - columnheader "Keyword" [ref=e1093]
+            - columnheader "Exact" [ref=e1094]
+            - columnheader "Broad" [ref=e1095]
+            - columnheader "Found via" [ref=e1096]
+        - rowgroup [ref=e1097]:
+          - row "casino captain cook 114 114 direct" [ref=e1098]:
+            - cell "casino captain cook" [ref=e1099]
+            - cell "114" [ref=e1100]
+            - cell "114" [ref=e1101]
+            - cell "direct" [ref=e1102]
+      - generic [ref=e1103]: "Use one page for \"Casino Captain Cook\". Do not create separate pages for: casino captain cook."
+      - list [ref=e1104]:
+        - listitem [ref=e1105]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1106]: Use internal links to route commercial visitors toward the main offer.
+    - generic [ref=e1107]:
+      - generic [ref=e1108]:
+        - generic [ref=e1109]:
+          - paragraph [ref=e1110]: exclude-or-review · mixed
+          - heading "Casino Games" [level=3] [ref=e1111]
+          - paragraph [ref=e1112]: /casino-games/
+        - generic [ref=e1113]:
+          - generic [ref=e1114]: "106"
+          - text: exact impressions
+        - generic [ref=e1115]:
+          - generic [ref=e1116]: "284"
+          - text: broad impressions
+      - generic [ref=e1117]:
+        - strong [ref=e1118]: "Primary:"
+        - text: casino games
+      - table [ref=e1119]:
+        - rowgroup [ref=e1120]:
+          - row "Keyword Exact Broad Found via" [ref=e1121]:
+            - columnheader "Keyword" [ref=e1122]
+            - columnheader "Exact" [ref=e1123]
+            - columnheader "Broad" [ref=e1124]
+            - columnheader "Found via" [ref=e1125]
+        - rowgroup [ref=e1126]:
+          - row "casino games 106 284 direct" [ref=e1127]:
+            - cell "casino games" [ref=e1128]
+            - cell "106" [ref=e1129]
+            - cell "284" [ref=e1130]
+            - cell "direct" [ref=e1131]
+      - generic [ref=e1132]: "Use one page for \"Casino Games\". Do not create separate pages for: casino games."
+      - list [ref=e1133]:
+        - listitem [ref=e1134]: Clarify visitor intent before assigning the page type.
+        - listitem [ref=e1135]: Use internal links to route commercial visitors toward the main offer.
+    - heading "Rejected Keywords" [level=2] [ref=e1136]
+    - generic [ref=e1137]:
+      - generic [ref=e1138]:
+        - strong [ref=e1139]: google maps
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1140]:
+        - strong [ref=e1141]: google translate
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1142]:
+        - strong [ref=e1143]: instagram
+        - text: not-in-niche
+      - generic [ref=e1144]:
+        - strong [ref=e1145]: translate
+        - text: not-in-niche
+      - generic [ref=e1146]:
+        - strong [ref=e1147]: whatsapp
+        - text: not-in-niche
+      - generic [ref=e1148]:
+        - strong [ref=e1149]: whatsapp web
+        - text: not-in-niche
+      - generic [ref=e1150]:
+        - strong [ref=e1151]: english to french
+        - text: not-in-niche
+      - generic [ref=e1152]:
+        - strong [ref=e1153]: microsoft 365 login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1154]:
+        - strong [ref=e1155]: translate google
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1156]:
+        - strong [ref=e1157]: wikipedia
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1158]:
+        - strong [ref=e1159]: instagram login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1160]:
+        - strong [ref=e1161]: microsoft
+        - text: not-in-niche
+      - generic [ref=e1162]:
+        - strong [ref=e1163]: translator
+        - text: not-in-niche
+      - generic [ref=e1164]:
+        - strong [ref=e1165]: i
+        - text: not-in-niche
+      - generic [ref=e1166]:
+        - strong [ref=e1167]: english to spanish
+        - text: not-in-niche
+      - generic [ref=e1168]:
+        - strong [ref=e1169]: spanish to english
+        - text: not-in-niche
+      - generic [ref=e1170]:
+        - strong [ref=e1171]: w
+        - text: not-in-niche
+      - generic [ref=e1172]:
+        - strong [ref=e1173]: ig
+        - text: not-in-niche
+      - generic [ref=e1174]:
+        - strong [ref=e1175]: traductor
+        - text: not-in-niche
+      - generic [ref=e1176]:
+        - strong [ref=e1177]: insta
+        - text: not-in-niche
+      - generic [ref=e1178]:
+        - strong [ref=e1179]: microsoft account
+        - text: not-in-niche
+      - generic [ref=e1180]:
+        - strong [ref=e1181]: whatsapp login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1182]:
+        - strong [ref=e1183]: microsoft login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1184]:
+        - strong [ref=e1185]: whatsapp web login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1186]:
+        - strong [ref=e1187]: translation
+        - text: not-in-niche
+      - generic [ref=e1188]:
+        - strong [ref=e1189]: what
+        - text: not-in-niche
+      - generic [ref=e1190]:
+        - strong [ref=e1191]: translate english to spanish
+        - text: not-in-niche
+      - generic [ref=e1192]:
+        - strong [ref=e1193]: web whatsapp
+        - text: not-in-niche
+      - generic [ref=e1194]:
+        - strong [ref=e1195]: .com
+        - text: not-in-niche
+      - generic [ref=e1196]:
+        - strong [ref=e1197]: 888casino
+        - text: not-in-niche
+      - generic [ref=e1198]:
+        - strong [ref=e1199]: whats app
+        - text: not-in-niche
+      - generic [ref=e1200]:
+        - strong [ref=e1201]: sign in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1202]:
+        - strong [ref=e1203]: microsoft account login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1204]:
+        - strong [ref=e1205]: partycasino
+        - text: not-in-niche
+      - generic [ref=e1206]:
+        - strong [ref=e1207]: whats app web
+        - text: not-in-niche
+      - generic [ref=e1208]:
+        - strong [ref=e1209]: free slots
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1210]:
+        - strong [ref=e1211]: my account
+        - text: not-in-niche
+      - generic [ref=e1212]:
+        - strong [ref=e1213]: ins
+        - text: not-in-niche
+      - generic [ref=e1214]:
+        - strong [ref=e1215]: m365
+        - text: not-in-niche
+      - generic [ref=e1216]:
+        - strong [ref=e1217]: mountain fox free slots
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1218]:
+        - strong [ref=e1219]: account
+        - text: not-in-niche
+      - generic [ref=e1220]:
+        - strong [ref=e1221]: live
+        - text: not-in-niche
+      - generic [ref=e1222]:
+        - strong [ref=e1223]: instagram.com
+        - text: not-in-niche
+      - generic [ref=e1224]:
+        - strong [ref=e1225]: free slots no download
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1226]:
+        - strong [ref=e1227]: qbittorrent
+        - text: not-in-niche
+      - generic [ref=e1228]:
+        - strong [ref=e1229]: microsoft log in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1230]:
+        - strong [ref=e1231]: yukon gold casino 150 free spins
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1232]:
+        - strong [ref=e1233]: ol
+        - text: not-in-niche
+      - generic [ref=e1234]:
+        - strong [ref=e1235]: microsoft.com
+        - text: not-in-niche
+      - generic [ref=e1236]:
+        - strong [ref=e1237]: myaccount login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1238]:
+        - strong [ref=e1239]: captain cooks login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1240]:
+        - strong [ref=e1241]: free slots no downloads no registration
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1242]:
+        - strong [ref=e1243]: captain cooks sign up
+        - text: not-in-niche
+      - generic [ref=e1244]:
+        - strong [ref=e1245]: ig login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1246]:
+        - strong [ref=e1247]: yukon gold 150 free spins
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1248]:
+        - strong [ref=e1249]: vegas game
+        - text: seed-plan-reject-term
+      - generic [ref=e1250]:
+        - strong [ref=e1251]: torrent
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1252]:
+        - strong [ref=e1253]: assassin moon slot review
+        - text: not-in-niche
+      - generic [ref=e1254]:
+        - strong [ref=e1255]: inst
+        - text: not-in-niche
+      - generic [ref=e1256]:
+        - strong [ref=e1257]: coin master free spins
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1258]:
+        - strong [ref=e1259]: free casino slot games
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1260]:
+        - strong [ref=e1261]: allslots
+        - text: not-in-niche
+      - generic [ref=e1262]:
+        - strong [ref=e1263]: microsoft login my account
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1264]:
+        - strong [ref=e1265]: free slot machines
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1266]:
+        - strong [ref=e1267]: my microsoft account
+        - text: not-in-niche
+      - generic [ref=e1268]:
+        - strong [ref=e1269]: account.microsoft.com
+        - text: not-in-niche
+      - generic [ref=e1270]:
+        - strong [ref=e1271]: instagram login my account
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1272]:
+        - strong [ref=e1273]: no deposit free spins
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1274]:
+        - strong [ref=e1275]: slots free
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1276]:
+        - strong [ref=e1277]: "888"
+        - text: not-in-niche
+      - generic [ref=e1278]:
+        - strong [ref=e1279]: wildz
+        - text: not-in-niche
+      - generic [ref=e1280]:
+        - strong [ref=e1281]: party
+        - text: not-in-niche
+      - generic [ref=e1282]:
+        - strong [ref=e1283]: bittorrent
+        - text: not-in-niche
+      - generic [ref=e1284]:
+        - strong [ref=e1285]: free spins no deposit
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1286]:
+        - strong [ref=e1287]: github copilot pricing
+        - text: not-in-niche
+      - generic [ref=e1288]:
+        - strong [ref=e1289]: lucky nugget
+        - text: not-in-niche
+      - generic [ref=e1290]:
+        - strong [ref=e1291]: "88"
+        - text: not-in-niche
+      - generic [ref=e1292]:
+        - strong [ref=e1293]: time in chicago
+        - text: not-in-niche
+      - generic [ref=e1294]:
+        - strong [ref=e1295]: free vegas slots
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1296]:
+        - strong [ref=e1297]: free slot
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1298]:
+        - strong [ref=e1299]: freeslots.com
+        - text: not-in-niche
+      - generic [ref=e1300]:
+        - strong [ref=e1301]: gamble online
+        - text: not-in-niche
+      - generic [ref=e1302]:
+        - strong [ref=e1303]: free slot games
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1304]:
+        - strong [ref=e1305]: house of fun 100 free spins
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1306]:
+        - strong [ref=e1307]: chicago time zone
+        - text: not-in-niche
+      - generic [ref=e1308]:
+        - strong [ref=e1309]: luckynugget
+        - text: not-in-niche
+      - generic [ref=e1310]:
+        - strong [ref=e1311]: chicago time
+        - text: not-in-niche
+      - generic [ref=e1312]:
+        - strong [ref=e1313]: online casino booksporch
+        - text: seed-plan-reject-term
+      - generic [ref=e1314]:
+        - strong [ref=e1315]: partycasino login canada
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1316]:
+        - strong [ref=e1317]: captain cook casino log in
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1318]:
+        - strong [ref=e1319]: coinmaster free spins today
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1320]:
+        - strong [ref=e1321]: free slots for fun
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1322]:
+        - strong [ref=e1323]: michigan online casinos
+        - text: seed-plan-reject-term
+      - generic [ref=e1324]:
+        - strong [ref=e1325]: torrent downloader
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1326]:
+        - strong [ref=e1327]: casino 888 login
+        - text: brand-or-unrelated-noise
+      - generic [ref=e1328]:
+        - strong [ref=e1329]: free bonus slots win real money
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1330]:
+        - strong [ref=e1331]: luckycasino
+        - text: not-in-niche
+      - generic [ref=e1332]:
+        - strong [ref=e1333]: qbittorrent download
+        - text: seed-plan-reject-term
+      - generic [ref=e1334]:
+        - strong [ref=e1335]: free slots for fun only
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1336]:
+        - strong [ref=e1337]: microsoft official website
+        - text: not-in-niche
+      - generic [ref=e1338]:
+        - strong [ref=e1339]: torrent download
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1340]:
+        - strong [ref=e1341]: slot machine
+        - text: seed-plan-reject-term
+      - generic [ref=e1342]:
+        - strong [ref=e1343]: online casinos booksporch
+        - text: seed-plan-reject-term
+      - generic [ref=e1344]:
+        - strong [ref=e1345]: windows download
+        - text: seed-plan-reject-term
+      - generic [ref=e1346]:
+        - strong [ref=e1347]: illinois time
+        - text: not-in-niche
+      - generic [ref=e1348]:
+        - strong [ref=e1349]: microsoft website
+        - text: not-in-niche
+      - generic [ref=e1350]:
+        - strong [ref=e1351]: casino games book sports
+        - text: seed-plan-reject-term
+      - generic [ref=e1352]:
+        - strong [ref=e1353]: vegas world play free online slots
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1354]:
+        - strong [ref=e1355]: maddie cross
+        - text: not-in-niche
+      - generic [ref=e1356]:
+        - strong [ref=e1357]: online casino book sporch
+        - text: seed-plan-reject-term
+      - generic [ref=e1358]:
+        - strong [ref=e1359]: online casino book sports
+        - text: seed-plan-reject-term
+      - generic [ref=e1360]:
+        - strong [ref=e1361]: free casino slots
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1362]:
+        - strong [ref=e1363]: microsoft .com
+        - text: not-in-niche
+      - generic [ref=e1364]:
+        - strong [ref=e1365]: slots of vegas
+        - text: seed-plan-reject-term
+      - generic [ref=e1366]:
+        - strong [ref=e1367]: eoir
+        - text: not-in-niche
+      - generic [ref=e1368]:
+        - strong [ref=e1369]: best torrent downloader
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1370]:
+        - strong [ref=e1371]: free spins no deposit canada
+        - text: free-or-nonbuyer-intent
+      - generic [ref=e1372]:
+        - strong [ref=e1373]: illinois time zone
+        - text: not-in-niche
+      - generic [ref=e1374]:
+        - strong [ref=e1375]: github copilot subscription
+        - text: not-in-niche
+      - generic [ref=e1376]:
+        - strong [ref=e1377]: online casino real money booksporch
+        - text: seed-plan-reject-term

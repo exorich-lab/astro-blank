@@ -18,6 +18,9 @@
         "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account-key.json",
         "GOOGLE_PROJECT_ID": "YOUR_GA4_PROJECT_ID"
       }
+    },
+    "cloudflare-api": {
+      "url": "https://mcp.cloudflare.com/mcp"
     }
   }
 }
