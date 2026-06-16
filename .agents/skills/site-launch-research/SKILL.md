@@ -28,6 +28,8 @@ Turn a raw site idea into a launch-ready production plan and, after explicit use
    - Use Search Console/Bing site performance MCP for already verified sites with impressions, clicks, rank, sitemap, or cannibalization data.
    - Group keywords by intent: homepage, money pages, supporting pages, FAQ/articles.
    - Identify the primary homepage keyword.
+   - After important keywords are selected, run SERP competitor research for the main keyword and priority money-page keywords: `make serp-competitors KEYWORD="..." SERP_MARKET=US LANGUAGE=en-US TOP=10` or `make serp-plan-competitors SEED_PLAN=plan.json KEYWORD_LIMIT=3 TOP=10`.
+   - Use competitor output to inspect real page titles, H1s, meta descriptions, raw HTML, robots.txt, and sitemap URLs before writing our own metadata or page structure.
 
 3. Build initial site strategy:
    - homepage positioning
@@ -89,6 +91,33 @@ Stored Bing plans are part of the research workflow. The folder `/Users/sergejap
 Current `search-console-mcp` Bing tools are mainly for verified-site workflows: sites, sitemaps, rank/traffic stats, and cannibalization. If keyword research is not exposed by the MCP toolset, use Bing Webmaster UI/manual export or another available keyword API, then continue the same clustering/page-map workflow.
 
 After the site is deployed, verify the domain in Bing Webmaster Tools and submit `sitemap-index.xml` so future launches can use real query/rank data.
+
+## SERP Competitor Research Rule
+
+The local SERP microservice is configured in `/Users/sergejapetenok/credentials/astro-blank/serp/sites-api.json`.
+
+Use `scripts/serp-competitors.mjs` through Makefile commands:
+
+```bash
+make serp-competitors KEYWORD="online pokies chooser" SERP_MARKET=US LANGUAGE=en-US TOP=10
+make serp-plan-competitors SEED_PLAN=gambling-canada-affiliate-seed-plan.json KEYWORD_LIMIT=3 TOP=10
+```
+
+Outputs are stored outside the repository in `/Users/sergejapetenok/credentials/astro-blank/serp/competitors`.
+
+For each keyword, the tool calls `POST /api/serp/sites`, fetches top competitor pages with browser-like headers, saves raw HTML, extracts title/H1/meta description, fetches robots.txt, and samples sitemap URLs. Use this data as competitive evidence for metadata, page structure, and semantic expansion.
+
+For deeper expansion, run:
+
+```bash
+make serp-sitemaps RUN_DIR=/path/to/run
+make serp-plan-validate-expansion RUN_DIR=/path/to/run SEED_PLAN=plan.json COUNTRY=au LANGUAGE=en-AU MARKET_LABEL=australia
+make serp-plan-competitor-meta REPORT=bing-keyword-plan-topic.html SERP_MARKET=AU LANGUAGE=en-AU TOP=10
+```
+
+This parses competitor robots.txt and sitemap files into a raw URL corpus plus keyword/page-family ideas. Treat sitemap output as hypotheses, not final pages. The validation step must expand each hypothesis into multiple search variants, check Bing exact/broad impressions, reject underqualified generic terms, and write validated clusters into a new seed-plan. Add a new page cluster only when at least two signals agree: keyword demand, SERP competitors, recurring sitemap pattern, or a clear commercial/trust role.
+
+After the final HTML plan exists, collect competitor metadata for every primary cluster keyword. Use the injected competitor section to design page titles, H1s, meta descriptions, first-screen positioning, comparison sections, and proof/objection handling.
 
 ## Yandex/Wordstat Rule
 

@@ -408,6 +408,7 @@ function loadSeedPlan() {
     allowFreeTerms: asArray(plan.allowFreeTerms),
     buyerModifiers: asArray(plan.buyerModifiers),
     clusterRules: asArray(plan.clusterRules),
+    validatedSitemapExpansion: plan.validatedSitemapExpansion || null,
   };
 }
 
@@ -459,6 +460,14 @@ function buildSeedPlan(seeds, seedPlan = null) {
   }
 
   return uniqueItems(planned).slice(0, Math.max(1, Math.min(200, numberArg('--seed-limit', 80))));
+}
+
+function protectedQueriesForResearch(research) {
+  return uniqueItems([
+    ...(research.requestedSeeds || []),
+    ...asArray(research.seedPlan?.seeds),
+    ...asArray(research.seedPlan?.gameTitles),
+  ]);
 }
 
 function rankKeywords(rows, limit, protectedQueries = []) {
@@ -990,6 +999,7 @@ function renderKeywordPlanHtml(report) {
   const moneyClusters = sectionClusters.filter((cluster) => cluster.pageType === 'money-page');
   const funnelClusters = sectionClusters.filter((cluster) => ['commercial-support', 'tool-funnel-page', 'supporting-funnel-page'].includes(cluster.pageType));
   const excludedClusters = sectionClusters.filter((cluster) => cluster.pageType.startsWith('exclude'));
+  const validatedExpansion = asArray(report.seedPlan?.validatedSitemapExpansion?.clusters);
 
   const clusterCard = (cluster, { isMainPage = false } = {}) => `
     <section class="cluster">
@@ -1081,6 +1091,34 @@ function renderKeywordPlanHtml(report) {
       </tr>
     `).join('');
 
+  const validatedExpansionRows = validatedExpansion
+    .sort((a, b) => (b.totalImpressions - a.totalImpressions) || (b.totalBroadImpressions - a.totalBroadImpressions) || a.label.localeCompare(b.label))
+    .map((cluster) => {
+      const pageCluster = clusters.find((item) => (
+        normalizeKeyword(item.cluster) === normalizeKeyword(cluster.label)
+        || item.keywords.some((row) => normalizeKeyword(row.query) === normalizeKeyword(cluster.primaryKeyword))
+      ));
+      const mergedCluster = mergedClusters.find((item) => (
+        normalizeKeyword(item.cluster) === normalizeKeyword(cluster.label)
+        || item.keywords.some((row) => normalizeKeyword(row.query) === normalizeKeyword(cluster.primaryKeyword))
+      ));
+      const status = pageCluster
+        ? `visible as ${pageCluster.pageType}`
+        : mergedCluster
+          ? `merged into ${mergedCluster.mergeTarget || 'parent page'}`
+          : 'validated seed, needs branch run or manual review';
+      return `
+        <tr>
+          <td><strong>${escapeHtml(cluster.label)}</strong><small>${escapeHtml(cluster.type || 'expansion')}</small></td>
+          <td>${escapeHtml(cluster.primaryKeyword)}</td>
+          <td>${Number(cluster.totalImpressions || 0).toLocaleString('en-US')}</td>
+          <td>${Number(cluster.totalBroadImpressions || 0).toLocaleString('en-US')}</td>
+          <td>${escapeHtml(status)}</td>
+          <td>${escapeHtml(asArray(cluster.keywords).map((row) => row.query).slice(0, 6).join(', '))}</td>
+        </tr>
+      `;
+    }).join('');
+
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -1122,6 +1160,7 @@ function renderKeywordPlanHtml(report) {
     .rejected strong { display:block; color:var(--ink); }
     .rejected small { color:var(--danger); }
     .source-summary { color:var(--muted); font-size:13px; white-space:nowrap; }
+    td small { display:block; color:var(--muted); margin-top:3px; }
     .note { color:var(--muted); font-size:14px; margin-top:-6px; }
     .sources summary { color:var(--muted); cursor:pointer; font-size:13px; white-space:nowrap; }
     .sources span { display:block; margin-top:6px; color:#475467; font-size:12px; line-height:1.35; }
@@ -1129,6 +1168,9 @@ function renderKeywordPlanHtml(report) {
     .expansion div { background:#fff; border:1px solid #bae6fd; border-radius:8px; padding:14px; }
     .expansion strong { display:block; margin-bottom:6px; }
     .expansion span { color:var(--muted); display:block; }
+    .report-nav { position:sticky; top:0; z-index:5; display:flex; gap:8px; overflow-x:auto; padding:10px max(24px, 6vw); background:rgba(248,250,252,.94); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
+    .report-nav a { flex:0 0 auto; text-decoration:none; color:#344054; background:#fff; border:1px solid var(--line); border-radius:999px; padding:7px 10px; font-size:13px; }
+    .report-nav a:hover { border-color:var(--brand); color:var(--brand); }
     @media (max-width: 760px) { .cluster-head { grid-template-columns:1fr; } .metric { text-align:left; } table { display:block; overflow-x:auto; } }
   </style>
 </head>
@@ -1151,8 +1193,42 @@ function renderKeywordPlanHtml(report) {
       <div class="stat"><span>${report.summary.totalBroadImpressions.toLocaleString('en-US')}</span><small>broad impressions</small></div>
     </div>
   </header>
+  <nav class="report-nav">
+    <a href="#main-page">Main page</a>
+    <a href="#money-pages">Money pages</a>
+    <a href="#funnel-pages">Funnel support</a>
+    <a href="#validated-expansion">Validated expansion</a>
+    <a href="#expansion-candidates">Expansion candidates</a>
+    <a href="#merged-keywords">Merged</a>
+    <a href="#tested-seeds">Tested seeds</a>
+    <a href="#review">Review</a>
+  </nav>
   <main>
-    <h2>Expansion Candidates</h2>
+    <h2 id="main-page">Main Page</h2>
+    <p class="source-summary">Found via shows which seed or expansion query discovered the keyword. It is diagnostic data, collapsed by default to keep the plan readable.</p>
+    ${mainCluster ? clusterCard(mainCluster, { isMainPage: true }) : '<div class="empty">No main page found.</div>'}
+    <h2 id="money-pages">Money Pages</h2>
+    ${moneyClusters.length ? moneyClusters.map(clusterCard).join('') : '<div class="empty">No money-page clusters found.</div>'}
+    <h2 id="funnel-pages">Funnel Support Pages</h2>
+    ${funnelClusters.length ? funnelClusters.map(clusterCard).join('') : '<div class="empty">No funnel-support clusters found.</div>'}
+    <h2 id="validated-expansion">Validated Sitemap Expansion</h2>
+    <p class="note">These clusters came from competitor sitemap hypotheses, were expanded into search variants, and then checked with Bing exact/broad impressions. This section is shown even when the final page planner merges a thin validated idea into a larger page.</p>
+    ${validatedExpansionRows ? `
+      <table>
+        <thead>
+          <tr>
+            <th>Validated Cluster</th>
+            <th>Primary Keyword</th>
+            <th>Exact</th>
+            <th>Broad</th>
+            <th>Planner Status</th>
+            <th>Validated Keywords</th>
+          </tr>
+        </thead>
+        <tbody>${validatedExpansionRows}</tbody>
+      </table>
+    ` : '<div class="empty">No validated sitemap expansion clusters in this seed-plan.</div>'}
+    <h2 id="expansion-candidates">Expansion Candidates</h2>
     <div class="expansion">${report.expansionCandidates.length ? report.expansionCandidates.map((item) => `
       <div>
         <strong>${escapeHtml(item.cluster)}</strong>
@@ -1161,14 +1237,7 @@ function renderKeywordPlanHtml(report) {
         <span>${escapeHtml(item.action)}</span>
       </div>
     `).join('') : '<div>No under-expanded high-volume clusters.</div>'}</div>
-    <h2>Main Page</h2>
-    <p class="source-summary">Found via shows which seed or expansion query discovered the keyword. It is diagnostic data, collapsed by default to keep the plan readable.</p>
-    ${mainCluster ? clusterCard(mainCluster, { isMainPage: true }) : '<div class="empty">No main page found.</div>'}
-    <h2>Money Pages</h2>
-    ${moneyClusters.length ? moneyClusters.map(clusterCard).join('') : '<div class="empty">No money-page clusters found.</div>'}
-    <h2>Funnel Support Pages</h2>
-    ${funnelClusters.length ? funnelClusters.map(clusterCard).join('') : '<div class="empty">No funnel-support clusters found.</div>'}
-    <h2>Merged Keywords</h2>
+    <h2 id="merged-keywords">Merged Keywords</h2>
     <p class="note">These weak or single-keyword clusters should not become separate pages. Fold them into the suggested parent page to avoid thin pages and cannibalization.</p>
     ${mergedClusters.length ? `
       <table>
@@ -1183,7 +1252,7 @@ function renderKeywordPlanHtml(report) {
         <tbody>${mergedRows}</tbody>
       </table>
     ` : '<div class="empty">No small clusters were merged.</div>'}
-    <h2>Tested Seed Hypotheses</h2>
+    <h2 id="tested-seeds">Tested Seed Hypotheses</h2>
     <p class="note">These are seed ideas the agent explicitly tested. Rows with zero demand are useful: they show named games/providers that should not become pages unless another data source proves demand.</p>
     ${testedSeedRows ? `
       <table>
@@ -1198,7 +1267,7 @@ function renderKeywordPlanHtml(report) {
         <tbody>${testedSeedRows}</tbody>
       </table>
     ` : '<div class="empty">No seed stats were collected.</div>'}
-    <h2>Excluded / Review</h2>
+    <h2 id="review">Excluded / Review</h2>
     ${excludedClusters.length ? excludedClusters.map(clusterCard).join('') : '<div class="noise">No excluded clusters in this run.</div>'}
     <h2>Rejected Keywords</h2>
     <div class="rejected">${report.filteredOut.slice(0, 120).map((row) => `<div><strong>${escapeHtml(row.query)}</strong><small>${escapeHtml(row.reason || 'rejected')}</small></div>`).join('') || '<div>No rejected keywords.</div>'}</div>
@@ -1523,7 +1592,7 @@ async function keywordClusters() {
   const clustered = clusterKeywords(research.keywords, {
     minClusterSize,
     clusterLimit,
-    protectedQueries: research.requestedSeeds,
+    protectedQueries: protectedQueriesForResearch(research),
     seedPlan: research.seedPlan,
   });
 
@@ -1566,7 +1635,7 @@ async function keywordSitePlan() {
   const clustered = clusterKeywords(cleanKeywords, {
     minClusterSize,
     clusterLimit,
-    protectedQueries: research.requestedSeeds,
+    protectedQueries: protectedQueriesForResearch(research),
     seedPlan: research.seedPlan,
   });
   const topic = research.requestedSeeds.join(', ');

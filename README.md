@@ -213,6 +213,45 @@ make bing-page-stats DOMAIN=https://example.com
 
 Use `search-console-mcp` when its Bing tools are authenticated and available. Use the local `scripts/bing-webmaster.mjs` layer when the MCP does not see the Bing account or when deployment automation needs deterministic API-key behavior from `~/credentials/bing-webmaster.json`.
 
+The starter can also use a local SERP microservice for competitor research:
+
+Config:
+
+`~/credentials/astro-blank/serp/sites-api.json`
+
+Endpoint:
+
+```http
+POST http://127.0.0.1:10000/api/serp/sites
+Content-Type: application/json
+
+{
+  "market": "US",
+  "language": "en-US",
+  "keyword": "online pokies chooser"
+}
+```
+
+Commands:
+
+```bash
+make serp-competitors KEYWORD="online pokies chooser" SERP_MARKET=US LANGUAGE=en-US TOP=10
+make serp-plan-competitors SEED_PLAN=gambling-canada-affiliate-seed-plan.json KEYWORD_LIMIT=3 TOP=10
+make serp-sitemaps RUN_DIR=/path/to/serp-run
+make serp-plan-validate-expansion RUN_DIR=/path/to/serp-run SEED_PLAN=online-pokies-au-affiliate-seed-plan.json COUNTRY=au LANGUAGE=en-AU MARKET_LABEL=australia
+make serp-plan-competitor-meta REPORT=bing-keyword-plan-online-pokies-au.html SERP_MARKET=AU LANGUAGE=en-AU TOP=10
+```
+
+SERP competitor artifacts are stored outside the repository:
+
+`~/credentials/astro-blank/serp/competitors`
+
+For each keyword, the tool saves the raw SERP API response, raw HTML for competitor pages, extracted meta title, H1, meta description, robots.txt, sitemap XML files, and sitemap URL samples. This data is used before writing our own metadata and page structure.
+
+Use sitemap expansion as a hypothesis layer. Competitor sitemaps can contain useful page families, but also include news, legal, author, tag, and utility URLs. Do not automatically create a page for every sitemap URL. After `serp-sitemaps`, run `serp-plan-validate-expansion`: it turns sitemap ideas into several search variants, checks Bing exact/broad impressions, filters underqualified generic terms, and writes a validated seed-plan with `validatedSitemapExpansion.clusters`, `seeds`, and `clusterRules`. Add clusters only when supported by multiple signals: keyword demand, SERP competitors, recurring sitemap patterns, and a clear commercial or trust role.
+
+After the HTML keyword plan is ready, run `serp-plan-competitor-meta` against that report. It parses each cluster's primary keyword, pulls top SERP pages, extracts competitor meta title, H1, meta description, canonical, and raw HTML cache paths, then injects a `Competitor Metadata By Primary Keyword` section back into the HTML report. Use this layer before building the site copy and page templates.
+
 Bing keyword endpoints are rate-limited and cached by default:
 
 - API responses are cached in `~/credentials/astro-blank/bing/cache`.
@@ -400,7 +439,7 @@ Expected workflow:
 
 Domain purchase is never automatic from a topic prompt. It always requires a shortlist, a selected domain, and explicit confirmation.
 
-For brand-new sites, the agent should first inspect the stored plan library with `make bing-plans`. If a close plan already exists, read it and propose whether to reuse it, expand a specific branch, or create a fresh plan. Only then create or update a niche-specific seed plan (`siteModel`, `seeds`, `buyerModifiers`, `requiredTerms`, `rejectTerms`, `clusterRules`) in `~/credentials/astro-blank/bing/plans` and pass it with `SEED_PLAN=...`. Then use `make bing-site-plan KEYWORD="main topic" SEED_PLAN=seed-plan.json` to collect a wider keyword set for the last 30 days, choose the main keyword, remove obvious noise, group related keywords into pages, and create a readable report before the site has impressions or clicks. `mainPage` always means the homepage and its slug is always `/`, even when the primary keyword is long. For affiliate/commercial niches, the report separates money pages from funnel-support pages so informational keywords are kept only when they can naturally lead to an offer, comparison, service selection, tool use, or help request. `clusterRules` let the agent split discovered branches like homework into subject/service pages instead of one giant generic cluster. Keep Bing runs rate-limited with `SEED_LIMIT`, `DELAY_MS`, `STATS_DELAY_MS`, and lower `MAX_REQUESTS` for first passes; cached responses in `~/credentials/astro-blank/bing/cache` should be reused instead of repeating broad crawls. After launch, Bing/Search Console data becomes useful for real query, rank, sitemap, and cannibalization analysis through `make bing-query-stats` and `make bing-page-stats`.
+For brand-new sites, the agent should first inspect the stored plan library with `make bing-plans`. If a close plan already exists, read it and propose whether to reuse it, expand a specific branch, or create a fresh plan. Only then create or update a niche-specific seed plan (`siteModel`, `seeds`, `buyerModifiers`, `requiredTerms`, `rejectTerms`, `clusterRules`) in `~/credentials/astro-blank/bing/plans` and pass it with `SEED_PLAN=...`. Then use `make bing-site-plan KEYWORD="main topic" SEED_PLAN=seed-plan.json` to collect a wider keyword set for the last 30 days, choose the main keyword, remove obvious noise, group related keywords into pages, and create a readable report before the site has impressions or clicks. After selecting the main keyword and priority money pages, run SERP competitor research with `make serp-competitors` or `make serp-plan-competitors` to inspect top-ranking pages, raw HTML, metadata, robots.txt, and sitemap structures. `mainPage` always means the homepage and its slug is always `/`, even when the primary keyword is long. For affiliate/commercial niches, the report separates money pages from funnel-support pages so informational keywords are kept only when they can naturally lead to an offer, comparison, service selection, tool use, or help request. `clusterRules` let the agent split discovered branches like homework into subject/service pages instead of one giant generic cluster. Keep Bing runs rate-limited with `SEED_LIMIT`, `DELAY_MS`, `STATS_DELAY_MS`, and lower `MAX_REQUESTS` for first passes; cached responses in `~/credentials/astro-blank/bing/cache` should be reused instead of repeating broad crawls. After launch, Bing/Search Console data becomes useful for real query, rank, sitemap, and cannibalization analysis through `make bing-query-stats` and `make bing-page-stats`.
 
 ## Deployment (Hestia CP)
 
