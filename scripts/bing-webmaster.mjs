@@ -1000,6 +1000,8 @@ function renderKeywordPlanHtml(report) {
   const funnelClusters = sectionClusters.filter((cluster) => ['commercial-support', 'tool-funnel-page', 'supporting-funnel-page'].includes(cluster.pageType));
   const excludedClusters = sectionClusters.filter((cluster) => cluster.pageType.startsWith('exclude'));
   const validatedExpansion = asArray(report.seedPlan?.validatedSitemapExpansion?.clusters);
+  const sitemapStats = report.seedPlan?.validatedSitemapExpansion?.sitemapStats || {};
+  const validatedStats = report.seedPlan?.validatedSitemapExpansion || {};
 
   const clusterCard = (cluster, { isMainPage = false } = {}) => `
     <section class="cluster">
@@ -1168,6 +1170,11 @@ function renderKeywordPlanHtml(report) {
     .expansion div { background:#fff; border:1px solid #bae6fd; border-radius:8px; padding:14px; }
     .expansion strong { display:block; margin-bottom:6px; }
     .expansion span { color:var(--muted); display:block; }
+    .pipeline { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); margin:14px 0 16px; }
+    .pipeline div { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px; }
+    .pipeline strong { display:block; font-size:24px; line-height:1; }
+    .pipeline span { display:block; color:var(--muted); margin-top:6px; font-size:13px; }
+    .pipeline-note { background:#f8fafc; border:1px solid var(--line); border-radius:8px; padding:12px 14px; color:#475467; margin:0 0 16px; }
     .report-nav { position:sticky; top:0; z-index:5; display:flex; gap:8px; overflow-x:auto; padding:10px max(24px, 6vw); background:rgba(248,250,252,.94); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
     .report-nav a { flex:0 0 auto; text-decoration:none; color:#344054; background:#fff; border:1px solid var(--line); border-radius:999px; padding:7px 10px; font-size:13px; }
     .report-nav a:hover { border-color:var(--brand); color:var(--brand); }
@@ -1213,6 +1220,14 @@ function renderKeywordPlanHtml(report) {
     ${funnelClusters.length ? funnelClusters.map(clusterCard).join('') : '<div class="empty">No funnel-support clusters found.</div>'}
     <h2 id="validated-expansion">Validated Sitemap Expansion</h2>
     <p class="note">These clusters came from competitor sitemap hypotheses, were expanded into search variants, and then checked with Bing exact/broad impressions. This section is shown even when the final page planner merges a thin validated idea into a larger page.</p>
+    <div class="pipeline">
+      <div><strong>${Number(sitemapStats.urlCount || 0).toLocaleString('en-US')}</strong><span>sitemap URLs parsed</span></div>
+      <div><strong>${Number(sitemapStats.ideaCount || 0).toLocaleString('en-US')}</strong><span>URL-derived ideas retained</span></div>
+      <div><strong>${Number(validatedStats.testedHypotheses || 0).toLocaleString('en-US')}</strong><span>hypotheses checked in Bing</span></div>
+      <div><strong>${Number(validatedStats.testedQueries || 0).toLocaleString('en-US')}</strong><span>query variants tested</span></div>
+      <div><strong>${Number(validatedStats.validatedClusters || validatedExpansion.length || 0).toLocaleString('en-US')}</strong><span>validated clusters</span></div>
+    </div>
+    <p class="pipeline-note">The sitemap crawler found far more URLs than the visible clusters. Most URLs are duplicates, brand promo pages, legal/utility pages, foreign-language variants, or patterns without Bing demand. The visible rows are only the hypotheses that passed the Bing validation layer.</p>
     ${validatedExpansionRows ? `
       <table>
         <thead>
