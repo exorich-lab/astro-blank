@@ -519,7 +519,10 @@ function classifyIntent(query) {
   const whiteningTerms = ['bleaching', 'gel', 'kit', 'kits', 'mouthwash', 'pen', 'stain', 'stains', 'strip', 'strips', 'toothpaste', 'whiten', 'whitening'];
 
   if (text.includes('login') || text.includes('log in')) return 'navigational';
-  if (['checker', 'detector', 'grader', 'generator', 'tool'].some((token) => tokens.has(token))) return 'tool';
+  if (tokens.has('linkedin') && (tokens.has('job') || tokens.has('jobs') || tokens.has('career') || tokens.has('careers'))) return 'navigational';
+  if ((tokens.has('skill') || tokens.has('skills')) && (tokens.has('resume') || tokens.has('resumes'))) return 'informational';
+  if ((tokens.has('resume') || tokens.has('resumes')) && ['reference', 'references', 'layout', 'outline'].some((token) => tokens.has(token))) return 'informational';
+  if ((tokens.has('resume') || tokens.has('resumes')) && tokens.has('cover') && tokens.has('letter') && !['service', 'services', 'writer', 'writers', 'writing'].some((token) => tokens.has(token))) return 'informational';
   if (whiteningTerms.some((token) => tokens.has(token)) && (tokens.has('teeth') || tokens.has('tooth') || tokens.has('dental') || tokens.has('dentist') || tokens.has('crest') || tokens.has('zoom') || tokens.has('opalescence') || text.includes('white strips'))) {
     return ['best', 'cost', 'dentist', 'kit', 'near', 'professional', 'strips', 'strip', 'products', 'toothpaste', 'gel', 'pen', 'led', 'zoom'].some((token) => tokens.has(token)) || text.includes('teeth whitening')
       ? 'transactional'
@@ -528,6 +531,8 @@ function classifyIntent(query) {
   if (text.startsWith('how ') || text.startsWith('what ') || ['topic', 'format', 'example', 'guide', 'mla', 'apa', 'argumentative'].some((token) => tokens.has(token))) {
     return 'informational';
   }
+  if ((tokens.has('resume') || tokens.has('resumes')) && ['create', 'make', 'build'].some((token) => tokens.has(token))) return 'tool';
+  if (['builder', 'checker', 'creator', 'detector', 'grader', 'generator', 'maker', 'tool'].some((token) => tokens.has(token))) return 'tool';
   if (text.includes('write my') || text.includes('do my') || text.includes('for me') || text.includes('homework help') || text.includes('assignment help') || ['service', 'cheap', 'buy', 'order', 'hire', 'professional', 'custom'].some((token) => tokens.has(token))) {
     return 'transactional';
   }
@@ -541,6 +546,18 @@ function topicLabel(query, seedPlan = null) {
   const text = normalizeKeyword(query);
   const tokens = new Set(keywordTokens(text));
 
+  if (tokens.has('resume') || tokens.has('resumes')) {
+    if (text.startsWith('how to write')) return 'How to write a resume';
+    if (text.startsWith('how to make')) return 'How to make a resume';
+    if (text.startsWith('how to create')) return 'How to create a resume';
+    if (text.startsWith('how to build')) return 'How to build a resume';
+    if ((tokens.has('skill') || tokens.has('skills')) && ['put', 'list', 'include', 'add'].some((token) => tokens.has(token))) return 'Resume skills guide';
+    if (tokens.has('references') || tokens.has('reference')) return 'Resume references guide';
+    if (tokens.has('layout')) return 'Resume layout guide';
+    if (tokens.has('outline')) return 'Resume outline guide';
+    if (tokens.has('linkedin') && (tokens.has('job') || tokens.has('jobs') || tokens.has('career') || tokens.has('careers'))) return 'LinkedIn jobs';
+  }
+
   for (const rule of asArray(seedPlan?.clusterRules)) {
     const label = String(rule.label || '').trim();
     if (!label) continue;
@@ -553,16 +570,26 @@ function topicLabel(query, seedPlan = null) {
 
   if (text.includes('login') || text.includes('log in')) return 'Account and login queries';
   if (tokens.has('resume') || tokens.has('resumes')) {
+    if (text.startsWith('how to write')) return 'How to write a resume';
+    if (text.startsWith('how to make')) return 'How to make a resume';
+    if (text.startsWith('how to create')) return 'How to create a resume';
+    if (text.startsWith('how to build')) return 'How to build a resume';
+    if (text.startsWith('what is') || text.includes('look like')) return 'Resume basics guide';
+    if (tokens.has('professional') || tokens.has('certified') || tokens.has('expert') || tokens.has('experts')) return 'Resume writing service';
+  }
+  if (tokens.has('cover') && tokens.has('letter')) {
+    if (text.startsWith('how to write') || text.startsWith('how to make') || text.startsWith('how long') || text.startsWith('what is')) return 'Cover letter guide';
+    if (tokens.has('generator')) return 'Cover letter generator';
+    if (tokens.has('resume')) return 'Resume and cover letter';
+    if (tokens.has('writer') || tokens.has('writing') || tokens.has('service')) return 'Cover letter writing service';
+    return 'Cover letter guide';
+  }
+  if (tokens.has('resume') || tokens.has('resumes')) {
     if (tokens.has('checker') || tokens.has('ats')) return 'ATS resume checker';
     if (tokens.has('builder') || tokens.has('maker') || tokens.has('creator')) return 'Resume builder';
     if (tokens.has('skill') || tokens.has('skills')) return 'Resume skills guide';
     if (tokens.has('cover') && tokens.has('letter')) return 'Resume and cover letter';
     if (tokens.has('help') || tokens.has('service') || tokens.has('services') || tokens.has('writer') || tokens.has('writers') || tokens.has('writing')) return 'Resume writing service';
-  }
-  if (tokens.has('cover') && tokens.has('letter')) {
-    if (tokens.has('generator')) return 'Cover letter generator';
-    if (tokens.has('resume')) return 'Resume and cover letter';
-    return 'Cover letter writing service';
   }
   if (tokens.has('linkedin') && (tokens.has('profile') || tokens.has('writing') || tokens.has('optimization'))) return 'LinkedIn profile writing service';
   if (tokens.has('cv')) {
@@ -993,6 +1020,7 @@ function hydrateClustersWithProtectedSeedStats(clusters, seedStats, seedPlan = n
   for (const row of asArray(seedStats)) {
     const key = normalizeKeyword(row.query);
     if (!protectedSeeds.has(key)) continue;
+    if ((row.impressions || 0) <= 0 && (row.broadImpressions || 0) <= 0) continue;
     const existingCluster = byKeyword.get(key);
     if (existingCluster && !String(existingCluster.pageType || '').startsWith('exclude')) continue;
 
@@ -1021,6 +1049,8 @@ function hydrateClustersWithProtectedSeedStats(clusters, seedStats, seedPlan = n
     cluster.keywords = cluster.keywords.filter((item) => normalizeKeyword(item.query) !== key);
     cluster.keywords.push(hydrated);
     cluster.keywords = rankKeywords(cluster.keywords, 1000, [cluster.primaryKeyword, ...asArray(seedPlan.seeds)]);
+    const primary = choosePrimaryKeyword(cluster.keywords, cluster.intent, protectedSeeds);
+    cluster.primaryKeyword = primary?.query || cluster.primaryKeyword;
     cluster.secondaryKeywords = cluster.keywords
       .filter((item) => normalizeKeyword(item.query) !== normalizeKeyword(cluster.primaryKeyword))
       .map((item) => item.query);
