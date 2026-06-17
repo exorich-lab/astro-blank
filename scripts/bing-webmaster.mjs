@@ -769,7 +769,7 @@ function isLikelyBrandCluster(cluster) {
 }
 
 function chooseMainCluster(allClusters, protectedSet, seedPlan = null) {
-  const commercialClusters = allClusters.filter((cluster) => ['transactional', 'commercial'].includes(cluster.intent));
+  const commercialClusters = allClusters.filter((cluster) => ['transactional', 'commercial', 'mixed'].includes(cluster.intent));
   const preferredMain = seedPlan?.mainCluster;
   if (preferredMain) {
     const preferredLabel = normalizeKeyword(preferredMain.label || preferredMain);
@@ -858,6 +858,177 @@ function mergeDuplicateClusterLabels(clusters, protectedSet) {
       cannibalizationRule: `Use one page for "${cluster.cluster}". Do not create separate pages for: ${ranked.map((row) => row.query).slice(0, 8).join(', ')}.`,
     };
   });
+}
+
+function intentForValidatedExpansionType(type, primaryKeyword = '') {
+  const text = normalizeKeyword(primaryKeyword);
+  if (type === 'trust-legal') return 'commercial';
+  if (type === 'mobile-app') return 'commercial';
+  if (/\b(free|demo|for fun)\b/.test(text) && !/\bbonus|casino|casinos|real money\b/.test(text)) return 'commercial';
+  return ['bonus', 'commercial', 'game', 'payment'].includes(type) ? 'transactional' : 'commercial';
+}
+
+function validatedExpansionPageClusters(seedPlan, existingClusters = [], mainCluster = null) {
+  const validated = asArray(seedPlan?.validatedSitemapExpansion?.clusters);
+  if (validated.length === 0) return [];
+
+  const existingKeys = new Set();
+  const addClusterKeys = (cluster) => {
+    if (!cluster) return;
+    existingKeys.add(normalizeKeyword(cluster.cluster));
+    existingKeys.add(normalizeKeyword(cluster.primaryKeyword));
+    for (const row of asArray(cluster.keywords)) existingKeys.add(normalizeKeyword(row.query));
+  };
+  addClusterKeys(mainCluster);
+  for (const cluster of existingClusters) addClusterKeys(cluster);
+
+  const result = [];
+  for (const item of validated) {
+    const primaryKeyword = normalizeKeyword(item.primaryKeyword);
+    const label = String(item.label || item.primaryKeyword || '').trim();
+    if (!primaryKeyword || !label) continue;
+
+    const keywordRows = asArray(item.keywords)
+      .filter((row) => row?.query)
+      .map((row) => ({
+        ...row,
+        sources: uniqueItems([...(row.sources || []), 'validated-sitemap']),
+      }));
+    const keywordKeys = new Set([
+      normalizeKeyword(label),
+      primaryKeyword,
+      ...keywordRows.map((row) => normalizeKeyword(row.query)),
+    ].filter(Boolean));
+    if ([...keywordKeys].some((key) => existingKeys.has(key))) continue;
+
+    const intent = intentForValidatedExpansionType(item.type, primaryKeyword);
+    const ranked = rankKeywords(keywordRows, 1000, [primaryKeyword]);
+    const primary = ranked.find((row) => normalizeKeyword(row.query) === primaryKeyword) || ranked[0];
+    const secondary = ranked.filter((row) => normalizeKeyword(row.query) !== normalizeKeyword(primary?.query));
+    const cluster = {
+      cluster: label,
+      intent,
+      pageType: pageTypeForIntent(intent),
+      slug: slugify(label),
+      primaryKeyword: primary?.query || item.primaryKeyword,
+      secondaryKeywords: secondary.map((row) => row.query),
+      totalImpressions: item.totalImpressions || ranked.reduce((sum, row) => sum + (row.impressions || 0), 0),
+      totalBroadImpressions: item.totalBroadImpressions || ranked.reduce((sum, row) => sum + (row.broadImpressions || 0), 0),
+      keywords: ranked,
+      conversionHypotheses: conversionHypotheses(intent, label),
+      cannibalizationRule: `Use one page for "${label}". Do not create separate pages for: ${ranked.map((row) => row.query).slice(0, 8).join(', ')}.`,
+      source: 'validated-sitemap-expansion',
+      sitemapEvidenceCount: item.sitemapEvidenceCount || 0,
+      sampleUrls: item.sampleUrls || [],
+    };
+    result.push(cluster);
+    addClusterKeys(cluster);
+  }
+
+  return result;
+}
+
+function ruleLabelForKeyword(query, seedPlan = null) {
+  const text = normalizeKeyword(query);
+  const tokens = new Set(keywordTokens(text));
+  for (const rule of asArray(seedPlan?.clusterRules)) {
+    const label = String(rule.label || '').trim();
+    if (!label) continue;
+    const pattern = rule.match ? new RegExp(rule.match, 'i') : null;
+    const terms = asArray(rule.terms).map(stemToken);
+    if ((pattern && pattern.test(text)) || (terms.length > 0 && terms.some((term) => tokens.has(term)))) {
+      return label;
+    }
+  }
+  if (/\bpokies?\b/.test(text)) {
+    if (/\bbonus|bonuses|welcome|deposit|spins?\b/.test(text)) return 'Pokies bonuses Australia';
+    if (/\bmobile|iphone|android|phone|tablet\b/.test(text)) return 'Mobile pokies Australia';
+    if (/\breal money|real cash|cash pokies|for money\b/.test(text)) return 'Real money pokies Australia';
+    if (/\bnew\b/.test(text) && /\bsites?\b/.test(text)) return 'New online casinos Australia';
+    if (/\bsites?|online|australia|australian|best|top|safe|trusted|play\b/.test(text)) return 'Online pokies Australia';
+  }
+  if (/\bcasinos?\b/.test(text)) {
+    if (/\bnew\b/.test(text)) return 'New online casinos Australia';
+    if (/\breal money\b/.test(text)) return 'Online casinos Australia';
+    if (/\bbonus|bonuses|welcome|deposit|spins?\b/.test(text)) return 'Pokies bonuses Australia';
+    if (/\bpaypal|payid|poli|visa|mastercard|crypto|bitcoin\b/.test(text)) return 'Payment method casinos Australia';
+    if (/\bonline|australia|australian|best|top|safe|trusted\b/.test(text)) return 'Online casinos Australia';
+  }
+  return '';
+}
+
+function stripMarketTerms(value) {
+  return normalizeKeyword(value)
+    .replace(/\b(australia|australian|canada|canadian|new zealand|nz|us|usa|uk)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function findClusterByLabel(byLabel, label) {
+  const normalized = normalizeKeyword(label);
+  if (byLabel.has(normalized)) return byLabel.get(normalized);
+  const stripped = stripMarketTerms(label);
+  if (stripped && byLabel.has(stripped)) return byLabel.get(stripped);
+  for (const [key, cluster] of byLabel.entries()) {
+    if (stripMarketTerms(key) === stripped) return cluster;
+  }
+  return null;
+}
+
+function hydrateClustersWithProtectedSeedStats(clusters, seedStats, seedPlan = null, protectedQueries = []) {
+  if (!seedPlan || !Array.isArray(clusters) || clusters.length === 0) return clusters;
+  const protectedSeeds = new Set([
+    ...asArray(seedPlan.seeds),
+    ...asArray(protectedQueries),
+  ].map(normalizeKeyword).filter(Boolean));
+  if (protectedSeeds.size === 0) return clusters;
+
+  const byLabel = new Map(clusters.map((cluster) => [normalizeKeyword(cluster.cluster), cluster]));
+  const byKeyword = new Map();
+  for (const cluster of clusters) {
+    byKeyword.set(normalizeKeyword(cluster.primaryKeyword), cluster);
+    for (const row of asArray(cluster.keywords)) byKeyword.set(normalizeKeyword(row.query), cluster);
+  }
+
+  for (const row of asArray(seedStats)) {
+    const key = normalizeKeyword(row.query);
+    if (!protectedSeeds.has(key)) continue;
+    const existingCluster = byKeyword.get(key);
+    if (existingCluster && !String(existingCluster.pageType || '').startsWith('exclude')) continue;
+
+    const label = ruleLabelForKeyword(row.query, seedPlan);
+    let cluster = findClusterByLabel(byLabel, label);
+    if (!cluster && /\breal money\b/.test(key) && /\bcasinos?\b/.test(key)) {
+      cluster = findClusterByLabel(byLabel, 'Real money casinos') || findClusterByLabel(byLabel, 'Online casinos Australia');
+    }
+    if (!cluster && /\bpokies?\b/.test(key) && /\bsites?\b/.test(key)) {
+      cluster = findClusterByLabel(byLabel, 'Online pokies Australia');
+    }
+    if (!cluster) continue;
+
+    const hydrated = {
+      query: row.query,
+      impressions: row.impressions || 0,
+      broadImpressions: row.broadImpressions || 0,
+      sources: uniqueItems([...(row.sources || []), 'protected-seed-stat']),
+    };
+    if (existingCluster) {
+      existingCluster.keywords = existingCluster.keywords.filter((item) => normalizeKeyword(item.query) !== key);
+      existingCluster.secondaryKeywords = existingCluster.keywords
+        .filter((item) => normalizeKeyword(item.query) !== normalizeKeyword(existingCluster.primaryKeyword))
+        .map((item) => item.query);
+    }
+    cluster.keywords = cluster.keywords.filter((item) => normalizeKeyword(item.query) !== key);
+    cluster.keywords.push(hydrated);
+    cluster.keywords = rankKeywords(cluster.keywords, 1000, [cluster.primaryKeyword, ...asArray(seedPlan.seeds)]);
+    cluster.secondaryKeywords = cluster.keywords
+      .filter((item) => normalizeKeyword(item.query) !== normalizeKeyword(cluster.primaryKeyword))
+      .map((item) => item.query);
+    cluster.cannibalizationRule = `Use one page for "${cluster.cluster}". Do not create separate pages for: ${cluster.keywords.map((item) => item.query).slice(0, 12).join(', ')}.`;
+    byKeyword.set(key, cluster);
+  }
+
+  return clusters;
 }
 
 function clusterKeywords(keywords, { minClusterSize = 2, clusterLimit = 50, protectedQueries = [], seedPlan = null } = {}) {
@@ -1002,22 +1173,32 @@ function renderKeywordPlanHtml(report) {
   const validatedExpansion = asArray(report.seedPlan?.validatedSitemapExpansion?.clusters);
   const sitemapStats = report.seedPlan?.validatedSitemapExpansion?.sitemapStats || {};
   const validatedStats = report.seedPlan?.validatedSitemapExpansion || {};
+  const marketScopeLabel = `${String(report.country || '').toUpperCase()} / ${report.language || ''}`.trim();
+  const selectionTypes = uniqueItems([
+    ...Object.keys(validatedStats.byTypeCandidatePool || {}),
+    ...Object.keys(validatedStats.byTypeSelectedHypotheses || {}),
+  ]);
+  const selectionRows = selectionTypes.length ? selectionTypes
+    .sort((a, b) => Number(validatedStats.byTypeSelectedHypotheses?.[b] || 0) - Number(validatedStats.byTypeSelectedHypotheses?.[a] || 0) || a.localeCompare(b))
+    .map((type) => `
+      <span class="pill">${escapeHtml(type)}: ${Number(validatedStats.byTypeSelectedHypotheses?.[type] || 0).toLocaleString('en-US')} selected / ${Number(validatedStats.byTypeCandidatePool?.[type] || 0).toLocaleString('en-US')} pool</span>
+    `).join('') : '';
 
   const clusterCard = (cluster, { isMainPage = false } = {}) => `
     <section class="cluster">
       <div class="cluster-head">
         <div>
-          <p class="eyebrow">${escapeHtml(cluster.pageType)} · ${escapeHtml(cluster.intent)}</p>
+          <p class="eyebrow">${isMainPage ? 'homepage · primary' : `${escapeHtml(cluster.pageType)} · ${escapeHtml(cluster.intent)}`}</p>
           <h3>${escapeHtml(cluster.cluster)}</h3>
           <p class="slug">${isMainPage ? '/' : `/${escapeHtml(cluster.slug)}/`}</p>
         </div>
         <div class="metric">
           <span>${cluster.totalImpressions.toLocaleString('en-US')}</span>
-          <small>exact impressions</small>
+          <small>exact ${escapeHtml(String(report.country || '').toUpperCase())} impressions</small>
         </div>
         <div class="metric muted">
           <span>${cluster.totalBroadImpressions.toLocaleString('en-US')}</span>
-          <small>broad impressions</small>
+          <small>broad ${escapeHtml(String(report.country || '').toUpperCase())} impressions</small>
         </div>
       </div>
       <div class="primary">
@@ -1184,7 +1365,7 @@ function renderKeywordPlanHtml(report) {
 <body>
   <header>
     <h1>${escapeHtml(report.topic)} keyword plan</h1>
-    <p>Clustered keyword map for building pages without cannibalizing intent.</p>
+    <p>Clustered keyword map for building pages without cannibalizing intent. Demand is scoped by Bing country/language (${escapeHtml(marketScopeLabel)}), so a keyword does not need to contain the market name to be regional traffic.</p>
     <div class="meta">
       <span class="pill">Market: ${escapeHtml(report.country)} / ${escapeHtml(report.language)}</span>
       <span class="pill">Period: ${escapeHtml(report.startDate)} to ${escapeHtml(report.endDate)}</span>
@@ -1196,8 +1377,8 @@ function renderKeywordPlanHtml(report) {
       <div class="stat"><span>${report.clusterCount}</span><small>page clusters</small></div>
       <div class="stat"><span>${mergedClusters.length}</span><small>merged small clusters</small></div>
       <div class="stat"><span>${report.summary.totalKeywords}</span><small>clustered keywords</small></div>
-      <div class="stat"><span>${report.summary.totalImpressions.toLocaleString('en-US')}</span><small>exact impressions</small></div>
-      <div class="stat"><span>${report.summary.totalBroadImpressions.toLocaleString('en-US')}</span><small>broad impressions</small></div>
+      <div class="stat"><span>${report.summary.totalImpressions.toLocaleString('en-US')}</span><small>exact ${escapeHtml(String(report.country || '').toUpperCase())} impressions</small></div>
+      <div class="stat"><span>${report.summary.totalBroadImpressions.toLocaleString('en-US')}</span><small>broad ${escapeHtml(String(report.country || '').toUpperCase())} impressions</small></div>
     </div>
   </header>
   <nav class="report-nav">
@@ -1212,7 +1393,7 @@ function renderKeywordPlanHtml(report) {
   </nav>
   <main>
     <h2 id="main-page">Main Page</h2>
-    <p class="source-summary">Found via shows which seed or expansion query discovered the keyword. It is diagnostic data, collapsed by default to keep the plan readable.</p>
+    <p class="source-summary">Found via shows which seed or expansion query discovered the keyword. Traffic numbers are already regionalized by ${escapeHtml(marketScopeLabel)}; generic phrases like "online pokies" can be stronger than market-suffixed variants.</p>
     ${mainCluster ? clusterCard(mainCluster, { isMainPage: true }) : '<div class="empty">No main page found.</div>'}
     <h2 id="money-pages">Money Pages</h2>
     ${moneyClusters.length ? moneyClusters.map(clusterCard).join('') : '<div class="empty">No money-page clusters found.</div>'}
@@ -1223,10 +1404,12 @@ function renderKeywordPlanHtml(report) {
     <div class="pipeline">
       <div><strong>${Number(sitemapStats.urlCount || 0).toLocaleString('en-US')}</strong><span>sitemap URLs parsed</span></div>
       <div><strong>${Number(sitemapStats.ideaCount || 0).toLocaleString('en-US')}</strong><span>URL-derived ideas retained</span></div>
+      <div><strong>${Number(validatedStats.candidatePool || 0).toLocaleString('en-US')}</strong><span>scored validation candidates</span></div>
       <div><strong>${Number(validatedStats.testedHypotheses || 0).toLocaleString('en-US')}</strong><span>hypotheses checked in Bing</span></div>
       <div><strong>${Number(validatedStats.testedQueries || 0).toLocaleString('en-US')}</strong><span>query variants tested</span></div>
       <div><strong>${Number(validatedStats.validatedClusters || validatedExpansion.length || 0).toLocaleString('en-US')}</strong><span>validated clusters</span></div>
     </div>
+    ${selectionRows ? `<div class="chips">${selectionRows}</div>` : ''}
     <p class="pipeline-note">The sitemap crawler found far more URLs than the visible clusters. Most URLs are duplicates, brand promo pages, legal/utility pages, foreign-language variants, or patterns without Bing demand. The visible rows are only the hypotheses that passed the Bing validation layer.</p>
     ${validatedExpansionRows ? `
       <table>
@@ -1653,6 +1836,10 @@ async function keywordSitePlan() {
     protectedQueries: protectedQueriesForResearch(research),
     seedPlan: research.seedPlan,
   });
+  const validatedPageClusters = validatedExpansionPageClusters(research.seedPlan, clustered.clusters, clustered.mainCluster);
+  const pageClusters = [...clustered.clusters, ...validatedPageClusters]
+    .sort((a, b) => b.totalImpressions - a.totalImpressions || b.totalBroadImpressions - a.totalBroadImpressions || a.cluster.localeCompare(b.cluster));
+  hydrateClustersWithProtectedSeedStats(pageClusters, research.seedStats, research.seedPlan, protectedQueriesForResearch(research));
   const topic = research.requestedSeeds.join(', ');
   const report = {
     ...research,
@@ -1669,13 +1856,13 @@ async function keywordSitePlan() {
       primaryKeyword: clustered.mainCluster.primaryKeyword,
       secondaryKeywords: clustered.mainCluster.secondaryKeywords,
     } : null,
-    clusterCount: clustered.clusters.length,
-    clusters: clustered.clusters,
+    clusterCount: pageClusters.length,
+    clusters: pageClusters,
     mergedClusters: clustered.mergedClusters,
     orphanKeywords: clustered.orphanKeywords,
-    summary: summarizeClusters(clustered.clusters),
+    summary: summarizeClusters(pageClusters),
   };
-  report.expansionCandidates = expansionCandidates(clustered.clusters, {
+  report.expansionCandidates = expansionCandidates(pageClusters, {
     minImpressions: Math.max(100, numberArg('--expand-threshold', 1000)),
     maxKeywords: Math.max(1, numberArg('--expand-max-keywords', 3)),
     minBroadImpressions: Math.max(100, numberArg('--expand-broad-threshold', 1000)),

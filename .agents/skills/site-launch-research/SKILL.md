@@ -86,6 +86,8 @@ Do not load or use Cloudflare MCP until a domain has been selected or Cloudflare
 
 Bing Webmaster Tools has a Keyword Research tool that can be useful before a new site has traffic. Treat it as a seed-keyword research source, not as site performance data.
 
+When Bing keyword stats are requested with a target `COUNTRY` and `LANGUAGE`, treat the returned impressions as regional demand even if the keyword text does not contain the country name. For example, `online pokies` checked with `COUNTRY=au LANGUAGE=en-AU` is Australian demand and can be a better homepage keyword than `online pokies australia`. Do not downgrade or reject generic money keywords just because they lack a market suffix.
+
 Stored Bing plans are part of the research workflow. The folder `/Users/sergejapetenok/credentials/astro-blank/bing/plans` contains prior seed-plan JSON files and HTML reports. When a user asks for a new site, check this folder first. If there is already a close report, summarize what it covers, whether its homepage cluster and money pages are usable, and what branch should be expanded next. Do not rerun broad Bing collection until the existing plan has been reviewed.
 
 Current `search-console-mcp` Bing tools are mainly for verified-site workflows: sites, sitemaps, rank/traffic stats, and cannibalization. If keyword research is not exposed by the MCP toolset, use Bing Webmaster UI/manual export or another available keyword API, then continue the same clustering/page-map workflow.
@@ -115,7 +117,7 @@ make serp-plan-validate-expansion RUN_DIR=/path/to/run SEED_PLAN=plan.json COUNT
 make serp-plan-competitor-meta REPORT=bing-keyword-plan-topic.html SERP_MARKET=AU LANGUAGE=en-AU TOP=10
 ```
 
-This parses competitor robots.txt and sitemap files into a raw URL corpus plus keyword/page-family ideas. Treat sitemap output as hypotheses, not final pages. The validation step must expand each hypothesis into multiple search variants, check Bing exact/broad impressions, reject underqualified generic terms, and write validated clusters into a new seed-plan. Add a new page cluster only when at least two signals agree: keyword demand, SERP competitors, recurring sitemap pattern, or a clear commercial/trust role.
+This parses competitor robots.txt and sitemap files into a raw URL corpus plus keyword/page-family ideas. Treat sitemap output as hypotheses, not final pages. Store the full sitemap idea pool by default (`IDEA_LIMIT=0`); do not truncate research data just to make the report shorter. `keyword-ideas.json` and `sitemap-expansion.json` are the reusable corpus, while `top-keyword-ideas.json` is only a preview. The validation step must select traffic checks from the full pool with scoring and type diversification, expand selected hypotheses into multiple search variants, check Bing exact/broad impressions, reject underqualified generic terms, and write validated clusters into a new seed-plan. `MAX_IDEAS` is the Bing validation budget, not a storage limit. Add a new page cluster only when at least two signals agree: keyword demand, SERP competitors, recurring sitemap pattern, or a clear commercial/trust role.
 
 After the final HTML plan exists, collect competitor metadata for every primary cluster keyword. Use the injected competitor section to design page titles, H1s, meta descriptions, first-screen positioning, comparison sections, and proof/objection handling.
 

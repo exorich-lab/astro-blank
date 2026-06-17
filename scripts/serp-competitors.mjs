@@ -384,6 +384,12 @@ function classifyUrlIdea(url) {
 function sitemapIdeaSummary(urls) {
   const byIdea = new Map();
   for (const url of urls) {
+    try {
+      const pathname = new URL(url).pathname;
+      if (/\b(about|contact|privacy|terms|cookie|disclaimer|editorial|author|tag|wp-content|wp-json|feed)\b/i.test(pathname)) continue;
+    } catch {
+      continue;
+    }
     const idea = pageKeywordIdeaFromUrl(url);
     if (!idea) continue;
     const type = classifyUrlIdea(url);
@@ -399,6 +405,71 @@ function sitemapIdeaSummary(urls) {
     byIdea.set(idea, item);
   }
   return Array.from(byIdea.values()).sort((a, b) => b.count - a.count || a.idea.localeCompare(b.idea));
+}
+
+function sitemapIdeaDiagnostics(urls, ideaLimit) {
+  const byIdea = new Map();
+  const stats = {
+    totalUrls: urls.length,
+    blockedUtilityPath: 0,
+    noKeywordIdea: 0,
+    classifiedOther: 0,
+    usableUrlRows: 0,
+    duplicateUrlRowsCollapsed: 0,
+    uniqueIdeasBeforeLimit: 0,
+    keptByIdeaLimit: 0,
+    cutByIdeaLimit: 0,
+    byTypeUrlRows: {},
+    examples: {
+      blockedUtilityPath: [],
+      noKeywordIdea: [],
+      classifiedOther: [],
+    },
+  };
+
+  for (const url of urls) {
+    let pathname = '';
+    try {
+      pathname = new URL(url).pathname;
+    } catch {
+      stats.noKeywordIdea += 1;
+      if (stats.examples.noKeywordIdea.length < 8) stats.examples.noKeywordIdea.push(url);
+      continue;
+    }
+
+    const utilityPath = /\b(about|contact|privacy|terms|cookie|disclaimer|editorial|author|tag|wp-content|wp-json|feed)\b/i.test(pathname);
+    const idea = pageKeywordIdeaFromUrl(url);
+    if (utilityPath) {
+      stats.blockedUtilityPath += 1;
+      if (stats.examples.blockedUtilityPath.length < 8) stats.examples.blockedUtilityPath.push(url);
+      continue;
+    }
+    if (!idea) {
+      stats.noKeywordIdea += 1;
+      if (stats.examples.noKeywordIdea.length < 8) stats.examples.noKeywordIdea.push(url);
+      continue;
+    }
+
+    const type = classifyUrlIdea(url);
+    if (type === 'other') {
+      stats.classifiedOther += 1;
+      if (stats.examples.classifiedOther.length < 8) stats.examples.classifiedOther.push({ url, idea });
+      continue;
+    }
+
+    stats.usableUrlRows += 1;
+    stats.byTypeUrlRows[type] = (stats.byTypeUrlRows[type] || 0) + 1;
+    const item = byIdea.get(idea) || { idea, type, count: 0 };
+    item.count += 1;
+    byIdea.set(idea, item);
+  }
+
+  stats.uniqueIdeasBeforeLimit = byIdea.size;
+  stats.duplicateUrlRowsCollapsed = Math.max(0, stats.usableUrlRows - stats.uniqueIdeasBeforeLimit);
+  const effectiveLimit = ideaLimit > 0 ? ideaLimit : stats.uniqueIdeasBeforeLimit;
+  stats.keptByIdeaLimit = Math.min(effectiveLimit, stats.uniqueIdeasBeforeLimit);
+  stats.cutByIdeaLimit = ideaLimit > 0 ? Math.max(0, stats.uniqueIdeasBeforeLimit - ideaLimit) : 0;
+  return stats;
 }
 
 function normalizeSeedPhrase(value) {
@@ -746,7 +817,7 @@ function expansionCandidatesFromIdeas(ideas, { marketLabel = 'australia', perTyp
     if ((item.count || 0) < minCount) continue;
     if (!isUsefulPlanExpansionIdea(item.idea, item.type)) continue;
     const typeItems = byType.get(item.type) || [];
-    if (typeItems.length >= perTypeLimit) continue;
+    if (perTypeLimit > 0 && typeItems.length >= perTypeLimit) continue;
     const seed = seedFromSitemapIdea(item.idea, item.type, marketLabel);
     if (!seed) continue;
     typeItems.push({
@@ -759,6 +830,93 @@ function expansionCandidatesFromIdeas(ideas, { marketLabel = 'australia', perTyp
     byType.set(item.type, typeItems);
   }
   return Array.from(byType.values()).flat();
+}
+
+function scoreExpansionCandidate(candidate, marketLabel = 'australia') {
+  const text = normalizeSeedPhrase(`${candidate.seed || ''} ${candidate.idea || ''}`);
+  const tokens = text.split(/\s+/).filter(Boolean);
+  const typeWeights = {
+    game: 22,
+    payment: 18,
+    commercial: 17,
+    bonus: 15,
+    'mobile-app': 12,
+    'trust-legal': 9,
+  };
+  let score = Math.log1p(candidate.count || 0) * 12 + (typeWeights[candidate.type] || 0);
+
+  if (hasMarketPhrase(text, marketLabel)) score += 12;
+  if (/\b(online|real money|best|top|review|reviews|casino|casinos|pokie|pokies|slot|slots|gambling)\b/.test(text)) score += 10;
+  if (/\b(paypal|payid|poli|visa|mastercard|crypto|bitcoin|deposit|withdrawal|payout|fast payout)\b/.test(text)) score += 12;
+  if (/\b(no deposit|welcome bonus|deposit bonus|free spins|bonus)\b/.test(text)) score += 8;
+  if (candidate.type === 'game' && /\b(aristocrat|pragmatic|netent|microgaming|lightning|buffalo|link|jackpot|book|ra|queen|dragon|wolf|gold|cash|bonanza|megaways)\b/.test(text)) score += 14;
+  if (tokens.length >= 2 && tokens.length <= 5) score += 8;
+
+  if (tokens.length === 1 && !hasMarketPhrase(text, marketLabel)) score -= 28;
+  if (tokens.length > 7) score -= 12;
+  if (/\b(facebook|login|app store|play store|author|privacy|terms|contact|news|blog|wp|tag)\b/.test(text)) score -= 25;
+  if (/\b(free pokies|play free|demo|gratis|for fun)\b/.test(text) && !/\b(real money|casino|casinos|bonus)\b/.test(text)) score -= 22;
+  if (/\b(google|youtube|reddit|wikipedia|download|apk)\b/.test(text)) score -= 30;
+  if (/\b\d{3,}\b/.test(text)) score -= 10;
+
+  return score;
+}
+
+function selectExpansionCandidatesForValidation(ideas, {
+  marketLabel = 'australia',
+  minCount = 2,
+  perTypeLimit = 20,
+  maxIdeas = 80,
+} = {}) {
+  const pool = expansionCandidatesFromIdeas(ideas, { marketLabel, minCount, perTypeLimit: 0 })
+    .map((candidate) => ({
+      ...candidate,
+      selectionScore: scoreExpansionCandidate(candidate, marketLabel),
+    }))
+    .sort((a, b) => b.selectionScore - a.selectionScore || b.count - a.count || a.idea.localeCompare(b.idea));
+  const byTypePool = pool.reduce((acc, item) => {
+    acc[item.type] = (acc[item.type] || 0) + 1;
+    return acc;
+  }, {});
+
+  const selected = [];
+  const selectedKeys = new Set();
+  const budget = maxIdeas > 0 ? maxIdeas : pool.length;
+  const typeBudget = perTypeLimit > 0 ? perTypeLimit : pool.length;
+  const byTypeSelectedCount = {};
+
+  for (const candidate of pool) {
+    if (selected.length >= budget) break;
+    const currentTypeCount = byTypeSelectedCount[candidate.type] || 0;
+    if (currentTypeCount >= typeBudget) continue;
+    selected.push(candidate);
+    selectedKeys.add(normalizeSeedPhrase(candidate.seed));
+    byTypeSelectedCount[candidate.type] = currentTypeCount + 1;
+  }
+
+  for (const candidate of pool) {
+    if (selected.length >= budget) break;
+    const key = normalizeSeedPhrase(candidate.seed);
+    if (selectedKeys.has(key)) continue;
+    selected.push(candidate);
+    selectedKeys.add(key);
+    byTypeSelectedCount[candidate.type] = (byTypeSelectedCount[candidate.type] || 0) + 1;
+  }
+
+  return {
+    selected,
+    poolSize: pool.length,
+    byTypePool,
+    byTypeSelected: byTypeSelectedCount,
+    method: 'score full sitemap idea pool, diversify by type, then fill remaining validation budget by score',
+    topPool: pool.slice(0, 50).map((item) => ({
+      idea: item.idea,
+      seed: item.seed,
+      type: item.type,
+      count: item.count,
+      selectionScore: Number(item.selectionScore.toFixed(2)),
+    })),
+  };
 }
 
 async function collectSiteArtifacts(site, keywordDir, options) {
@@ -1173,6 +1331,7 @@ async function discoverDomainSitemaps(item, outputDir, options) {
   }
 
   const urls = Array.from(pageUrls).sort();
+  const domainIdeas = sitemapIdeaSummary(urls);
   const result = {
     domain,
     origin,
@@ -1182,7 +1341,9 @@ async function discoverDomainSitemaps(item, outputDir, options) {
     urlCount: urls.length,
     sitemaps: sitemapResults,
     urls,
-    ideas: sitemapIdeaSummary(urls).slice(0, options.ideaLimit),
+    ideaCount: domainIdeas.length,
+    topIdeas: domainIdeas.slice(0, 50),
+    ideas: options.ideaLimit > 0 ? domainIdeas.slice(0, options.ideaLimit) : domainIdeas,
     errors,
   };
   fs.writeFileSync(path.join(domainDir, 'sitemap-summary.json'), JSON.stringify(result, null, 2));
@@ -1200,7 +1361,10 @@ async function expandFromSitemaps() {
   const timeoutMs = Math.max(3000, Number(getArg('--timeout-ms', 12000)) || 12000);
   const maxSitemapsPerDomain = Math.max(1, Math.min(200, Number(getArg('--max-sitemaps-per-domain', 30)) || 30));
   const maxUrlsPerDomain = Math.max(10, Math.min(100000, Number(getArg('--max-urls-per-domain', 5000)) || 5000));
-  const ideaLimit = Math.max(10, Math.min(5000, Number(getArg('--idea-limit', 300)) || 300));
+  const rawIdeaLimit = Number(getArg('--idea-limit', 0));
+  const ideaLimit = Number.isFinite(rawIdeaLimit) && rawIdeaLimit > 0
+    ? Math.min(100000, rawIdeaLimit)
+    : 0;
   const delayMs = Math.max(0, Number(getArg('--delay-ms', 200)) || 0);
   const targets = readJson(sourcePath).slice(0, limit);
   const outputDir = path.join(runDir, 'sitemap-expansion');
@@ -1220,7 +1384,9 @@ async function expandFromSitemaps() {
   }
 
   const allUrls = unique(domains.flatMap((domain) => domain.urls));
-  const ideas = sitemapIdeaSummary(allUrls).slice(0, ideaLimit);
+  const allIdeas = sitemapIdeaSummary(allUrls);
+  const diagnostics = sitemapIdeaDiagnostics(allUrls, ideaLimit);
+  const ideas = ideaLimit > 0 ? allIdeas.slice(0, ideaLimit) : allIdeas;
   const byType = ideas.reduce((acc, item) => {
     acc[item.type] = (acc[item.type] || 0) + 1;
     return acc;
@@ -1236,6 +1402,7 @@ async function expandFromSitemaps() {
     sitemapCount: domains.reduce((sum, domain) => sum + domain.sitemapCount, 0),
     urlCount: allUrls.length,
     ideaCount: ideas.length,
+    diagnostics,
     byType,
     ideas,
     domains: domains.map((domain) => ({
@@ -1250,6 +1417,8 @@ async function expandFromSitemaps() {
   fs.writeFileSync(path.join(runDir, 'sitemap-expansion.json'), JSON.stringify(result, null, 2));
   fs.writeFileSync(path.join(outputDir, 'all-urls.json'), JSON.stringify(allUrls, null, 2));
   fs.writeFileSync(path.join(outputDir, 'keyword-ideas.json'), JSON.stringify(ideas, null, 2));
+  fs.writeFileSync(path.join(outputDir, 'top-keyword-ideas.json'), JSON.stringify(ideas.slice(0, 1000), null, 2));
+  fs.writeFileSync(path.join(outputDir, 'diagnostics.json'), JSON.stringify(diagnostics, null, 2));
   console.log(JSON.stringify({
     ok: true,
     mode: 'sitemaps',
@@ -1259,6 +1428,7 @@ async function expandFromSitemaps() {
     sitemapCount: result.sitemapCount,
     urlCount: result.urlCount,
     ideaCount: result.ideaCount,
+    diagnostics,
     byType,
     topIdeas: ideas.slice(0, 30).map((item) => ({
       idea: item.idea,
@@ -1393,14 +1563,23 @@ async function validateSitemapExpansionWithBing() {
   const language = getArg('--language', bingConfig.keywordResearch.languageTag || bingConfig.keywordResearch.language || 'en-AU');
   const perTypeLimit = Math.max(1, Math.min(100, Number(getArg('--per-type-limit', 20)) || 20));
   const minCount = Math.max(1, Math.min(100, Number(getArg('--min-count', 2)) || 2));
-  const maxIdeas = Math.max(1, Math.min(300, Number(getArg('--max-ideas', 80)) || 80));
+  const rawMaxIdeas = Number(getArg('--max-ideas', 80));
+  const maxIdeas = Number.isFinite(rawMaxIdeas) && rawMaxIdeas >= 0
+    ? Math.min(5000, rawMaxIdeas)
+    : 80;
   const variantsPerIdea = Math.max(1, Math.min(20, Number(getArg('--variants-per-idea', 8)) || 8));
   const minImpressions = Math.max(0, Number(getArg('--min-impressions', 1)) || 0);
   const minBroadImpressions = Math.max(0, Number(getArg('--min-broad-impressions', 10)) || 0);
   const delayMs = Math.max(0, Number(getArg('--stats-delay-ms', getArg('--delay-ms', 500))) || 0);
   const retryCount = Math.max(0, Math.min(10, Number(getArg('--retry-count', 3)) || 3));
 
-  const candidates = expansionCandidatesFromIdeas(expansion.ideas || [], { marketLabel, perTypeLimit, minCount }).slice(0, maxIdeas);
+  const selection = selectExpansionCandidatesForValidation(expansion.ideas || [], {
+    marketLabel,
+    minCount,
+    perTypeLimit,
+    maxIdeas,
+  });
+  const candidates = selection.selected;
   const statsByQuery = new Map();
   const clusters = [];
   const errors = [];
@@ -1485,6 +1664,11 @@ async function validateSitemapExpansionWithBing() {
       marketLabel,
       minCount,
       maxIdeas,
+      candidatePool: selection.poolSize,
+      candidateSelectionMethod: selection.method,
+      byTypeCandidatePool: selection.byTypePool,
+      byTypeSelectedHypotheses: selection.byTypeSelected,
+      topCandidateSelection: selection.topPool,
       variantsPerIdea,
       minImpressions,
       minBroadImpressions,
@@ -1505,6 +1689,11 @@ async function validateSitemapExpansionWithBing() {
     country,
     language,
     testedHypotheses: candidates.length,
+    candidatePool: selection.poolSize,
+    candidateSelectionMethod: selection.method,
+    byTypeCandidatePool: selection.byTypePool,
+    byTypeSelectedHypotheses: selection.byTypeSelected,
+    topCandidateSelection: selection.topPool,
     testedQueries: statsByQuery.size,
     validatedClusters: sortedClusters.length,
     addedSeeds: newSeeds.length,
@@ -1526,6 +1715,9 @@ async function validateSitemapExpansionWithBing() {
     country,
     language,
     testedHypotheses: candidates.length,
+    candidatePool: selection.poolSize,
+    byTypeCandidatePool: selection.byTypePool,
+    byTypeSelectedHypotheses: selection.byTypeSelected,
     testedQueries: statsByQuery.size,
     validatedClusters: sortedClusters.length,
     addedSeeds: newSeeds.length,
