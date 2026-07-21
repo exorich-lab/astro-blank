@@ -1,9 +1,12 @@
 import { exec, spawn } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 const execAsync = promisify(exec);
 const TARGET_PORT = 4444;
 const HOST = 'localhost';
+const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const parsePidsFromNetstat = (stdout) => {
   const lines = stdout.split('\n');
@@ -58,10 +61,23 @@ const killPids = async (pids) => {
 };
 
 const runAstro = () => {
-  const child = spawn('npx', ['astro', 'dev', '--host', HOST, '--port', `${TARGET_PORT}`], {
-    stdio: 'inherit',
-  });
+  // Avoid spawn('npx'): on Windows that fails with ENOENT (npx is npx.cmd and
+  // spawn without shell does not resolve .cmd). Run Astro via the local package.
+  const astroCli = path.join(ROOT_DIR, 'node_modules', 'astro', 'bin', 'astro.mjs');
+  const child = spawn(
+    process.execPath,
+    [astroCli, 'dev', '--host', HOST, '--port', `${TARGET_PORT}`],
+    {
+      cwd: ROOT_DIR,
+      stdio: 'inherit',
+      env: process.env,
+    },
+  );
 
+  child.on('error', (error) => {
+    console.error(error);
+    process.exit(1);
+  });
   child.on('exit', (code) => process.exit(code ?? 0));
 };
 

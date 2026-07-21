@@ -38,6 +38,32 @@ npx shadcn@latest info
 
 > For a complete list of technologies and versions, check the package.json file.
 
+## Deploy to Vercel
+
+1. Create a token at https://vercel.com/account/tokens
+2. Save credentials outside the repo:
+
+```json
+// ~/credentials/deploy-vercel.json  (Windows: %USERPROFILE%\credentials\deploy-vercel.json)
+{
+  "token": "vercel_xxx",
+  "projectName": "my-site",
+  "prod": true
+}
+```
+
+3. Deploy:
+
+```bash
+npm run vercel:inspect
+npm run deploy:vercel
+# or
+make deploy-vercel
+```
+
+Preview only: `npm run deploy:vercel:preview`  
+Hestia/VPS path remains: `make deploy` (see `deploy.sh`).
+
 ## Working with shadcn/ui
 
 Use `latest`, not `canary`, unless you are testing a specific upstream issue:

@@ -25,6 +25,9 @@ pnpm-debug.log*
 .env.production
 .env.local
 
+# Vercel local link / build output (token never lives here; ids are machine-local)
+.vercel/
+
 # macOS-specific files
 .DS_Store
 

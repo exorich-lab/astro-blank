@@ -95,7 +95,9 @@ When the MCP client connects, authorize via Cloudflare OAuth and grant only the 
 
 ## Handoff To Deploy
 
-After DNS is configured:
+Choose one hosting target after DNS is ready.
+
+### Hestia (default VPS path)
 
 ```bash
 make deploy DOMAIN=example.com
@@ -106,3 +108,15 @@ If the Hestia domain is missing and the user wants automatic creation:
 ```bash
 make deploy-create-domain DOMAIN=example.com
 ```
+
+### Vercel (CDN / preview path)
+
+Use skill `vercel-deploy` and credentials in `~/credentials/deploy-vercel.json`:
+
+```bash
+make vercel-whoami
+make deploy-vercel
+make vercel-domain-add DOMAIN=example.com
+```
+
+Then point DNS to the Vercel records shown by the CLI/dashboard (not the Hestia server IP).

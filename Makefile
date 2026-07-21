@@ -65,7 +65,7 @@ $(if $(strip $(DOMAIN)),--domain $(DOMAIN),) \
 $(if $(strip $(DIST)),--dist $(DIST),)
 endef
 
-.PHONY: help install dev dev-astro build preview analytics-check analytics-gtm-setup analytics-gtm-setup-dry analytics-gtm-setup-force domain-check domain-price domain-suggest domain-buy-test bing-sites bing-quota bing-submit-url bing-keyword bing-related-keywords bing-research bing-clusters bing-site-plan bing-plans bing-query-stats bing-page-stats serp-collect serp-plan-collect serp-fetch serp-sitemaps serp-plan-expand serp-plan-validate-expansion serp-plan-competitor-meta serp-competitors serp-plan-competitors deploy deploy-ga deploy-no-build deploy-create-domain deploy-skip-check clean
+.PHONY: help install dev dev-astro build preview analytics-check analytics-gtm-setup analytics-gtm-setup-dry analytics-gtm-setup-force domain-check domain-price domain-suggest domain-buy-test bing-sites bing-quota bing-submit-url bing-keyword bing-related-keywords bing-research bing-clusters bing-site-plan bing-plans bing-query-stats bing-page-stats serp-collect serp-plan-collect serp-fetch serp-sitemaps serp-plan-expand serp-plan-validate-expansion serp-plan-competitor-meta serp-competitors serp-plan-competitors deploy deploy-ga deploy-no-build deploy-create-domain deploy-skip-check deploy-vercel deploy-vercel-preview deploy-vercel-no-build vercel-whoami vercel-link vercel-inspect vercel-domains vercel-domain-add clean
 
 help:
 	@echo "Available commands:"
@@ -107,13 +107,22 @@ help:
 	@echo "  make serp-plan-competitor-meta REPORT=plan.html - collect SERP meta titles/H1/descriptions for every primary cluster keyword"
 	@echo "  make serp-competitors KEYWORD=\"online pokies chooser\" - collect SERP then fetch unique pages"
 	@echo ""
-	@echo "  make deploy                - build and deploy via deploy.sh (default profile: $(PROFILE))"
-	@echo "  make deploy-no-build        - upload current dist only"
+	@echo "  make deploy                - build and deploy via deploy.sh (Hestia, default profile: $(PROFILE))"
+	@echo "  make deploy-no-build        - upload current dist only (Hestia)"
 	@echo "  make deploy-create-domain   - create Hestia domain if it is missing"
 	@echo "  make deploy-skip-check      - deploy without Hestia domain check"
+	@echo "  make deploy-vercel          - build and deploy production to Vercel"
+	@echo "  make deploy-vercel-preview  - build and deploy preview to Vercel"
+	@echo "  make deploy-vercel-no-build - deploy current build to Vercel (no rebuild)"
+	@echo "  make vercel-whoami          - show Vercel auth user"
+	@echo "  make vercel-link            - link folder to a Vercel project"
+	@echo "  make vercel-inspect         - show Vercel credential/link status (no secrets)"
+	@echo "  make vercel-domains         - list Vercel domains"
+	@echo "  make vercel-domain-add DOMAIN=example.com - attach domain on Vercel"
 	@echo ""
 	@echo "  Optional args:"
 	@echo "  make deploy PROFILE=my-prod CONFIG_FILE=/path/to/deploy-hestia.json DOMAIN=example.com"
+	@echo "  Vercel secrets: ~/credentials/deploy-vercel.json or VERCEL_TOKEN"
 
 install:
 	npm install
@@ -233,6 +242,30 @@ deploy-create-domain:
 
 deploy-skip-check:
 	./deploy.sh $(DEPLOY_FLAGS) --skip-domain-check
+
+deploy-vercel:
+	npm run deploy:vercel -- $(if $(strip $(DOMAIN)),--domain "$(DOMAIN)",) $(if $(strip $(NAME)),--name "$(NAME)",)
+
+deploy-vercel-preview:
+	npm run deploy:vercel:preview -- $(if $(strip $(DOMAIN)),--domain "$(DOMAIN)",) $(if $(strip $(NAME)),--name "$(NAME)",)
+
+deploy-vercel-no-build:
+	npm run deploy:vercel -- --no-build $(if $(strip $(DOMAIN)),--domain "$(DOMAIN)",) $(if $(strip $(NAME)),--name "$(NAME)",)
+
+vercel-whoami:
+	npm run vercel:whoami
+
+vercel-link:
+	npm run vercel:link -- $(if $(strip $(NAME)),--name "$(NAME)",)
+
+vercel-inspect:
+	npm run vercel:inspect
+
+vercel-domains:
+	npm run vercel:domains -- list
+
+vercel-domain-add:
+	npm run vercel:domains -- add "$(DOMAIN)"
 
 clean:
 	rm -rf dist .astro node_modules
