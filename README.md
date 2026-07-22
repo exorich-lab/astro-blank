@@ -642,7 +642,7 @@ $env:ASTRO_BLANK_DIR = "."
 
 The script downloads the template, initializes a Git repository, installs dependencies, and keeps the project-level MCP configs in place.
 
-> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. Prefer downloading the script to a temp file (as above) instead of `irm | iex` so you always get the latest installer and avoid PowerShell quoting quirks. The first line should print `Astro Blank Windows installer 2026-07-22.4` (or newer).
+> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. Prefer downloading the script to a temp file (as above) instead of `irm | iex` so you always get the latest installer and avoid PowerShell quoting quirks. The first line should print `Astro Blank Windows installer 2026-07-22.5` (or newer).
 
 ## Built-in AI Skills
 

@@ -7,7 +7,7 @@
   Mirrors install.sh: downloads the template via degit, git init, npm install,
   syncs AI skills, prefetches MCP packages, sets up UI Pro Max + humanizer.
 
-  Installer version: 2026-07-22.4
+  Installer version: 2026-07-22.5
 
 .PARAMETER TargetDir
   Destination folder. Default: my-astro-app. Use "." for the current directory.
@@ -37,7 +37,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$script:InstallerVersion = "2026-07-22.4"
+$script:InstallerVersion = "2026-07-22.5"
 # Exit code of last Invoke-NodeCli call (never mixed with stdout).
 $script:LastNodeExitCode = 0
 
@@ -46,7 +46,7 @@ try {
   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force -ErrorAction Stop
 }
 catch {
-  # Still OK if we invoke .cmd via ProcessStartInfo below.
+  # Still OK if we invoke .cmd shims after bypass attempt.
 }
 
 function Write-Step {
@@ -72,13 +72,6 @@ function Get-NodeCli {
   return $null
 }
 
-function Quote-ProcessArg {
-  param([string]$Text)
-  if ($null -eq $Text) { return '""' }
-  if ($Text -notmatch '[\s"]') { return $Text }
-  return '"' + ($Text -replace '"', '\"') + '"'
-}
-
 function Invoke-NodeCli {
   param(
     [Parameter(Mandatory = $true)]
@@ -94,40 +87,82 @@ function Invoke-NodeCli {
     throw "$Tool not found on PATH"
   }
 
-  # Run the .cmd shim through cmd.exe so Restricted policy never loads Node's .ps1 wrappers.
-  $argLine = ($Arguments | ForEach-Object { Quote-ProcessArg -Text ([string]$_) }) -join " "
-  $psi = New-Object System.Diagnostics.ProcessStartInfo
-  $psi.FileName = "cmd.exe"
-  $psi.Arguments = "/d /s /c $(Quote-ProcessArg -Text "`"$exe`" $argLine")"
-  $psi.UseShellExecute = $false
-  $psi.RedirectStandardOutput = $true
-  $psi.RedirectStandardError = $true
-  $psi.CreateNoWindow = $true
-  $psi.WorkingDirectory = (Get-Location).Path
+  # Call npm.cmd / npx.cmd directly with an argument array.
+  # Do not wrap through cmd /c quoting — it eats "." and breaks degit targets on Windows.
+  $startParams = @{
+    FilePath         = $exe
+    ArgumentList     = $Arguments
+    WorkingDirectory = (Get-Location).Path
+    Wait             = $true
+    PassThru         = $true
+    NoNewWindow      = $true
+  }
 
-  $proc = New-Object System.Diagnostics.Process
-  $proc.StartInfo = $psi
-  [void]$proc.Start()
-  $stdout = $proc.StandardOutput.ReadToEnd()
-  $stderr = $proc.StandardError.ReadToEnd()
-  $proc.WaitForExit()
-
-  if (-not $Quiet) {
-    # Write-Host never enters the success pipeline (critical for exit-code checks).
-    if ($stdout) {
-      foreach ($line in ($stdout -split "`r?`n")) {
-        if ($line.Length -gt 0) { Write-Host $line }
-      }
+  if ($Quiet) {
+    $outLog = [System.IO.Path]::GetTempFileName()
+    $errLog = [System.IO.Path]::GetTempFileName()
+    try {
+      $startParams.RedirectStandardOutput = $outLog
+      $startParams.RedirectStandardError = $errLog
+      $proc = Start-Process @startParams
     }
-    if ($stderr) {
-      foreach ($line in ($stderr -split "`r?`n")) {
-        if ($line.Length -gt 0) { Write-Host $line }
-      }
+    finally {
+      Remove-Item -LiteralPath $outLog, $errLog -Force -ErrorAction SilentlyContinue
+    }
+  }
+  else {
+    # Console inherits stdout/stderr; nothing is returned into PowerShell variables.
+    $proc = Start-Process @startParams
+  }
+
+  if ($null -eq $proc -or $null -eq $proc.ExitCode) {
+    $script:LastNodeExitCode = 0
+  }
+  else {
+    $script:LastNodeExitCode = [int]$proc.ExitCode
+  }
+}
+
+function Install-TemplateFiles {
+  param(
+    [Parameter(Mandatory = $true)]
+    [string]$Destination
+  )
+
+  # Prefer git clone on Windows: more reliable than npx degit under PowerShell quoting.
+  $tmp = Join-Path $env:TEMP ("astro-blank-template-" + [guid]::NewGuid().ToString("N"))
+  $repoUrl = "https://github.com/exorich-lab/astro-blank.git"
+
+  Write-Host "Cloning template via git..."
+  $clone = Start-Process -FilePath "git" -ArgumentList @(
+    "clone", "--depth", "1", "--single-branch", "--branch", "main", $repoUrl, $tmp
+  ) -Wait -PassThru -NoNewWindow
+
+  if ($null -eq $clone -or $clone.ExitCode -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $tmp "package.json"))) {
+    throw "git clone failed (exit code $($clone.ExitCode)). Check network/git access to $repoUrl"
+  }
+
+  # Fresh project should not keep the template's git history.
+  $gitDir = Join-Path $tmp ".git"
+  if (Test-Path -LiteralPath $gitDir) {
+    Remove-Item -LiteralPath $gitDir -Recurse -Force
+  }
+
+  if ($Destination -eq "." -or $Destination -eq "./" -or $Destination -eq ".\\") {
+    Get-ChildItem -LiteralPath $tmp -Force | ForEach-Object {
+      Move-Item -LiteralPath $_.FullName -Destination (Join-Path (Get-Location).Path $_.Name) -Force
+    }
+  }
+  else {
+    if (-not (Test-Path -LiteralPath $Destination)) {
+      New-Item -ItemType Directory -Path $Destination -Force | Out-Null
+    }
+    Get-ChildItem -LiteralPath $tmp -Force | ForEach-Object {
+      Move-Item -LiteralPath $_.FullName -Destination (Join-Path $Destination $_.Name) -Force
     }
   }
 
-  $script:LastNodeExitCode = [int]$proc.ExitCode
-  # Intentionally return nothing — callers must use $script:LastNodeExitCode.
+  Remove-Item -LiteralPath $tmp -Recurse -Force -ErrorAction SilentlyContinue
 }
 
 function Assert-Prerequisites {
@@ -168,20 +203,13 @@ function Invoke-External {
   }
 }
 
-function Get-PackageJsonPath {
-  param([string]$Dir)
-  if ($Dir -eq "." -or $Dir -eq "./" -or $Dir -eq ".\\") {
-    return (Join-Path (Get-Location).Path "package.json")
-  }
-  return (Join-Path ((Resolve-Path -LiteralPath $Dir -ErrorAction SilentlyContinue).Path) "package.json")
-}
-
 Write-Step "Astro Blank Windows installer $script:InstallerVersion"
 Write-Step "Starting setup for Astro Blank application..."
 Assert-Prerequisites
 
 $resolvedTarget = $TargetDir
-if ($TargetDir -eq "." -or $TargetDir -eq "./" -or $TargetDir -eq ".\\") {
+$isCurrentDir = ($TargetDir -eq "." -or $TargetDir -eq "./" -or $TargetDir -eq ".\\")
+if ($isCurrentDir) {
   $resolvedTarget = (Get-Location).Path
 }
 
@@ -192,29 +220,22 @@ if (Test-DirectoryNonEmpty -Path $resolvedTarget) {
 }
 
 Write-Step "Downloading template..."
-$degitTarget = $TargetDir
-if ($TargetDir -eq "." -or $TargetDir -eq "./" -or $TargetDir -eq ".\\") {
-  $degitTarget = "."
-}
+$installTarget = if ($isCurrentDir) { "." } else { $TargetDir }
+Install-TemplateFiles -Destination $installTarget
 
-Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "degit", "exorich-lab/astro-blank", $degitTarget)
-$packageJson = if ($degitTarget -eq ".") {
+$packageJson = if ($isCurrentDir) {
   Join-Path (Get-Location).Path "package.json"
 }
 else {
-  Join-Path $degitTarget "package.json"
+  Join-Path $installTarget "package.json"
 }
 
-# Success = files on disk. Exit code alone is unreliable across PowerShell/cmd shims.
 if (-not (Test-Path -LiteralPath $packageJson)) {
-  throw "degit failed: package.json not found in '$degitTarget' (node exit code $($script:LastNodeExitCode))"
-}
-if ($script:LastNodeExitCode -ne 0) {
-  Write-Host "degit returned exit code $($script:LastNodeExitCode), but package.json exists — continuing." -ForegroundColor Yellow
+  throw "template download failed: package.json not found in '$installTarget'"
 }
 
-if ($degitTarget -ne ".") {
-  Set-Location -LiteralPath $degitTarget
+if (-not $isCurrentDir) {
+  Set-Location -LiteralPath $installTarget
 }
 
 Write-Step "Initializing git repository..."
@@ -346,8 +367,8 @@ else {
 
 Write-Host ""
 Write-Host "Setup complete! You can now start the development server:" -ForegroundColor Green
-if ($degitTarget -ne ".") {
-  Write-Host "cd $degitTarget"
+if (-not $isCurrentDir) {
+  Write-Host "cd $installTarget"
 }
 Write-Host "npm run dev"
 Write-Host ""
