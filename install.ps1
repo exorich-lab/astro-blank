@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
   Install Astro Blank starter on Windows (PowerShell).
@@ -7,17 +7,18 @@
   Mirrors install.sh: downloads the template via degit, git init, npm install,
   syncs AI skills, prefetches MCP packages, sets up UI Pro Max + humanizer.
 
-  Installer version: 2026-07-22.5
+  Installer version: 2026-07-22.6
 
 .PARAMETER TargetDir
   Destination folder. Default: my-astro-app. Use "." for the current directory.
 
 .EXAMPLE
-  # Recommended (avoids raw.githubusercontent.com cache + iex quoting issues)
-  $u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
-  Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+  # Recommended (avoids CDN cache; works on Windows PowerShell 5.1)
   Set-ExecutionPolicy -Scope Process Bypass
-  & "$env:TEMP\astro-blank-install.ps1" -TargetDir .
+  $u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+  $out = "$env:TEMP\astro-blank-install.ps1"
+  Invoke-WebRequest $u -OutFile $out -UseBasicParsing
+  & $out -TargetDir .
 
 .EXAMPLE
   # Local file
@@ -37,7 +38,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$script:InstallerVersion = "2026-07-22.5"
+$script:InstallerVersion = "2026-07-22.6"
 # Exit code of last Invoke-NodeCli call (never mixed with stdout).
 $script:LastNodeExitCode = 0
 
@@ -88,7 +89,7 @@ function Invoke-NodeCli {
   }
 
   # Call npm.cmd / npx.cmd directly with an argument array.
-  # Do not wrap through cmd /c quoting — it eats "." and breaks degit targets on Windows.
+  # Do not wrap through cmd /c quoting - it eats "." and breaks degit targets on Windows.
   $startParams = @{
     FilePath         = $exe
     ArgumentList     = $Arguments
@@ -259,7 +260,7 @@ catch {
   Write-Host "   Continuing with the template-bundled skills." -ForegroundColor Yellow
 }
 
-# Prefetch MCP packages into the npm cache only — never start MCP servers (they hang on stdin).
+# Prefetch MCP packages into the npm cache only - never start MCP servers (they hang on stdin).
 Write-Step "Prefetching MCP server packages (cache only, no server start)..."
 foreach ($mcpPkg in @("@magicuidesign/mcp@latest", "search-console-mcp@latest")) {
   try {

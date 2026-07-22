@@ -59,7 +59,7 @@ Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsi
 & "$env:TEMP\astro-blank-install.ps1" -TargetDir .
 ```
 
-Первая строка должна показать `Astro Blank Windows installer 2026-07-22.5` (или новее). `install.ps1` ставит Process Bypass, качает шаблон через `git clone` (не degit), вызывает `npm.cmd`/`npx.cmd`, не запускает MCP-серверы (только `npm cache add`) и проверяет успех по наличию `package.json`.
+Первая строка должна показать `Astro Blank Windows installer 2026-07-22.6` (или новее). `install.ps1` ставит Process Bypass, качает шаблон через `git clone` (не degit), вызывает `npm.cmd`/`npx.cmd`, не запускает MCP-серверы (только `npm cache add`) и проверяет успех по наличию `package.json`.
 
 Для проверки без внесения изменений:
 
