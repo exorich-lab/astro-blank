@@ -586,25 +586,53 @@ npx autoskills --dry-run --yes --agent codex
 ```
 
 **Example 1: Install into the current folder (`.`)**
+
+macOS / Linux:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- .
 ```
+
+Windows (PowerShell):
+```powershell
+iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
+```
+
 *Start the development server:*
 ```bash
 npm run dev
 ```
 
 **Example 2: Install into a new folder named `frontend`**
+
+macOS / Linux:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- frontend
 ```
+
+Windows (PowerShell):
+```powershell
+iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir frontend
+```
+
 *Start the development server:*
 ```bash
 cd frontend
 npm run dev
 ```
 
+**Windows one-liner (default folder `my-astro-app`):**
+```powershell
+irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+```
+
+Or set the target via env var before the one-liner:
+```powershell
+$env:ASTRO_BLANK_DIR = "."; irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+```
+
 The script downloads the template, initializes a Git repository, installs dependencies, and keeps the project-level MCP configs in place.
+
+> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows.
 
 ## Built-in AI Skills
 

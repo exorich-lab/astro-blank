@@ -48,7 +48,19 @@
 npx autoskills --yes --agent codex
 ```
 
-Это выполняется в `install.sh` после `npm install`, чтобы проект после разворачивания имел актуальные скиллы из registry, а не только те, которые были в шаблоне.
+Это выполняется в `install.sh` (macOS/Linux) и `install.ps1` (Windows PowerShell) после `npm install`, чтобы проект после разворачивания имел актуальные скиллы из registry, а не только те, которые были в шаблоне.
+
+Windows (в пустой папке):
+
+```powershell
+iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
+```
+
+Или one-liner с папкой по умолчанию `my-astro-app`:
+
+```powershell
+irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+```
 
 Для проверки без внесения изменений:
 
