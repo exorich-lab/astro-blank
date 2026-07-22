@@ -5,22 +5,19 @@
 
 .DESCRIPTION
   Mirrors install.sh: downloads the template via degit, git init, npm install,
-  syncs AI skills, refreshes MCP packages, sets up UI Pro Max + humanizer.
+  syncs AI skills, prefetches MCP packages, sets up UI Pro Max + humanizer.
+
+  Installer version: 2026-07-22.4
 
 .PARAMETER TargetDir
   Destination folder. Default: my-astro-app. Use "." for the current directory.
 
 .EXAMPLE
-  # Install into current folder
-  iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
-
-.EXAMPLE
-  # Install into a new folder named frontend
-  iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir frontend"
-
-.EXAMPLE
-  # Default folder (my-astro-app) — simple one-liner
-  irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+  # Recommended (avoids raw.githubusercontent.com cache + iex quoting issues)
+  $u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+  Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+  Set-ExecutionPolicy -Scope Process Bypass
+  & "$env:TEMP\astro-blank-install.ps1" -TargetDir .
 
 .EXAMPLE
   # Local file
@@ -40,13 +37,16 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$script:InstallerVersion = "2026-07-22.4"
+# Exit code of last Invoke-NodeCli call (never mixed with stdout).
+$script:LastNodeExitCode = 0
 
-# Restricted machines block npm.ps1 / npx.ps1. Process scope only — does not change system policy.
+# Restricted machines block npm.ps1 / npx.ps1. Process scope only.
 try {
   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force -ErrorAction Stop
 }
 catch {
-  # Still OK if we call npm.cmd / npx.cmd via cmd.exe below.
+  # Still OK if we invoke .cmd via ProcessStartInfo below.
 }
 
 function Write-Step {
@@ -65,16 +65,18 @@ function Get-NodeCli {
     [ValidateSet("npm", "npx")]
     [string]$Name
   )
-  # Prefer .cmd shims so Restricted execution policy cannot block Node's .ps1 wrappers.
   $cmd = Get-Command "$Name.cmd" -ErrorAction SilentlyContinue
-  if ($cmd) {
-    return $cmd.Source
-  }
+  if ($cmd) { return $cmd.Source }
   $cmd = Get-Command $Name -ErrorAction SilentlyContinue
-  if ($cmd) {
-    return $cmd.Source
-  }
+  if ($cmd) { return $cmd.Source }
   return $null
+}
+
+function Quote-ProcessArg {
+  param([string]$Text)
+  if ($null -eq $Text) { return '""' }
+  if ($Text -notmatch '[\s"]') { return $Text }
+  return '"' + ($Text -replace '"', '\"') + '"'
 }
 
 function Invoke-NodeCli {
@@ -92,51 +94,40 @@ function Invoke-NodeCli {
     throw "$Tool not found on PATH"
   }
 
-  # cmd.exe avoids PowerShell script-block invocation of blocked .ps1 files.
-  $quotedArgs = foreach ($arg in $Arguments) {
-    if ($null -eq $arg) { '""'; continue }
-    $text = [string]$arg
-    if ($text -match '[\s"&<>|^]') {
-      '"' + ($text -replace '"', '\"') + '"'
-    }
-    else {
-      $text
-    }
-  }
-  $argLine = [string]::Join(" ", $quotedArgs)
-  # /s lets cmd treat the rest as a single command string
-  $cmdArguments = "/d /s /c `"\`"$exe\`" $argLine`""
+  # Run the .cmd shim through cmd.exe so Restricted policy never loads Node's .ps1 wrappers.
+  $argLine = ($Arguments | ForEach-Object { Quote-ProcessArg -Text ([string]$_) }) -join " "
+  $psi = New-Object System.Diagnostics.ProcessStartInfo
+  $psi.FileName = "cmd.exe"
+  $psi.Arguments = "/d /s /c $(Quote-ProcessArg -Text "`"$exe`" $argLine")"
+  $psi.UseShellExecute = $false
+  $psi.RedirectStandardOutput = $true
+  $psi.RedirectStandardError = $true
+  $psi.CreateNoWindow = $true
+  $psi.WorkingDirectory = (Get-Location).Path
 
-  # Start-Process keeps child stdout on the console and returns ONLY ExitCode.
-  # Using `$x = & cmd ...` would capture degit/npm logs into $x and break -ne 0 checks.
-  $startParams = @{
-    FilePath         = "cmd.exe"
-    ArgumentList     = $cmdArguments
-    Wait             = $true
-    PassThru         = $true
-    NoNewWindow      = $true
-  }
+  $proc = New-Object System.Diagnostics.Process
+  $proc.StartInfo = $psi
+  [void]$proc.Start()
+  $stdout = $proc.StandardOutput.ReadToEnd()
+  $stderr = $proc.StandardError.ReadToEnd()
+  $proc.WaitForExit()
 
-  if ($Quiet) {
-    $outLog = [System.IO.Path]::GetTempFileName()
-    $errLog = [System.IO.Path]::GetTempFileName()
-    try {
-      $startParams.RedirectStandardOutput = $outLog
-      $startParams.RedirectStandardError = $errLog
-      $proc = Start-Process @startParams
+  if (-not $Quiet) {
+    # Write-Host never enters the success pipeline (critical for exit-code checks).
+    if ($stdout) {
+      foreach ($line in ($stdout -split "`r?`n")) {
+        if ($line.Length -gt 0) { Write-Host $line }
+      }
     }
-    finally {
-      Remove-Item -LiteralPath $outLog, $errLog -Force -ErrorAction SilentlyContinue
+    if ($stderr) {
+      foreach ($line in ($stderr -split "`r?`n")) {
+        if ($line.Length -gt 0) { Write-Host $line }
+      }
     }
-  }
-  else {
-    $proc = Start-Process @startParams
   }
 
-  if ($null -eq $proc -or $null -eq $proc.ExitCode) {
-    return 0
-  }
-  return [int]$proc.ExitCode
+  $script:LastNodeExitCode = [int]$proc.ExitCode
+  # Intentionally return nothing — callers must use $script:LastNodeExitCode.
 }
 
 function Assert-Prerequisites {
@@ -172,11 +163,20 @@ function Invoke-External {
     [string]$FailMessage
   )
   & $Script
-  if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+  if ($null -ne $LASTEXITCODE -and $LASTEXITCODE -ne 0) {
     throw ($FailMessage + " (exit code $LASTEXITCODE)")
   }
 }
 
+function Get-PackageJsonPath {
+  param([string]$Dir)
+  if ($Dir -eq "." -or $Dir -eq "./" -or $Dir -eq ".\\") {
+    return (Join-Path (Get-Location).Path "package.json")
+  }
+  return (Join-Path ((Resolve-Path -LiteralPath $Dir -ErrorAction SilentlyContinue).Path) "package.json")
+}
+
+Write-Step "Astro Blank Windows installer $script:InstallerVersion"
 Write-Step "Starting setup for Astro Blank application..."
 Assert-Prerequisites
 
@@ -192,14 +192,25 @@ if (Test-DirectoryNonEmpty -Path $resolvedTarget) {
 }
 
 Write-Step "Downloading template..."
-# degit accepts relative paths; keep user-facing TargetDir for folder creation
 $degitTarget = $TargetDir
 if ($TargetDir -eq "." -or $TargetDir -eq "./" -or $TargetDir -eq ".\\") {
   $degitTarget = "."
 }
-$degitExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "degit", "exorich-lab/astro-blank", $degitTarget)
-if ($degitExit -ne 0) {
-  throw "degit failed (exit code $degitExit)"
+
+Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "degit", "exorich-lab/astro-blank", $degitTarget)
+$packageJson = if ($degitTarget -eq ".") {
+  Join-Path (Get-Location).Path "package.json"
+}
+else {
+  Join-Path $degitTarget "package.json"
+}
+
+# Success = files on disk. Exit code alone is unreliable across PowerShell/cmd shims.
+if (-not (Test-Path -LiteralPath $packageJson)) {
+  throw "degit failed: package.json not found in '$degitTarget' (node exit code $($script:LastNodeExitCode))"
+}
+if ($script:LastNodeExitCode -ne 0) {
+  Write-Host "degit returned exit code $($script:LastNodeExitCode), but package.json exists — continuing." -ForegroundColor Yellow
 }
 
 if ($degitTarget -ne ".") {
@@ -210,16 +221,16 @@ Write-Step "Initializing git repository..."
 Invoke-External -FailMessage "git init failed" -Script { git init }
 
 Write-Step "Installing dependencies..."
-$npmInstallExit = Invoke-NodeCli -Tool "npm" -Arguments @("install")
-if ($npmInstallExit -ne 0) {
-  throw "npm install failed (exit code $npmInstallExit)"
+Invoke-NodeCli -Tool "npm" -Arguments @("install")
+if ($script:LastNodeExitCode -ne 0) {
+  throw "npm install failed (exit code $($script:LastNodeExitCode))"
 }
 
 Write-Step "Syncing AI skills via autoskills (latest versions)..."
 try {
-  $autoskillsExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "autoskills", "--yes", "--agent", "codex")
-  if ($autoskillsExit -ne 0) {
-    throw "autoskills exited with $autoskillsExit"
+  Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "autoskills", "--yes", "--agent", "codex")
+  if ($script:LastNodeExitCode -ne 0) {
+    throw "autoskills exited with $($script:LastNodeExitCode)"
   }
 }
 catch {
@@ -227,13 +238,12 @@ catch {
   Write-Host "   Continuing with the template-bundled skills." -ForegroundColor Yellow
 }
 
-# Prefetch MCP packages into the npm cache only.
-# Do NOT run MCP server binaries (e.g. --help): they often wait on stdin and hang forever on Windows.
+# Prefetch MCP packages into the npm cache only — never start MCP servers (they hang on stdin).
 Write-Step "Prefetching MCP server packages (cache only, no server start)..."
 foreach ($mcpPkg in @("@magicuidesign/mcp@latest", "search-console-mcp@latest")) {
   try {
-    $cacheExit = Invoke-NodeCli -Tool "npm" -Arguments @("cache", "add", $mcpPkg) -Quiet
-    if ($cacheExit -ne 0) {
+    Invoke-NodeCli -Tool "npm" -Arguments @("cache", "add", $mcpPkg) -Quiet
+    if ($script:LastNodeExitCode -ne 0) {
       throw "npm cache add failed for $mcpPkg"
     }
     Write-Host "  cached $mcpPkg"
@@ -249,10 +259,9 @@ if (-not (Test-CommandExists "uv")) {
   Write-Host "   PowerShell: irm https://astral.sh/uv/install.ps1 | iex" -ForegroundColor Yellow
 }
 else {
-  # Install tool only — do not run analytics-mcp (MCP servers hang waiting for stdin).
   try {
     uv tool install --force analytics-mcp 1>$null 2>$null
-    if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+    if ($null -ne $LASTEXITCODE -and $LASTEXITCODE -ne 0) {
       throw "uv tool install failed"
     }
   }
@@ -266,8 +275,8 @@ Write-Step "Setting up UI/UX Pro Max Design System..."
 if (-not (Test-CommandExists "uipro")) {
   Write-Host "uipro-cli not found globally. Installing..."
   try {
-    $uiproInstallExit = Invoke-NodeCli -Tool "npm" -Arguments @("install", "-g", "uipro-cli")
-    if ($uiproInstallExit -ne 0) {
+    Invoke-NodeCli -Tool "npm" -Arguments @("install", "-g", "uipro-cli")
+    if ($script:LastNodeExitCode -ne 0) {
       throw "npm install -g uipro-cli failed"
     }
   }
@@ -286,7 +295,6 @@ if (Test-CommandExists "uipro") {
     Write-Host "uipro init failed. Continuing without UI Pro Max skill refresh." -ForegroundColor Yellow
   }
 
-  # Fix: uipro creates .agent (singular), but we need .agents (plural)
   if (Test-Path -LiteralPath ".agent\skills\ui-ux-pro-max") {
     New-Item -ItemType Directory -Force -Path ".agents\skills" | Out-Null
     if (Test-Path -LiteralPath ".agents\skills\ui-ux-pro-max") {

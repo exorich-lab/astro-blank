@@ -50,21 +50,16 @@ npx autoskills --yes --agent codex
 
 Это выполняется в `install.sh` (macOS/Linux) и `install.ps1` (Windows PowerShell) после `npm install`, чтобы проект после разворачивания имел актуальные скиллы из registry, а не только те, которые были в шаблоне.
 
-Windows (в пустой папке):
+Windows (в пустой папке) — рекомендуемый способ (без CDN-кеша `irm | iex`):
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
+$u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+& "$env:TEMP\astro-blank-install.ps1" -TargetDir .
 ```
 
-Или one-liner с папкой по умолчанию `my-astro-app`:
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
-```
-
-`install.ps1` сам ставит Process Bypass и вызывает `npm.cmd`/`npx.cmd`, чтобы Restricted execution policy не блокировал `npx.ps1`.
+Первая строка должна показать `Astro Blank Windows installer 2026-07-22.4` (или новее). `install.ps1` ставит Process Bypass, вызывает `npm.cmd`/`npx.cmd`, не запускает MCP-серверы (только `npm cache add`) и проверяет успех degit по наличию `package.json`.
 
 Для проверки без внесения изменений:
 

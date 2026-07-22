@@ -592,10 +592,12 @@ macOS / Linux:
 curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- .
 ```
 
-Windows (PowerShell):
+Windows (PowerShell) — recommended (bypasses CDN cache):
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
+$u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+& "$env:TEMP\astro-blank-install.ps1" -TargetDir .
 ```
 
 *Start the development server:*
@@ -610,10 +612,12 @@ macOS / Linux:
 curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.sh | bash -s -- frontend
 ```
 
-Windows (PowerShell):
+Windows (PowerShell) — recommended (bypasses CDN cache):
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir frontend
+$u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+& "$env:TEMP\astro-blank-install.ps1" -TargetDir frontend
 ```
 
 *Start the development server:*
@@ -624,17 +628,21 @@ npm run dev
 
 **Windows one-liner (default folder `my-astro-app`):**
 ```powershell
-irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+Set-ExecutionPolicy -Scope Process Bypass
+$u = "https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1?ts=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+Invoke-WebRequest $u -OutFile "$env:TEMP\astro-blank-install.ps1" -UseBasicParsing
+& "$env:TEMP\astro-blank-install.ps1"
 ```
 
-Or set the target via env var before the one-liner:
+Or set the target via env var:
 ```powershell
-$env:ASTRO_BLANK_DIR = "."; irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
+$env:ASTRO_BLANK_DIR = "."
+& "$env:TEMP\astro-blank-install.ps1"
 ```
 
 The script downloads the template, initializes a Git repository, installs dependencies, and keeps the project-level MCP configs in place.
 
-> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. If PowerShell blocks scripts (`npx.ps1` / execution policy), run `Set-ExecutionPolicy -Scope Process Bypass` first, or use `npm.cmd` / `npx.cmd` (the installer prefers these automatically).
+> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. Prefer downloading the script to a temp file (as above) instead of `irm | iex` so you always get the latest installer and avoid PowerShell quoting quirks. The first line should print `Astro Blank Windows installer 2026-07-22.4` (or newer).
 
 ## Built-in AI Skills
 
