@@ -17,8 +17,7 @@ npx degit exorich-lab/astro-blank "$TARGET_DIR"
 
 cd "$TARGET_DIR"
 
-echo "🔧 Initializing git repository..."
-git init
+# Intentionally skip git init — starter should not auto-create a local repo.
 
 echo "🔨 Installing dependencies..."
 npm install

@@ -640,7 +640,7 @@ $env:ASTRO_BLANK_DIR = "."
 & "$env:TEMP\astro-blank-install.ps1"
 ```
 
-The script downloads the template, initializes a Git repository, installs dependencies, and keeps the project-level MCP configs in place.
+The script downloads the template, installs dependencies, and keeps the project-level MCP configs in place. It does **not** run `git init` — start a repo yourself when you need one.
 
 > **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. Prefer downloading the script to a temp file (as above) instead of `irm | iex` so you always get the latest installer and avoid PowerShell quoting quirks. The first line should print `Astro Blank Windows installer 2026-07-22.6` (or newer).
 

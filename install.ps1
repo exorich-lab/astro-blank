@@ -4,10 +4,11 @@
   Install Astro Blank starter on Windows (PowerShell).
 
 .DESCRIPTION
-  Mirrors install.sh: downloads the template via degit, git init, npm install,
-  syncs AI skills, prefetches MCP packages, sets up UI Pro Max + humanizer.
+  Mirrors install.sh: downloads the template, npm install, syncs AI skills,
+  prefetches MCP packages, sets up UI Pro Max + humanizer.
+  Does not run git init (project starts without a local git repo).
 
-  Installer version: 2026-07-22.6
+  Installer version: 2026-07-22.7
 
 .PARAMETER TargetDir
   Destination folder. Default: my-astro-app. Use "." for the current directory.
@@ -38,7 +39,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$script:InstallerVersion = "2026-07-22.6"
+$script:InstallerVersion = "2026-07-22.7"
 # Exit code of last Invoke-NodeCli call (never mixed with stdout).
 $script:LastNodeExitCode = 0
 
@@ -238,9 +239,6 @@ if (-not (Test-Path -LiteralPath $packageJson)) {
 if (-not $isCurrentDir) {
   Set-Location -LiteralPath $installTarget
 }
-
-Write-Step "Initializing git repository..."
-Invoke-External -FailMessage "git init failed" -Script { git init }
 
 Write-Step "Installing dependencies..."
 Invoke-NodeCli -Tool "npm" -Arguments @("install")
