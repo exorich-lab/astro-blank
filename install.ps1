@@ -104,16 +104,39 @@ function Invoke-NodeCli {
     }
   }
   $argLine = [string]::Join(" ", $quotedArgs)
-  $commandLine = "`"$exe`" $argLine"
+  # /s lets cmd treat the rest as a single command string
+  $cmdArguments = "/d /s /c `"\`"$exe\`" $argLine`""
+
+  # Start-Process keeps child stdout on the console and returns ONLY ExitCode.
+  # Using `$x = & cmd ...` would capture degit/npm logs into $x and break -ne 0 checks.
+  $startParams = @{
+    FilePath         = "cmd.exe"
+    ArgumentList     = $cmdArguments
+    Wait             = $true
+    PassThru         = $true
+    NoNewWindow      = $true
+  }
 
   if ($Quiet) {
-    & cmd.exe /d /c $commandLine 1>$null 2>$null
+    $outLog = [System.IO.Path]::GetTempFileName()
+    $errLog = [System.IO.Path]::GetTempFileName()
+    try {
+      $startParams.RedirectStandardOutput = $outLog
+      $startParams.RedirectStandardError = $errLog
+      $proc = Start-Process @startParams
+    }
+    finally {
+      Remove-Item -LiteralPath $outLog, $errLog -Force -ErrorAction SilentlyContinue
+    }
   }
   else {
-    & cmd.exe /d /c $commandLine
+    $proc = Start-Process @startParams
   }
 
-  return $LASTEXITCODE
+  if ($null -eq $proc -or $null -eq $proc.ExitCode) {
+    return 0
+  }
+  return [int]$proc.ExitCode
 }
 
 function Assert-Prerequisites {
