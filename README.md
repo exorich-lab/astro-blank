@@ -594,6 +594,7 @@ curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/instal
 
 Windows (PowerShell):
 ```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
 ```
 
@@ -611,6 +612,7 @@ curl -fsSL https://raw.githubusercontent.com/exorich-lab/astro-blank/main/instal
 
 Windows (PowerShell):
 ```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir frontend
 ```
 
@@ -632,7 +634,7 @@ $env:ASTRO_BLANK_DIR = "."; irm https://raw.githubusercontent.com/exorich-lab/as
 
 The script downloads the template, initializes a Git repository, installs dependencies, and keeps the project-level MCP configs in place.
 
-> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows.
+> **Windows note:** plain `curl ... | bash` does not work in PowerShell — use `install.ps1` above. Requires Node.js (npm/npx) and Git for Windows. If PowerShell blocks scripts (`npx.ps1` / execution policy), run `Set-ExecutionPolicy -Scope Process Bypass` first, or use `npm.cmd` / `npx.cmd` (the installer prefers these automatically).
 
 ## Built-in AI Skills
 

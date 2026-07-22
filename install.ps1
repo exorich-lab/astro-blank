@@ -41,6 +41,14 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Restricted machines block npm.ps1 / npx.ps1. Process scope only — does not change system policy.
+try {
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force -ErrorAction Stop
+}
+catch {
+  # Still OK if we call npm.cmd / npx.cmd via cmd.exe below.
+}
+
 function Write-Step {
   param([string]$Message)
   Write-Host $Message
@@ -51,13 +59,70 @@ function Test-CommandExists {
   return [bool](Get-Command $Name -ErrorAction SilentlyContinue)
 }
 
-function Assert-Prerequisites {
-  $missing = @()
-  foreach ($cmd in @("node", "npm", "npx", "git")) {
-    if (-not (Test-CommandExists $cmd)) {
-      $missing += $cmd
+function Get-NodeCli {
+  param(
+    [Parameter(Mandatory = $true)]
+    [ValidateSet("npm", "npx")]
+    [string]$Name
+  )
+  # Prefer .cmd shims so Restricted execution policy cannot block Node's .ps1 wrappers.
+  $cmd = Get-Command "$Name.cmd" -ErrorAction SilentlyContinue
+  if ($cmd) {
+    return $cmd.Source
+  }
+  $cmd = Get-Command $Name -ErrorAction SilentlyContinue
+  if ($cmd) {
+    return $cmd.Source
+  }
+  return $null
+}
+
+function Invoke-NodeCli {
+  param(
+    [Parameter(Mandatory = $true)]
+    [ValidateSet("npm", "npx")]
+    [string]$Tool,
+    [Parameter(Mandatory = $true)]
+    [string[]]$Arguments,
+    [switch]$Quiet
+  )
+
+  $exe = Get-NodeCli -Name $Tool
+  if (-not $exe) {
+    throw "$Tool not found on PATH"
+  }
+
+  # cmd.exe avoids PowerShell script-block invocation of blocked .ps1 files.
+  $quotedArgs = foreach ($arg in $Arguments) {
+    if ($null -eq $arg) { '""'; continue }
+    $text = [string]$arg
+    if ($text -match '[\s"&<>|^]') {
+      '"' + ($text -replace '"', '\"') + '"'
+    }
+    else {
+      $text
     }
   }
+  $argLine = [string]::Join(" ", $quotedArgs)
+  $commandLine = "`"$exe`" $argLine"
+
+  if ($Quiet) {
+    & cmd.exe /d /c $commandLine 1>$null 2>$null
+  }
+  else {
+    & cmd.exe /d /c $commandLine
+  }
+
+  return $LASTEXITCODE
+}
+
+function Assert-Prerequisites {
+  $missing = @()
+  if (-not (Test-CommandExists "node")) { $missing += "node" }
+  if (-not (Get-NodeCli -Name "npm")) { $missing += "npm" }
+  if (-not (Get-NodeCli -Name "npx")) { $missing += "npx" }
+  if (-not (Test-CommandExists "git")) { $missing += "git" }
+
   if ($missing.Count -gt 0) {
     Write-Host "Missing required tools: $($missing -join ', ')" -ForegroundColor Red
     Write-Host "Install Node.js LTS (includes npm/npx) and Git for Windows, then re-run." -ForegroundColor Yellow
@@ -109,8 +174,9 @@ $degitTarget = $TargetDir
 if ($TargetDir -eq "." -or $TargetDir -eq "./" -or $TargetDir -eq ".\\") {
   $degitTarget = "."
 }
-Invoke-External -FailMessage "degit failed" -Script {
-  npx --yes degit exorich-lab/astro-blank $degitTarget
+$degitExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "degit", "exorich-lab/astro-blank", $degitTarget)
+if ($degitExit -ne 0) {
+  throw "degit failed (exit code $degitExit)"
 }
 
 if ($degitTarget -ne ".") {
@@ -121,13 +187,16 @@ Write-Step "Initializing git repository..."
 Invoke-External -FailMessage "git init failed" -Script { git init }
 
 Write-Step "Installing dependencies..."
-Invoke-External -FailMessage "npm install failed" -Script { npm install }
+$npmInstallExit = Invoke-NodeCli -Tool "npm" -Arguments @("install")
+if ($npmInstallExit -ne 0) {
+  throw "npm install failed (exit code $npmInstallExit)"
+}
 
 Write-Step "Syncing AI skills via autoskills (latest versions)..."
 try {
-  npx --yes autoskills --yes --agent codex
-  if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
-    throw "autoskills exited with $LASTEXITCODE"
+  $autoskillsExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "autoskills", "--yes", "--agent", "codex")
+  if ($autoskillsExit -ne 0) {
+    throw "autoskills exited with $autoskillsExit"
   }
 }
 catch {
@@ -137,8 +206,8 @@ catch {
 
 Write-Step "Refreshing MCP server packages to latest versions..."
 try {
-  npx --yes @magicuidesign/mcp@latest --help 1>$null 2>$null
-  if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+  $mcpExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "@magicuidesign/mcp@latest", "--help") -Quiet
+  if ($mcpExit -ne 0) {
     throw "mcp help failed"
   }
 }
@@ -147,8 +216,8 @@ catch {
 }
 
 try {
-  npx --yes search-console-mcp@latest --help 1>$null 2>$null
-  if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+  $scExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "search-console-mcp@latest", "--help") -Quiet
+  if ($scExit -ne 0) {
     throw "search-console help failed"
   }
 }
@@ -192,14 +261,14 @@ Write-Step "Setting up UI/UX Pro Max Design System..."
 if (-not (Test-CommandExists "uipro")) {
   Write-Host "uipro-cli not found globally. Installing..."
   try {
-    npm install -g uipro-cli
-    if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+    $uiproInstallExit = Invoke-NodeCli -Tool "npm" -Arguments @("install", "-g", "uipro-cli")
+    if ($uiproInstallExit -ne 0) {
       throw "npm install -g uipro-cli failed"
     }
   }
   catch {
     Write-Host "Failed to install uipro-cli globally. Skipping UI Pro Max init." -ForegroundColor Yellow
-    Write-Host "   Try manually: npm install -g uipro-cli && uipro init --ai antigravity" -ForegroundColor Yellow
+    Write-Host "   Try manually: npm.cmd install -g uipro-cli && uipro init --ai antigravity" -ForegroundColor Yellow
   }
 }
 

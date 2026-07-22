@@ -53,14 +53,18 @@ npx autoskills --yes --agent codex
 Windows (в пустой папке):
 
 ```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 iex "& { $(irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1) } -TargetDir ."
 ```
 
 Или one-liner с папкой по умолчанию `my-astro-app`:
 
 ```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 irm https://raw.githubusercontent.com/exorich-lab/astro-blank/main/install.ps1 | iex
 ```
+
+`install.ps1` сам ставит Process Bypass и вызывает `npm.cmd`/`npx.cmd`, чтобы Restricted execution policy не блокировал `npx.ps1`.
 
 Для проверки без внесения изменений:
 
