@@ -204,56 +204,38 @@ catch {
   Write-Host "   Continuing with the template-bundled skills." -ForegroundColor Yellow
 }
 
-Write-Step "Refreshing MCP server packages to latest versions..."
-try {
-  $mcpExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "@magicuidesign/mcp@latest", "--help") -Quiet
-  if ($mcpExit -ne 0) {
-    throw "mcp help failed"
+# Prefetch MCP packages into the npm cache only.
+# Do NOT run MCP server binaries (e.g. --help): they often wait on stdin and hang forever on Windows.
+Write-Step "Prefetching MCP server packages (cache only, no server start)..."
+foreach ($mcpPkg in @("@magicuidesign/mcp@latest", "search-console-mcp@latest")) {
+  try {
+    $cacheExit = Invoke-NodeCli -Tool "npm" -Arguments @("cache", "add", $mcpPkg) -Quiet
+    if ($cacheExit -ne 0) {
+      throw "npm cache add failed for $mcpPkg"
+    }
+    Write-Host "  cached $mcpPkg"
   }
-}
-catch {
-  Write-Host "Failed to refresh @magicuidesign/mcp@latest. Check network/npm." -ForegroundColor Yellow
-}
-
-try {
-  $scExit = Invoke-NodeCli -Tool "npx" -Arguments @("--yes", "search-console-mcp@latest", "--help") -Quiet
-  if ($scExit -ne 0) {
-    throw "search-console help failed"
+  catch {
+    Write-Host "Failed to prefetch $mcpPkg. Check network/npm. (safe to ignore; MCP client will fetch later)" -ForegroundColor Yellow
   }
-}
-catch {
-  Write-Host "Failed to refresh search-console-mcp@latest. Check network/npm." -ForegroundColor Yellow
 }
 
 if (-not (Test-CommandExists "uv")) {
-  Write-Host "uv not found, cannot verify/pull analytics-mcp." -ForegroundColor Yellow
+  Write-Host "uv not found, cannot install analytics-mcp tool." -ForegroundColor Yellow
   Write-Host "   Install uv: https://docs.astral.sh/uv/getting-started/installation/" -ForegroundColor Yellow
   Write-Host "   PowerShell: irm https://astral.sh/uv/install.ps1 | iex" -ForegroundColor Yellow
 }
 else {
-  $uvxOk = $false
+  # Install tool only — do not run analytics-mcp (MCP servers hang waiting for stdin).
   try {
-    uvx analytics-mcp --help 1>$null 2>$null
-    if ($LASTEXITCODE -eq $null -or $LASTEXITCODE -eq 0) {
-      $uvxOk = $true
+    uv tool install --force analytics-mcp 1>$null 2>$null
+    if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
+      throw "uv tool install failed"
     }
   }
   catch {
-    $uvxOk = $false
-  }
-
-  if (-not $uvxOk) {
-    Write-Host "analytics-mcp not available in uv. Installing/refreshing..." -ForegroundColor Yellow
-    try {
-      uv tool install --force analytics-mcp 1>$null 2>$null
-      if ($LASTEXITCODE -ne $null -and $LASTEXITCODE -ne 0) {
-        throw "uv tool install failed"
-      }
-    }
-    catch {
-      Write-Host "Failed to install analytics-mcp from uv. You can try:" -ForegroundColor Yellow
-      Write-Host "   uv tool install --force analytics-mcp" -ForegroundColor Yellow
-    }
+    Write-Host "Failed to install analytics-mcp from uv. You can try:" -ForegroundColor Yellow
+    Write-Host "   uv tool install --force analytics-mcp" -ForegroundColor Yellow
   }
 }
 

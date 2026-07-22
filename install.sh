@@ -29,24 +29,27 @@ if ! npx autoskills --yes --agent codex; then
   echo "   Continuing with the template-bundled skills."
 fi
 
-echo "🧩 Refreshing MCP server packages to latest versions..."
-if ! npx @magicuidesign/mcp@latest --help >/dev/null 2>&1; then
-  echo "⚠️  Failed to refresh @magicuidesign/mcp@latest. Check network/npm."
+# Prefetch MCP packages into the npm cache only.
+# Do NOT run MCP server binaries (e.g. --help): they often wait on stdin and hang forever.
+echo "🧩 Prefetching MCP server packages (cache only, no server start)..."
+if ! npm cache add @magicuidesign/mcp@latest >/dev/null 2>&1; then
+  echo "⚠️  Failed to prefetch @magicuidesign/mcp@latest. Check network/npm. (safe to ignore)"
+else
+  echo "  cached @magicuidesign/mcp@latest"
 fi
-if ! npx search-console-mcp@latest --help >/dev/null 2>&1; then
-  echo "⚠️  Failed to refresh search-console-mcp@latest. Check network/npm."
+if ! npm cache add search-console-mcp@latest >/dev/null 2>&1; then
+  echo "⚠️  Failed to prefetch search-console-mcp@latest. Check network/npm. (safe to ignore)"
+else
+  echo "  cached search-console-mcp@latest"
 fi
 if ! command -v uv >/dev/null 2>&1; then
-  echo "⚠️  uv not found, cannot verify/pull analytics-mcp."
+  echo "⚠️  uv not found, cannot install analytics-mcp tool."
   echo "   Install uv: curl -LsSf https://astral.sh/uv/install.sh | sh"
 else
-  if ! uvx analytics-mcp --help >/dev/null 2>&1; then
-    echo "⚠️  analytics-mcp not available in uv. Installing/refreshing:"
-    echo "   uvx analytics-mcp --help"
-    if ! uv tool install --force analytics-mcp >/dev/null 2>&1; then
-      echo "⚠️  Failed to install analytics-mcp from uv. You can try:"
-      echo "   uv tool install --force analytics-mcp"
-    fi
+  # Install tool only — do not run analytics-mcp (MCP servers hang waiting for stdin).
+  if ! uv tool install --force analytics-mcp >/dev/null 2>&1; then
+    echo "⚠️  Failed to install analytics-mcp from uv. You can try:"
+    echo "   uv tool install --force analytics-mcp"
   fi
 fi
 
